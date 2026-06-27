@@ -1,0 +1,43 @@
+{
+  "storyKey": "KAN-7",
+  "storyTitle": "Search Products",
+  "application": "Practice Software Testing",
+  "testLevel": "UAT",
+  "testType": "MANUAL_FUNCTIONAL",
+  "testCases": [
+    {
+      "testCaseId": "TC-001",
+      "scenarioId": "SC-001",
+      "title": "Valid Search Keyword",
+      "priority": "High",
+      "preconditions": [
+        "User is logged into the application."
+      ],
+      "steps": [
+        "Navigate to the product search page.",
+        "Enter a valid search keyword in the search bar.",
+        "Click the search button."
+      ],
+      "expectedResults": [
+        "The page displays a list of products matching the search keyword."
+      ]
+    },
+    {
+      "testCaseId": "TC-002",
+      "scenarioId": "SC-002",
+      "title": "Invalid Search Keyword",
+      "priority": "Medium",
+      "preconditions": [
+        "User is logged into the application."
+      ],
+      "steps": [
+        "Navigate to the product search page.",
+        "Enter a search keyword that does not match any products.",
+        "Click the search button."
+      ],
+      "expectedResults": [
+        "The page displays an empty result message indicating no matching products were found."
+      ]
+    }
+  ]
+}
