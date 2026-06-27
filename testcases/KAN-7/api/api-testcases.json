@@ -1,0 +1,145 @@
+{
+  "storyKey": "KAN-7",
+  "artifactType": "api-testcases",
+  "generatedAt": "2026-06-27T19:13:54.363Z",
+  "testLevel": "SIT_API",
+  "sourceEndpoint": {
+    "method": "GET",
+    "path": "/products",
+    "operationId": "getProducts",
+    "confidence": "MEDIUM"
+  },
+  "warnings": [
+    "No explicit search query parameter supported in the endpoint catalog. Search keyword filtering behavior is undefined, so test cases do not include query parameters for searching.",
+    "Behavior for entering an empty search keyword is not defined."
+  ],
+  "testCases": [
+    {
+      "testCaseId": "TC-001",
+      "scenarioId": "SC-001",
+      "title": "Retrieve all products - positive scenario",
+      "testType": "Positive",
+      "priority": "High",
+      "preconditions": [],
+      "method": "GET",
+      "path": "/products",
+      "requestHeaders": {
+        "Accept": "application/json"
+      },
+      "queryParams": {},
+      "requestBody": null,
+      "expectedStatus": 200,
+      "expectedResponseChecks": [
+        "response is an array",
+        "each item in response array conforms to ProductResponse schema"
+      ],
+      "contractChecks": [
+        "Content-Type header = application/json",
+        "Response array elements must meet ProductResponse schema"
+      ],
+      "notes": "As search is not supported explicitly, this test retrieves full product catalog to allow product browsing."
+    },
+    {
+      "testCaseId": "TC-002",
+      "scenarioId": "SC-001",
+      "title": "Retrieve all products with XML Accept header - positive scenario",
+      "testType": "Positive",
+      "priority": "Medium",
+      "preconditions": [],
+      "method": "GET",
+      "path": "/products",
+      "requestHeaders": {
+        "Accept": "text/xml"
+      },
+      "queryParams": {},
+      "requestBody": null,
+      "expectedStatus": 200,
+      "expectedResponseChecks": [
+        "response is well-formed XML representing products",
+        "each product in XML conforms to ProductResponse schema"
+      ],
+      "contractChecks": [
+        "Content-Type header = text/xml"
+      ],
+      "notes": "API explicitly supports text/xml response format."
+    },
+    {
+      "testCaseId": "TC-003",
+      "scenarioId": "SC-002",
+      "title": "Retrieve all products with unknown search keyword - treated as no filtering",
+      "testType": "Safe Error-Handling",
+      "priority": "Medium",
+      "preconditions": [],
+      "method": "GET",
+      "path": "/products",
+      "requestHeaders": {
+        "Accept": "application/json"
+      },
+      "queryParams": {},
+      "requestBody": null,
+      "expectedStatus": 200,
+      "expectedResponseChecks": [
+        "response is an array",
+        "response length may be zero or more (no search filtering applied)",
+        "each item in response array conforms to ProductResponse schema"
+      ],
+      "contractChecks": [
+        "Content-Type header = application/json"
+      ],
+      "notes": "Since no search query parameter exists, this simulates a negative keyword scenario by no filtering; API returns full catalog or empty array if none exist."
+    },
+    {
+      "testCaseId": "TC-004",
+      "scenarioId": "SC-001",
+      "title": "Contract validation - response structure and headers",
+      "testType": "Contract",
+      "priority": "High",
+      "preconditions": [],
+      "method": "GET",
+      "path": "/products",
+      "requestHeaders": {
+        "Accept": "application/json"
+      },
+      "queryParams": {},
+      "requestBody": null,
+      "expectedStatus": 200,
+      "expectedResponseChecks": [
+        "response body must be valid JSON array",
+        "each array item must contain all required fields in ProductResponse schema",
+        "no unexpected fields present"
+      ],
+      "contractChecks": [
+        "Response Content-Type header matches Accept header",
+        "Response schema matches ProductResponse model for each product"
+      ],
+      "notes": "Contract test verifies adherence to API schema and headers."
+    },
+    {
+      "testCaseId": "TC-005",
+      "scenarioId": "SC-001",
+      "title": "Boundary test - large volume of products retrieved",
+      "testType": "Boundary",
+      "priority": "Medium",
+      "preconditions": [
+        "Test environment should contain a large number of products (>1000)"
+      ],
+      "method": "GET",
+      "path": "/products",
+      "requestHeaders": {
+        "Accept": "application/json"
+      },
+      "queryParams": {},
+      "requestBody": null,
+      "expectedStatus": 200,
+      "expectedResponseChecks": [
+        "response is an array containing many products",
+        "response time is acceptable (as per SLA)",
+        "each product conforms to ProductResponse schema"
+      ],
+      "contractChecks": [
+        "Response Content-Type header = application/json"
+      ],
+      "notes": "Verifies endpoint stability and performance with large data volume."
+    }
+  ]
+}
