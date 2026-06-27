@@ -8,33 +8,36 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Valid Keyword Search",
+      "title": "Search with a valid keyword",
       "priority": "High",
       "preconditions": [
-        "User is on the product search page."
+        "User is logged into the application.",
+        "Products are available in the system."
       ],
       "steps": [
-        "Enter a valid search keyword in the search input field.",
+        "Navigate to the product search page.",
+        "Enter a valid search keyword into the search field.",
         "Click on the search button."
       ],
       "expectedResults": [
-        "Matching products related to the entered keyword are displayed."
+        "The system displays a list of products matching the search keyword."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Invalid Keyword Search",
-      "priority": "Medium",
+      "title": "Search with an invalid keyword",
+      "priority": "High",
       "preconditions": [
-        "User is on the product search page."
+        "User is logged into the application."
       ],
       "steps": [
+        "Navigate to the product search page.",
         "Enter a search keyword that does not match any products.",
         "Click on the search button."
       ],
       "expectedResults": [
-        "An empty result message is presented to the user."
+        "The system displays an empty result message."
       ]
     }
   ]
