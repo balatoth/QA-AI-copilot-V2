@@ -1,0 +1,23 @@
+{
+  "storyKey": "KAN-7",
+  "storyTitle": "Search Products",
+  "application": "Practice Software Testing",
+  "functionalArea": "Product Search",
+  "businessGoal": "Enable customers to find products quickly",
+  "scenarios": [
+    {
+      "scenarioId": "SC-001",
+      "category": "Positive",
+      "goal": "Customer can enter a valid search keyword and view matching products."
+    },
+    {
+      "scenarioId": "SC-002",
+      "category": "Negative",
+      "goal": "Customer enters a search keyword that does not match any products and sees an empty result message."
+    }
+  ],
+  "outOfScope": [],
+  "clarifications": [
+    "Behavior for entering an empty search keyword is not defined."
+  ]
+}
