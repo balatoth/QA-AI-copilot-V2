@@ -1,7 +1,7 @@
 {
   "storyKey": "KAN-7",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-06-28T05:48:43.396Z",
+  "generatedAt": "2026-06-28T08:09:55.001Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -10,14 +10,15 @@
     "confidence": "MEDIUM"
   },
   "warnings": [
-    "The /products GET endpoint does not explicitly support search or filtering by keyword as per the OpenAPI contract. The behavior of keyword search queries is not documented, so no tests using search query parameters are generated.",
-    "Behavior for entering an empty search keyword is not defined in the functional specifications."
+    "No explicit search or filtering parameters are documented for the /products GET endpoint, so search by keyword capability is assumed but not confirmed.",
+    "Behavior for entering an empty search keyword is not defined in the API contract; no tests generated for empty or missing search keyword filtering.",
+    "Unknown query parameter behavior is not documented; tests do not include query parameters that are not defined."
   ],
   "testCases": [
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Retrieve all products with Accept: application/json header",
+      "title": "Retrieve all products - Basic positive test for endpoint availability and response structure",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -30,19 +31,19 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response is array",
-        "each item in response matches ProductResponse schema"
+        "response is an array",
+        "each item in response conforms to ProductResponse schema"
       ],
       "contractChecks": [
-        "Content-Type response header is application/json",
-        "Response body follows ProductResponse schema per product"
+        "Content-Type is application/json",
+        "Response body matches schema ProductResponse array"
       ],
-      "notes": "Standard positive test retrieving the full list of products in JSON format."
+      "notes": "Basic validation that /products endpoint returns all products as per contract."
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-001",
-      "title": "Retrieve all products with Accept: text/xml header",
+      "title": "Retrieve all products with Accept header text/xml - verify successful XML response",
       "testType": "Positive",
       "priority": "Medium",
       "preconditions": [],
@@ -55,43 +56,46 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response is valid XML",
-        "response contains product elements conforming to ProductResponse schema"
+        "response body is well-formed XML",
+        "response contains product elements as per ProductResponse schema"
       ],
       "contractChecks": [
-        "Content-Type response header is text/xml"
+        "Content-Type is text/xml",
+        "Response XML matches schema ProductResponse"
       ],
-      "notes": "Verify response serialization in XML format as supported."
+      "notes": "Validates that API supports XML response format as per Accept header."
     },
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-002",
-      "title": "Retrieve all products expecting empty array if no products exist",
-      "testType": "Validation",
-      "priority": "Medium",
-      "preconditions": [
-        "Product catalog is empty"
-      ],
+      "title": "Request products with a keyword-like query parameter (assumed unsupported) - expect full product list",
+      "testType": "Negative",
+      "priority": "Low",
+      "preconditions": [],
       "method": "GET",
       "path": "/products",
       "requestHeaders": {
         "Accept": "application/json"
       },
-      "queryParams": {},
+      "queryParams": {
+        "keyword": "nonexistentproduct123"
+      },
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response is empty array"
+        "response is an array",
+        "response array may contain products (no filtering by keyword is documented)"
       ],
       "contractChecks": [
-        "Response body is an empty array"
+        "Content-Type is application/json",
+        "Response body matches schema ProductResponse array"
       ],
-      "notes": "Tests the scenario where no products exist, equivalent to no matches."
+      "notes": "Keyword query parameter is not documented; this test checks that endpoint ignores unknown query parameter and returns all products."
     },
     {
       "testCaseId": "TC-004",
-      "scenarioId": "",
-      "title": "Response contract validation for all products endpoint",
+      "scenarioId": "SC-001",
+      "title": "Contract validation: Response headers and JSON schema compliance",
       "testType": "Contract",
       "priority": "High",
       "preconditions": [],
@@ -104,22 +108,23 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response is array",
-        "each item matches ProductResponse schema"
+        "response is an array",
+        "items conform to ProductResponse schema"
       ],
       "contractChecks": [
-        "Response body complies with OpenAPI defined schema for ProductResponse"
+        "Response Content-Type is application/json",
+        "Response schema matches ProductResponse array schema"
       ],
-      "notes": "Validates that the response matches the agreed contract for product listings."
+      "notes": "Ensures API response follows contract exactly."
     },
     {
       "testCaseId": "TC-005",
-      "scenarioId": "",
-      "title": "Boundary test for large number of products retrieved",
+      "scenarioId": "SC-001",
+      "title": "Boundary test: Validate response includes empty array for no products scenario",
       "testType": "Boundary",
       "priority": "Medium",
       "preconditions": [
-        "System populated with a large product catalog (e.g., 1000+ products)"
+        "System state configured to have zero products"
       ],
       "method": "GET",
       "path": "/products",
@@ -130,35 +135,34 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response is array",
-        "response length is >= 1000",
-        "each item matches ProductResponse schema"
+        "response is an empty array"
       ],
       "contractChecks": [
-        "Response body conforms to ProductResponse schema for each item"
+        "Content-Type is application/json",
+        "Response body valid per ProductResponse array schema"
       ],
-      "notes": "Tests system behavior and response correctness when large product volume is returned."
+      "notes": "Tests boundary condition when no products exist."
     },
     {
       "testCaseId": "TC-006",
-      "scenarioId": "",
-      "title": "Error Handling: Unsupported Accept header returns 406 Not Acceptable",
-      "testType": "Safe Error Handling",
-      "priority": "Medium",
+      "scenarioId": "SC-002",
+      "title": "Safe error handling: Use unsupported Accept header, expect 406 or fallback behavior",
+      "testType": "Validation",
+      "priority": "Low",
       "preconditions": [],
       "method": "GET",
       "path": "/products",
       "requestHeaders": {
-        "Accept": "application/pdf"
+        "Accept": "application/unsupported"
       },
       "queryParams": {},
       "requestBody": null,
       "expectedStatus": 406,
-      "expectedResponseChecks": [
-        "response contains error message indicating unsupported media type"
+      "expectedResponseChecks": [],
+      "contractChecks": [
+        "Expect HTTP 406 Not Acceptable if unsupported media type requested"
       ],
-      "contractChecks": [],
-      "notes": "Verifies server correctly rejects unsupported Accept headers."
+      "notes": "Tests safe error handling for unsupported Accept header media types."
     }
   ]
 }
