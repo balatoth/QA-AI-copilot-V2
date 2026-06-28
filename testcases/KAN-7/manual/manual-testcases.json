@@ -8,7 +8,7 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Search with a valid keyword",
+      "title": "Valid Search Keyword Returns Matching Products",
       "priority": "High",
       "preconditions": [
         "User is logged into the application."
@@ -19,13 +19,13 @@
         "Click the search button."
       ],
       "expectedResults": [
-        "Matching products related to the search keyword are displayed."
+        "The application displays products that match the entered keyword."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Search with an invalid keyword",
+      "title": "Invalid Search Keyword Returns No Results",
       "priority": "Medium",
       "preconditions": [
         "User is logged into the application."
@@ -36,7 +36,7 @@
         "Click the search button."
       ],
       "expectedResults": [
-        "An empty result message is displayed."
+        "The application displays an empty result message."
       ]
     }
   ]
