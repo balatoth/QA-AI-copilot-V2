@@ -1,0 +1,14 @@
+{
+  "storyKey": "KAN-7",
+  "artifactType": "playwright",
+  "generatorVersion": "v0.4.1",
+  "reviewStatus": "FAIL",
+  "qualityScore": 40,
+  "qualityGate": {
+    "status": "FAIL",
+    "passed": false,
+    "qualityScore": 40,
+    "reason": "The artifact fails due to incorrect usage of Playwright Locator API and improper locator initialization in the Page Object. This would cause compilation errors and runtime failures. Some selectors may also be improved for clarity."
+  },
+  "createdAt": "2026-07-04T19:25:35.408Z"
+}
