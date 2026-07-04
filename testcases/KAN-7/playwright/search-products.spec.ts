@@ -1,24 +1,28 @@
 import { test, expect } from '@playwright/test';
-import { SearchPage } from './pageObjects/searchPage';
+import { ProductSearchPage } from './product-search.page';
 
-const searchPage = new SearchPage();
+test.describe('Product Search', () => {
+  let page: ProductSearchPage;
 
-test.describe('Search Products', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('https://testsmith-io.github.io/practice-software-testing/#/');
+  test.beforeAll(async ({ browser }) => {
+    const context = await browser.newContext();
+    page = new ProductSearchPage(await context.newPage());
+    await context.close();
   });
 
-  test('Valid Search Keyword Returns Matching Products', async ({ page }) => {
-    await searchPage.login(page); // Assuming a login method exists
-    await searchPage.searchForProduct(page, 'valid keyword');
-    await expect(searchPage.resultsContainer(page)).toBeVisible();
-    await expect(searchPage.resultsContainer(page)).toHaveText(/matching products/i);
+  test('Valid Search Keyword Returns Matching Products', async () => {
+    await page.navigate();
+    await page.search('valid-product');
+
+    const products = await page.getProducts();
+    expect(products.length).toBeGreaterThan(0);
   });
 
-  test('Invalid Search Keyword Returns No Results', async ({ page }) => {
-    await searchPage.login(page); // Assuming a login method exists
-    await searchPage.searchForProduct(page, 'invalid keyword');
-    await expect(searchPage.emptyMessage(page)).toBeVisible();
-    await expect(searchPage.emptyMessage(page)).toHaveText(/no results found/i);
+  test('Invalid Search Keyword Returns No Results', async () => {
+    await page.navigate();
+    await page.search('invalid-product');
+
+    const message = await page.getNoResultsMessage();
+    expect(message).toBe('No products found.');
   });
 });
