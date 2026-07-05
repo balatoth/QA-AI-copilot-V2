@@ -2,7 +2,7 @@
   "storyKey": "KAN-7",
   "artifactType": "execution-summary",
   "artifactVersion": "v0.4.1.3",
-  "generatedAt": "2026-07-05T14:11:40.526Z",
+  "generatedAt": "2026-07-05T14:12:01.427Z",
   "metrics": {
     "totalTests": 6,
     "passed": 5,
@@ -10,15 +10,14 @@
     "passRate": 83.3
   },
   "qualityGate": "NEEDS_REVIEW",
-  "riskLevel": "MEDIUM",
-  "promotionRecommendation": "Do not promote. Require contract/spec verification and resolution before promotion.",
-  "summary": "Test execution (6 total) resulted in 5 passes and 1 failure (83.3% pass rate). The single failure (TC-006) is classified as a CONTRACT_MISMATCH with HIGH confidence: the test expected HTTP 406 for an unsupported Accept header but the service returned 200 with a JSON product response. This indicates a deviation between the implementation and the asserted API contract/spec and may impact client interoperability. Manual review is required to determine whether the test or the implementation is correct.",
+  "riskLevel": "HIGH",
+  "promotionRecommendation": "Do not promote. Hold progression until the contract mismatch is resolved (confirm spec and either fix implementation or update tests).",
+  "summary": "Test execution ran 6 tests: 5 passed, 1 failed (83.3% pass rate). The single failure is a HIGH-confidence CONTRACT_MISMATCH: the test expected HTTP 406 for an unsupported Accept header but the service returned HTTP 200 with a JSON product response. This indicates divergence between the asserted contract and the implementation and may break consumers relying on the documented Accept-header behavior.",
   "recommendations": [
-    "Verify the authoritative API specification (or API design doc) for Accept-header behavior to determine expected behavior for unsupported media types.",
-    "If the spec requires returning 406: file an implementation defect, include request/response logs from TC-006, assign to development, implement a fix, and add unit/integration tests to enforce the 406 behavior.",
-    "If the spec allows a fallback to a default media type: update the test expectation and generator artifacts to reflect the documented behavior and document the rationale.",
-    "Capture and attach full request/response traces and environment details for TC-006 to facilitate triage.",
-    "After resolution (either code fix or test update), rerun the full test suite and confirm all contract checks pass before promoting.",
-    "Introduce or strengthen automated contract tests in CI to detect similar regressions early."
+    "Verify the authoritative API specification (contract) regarding behavior for unsupported Accept headers (is 406 required or is fallback to a default media type allowed?).",
+    "If the spec requires 406: file an implementation defect, prioritize a fix to return 406 for unsupported media types, add unit/integration tests to cover this behavior, and re-run the test suite.",
+    "If the spec allows fallback to a default media type: update the test expectation and generator to reflect the documented behavior and re-run tests; communicate the contract clarification to consumers.",
+    "Do not promote this story until the contract decision is made and the implementation/tests are aligned; re-execute the impacted tests after remediation.",
+    "Notify API owners and affected stakeholders of the contract divergence and include impact analysis for downstream consumers."
   ]
 }
