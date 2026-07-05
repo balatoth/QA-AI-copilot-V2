@@ -1,7 +1,7 @@
 {
   "storyKey": "KAN-7",
   "artifactType": "execution-results",
-  "generatedAt": "2026-07-05T08:26:18.971Z",
+  "generatedAt": "2026-07-05T08:27:46.159Z",
   "summary": {
     "total": 6,
     "passed": 5,
@@ -19,7 +19,7 @@
       "expectedStatus": 200,
       "actualStatus": 200,
       "status": "PASS",
-      "executedAt": "2026-07-05T08:26:18.950Z",
+      "executedAt": "2026-07-05T08:27:46.145Z",
       "responsePreview": "{\"current_page\":1,\"data\":[{\"id\":\"01KWRMNT8V6EVBMCXAFTB63KNA\",\"name\":\"Combination Pliers\",\"description\":\"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium steel construction with induction-hardened cutting edges, these pliers deliver excellent grip and leverage for a wide range of tasks. The precision-machined jaws combine flat gripping surfaces with a pipe-grip section and integrated wire cutter for true multi-purpose functionality",
       "originalTestCase": {
         "testCaseId": "TC-001",
@@ -57,7 +57,7 @@
       "expectedStatus": 200,
       "actualStatus": 200,
       "status": "PASS",
-      "executedAt": "2026-07-05T08:26:18.951Z",
+      "executedAt": "2026-07-05T08:27:46.146Z",
       "responsePreview": "<?xml version=\"1.0\"?>\n<response><current_page>1</current_page><data><id>01KWRMNT8V6EVBMCXAFTB63KNA</id><name>Combination Pliers</name><description>Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium steel construction with induction-hardened cutting edges, these pliers deliver excellent grip and leverage for a wide range of tasks. The precision-machined jaws combine flat gripping surfaces with a pipe-grip section and integrated wire ",
       "originalTestCase": {
         "testCaseId": "TC-002",
@@ -95,7 +95,7 @@
       "expectedStatus": 200,
       "actualStatus": 200,
       "status": "PASS",
-      "executedAt": "2026-07-05T08:26:18.953Z",
+      "executedAt": "2026-07-05T08:27:46.147Z",
       "responsePreview": "{\"current_page\":1,\"data\":[{\"id\":\"01KWRMNT8V6EVBMCXAFTB63KNA\",\"name\":\"Combination Pliers\",\"description\":\"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium steel construction with induction-hardened cutting edges, these pliers deliver excellent grip and leverage for a wide range of tasks. The precision-machined jaws combine flat gripping surfaces with a pipe-grip section and integrated wire cutter for true multi-purpose functionality",
       "originalTestCase": {
         "testCaseId": "TC-003",
@@ -135,7 +135,7 @@
       "expectedStatus": 200,
       "actualStatus": 200,
       "status": "PASS",
-      "executedAt": "2026-07-05T08:26:18.954Z",
+      "executedAt": "2026-07-05T08:27:46.148Z",
       "responsePreview": "{\"current_page\":1,\"data\":[{\"id\":\"01KWRMNT8V6EVBMCXAFTB63KNA\",\"name\":\"Combination Pliers\",\"description\":\"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium steel construction with induction-hardened cutting edges, these pliers deliver excellent grip and leverage for a wide range of tasks. The precision-machined jaws combine flat gripping surfaces with a pipe-grip section and integrated wire cutter for true multi-purpose functionality",
       "originalTestCase": {
         "testCaseId": "TC-004",
@@ -173,7 +173,7 @@
       "expectedStatus": 200,
       "actualStatus": 200,
       "status": "PASS",
-      "executedAt": "2026-07-05T08:26:18.956Z",
+      "executedAt": "2026-07-05T08:27:46.149Z",
       "responsePreview": "{\"current_page\":1,\"data\":[{\"id\":\"01KWRMNT8V6EVBMCXAFTB63KNA\",\"name\":\"Combination Pliers\",\"description\":\"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium steel construction with induction-hardened cutting edges, these pliers deliver excellent grip and leverage for a wide range of tasks. The precision-machined jaws combine flat gripping surfaces with a pipe-grip section and integrated wire cutter for true multi-purpose functionality",
       "originalTestCase": {
         "testCaseId": "TC-005",
@@ -212,7 +212,7 @@
       "expectedStatus": 406,
       "actualStatus": 200,
       "status": "FAIL",
-      "executedAt": "2026-07-05T08:26:18.957Z",
+      "executedAt": "2026-07-05T08:27:46.150Z",
       "responsePreview": "{\"current_page\":1,\"data\":[{\"id\":\"01KWRMNT8V6EVBMCXAFTB63KNA\",\"name\":\"Combination Pliers\",\"description\":\"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium steel construction with induction-hardened cutting edges, these pliers deliver excellent grip and leverage for a wide range of tasks. The precision-machined jaws combine flat gripping surfaces with a pipe-grip section and integrated wire cutter for true multi-purpose functionality",
       "originalTestCase": {
         "testCaseId": "TC-006",
