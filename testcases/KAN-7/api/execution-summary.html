@@ -333,29 +333,33 @@
       background: #111827;
       color: white;
       border-radius: 18px;
-      padding: 30px;
+      padding: 36px;
       box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
       height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     .decision-card h3 {
-      margin: 0 0 10px;
-      color: #cbd5e1;
-      font-size: 14px;
+      margin: 0 0 18px;
+      color: #94a3b8;
+      font-size: 12px;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: .16em;
     }
 
     .decision-card .decision {
-      font-size: 34px;
-      font-weight: 800;
-      margin-bottom: 12px;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 22px;
     }
 
     .decision-card p {
       margin: 0;
-      color: #e5e7eb;
-      line-height: 1.6;
+      color: #cbd5e1;
+      font-size: 14px;
+      line-height: 1.8;
     }
 
     .recommendations {
@@ -635,8 +639,13 @@
 
       <section class="decision-card">
         <h3>Release Decision</h3>
-        <div class="decision">Do not promote. Hold progression until the contract mismatch is resolved (confirm spec and either fix implementation or update tests).</div>
-        <p>Test execution ran 6 tests: 5 passed, 1 failed (83.3% pass rate). The single failure is a HIGH-confidence CONTRACT_MISMATCH: the test expected HTTP 406 for an unsupported Accept header but the service returned HTTP 200 with a JSON product response. This indicates divergence between the asserted contract and the implementation and may break consumers relying on the documented Accept-header behavior.</p>
+        <div class="decision">
+        Do not promote. Hold progression until the contract mismatch is resolved (confirm spec and either fix implementation or update tests).
+        </div>
+        <p>
+        <strong>Reason</strong><br><br>
+        Test execution ran 6 tests: 5 passed, 1 failed (83.3% pass rate). The single failure is a HIGH-confidence CONTRACT_MISMATCH: the test expected HTTP 406 for an unsupported Accept header but the service returned HTTP 200 with a JSON product response. This indicates divergence between the asserted contract and the implementation and may break consumers relying on the documented Accept-header behavior.
+        </p>
       </section>
 
     </section>
