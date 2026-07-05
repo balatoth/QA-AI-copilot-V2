@@ -3,147 +3,555 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QA AI Copilot - Manager Execution Report - KAN-7</title>
+  <title>QA AI Copilot - Release Readiness Dashboard - KAN-7</title>
   <style>
+    * { box-sizing: border-box; }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       background: #f4f6f8;
       color: #1f2937;
     }
+
     .container {
-      max-width: 1100px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 32px;
     }
-    .header {
-      background: #111827;
-      color: white;
-      padding: 28px;
-      border-radius: 14px;
+
+    .hero {
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: #ffffff;
+      padding: 32px;
+      border-radius: 18px;
       margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-start;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
     }
-    .header h1 {
-      margin: 0 0 8px 0;
-      font-size: 28px;
+
+    .eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #93c5fd;
+      margin-bottom: 10px;
     }
-    .header p {
-      margin: 4px 0;
+
+    .hero h1 {
+      margin: 0;
+      font-size: 36px;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      margin: 12px 0 0;
       color: #d1d5db;
+      font-size: 15px;
     }
+
+    .hero-meta {
+      display: grid;
+      gap: 12px;
+      min-width: 280px;
+    }
+
+    .hero-meta div {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    .hero-meta span {
+      display: block;
+      font-size: 12px;
+      color: #cbd5e1;
+      margin-bottom: 4px;
+    }
+
+    .hero-meta strong {
+      font-size: 14px;
+      color: #ffffff;
+    }
+
     .gate {
-      padding: 28px;
-      border-radius: 14px;
+      padding: 30px;
+      border-radius: 18px;
       margin-bottom: 24px;
       color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.15);
     }
-    .gate.pass { background: #15803d; }
-    .gate.observations { background: #ca8a04; }
-    .gate.review { background: #ea580c; }
-    .gate.blocked { background: #b91c1c; }
-    .gate.unknown { background: #6b7280; }
+
+    .gate.pass { background: linear-gradient(135deg, #15803d, #16a34a); }
+    .gate.observations { background: linear-gradient(135deg, #ca8a04, #eab308); }
+    .gate.review { background: linear-gradient(135deg, #ea580c, #f97316); }
+    .gate.blocked { background: linear-gradient(135deg, #991b1b, #dc2626); }
+    .gate.unknown { background: linear-gradient(135deg, #4b5563, #6b7280); }
+
     .gate h2 {
       margin: 0;
-      font-size: 34px;
+      font-size: 38px;
+      letter-spacing: 0.03em;
     }
+
     .gate p {
-      margin: 8px 0 0 0;
+      margin: 8px 0 0;
       font-size: 16px;
+      color: rgba(255,255,255,0.9);
     }
+
+    .gate-side {
+      display: flex;
+      gap: 18px;
+    }
+
+    .metric {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: 12px;
+      padding: 14px 18px;
+      min-width: 130px;
+      text-align: center;
+    }
+
+    .metric span {
+      display: block;
+      font-size: 12px;
+      color: #e5e7eb;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .metric strong {
+      font-size: 28px;
+    }
+
     .cards {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 16px;
       margin-bottom: 24px;
     }
+
     .card {
       background: white;
-      padding: 22px;
-      border-radius: 14px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      border-radius: 18px;
+      padding: 24px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 6px 18px rgba(0,0,0,.06);
+      transition: .25s;
     }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,.10);
+    }
+
+    .card .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
     .card .label {
       color: #6b7280;
-      font-size: 13px;
+      font-size: 12px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
+      min-height: 30px;
     }
+
     .card .value {
-      font-size: 32px;
-      font-weight: bold;
-      margin-top: 8px;
+      font-size: 34px;
+      font-weight: 700;
+      margin-top: 10px;
+      color: #111827;
     }
+
+    .icon.total { background: #dbeafe; }
+    .icon.pass { background: #dcfce7; }
+    .icon.fail { background: #fee2e2; }
+    .icon.rate { background: #ede9fe; }
+    .icon.gate { background: #fef3c7; }
+    .icon.risk { background: #fde68a; }
+
     .section {
       background: white;
-      padding: 24px;
-      border-radius: 14px;
+      padding: 26px;
+      border-radius: 16px;
       margin-bottom: 24px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+      border: 1px solid #e5e7eb;
     }
+
     .section h3 {
-      margin-top: 0;
+      margin: 0 0 14px;
       font-size: 20px;
+      color: #111827;
     }
-    .recommendations li {
+
+    .ai-insight {
+      background: linear-gradient(135deg, #ffffff, #f8fafc);
+      border: 1px solid #e5e7eb;
+      border-left: 10px solid #dc2626;
+      border-radius: 18px;
+      padding: 30px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    .ai-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: #eef2ff;
+      color: #3730a3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      flex: 0 0 auto;
+    }
+
+    .ai-insight-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #4f46e5;
+      font-weight: 800;
       margin-bottom: 10px;
-      line-height: 1.5;
     }
-    .meta {
+
+    .severity-badge {
+      display: inline-block;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .severity-badge.low {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .severity-badge.medium {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .severity-badge.high {
+      background: #ffedd5;
+      color: #9a3412;
+    }
+
+    .severity-badge.critical {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .ai-insight h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      color: #111827;
+    }
+
+    .ai-insight p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #374151;
+    }
+
+    .decision-card {
+      background: #111827;
+      color: white;
+      border-radius: 18px;
+      padding: 30px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+    }
+
+    .decision-card h3 {
+      margin: 0 0 10px;
+      color: #cbd5e1;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .decision-card .decision {
+      font-size: 34px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .decision-card p {
+      margin: 0;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    .recommendations {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .recommendations li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      line-height: 1.5;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      padding: 14px;
+      border-radius: 12px;
+    }
+
+    .rec-icon {
+      display: inline-flex;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      align-items: center;
+      justify-content: center;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: 700;
+      flex: 0 0 auto;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .timeline-step {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+    }
+
+    .timeline-dot {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: #dcfce7;
+      color: #15803d;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      flex: 0 0 auto;
+    }
+
+    .footer {
       font-size: 13px;
       color: #6b7280;
       border-top: 1px solid #e5e7eb;
       padding-top: 16px;
     }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 24px;
+    }
+
+    .footer strong {
+      color: #374151;
+    }
+
     @media print {
       body { background: white; }
       .container { padding: 0; }
-      .card, .section, .header, .gate { box-shadow: none; }
+      .card, .section, .hero, .gate, .decision-card, .ai-insight { box-shadow: none; }
+      .card:hover {
+        transform: none;
+        box-shadow: none;
+      }
     }
-    @media (max-width: 800px) {
+
+    @media (max-width: 980px) {
       .cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .timeline {
         grid-template-columns: repeat(2, 1fr);
       }
     }
-    @media (max-width: 500px) {
+
+    @media (max-width: 760px) {
+      .hero,
+      .gate {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-meta {
+        width: 100%;
+      }
+
+      .gate-side {
+        width: 100%;
+      }
+
+      .metric {
+        flex: 1;
+      }
+
       .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ai-insight {
         grid-template-columns: 1fr;
       }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
       .container {
         padding: 16px;
+      }
+
+      .cards,
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .gate-side {
+        flex-direction: column;
+      }
+
+      .hero h1,
+      .gate h2,
+      .decision-card .decision {
+        font-size: 28px;
+      }
+
+      .ai-insight h3 {
+        font-size: 21px;
       }
     }
   </style>
 </head>
 <body>
   <main class="container">
-    <section class="header">
-      <h1>QA AI Copilot - Manager Execution Report</h1>
-      <p><strong>Story:</strong> KAN-7</p>
-      <p><strong>Artifact Version:</strong> v0.4.1.3</p>
-      <p><strong>Generated:</strong> 2026-07-05T14:12:01.427Z</p>
-    </section>
+
+    <header class="hero">
+      <div>
+        <div class="eyebrow">QA AI Copilot</div>
+        <h1>Release Readiness Dashboard</h1>
+        <p>Executive quality assessment generated from automated QA execution and AI analysis.</p>
+      </div>
+
+      <div class="hero-meta">
+        <div>
+          <span>Story</span>
+          <strong>KAN-7</strong>
+        </div>
+        <div>
+          <span>Artifact Version</span>
+          <strong>v0.4.1.3</strong>
+        </div>
+        <div>
+          <span>Generated</span>
+          <strong>2026-07-05T14:12:01.427Z</strong>
+        </div>
+      </div>
+    </header>
 
     <section class="gate review">
-      <h2>NEEDS REVIEW</h2>
-      <p><strong>Risk Level:</strong> HIGH</p>
+      <div>
+        <div class="eyebrow">Release Decision</div>
+        <h2>NEEDS REVIEW</h2>
+        <p><strong>Do not promote. Hold progression until the contract mismatch is resolved (confirm spec and either fix implementation or update tests).</strong></p>
+      </div>
+
+      <div class="gate-side">
+        <div class="metric">
+          <span>Risk</span>
+          <strong>HIGH</strong>
+        </div>
+
+        <div class="metric">
+          <span>Quality Score</span>
+          <strong>83%</strong>
+        </div>
+      </div>
     </section>
 
     <section class="cards">
       <div class="card">
-        <div class="label">Total Tests</div>
+        <div class="icon total">📋</div>
+        <div class="label">Tests Executed</div>
         <div class="value">6</div>
       </div>
+
       <div class="card">
+        <div class="icon pass">✔</div>
         <div class="label">Passed</div>
         <div class="value">5</div>
       </div>
+
       <div class="card">
+        <div class="icon fail">✖</div>
         <div class="label">Failed</div>
         <div class="value">1</div>
       </div>
+
       <div class="card">
+        <div class="icon rate">📈</div>
         <div class="label">Pass Rate</div>
         <div class="value">83.3%</div>
+      </div>
+
+      <div class="card">
+        <div class="icon gate">🛡</div>
+        <div class="label">Quality Gate</div>
+        <div class="value">NEEDS REVIEW</div>
+      </div>
+
+      <div class="card">
+        <div class="icon risk">⚠</div>
+        <div class="label">Risk Level</div>
+        <div class="value">HIGH</div>
       </div>
     </section>
 
@@ -152,23 +560,87 @@
       <p>Test execution ran 6 tests: 5 passed, 1 failed (83.3% pass rate). The single failure is a HIGH-confidence CONTRACT_MISMATCH: the test expected HTTP 406 for an unsupported Accept header but the service returned HTTP 200 with a JSON product response. This indicates divergence between the asserted contract and the implementation and may break consumers relying on the documented Accept-header behavior.</p>
     </section>
 
-    <section class="section">
-      <h3>Promotion Recommendation</h3>
-      <p><strong>Do not promote. Hold progression until the contract mismatch is resolved (confirm spec and either fix implementation or update tests).</strong></p>
+    <section class="ai-insight">
+      <div class="ai-icon">🧠</div>
+      <div>
+        <div class="ai-insight-label">AI Executive Insight</div>
+        <span class="severity-badge high">HIGH Impact</span>
+        <h3>Most Important Finding</h3>
+        <p>Test execution ran 6 tests: 5 passed, 1 failed (83.3% pass rate). The single failure is a HIGH-confidence CONTRACT_MISMATCH: the test expected HTTP 406 for an unsupported Accept header but the service returned HTTP 200 with a JSON product response. This indicates divergence between the asserted contract and the implementation and may break consumers relying on the documented Accept-header behavior.</p>
+      </div>
+    </section>
+
+    <section class="decision-card">
+      <h3>Release Decision</h3>
+      <div class="decision">Do not promote. Hold progression until the contract mismatch is resolved (confirm spec and either fix implementation or update tests).</div>
+      <p>Test execution ran 6 tests: 5 passed, 1 failed (83.3% pass rate). The single failure is a HIGH-confidence CONTRACT_MISMATCH: the test expected HTTP 406 for an unsupported Accept header but the service returned HTTP 200 with a JSON product response. This indicates divergence between the asserted contract and the implementation and may break consumers relying on the documented Accept-header behavior.</p>
     </section>
 
     <section class="section">
       <h3>AI Recommendations</h3>
       <ol class="recommendations">
-        <li>Verify the authoritative API specification (contract) regarding behavior for unsupported Accept headers (is 406 required or is fallback to a default media type allowed?).</li><li>If the spec requires 406: file an implementation defect, prioritize a fix to return 406 for unsupported media types, add unit/integration tests to cover this behavior, and re-run the test suite.</li><li>If the spec allows fallback to a default media type: update the test expectation and generator to reflect the documented behavior and re-run tests; communicate the contract clarification to consumers.</li><li>Do not promote this story until the contract decision is made and the implementation/tests are aligned; re-execute the impacted tests after remediation.</li><li>Notify API owners and affected stakeholders of the contract divergence and include impact analysis for downstream consumers.</li>
+        <li><span class="rec-icon">✓</span><span>Verify the authoritative API specification (contract) regarding behavior for unsupported Accept headers (is 406 required or is fallback to a default media type allowed?).</span></li><li><span class="rec-icon">✓</span><span>If the spec requires 406: file an implementation defect, prioritize a fix to return 406 for unsupported media types, add unit/integration tests to cover this behavior, and re-run the test suite.</span></li><li><span class="rec-icon">✓</span><span>If the spec allows fallback to a default media type: update the test expectation and generator to reflect the documented behavior and re-run tests; communicate the contract clarification to consumers.</span></li><li><span class="rec-icon">✓</span><span>Do not promote this story until the contract decision is made and the implementation/tests are aligned; re-execute the impacted tests after remediation.</span></li><li><span class="rec-icon">✓</span><span>Notify API owners and affected stakeholders of the contract divergence and include impact analysis for downstream consumers.</span></li>
       </ol>
     </section>
 
-    <section class="section meta">
-      <p><strong>Source Artifact:</strong> execution-summary.json</p>
-      <p><strong>Output Artifact:</strong> testcases/KAN-7/api/execution-summary.html</p>
-      <p><strong>Generated by:</strong> QA AI Copilot v0.4.2 - HTML Manager Report</p>
+    <section class="section">
+      <h3>QA AI Copilot Workflow Timeline</h3>
+      <div class="timeline">
+        
+    <div class="timeline-step">
+      <div class="timeline-dot">✓</div>
+      <div>Story Analysis</div>
+    </div>
+  
+    <div class="timeline-step">
+      <div class="timeline-dot">✓</div>
+      <div>Manual Tests</div>
+    </div>
+  
+    <div class="timeline-step">
+      <div class="timeline-dot">✓</div>
+      <div>API Tests</div>
+    </div>
+  
+    <div class="timeline-step">
+      <div class="timeline-dot">✓</div>
+      <div>Playwright</div>
+    </div>
+  
+    <div class="timeline-step">
+      <div class="timeline-dot">✓</div>
+      <div>Execution</div>
+    </div>
+  
+    <div class="timeline-step">
+      <div class="timeline-dot">✓</div>
+      <div>Execution Analysis</div>
+    </div>
+  
+    <div class="timeline-step">
+      <div class="timeline-dot">✓</div>
+      <div>Quality Gate</div>
+    </div>
+  
+    <div class="timeline-step">
+      <div class="timeline-dot">✓</div>
+      <div>HTML Dashboard</div>
+    </div>
+  
+      </div>
     </section>
+
+    <section class="section footer">
+      <div class="footer-grid">
+        <p><strong>QA AI Copilot Version:</strong> v0.4.2.1 - Executive Dashboard Polish</p>
+        <p><strong>Artifact Version:</strong> v0.4.1.3</p>
+        <p><strong>Source Artifact:</strong> execution-summary.json</p>
+        <p><strong>Output Artifact:</strong> testcases/KAN-7/api/execution-summary.html</p>
+        <p><strong>Repository Readiness:</strong> GitHub persistence enabled</p>
+        <p><strong>GitHub Pages:</strong> Ready</p>
+      </div>
+    </section>
+
   </main>
 </body>
 </html>
