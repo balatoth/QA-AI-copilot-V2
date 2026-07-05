@@ -1,0 +1,240 @@
+{
+  "storyKey": "KAN-7",
+  "artifactType": "execution-results",
+  "generatedAt": "2026-07-05T08:26:18.971Z",
+  "summary": {
+    "total": 6,
+    "passed": 5,
+    "failed": 1,
+    "passRate": 83.3
+  },
+  "executionResults": [
+    {
+      "storyKey": "KAN-7",
+      "testCaseId": "TC-001",
+      "scenarioId": "SC-001",
+      "title": "Retrieve all products - Basic positive test for endpoint availability and response structure",
+      "method": "GET",
+      "url": "https://api.practicesoftwaretesting.com/products",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "status": "PASS",
+      "executedAt": "2026-07-05T08:26:18.950Z",
+      "responsePreview": "{\"current_page\":1,\"data\":[{\"id\":\"01KWRMNT8V6EVBMCXAFTB63KNA\",\"name\":\"Combination Pliers\",\"description\":\"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium steel construction with induction-hardened cutting edges, these pliers deliver excellent grip and leverage for a wide range of tasks. The precision-machined jaws combine flat gripping surfaces with a pipe-grip section and integrated wire cutter for true multi-purpose functionality",
+      "originalTestCase": {
+        "testCaseId": "TC-001",
+        "scenarioId": "SC-001",
+        "title": "Retrieve all products - Basic positive test for endpoint availability and response structure",
+        "testType": "Positive",
+        "priority": "High",
+        "preconditions": [],
+        "method": "GET",
+        "path": "/products",
+        "requestHeaders": {
+          "Accept": "application/json"
+        },
+        "queryParams": {},
+        "requestBody": null,
+        "expectedStatus": 200,
+        "expectedResponseChecks": [
+          "response is an array",
+          "each item in response conforms to ProductResponse schema"
+        ],
+        "contractChecks": [
+          "Content-Type is application/json",
+          "Response body matches schema ProductResponse array"
+        ],
+        "notes": "Basic validation that /products endpoint returns all products as per contract."
+      }
+    },
+    {
+      "storyKey": "KAN-7",
+      "testCaseId": "TC-002",
+      "scenarioId": "SC-001",
+      "title": "Retrieve all products with Accept header text/xml - verify successful XML response",
+      "method": "GET",
+      "url": "https://api.practicesoftwaretesting.com/products",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "status": "PASS",
+      "executedAt": "2026-07-05T08:26:18.951Z",
+      "responsePreview": "<?xml version=\"1.0\"?>\n<response><current_page>1</current_page><data><id>01KWRMNT8V6EVBMCXAFTB63KNA</id><name>Combination Pliers</name><description>Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium steel construction with induction-hardened cutting edges, these pliers deliver excellent grip and leverage for a wide range of tasks. The precision-machined jaws combine flat gripping surfaces with a pipe-grip section and integrated wire ",
+      "originalTestCase": {
+        "testCaseId": "TC-002",
+        "scenarioId": "SC-001",
+        "title": "Retrieve all products with Accept header text/xml - verify successful XML response",
+        "testType": "Positive",
+        "priority": "Medium",
+        "preconditions": [],
+        "method": "GET",
+        "path": "/products",
+        "requestHeaders": {
+          "Accept": "text/xml"
+        },
+        "queryParams": {},
+        "requestBody": null,
+        "expectedStatus": 200,
+        "expectedResponseChecks": [
+          "response body is well-formed XML",
+          "response contains product elements as per ProductResponse schema"
+        ],
+        "contractChecks": [
+          "Content-Type is text/xml",
+          "Response XML matches schema ProductResponse"
+        ],
+        "notes": "Validates that API supports XML response format as per Accept header."
+      }
+    },
+    {
+      "storyKey": "KAN-7",
+      "testCaseId": "TC-003",
+      "scenarioId": "SC-002",
+      "title": "Request products with a keyword-like query parameter (assumed unsupported) - expect full product list",
+      "method": "GET",
+      "url": "https://api.practicesoftwaretesting.com/products?keyword=nonexistentproduct123",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "status": "PASS",
+      "executedAt": "2026-07-05T08:26:18.953Z",
+      "responsePreview": "{\"current_page\":1,\"data\":[{\"id\":\"01KWRMNT8V6EVBMCXAFTB63KNA\",\"name\":\"Combination Pliers\",\"description\":\"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium steel construction with induction-hardened cutting edges, these pliers deliver excellent grip and leverage for a wide range of tasks. The precision-machined jaws combine flat gripping surfaces with a pipe-grip section and integrated wire cutter for true multi-purpose functionality",
+      "originalTestCase": {
+        "testCaseId": "TC-003",
+        "scenarioId": "SC-002",
+        "title": "Request products with a keyword-like query parameter (assumed unsupported) - expect full product list",
+        "testType": "Negative",
+        "priority": "Low",
+        "preconditions": [],
+        "method": "GET",
+        "path": "/products",
+        "requestHeaders": {
+          "Accept": "application/json"
+        },
+        "queryParams": {
+          "keyword": "nonexistentproduct123"
+        },
+        "requestBody": null,
+        "expectedStatus": 200,
+        "expectedResponseChecks": [
+          "response is an array",
+          "response array may contain products (no filtering by keyword is documented)"
+        ],
+        "contractChecks": [
+          "Content-Type is application/json",
+          "Response body matches schema ProductResponse array"
+        ],
+        "notes": "Keyword query parameter is not documented; this test checks that endpoint ignores unknown query parameter and returns all products."
+      }
+    },
+    {
+      "storyKey": "KAN-7",
+      "testCaseId": "TC-004",
+      "scenarioId": "SC-001",
+      "title": "Contract validation: Response headers and JSON schema compliance",
+      "method": "GET",
+      "url": "https://api.practicesoftwaretesting.com/products",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "status": "PASS",
+      "executedAt": "2026-07-05T08:26:18.954Z",
+      "responsePreview": "{\"current_page\":1,\"data\":[{\"id\":\"01KWRMNT8V6EVBMCXAFTB63KNA\",\"name\":\"Combination Pliers\",\"description\":\"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium steel construction with induction-hardened cutting edges, these pliers deliver excellent grip and leverage for a wide range of tasks. The precision-machined jaws combine flat gripping surfaces with a pipe-grip section and integrated wire cutter for true multi-purpose functionality",
+      "originalTestCase": {
+        "testCaseId": "TC-004",
+        "scenarioId": "SC-001",
+        "title": "Contract validation: Response headers and JSON schema compliance",
+        "testType": "Contract",
+        "priority": "High",
+        "preconditions": [],
+        "method": "GET",
+        "path": "/products",
+        "requestHeaders": {
+          "Accept": "application/json"
+        },
+        "queryParams": {},
+        "requestBody": null,
+        "expectedStatus": 200,
+        "expectedResponseChecks": [
+          "response is an array",
+          "items conform to ProductResponse schema"
+        ],
+        "contractChecks": [
+          "Response Content-Type is application/json",
+          "Response schema matches ProductResponse array schema"
+        ],
+        "notes": "Ensures API response follows contract exactly."
+      }
+    },
+    {
+      "storyKey": "KAN-7",
+      "testCaseId": "TC-005",
+      "scenarioId": "SC-001",
+      "title": "Boundary test: Validate response includes empty array for no products scenario",
+      "method": "GET",
+      "url": "https://api.practicesoftwaretesting.com/products",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "status": "PASS",
+      "executedAt": "2026-07-05T08:26:18.956Z",
+      "responsePreview": "{\"current_page\":1,\"data\":[{\"id\":\"01KWRMNT8V6EVBMCXAFTB63KNA\",\"name\":\"Combination Pliers\",\"description\":\"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium steel construction with induction-hardened cutting edges, these pliers deliver excellent grip and leverage for a wide range of tasks. The precision-machined jaws combine flat gripping surfaces with a pipe-grip section and integrated wire cutter for true multi-purpose functionality",
+      "originalTestCase": {
+        "testCaseId": "TC-005",
+        "scenarioId": "SC-001",
+        "title": "Boundary test: Validate response includes empty array for no products scenario",
+        "testType": "Boundary",
+        "priority": "Medium",
+        "preconditions": [
+          "System state configured to have zero products"
+        ],
+        "method": "GET",
+        "path": "/products",
+        "requestHeaders": {
+          "Accept": "application/json"
+        },
+        "queryParams": {},
+        "requestBody": null,
+        "expectedStatus": 200,
+        "expectedResponseChecks": [
+          "response is an empty array"
+        ],
+        "contractChecks": [
+          "Content-Type is application/json",
+          "Response body valid per ProductResponse array schema"
+        ],
+        "notes": "Tests boundary condition when no products exist."
+      }
+    },
+    {
+      "storyKey": "KAN-7",
+      "testCaseId": "TC-006",
+      "scenarioId": "SC-002",
+      "title": "Safe error handling: Use unsupported Accept header, expect 406 or fallback behavior",
+      "method": "GET",
+      "url": "https://api.practicesoftwaretesting.com/products",
+      "expectedStatus": 406,
+      "actualStatus": 200,
+      "status": "FAIL",
+      "executedAt": "2026-07-05T08:26:18.957Z",
+      "responsePreview": "{\"current_page\":1,\"data\":[{\"id\":\"01KWRMNT8V6EVBMCXAFTB63KNA\",\"name\":\"Combination Pliers\",\"description\":\"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium steel construction with induction-hardened cutting edges, these pliers deliver excellent grip and leverage for a wide range of tasks. The precision-machined jaws combine flat gripping surfaces with a pipe-grip section and integrated wire cutter for true multi-purpose functionality",
+      "originalTestCase": {
+        "testCaseId": "TC-006",
+        "scenarioId": "SC-002",
+        "title": "Safe error handling: Use unsupported Accept header, expect 406 or fallback behavior",
+        "testType": "Validation",
+        "priority": "Low",
+        "preconditions": [],
+        "method": "GET",
+        "path": "/products",
+        "requestHeaders": {
+          "Accept": "application/unsupported"
+        },
+        "queryParams": {},
+        "requestBody": null,
+        "expectedStatus": 406,
+        "expectedResponseChecks": [],
+        "contractChecks": [
+          "Expect HTTP 406 Not Acceptable if unsupported media type requested"
+        ],
+        "notes": "Tests safe error handling for unsupported Accept header media types."
+      }
+    }
+  ]
+}
