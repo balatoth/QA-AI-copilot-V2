@@ -1,0 +1,26 @@
+{
+  "storyKey": "KAN-7",
+  "artifactType": "execution-analysis",
+  "artifactVersion": "v0.4.1.2",
+  "generatedAt": "2026-07-05T09:55:03.861Z",
+  "summary": {
+    "totalFailed": 1,
+    "failureClassifications": {
+      "APPLICATION_DEFECT": 0,
+      "GENERATOR_EXPECTATION_INCORRECT": 1,
+      "CONTRACT_MISMATCH": 0,
+      "ENVIRONMENT_FAILURE": 0,
+      "EXECUTION_ERROR": 0,
+      "UNKNOWN": 0
+    }
+  },
+  "analysis": [
+    {
+      "testCaseId": "TC-006",
+      "classification": "GENERATOR_EXPECTATION_INCORRECT",
+      "confidence": "HIGH",
+      "reason": "The test expected HTTP 406 for an unsupported Accept header, but the API returned 200 with a JSON payload. Other executions show the API returns JSON for Accept: application/json and XML for Accept: text/xml, indicating the server falls back to a default representation rather than returning 406. There is no evidence in the provided results of a documented contract requiring a 406 response for unsupported Accept values.",
+      "recommendedAction": "Consult the API specification to confirm expected behavior for unsupported Accept headers. If the contract specifies fallback to a default content-type, update the test expectation to 200 and add assertions for the returned Content-Type and payload structure. If the contract requires strict 406 responses, raise an application defect with the implementation team and create a failing contract test accordingly."
+    }
+  ]
+}
