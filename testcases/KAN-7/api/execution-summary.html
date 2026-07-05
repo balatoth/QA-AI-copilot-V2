@@ -87,7 +87,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 24px;
+      gap: 28px;
       box-shadow: 0 10px 24px rgba(15, 23, 42, 0.15);
     }
 
@@ -109,31 +109,69 @@
       color: rgba(255,255,255,0.9);
     }
 
-    .gate-side {
+    .release-gauge {
       display: flex;
-      gap: 18px;
+      align-items: center;
+      gap: 28px;
     }
 
-    .metric {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.20);
-      border-radius: 12px;
-      padding: 14px 18px;
-      min-width: 130px;
+    .gauge {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background:
+        radial-gradient(closest-side, #ffffff 74%, transparent 75%),
+        conic-gradient(
+          #22c55e 298.8deg,
+          #d1d5db 0deg
+        );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.15);
+    }
+
+    .gauge-inner {
       text-align: center;
     }
 
-    .metric span {
-      display: block;
-      font-size: 12px;
-      color: #e5e7eb;
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+    .gauge-score {
+      font-size: 48px;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1;
     }
 
-    .metric strong {
-      font-size: 28px;
+    .gauge-label {
+      margin-top: 8px;
+      font-size: 11px;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: #6b7280;
+    }
+
+    .readiness {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .readiness-title {
+      font-size: 14px;
+      color: #cbd5e1;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .readiness-value {
+      font-size: 34px;
+      font-weight: 800;
+    }
+
+    .readiness-status {
+      font-size: 20px;
+      color: #ffffff;
+      font-weight: 700;
     }
 
     .cards {
@@ -436,12 +474,9 @@
         width: 100%;
       }
 
-      .gate-side {
+      .release-gauge {
         width: 100%;
-      }
-
-      .metric {
-        flex: 1;
+        justify-content: space-between;
       }
 
       .cards {
@@ -467,8 +502,18 @@
         grid-template-columns: 1fr;
       }
 
-      .gate-side {
+      .release-gauge {
         flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .gauge {
+        width: 145px;
+        height: 145px;
+      }
+
+      .gauge-score {
+        font-size: 40px;
       }
 
       .hero h1,
@@ -514,17 +559,21 @@
         <div class="eyebrow">Release Decision</div>
         <h2>NEEDS REVIEW</h2>
         <p><strong>Do not promote. Hold progression until the contract mismatch is resolved (confirm spec and either fix implementation or update tests).</strong></p>
+        <p><strong>Risk Level:</strong> HIGH</p>
       </div>
 
-      <div class="gate-side">
-        <div class="metric">
-          <span>Risk</span>
-          <strong>HIGH</strong>
+      <div class="release-gauge">
+        <div class="gauge">
+          <div class="gauge-inner">
+            <div class="gauge-score">83</div>
+            <div class="gauge-label">Readiness</div>
+          </div>
         </div>
 
-        <div class="metric">
-          <span>Quality Score</span>
-          <strong>83%</strong>
+        <div class="readiness">
+          <div class="readiness-title">Release Score</div>
+          <div class="readiness-value">83%</div>
+          <div class="readiness-status">REVIEW</div>
         </div>
       </div>
     </section>
