@@ -1,77 +1,69 @@
 {
   "artifactType": "technology-discovery",
   "artifactName": "technology-discovery.json",
-  "generatedAt": "2026-07-08T18:17:41.859Z",
+  "generatedAt": "2026-07-08T18:52:36.817Z",
   "technologyDiscovery": {
     "frontend": [
-      "Angular-based front-end",
       "Angular 20",
       "Bootstrap 5",
-      "Angular comparison page uses GraphQL with aliased queries",
-      "Static content delivered via a CDN",
-      "Docsify documentation site"
+      "Angular-based front-end",
+      "Static content delivered via CDN"
     ],
     "backend": [
-      "Laravel back-end",
       "Laravel 12",
       "PHP 8.3",
-      "PHP 8.3-FPM Alpine",
-      "Eloquent models reused by GraphQL",
-      "Queueing system for long-running tasks like sending emails and generating PDFs",
-      "Application caching for most data retrieval functionalities",
-      "Redis via Predis for cache"
+      "PHP-FPM",
+      "Eloquent models",
+      "Queueing system for long-running tasks",
+      "Application caching"
     ],
     "apis": [
-      "RESTful API exposed by Laravel back-end",
-      "GraphQL API exposed by Laravel back-end",
-      "OpenAPI 3.0 documented via L5-Swagger / darkaonline/l5-swagger",
+      "RESTful API",
+      "GraphQL API",
+      "OpenAPI 3.0",
+      "L5-Swagger / darkaonline/l5-swagger",
       "Swagger UI",
-      "Lighthouse / nuwave/lighthouse schema-first GraphQL server for Laravel",
-      "GraphiQL playground via mll-lab/laravel-graphiql",
-      "GraphQL supports queries, mutations, JWT-guarded fields via @guard, and relationship eager-loading via @belongsTo / @hasMany"
+      "Lighthouse / nuwave/lighthouse",
+      "GraphiQL playground / mll-lab/laravel-graphiql"
     ],
     "databases": [
       "MySQL database with migration and seeding scripts",
-      "MariaDB 10.6 MySQL compatible",
-      "MariaDB 10.6.11 Alpine",
-      "phpMyAdmin optional database admin UI"
+      "MariaDB 10.6 (MySQL compatible)",
+      "Redis via Predis"
     ],
     "authentication": [
-      "Google Connect for social sign-in",
       "JWT",
       "Google OAuth",
       "GitHub OAuth",
-      "Two-Factor Authentication",
-      "Login",
-      "Register",
-      "Forgot Password",
-      "Lock account after failed attempts"
+      "Google Connect for social sign-in",
+      "Two-Factor Authentication"
     ],
     "testing": [
       "MailHog for testing emails in local deployment",
-      "MailHog local / SMTP production",
-      "MailHog optional email testing UI"
+      "Local mocks referenced for postcode lookup",
+      "Code coverage documentation referenced"
     ],
     "mobile": [
-      "React Native mobile application",
-      "React Native"
+      "React Native mobile application"
     ],
     "infrastructure": [
       "Docker",
       "Nginx",
-      "Nginx 1.23 Alpine reverse proxy for API",
       "PHP-FPM",
-      "CDN for static content",
-      "Docker services include laravel-api, angular-ui, web, mariadb, composer, mailcatcher, phpmyadmin",
-      "Composer 2.6 dependency installation",
-      "Node 20 Alpine Angular dev server"
+      "PHP 8.3-FPM Alpine container for Laravel API",
+      "Node 20 Alpine container for Angular dev server",
+      "Nginx 1.23 Alpine reverse proxy",
+      "MariaDB 10.6.11 Alpine container",
+      "Composer 2.6 container",
+      "MailHog optional container",
+      "phpMyAdmin optional container",
+      "CDN"
     ],
     "messaging": [
-      "MailHog",
-      "SMTP production mail",
-      "Queueing system for sending emails",
-      "Chat Widget"
+      "MailHog local email testing",
+      "SMTP production email",
+      "Queueing system for sending emails and generating PDFs"
     ],
-    "confidence": 0.97
+    "confidence": 0.98
   }
 }
