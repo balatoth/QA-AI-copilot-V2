@@ -1,0 +1,126 @@
+{
+  "artifactType": "capability-discovery",
+  "artifactName": "capability-discovery.json",
+  "generatedAt": "2026-07-08T19:18:47.815Z",
+  "capabilityDiscovery": {
+    "capabilities": [
+      {
+        "name": "Product Catalog and Discovery",
+        "description": "Allows customers to browse, search, compare, and view detailed information about products and rental items.",
+        "features": [
+          "Product overview and product detail pages",
+          "Browse products by category",
+          "Search products",
+          "Filter by category, brand, and price range",
+          "Sort and paginate product lists",
+          "View brands, categories, product specifications, and environmental ratings",
+          "Compare selected products",
+          "Support for rental products"
+        ]
+      },
+      {
+        "name": "Shopping Cart and Checkout",
+        "description": "Manages the customer purchase journey from adding products to completing payment.",
+        "features": [
+          "Add products to cart",
+          "Review cart contents",
+          "Increase or decrease item quantities",
+          "Remove items from cart",
+          "Capture billing and address details",
+          "Require or support sign-in during checkout",
+          "Basic and advanced payment options",
+          "Complete checkout from web or mobile experiences"
+        ]
+      },
+      {
+        "name": "Promotions and Discounts",
+        "description": "Applies promotional rules and discounts during the shopping and checkout experience.",
+        "features": [
+          "Discount support in cart and checkout",
+          "Geo-location based discounts",
+          "Combination discounts for selected product bundles",
+          "Gift card validation"
+        ]
+      },
+      {
+        "name": "Customer Identity and Access Management",
+        "description": "Handles customer registration, authentication, account recovery, and account protection.",
+        "features": [
+          "Customer registration",
+          "Customer login",
+          "Forgot password flow",
+          "Password strength support during registration",
+          "Change password",
+          "Two-factor authentication setup and login",
+          "Account locking after failed login attempts",
+          "Social login with external identity providers"
+        ]
+      },
+      {
+        "name": "Customer Account Management",
+        "description": "Provides self-service account features for customers after registration and purchase.",
+        "features": [
+          "Update customer profile",
+          "Manage favorites",
+          "View contact messages",
+          "View invoice overview",
+          "View invoice details",
+          "Download invoice PDF",
+          "Access account features from supported customer channels"
+        ]
+      },
+      {
+        "name": "Order and Invoice Management",
+        "description": "Tracks completed purchases and provides invoice information to customers and administrators.",
+        "features": [
+          "Create invoices from checkout activity",
+          "Invoice overview",
+          "Invoice detail view",
+          "Invoice PDF generation",
+          "Invoice access through customer account"
+        ]
+      },
+      {
+        "name": "Customer Support and Communication",
+        "description": "Enables customers to contact the business and receive support.",
+        "features": [
+          "Basic contact form",
+          "Advanced contact form",
+          "File upload with contact requests",
+          "Customer message history",
+          "Chat widget",
+          "Email-based customer communications"
+        ]
+      },
+      {
+        "name": "Administration and Back Office",
+        "description": "Gives administrators tools to manage platform data and monitor business activity.",
+        "features": [
+          "Admin account access",
+          "Admin dashboard",
+          "Create, read, update, and delete business entities",
+          "Manage products, brands, categories, users, invoices, carts, favorites, contact requests, and product specifications",
+          "Administrative reporting"
+        ]
+      },
+      {
+        "name": "Analytics and Reporting",
+        "description": "Provides insight into customer activity and operational performance.",
+        "features": [
+          "Administrative reports",
+          "Usage analytics",
+          "Business activity monitoring"
+        ]
+      },
+      {
+        "name": "Localization and Policy Content",
+        "description": "Supports customer-facing language and policy information needs.",
+        "features": [
+          "Multi-language experience",
+          "Privacy policy content"
+        ]
+      }
+    ],
+    "confidence": 0.91
+  }
+}
