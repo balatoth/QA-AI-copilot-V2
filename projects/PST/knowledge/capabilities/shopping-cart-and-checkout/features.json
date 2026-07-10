@@ -1,0 +1,238 @@
+{
+  "artifactType": "feature-discovery",
+  "artifactName": "features.json",
+  "generatedAt": "2026-07-10T21:03:44.540Z",
+  "projectKey": "PST",
+  "capability": {
+    "index": 2,
+    "count": 10,
+    "name": "Shopping Cart and Checkout",
+    "slug": "shopping-cart-and-checkout",
+    "description": "Manages the customer purchase journey from adding products to completing payment."
+  },
+  "statistics": {
+    "featureCount": 12,
+    "averageConfidence": 0.87
+  },
+  "features": [
+    {
+      "name": "Add Item to Cart",
+      "description": "Allows a customer to add a selected product to the shopping cart before checkout.",
+      "actor": "Customer",
+      "type": "Cart Management",
+      "priority": "High",
+      "channels": [
+        "Web",
+        "Mobile",
+        "API"
+      ],
+      "dependencies": [
+        "Product catalog"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "name": "Cart Contents Review",
+      "description": "Allows a customer to view the current products in the shopping cart before or during checkout.",
+      "actor": "Customer",
+      "type": "Cart Management",
+      "priority": "High",
+      "channels": [
+        "Web",
+        "Mobile",
+        "API"
+      ],
+      "dependencies": [
+        "Shopping cart"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "name": "Increase Cart Item Quantity",
+      "description": "Allows a customer to increase the quantity of an existing item in the shopping cart.",
+      "actor": "Customer",
+      "type": "Cart Management",
+      "priority": "High",
+      "channels": [
+        "Web",
+        "Mobile",
+        "API"
+      ],
+      "dependencies": [
+        "Add Item to Cart"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "name": "Decrease Cart Item Quantity",
+      "description": "Allows a customer to decrease the quantity of an existing item in the shopping cart.",
+      "actor": "Customer",
+      "type": "Cart Management",
+      "priority": "High",
+      "channels": [
+        "Web",
+        "Mobile",
+        "API"
+      ],
+      "dependencies": [
+        "Add Item to Cart"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "name": "Remove Cart Item",
+      "description": "Allows a customer to remove an item from the shopping cart.",
+      "actor": "Customer",
+      "type": "Cart Management",
+      "priority": "High",
+      "channels": [
+        "Web",
+        "Mobile",
+        "API"
+      ],
+      "dependencies": [
+        "Add Item to Cart"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "name": "Billing Details Capture",
+      "description": "Captures customer billing details required during checkout.",
+      "actor": "Customer",
+      "type": "Checkout Data Capture",
+      "priority": "High",
+      "channels": [
+        "Web",
+        "Mobile",
+        "API"
+      ],
+      "dependencies": [
+        "Cart Contents Review"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "name": "Address Details Capture",
+      "description": "Captures customer address details required during checkout. Postcode lookup may be a supporting dependency based on the supplied local mock context.",
+      "actor": "Customer",
+      "type": "Checkout Data Capture",
+      "priority": "High",
+      "channels": [
+        "Web",
+        "Mobile",
+        "API"
+      ],
+      "dependencies": [
+        "Cart Contents Review",
+        "Postcode lookup service or local mock"
+      ],
+      "confidence": 0.86
+    },
+    {
+      "name": "Checkout Sign-In",
+      "description": "Supports or requires customer sign-in during checkout. Supplied evidence confirms checkout sign-in involvement but does not clarify whether it is mandatory or optional.",
+      "actor": "Customer",
+      "type": "Checkout Authentication",
+      "priority": "High",
+      "channels": [
+        "Web",
+        "Mobile",
+        "API"
+      ],
+      "dependencies": [
+        "JWT authentication",
+        "OAuth authentication",
+        "Two-Factor Authentication"
+      ],
+      "confidence": 0.72
+    },
+    {
+      "name": "Basic Payment Options",
+      "description": "Supports available basic payment options during checkout. Supplied evidence does not identify the specific payment methods.",
+      "actor": "Customer",
+      "type": "Payment",
+      "priority": "High",
+      "channels": [
+        "Web",
+        "Mobile",
+        "API"
+      ],
+      "dependencies": [
+        "Billing Details Capture",
+        "Address Details Capture"
+      ],
+      "confidence": 0.74
+    },
+    {
+      "name": "Advanced Payment Options",
+      "description": "Supports available advanced payment options during checkout. Supplied evidence does not identify the specific advanced payment methods.",
+      "actor": "Customer",
+      "type": "Payment",
+      "priority": "Medium",
+      "channels": [
+        "Web",
+        "Mobile",
+        "API"
+      ],
+      "dependencies": [
+        "Billing Details Capture",
+        "Address Details Capture"
+      ],
+      "confidence": 0.68
+    },
+    {
+      "name": "Web Checkout Completion",
+      "description": "Allows a customer to complete the checkout journey through the web experience after cart review, required checkout details, and payment option handling.",
+      "actor": "Customer",
+      "type": "Checkout Completion",
+      "priority": "High",
+      "channels": [
+        "Web"
+      ],
+      "dependencies": [
+        "Cart Contents Review",
+        "Billing Details Capture",
+        "Address Details Capture",
+        "Basic Payment Options",
+        "Advanced Payment Options",
+        "Checkout Sign-In"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "name": "Mobile Checkout Completion",
+      "description": "Allows a customer to complete the checkout journey through the mobile experience after cart review, required checkout details, and payment option handling.",
+      "actor": "Customer",
+      "type": "Checkout Completion",
+      "priority": "High",
+      "channels": [
+        "Mobile"
+      ],
+      "dependencies": [
+        "Cart Contents Review",
+        "Billing Details Capture",
+        "Address Details Capture",
+        "Basic Payment Options",
+        "Advanced Payment Options",
+        "Checkout Sign-In"
+      ],
+      "confidence": 0.9
+    }
+  ],
+  "sourceArtifacts": {
+    "capabilityDiscovery": {
+      "artifactName": "capability-discovery.json",
+      "generatedAt": "2026-07-08T19:18:47.815Z",
+      "confidence": 0.91,
+      "path": "projects/PST/knowledge/capability-discovery.json",
+      "sha": "834d819f0fbc65e146530b48c6ea1b2891e7939e"
+    },
+    "technologyDiscovery": {
+      "artifactName": "technology-discovery.json",
+      "generatedAt": "2026-07-08T18:52:36.817Z",
+      "confidence": 0.98,
+      "path": "projects/PST/knowledge/technology-discovery.json",
+      "sha": "03852ef86f51552c79c7fc2cb0a929885b3947d4"
+    }
+  }
+}
