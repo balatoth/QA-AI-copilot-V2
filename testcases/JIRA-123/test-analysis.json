@@ -1,0 +1,31 @@
+{
+  "storyKey": "JIRA-123",
+  "storyTitle": "Implement User Profile Update",
+  "application": "Practice Software Testing",
+  "functionalArea": "User Management",
+  "businessGoal": "Allow users to update their profile information seamlessly.",
+  "scenarios": [
+    {
+      "scenarioId": "SC-001",
+      "category": "Positive",
+      "goal": "User updates their profile information successfully."
+    },
+    {
+      "scenarioId": "SC-002",
+      "category": "Negative",
+      "goal": "User attempts to update with invalid email format."
+    },
+    {
+      "scenarioId": "SC-003",
+      "category": "Validation",
+      "goal": "Ensure required fields are validated before saving."
+    }
+  ],
+  "outOfScope": [
+    "Testing the login functionality",
+    "Testing the registration process"
+  ],
+  "clarifications": [
+    "What happens if a user tries to leave a required field empty?"
+  ]
+}
