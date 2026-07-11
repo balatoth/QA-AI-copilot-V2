@@ -1,0 +1,51 @@
+{
+  "storyKey": "MP-3",
+  "storyTitle": "Browse Products by Category",
+  "application": "Practice Software Testing",
+  "testLevel": "UAT",
+  "testType": "MANUAL_FUNCTIONAL",
+  "testCases": [
+    {
+      "testCaseId": "TC-001",
+      "scenarioId": "SC-001",
+      "title": "Display of Category Page When Category is Clicked",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the products page.",
+        "Click on a valid category name."
+      ],
+      "expectedResults": [
+        "The category page is displayed."
+      ]
+    },
+    {
+      "testCaseId": "TC-002",
+      "scenarioId": "SC-002",
+      "title": "Category Name Displayed as Page Title",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the products page.",
+        "Click on a valid category name."
+      ],
+      "expectedResults": [
+        "The category name is shown as the page title on the category page."
+      ]
+    },
+    {
+      "testCaseId": "TC-003",
+      "scenarioId": "SC-003",
+      "title": "Display of Products Belonging to Selected Category",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the products page.",
+        "Click on a valid category name."
+      ],
+      "expectedResults": [
+        "Only products belonging to the selected category are shown on the category page."
+      ]
+    }
+  ]
+}
