@@ -1,0 +1,39 @@
+{
+  "storyKey": "MP-4",
+  "storyTitle": "Contact Form",
+  "application": "Practice Software Testing",
+  "functionalArea": "Contact Management",
+  "businessGoal": "Allow visitors to send messages for support or inquiries.",
+  "scenarios": [
+    {
+      "scenarioId": "SC-001",
+      "category": "Positive",
+      "goal": "Verify that the contact form is accessible."
+    },
+    {
+      "scenarioId": "SC-002",
+      "category": "Positive",
+      "goal": "Verify that all required fields are shown in the contact form."
+    },
+    {
+      "scenarioId": "SC-003",
+      "category": "Positive",
+      "goal": "Verify that the subject dropdown includes the specified options."
+    },
+    {
+      "scenarioId": "SC-004",
+      "category": "Validation",
+      "goal": "Verify that a validation error is shown for messages shorter than 50 characters."
+    },
+    {
+      "scenarioId": "SC-005",
+      "category": "Positive",
+      "goal": "Verify that a confirmation message is displayed upon successful form submission."
+    }
+  ],
+  "outOfScope": [],
+  "clarifications": [
+    "What happens if the form is partially filled?",
+    "Is there a behavior defined for invalid email formats?"
+  ]
+}
