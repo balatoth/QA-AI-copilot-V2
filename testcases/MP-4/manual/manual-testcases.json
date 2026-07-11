@@ -1,0 +1,81 @@
+{
+  "storyKey": "MP-4",
+  "storyTitle": "Contact Form",
+  "application": "Practice Software Testing",
+  "testLevel": "UAT",
+  "testType": "MANUAL_FUNCTIONAL",
+  "testCases": [
+    {
+      "testCaseId": "TC-001",
+      "scenarioId": "SC-001",
+      "title": "Access Contact Form",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the contact page."
+      ],
+      "expectedResults": [
+        "The contact form is displayed."
+      ]
+    },
+    {
+      "testCaseId": "TC-002",
+      "scenarioId": "SC-002",
+      "title": "Display Required Fields in Contact Form",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the contact page."
+      ],
+      "expectedResults": [
+        "The fields for first name, last name, email, subject, and message are displayed in the contact form."
+      ]
+    },
+    {
+      "testCaseId": "TC-003",
+      "scenarioId": "SC-003",
+      "title": "Subject Dropdown Options",
+      "priority": "Medium",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the contact page.",
+        "Open the subject dropdown in the contact form."
+      ],
+      "expectedResults": [
+        "All specified options are included in the subject dropdown."
+      ]
+    },
+    {
+      "testCaseId": "TC-004",
+      "scenarioId": "SC-004",
+      "title": "Validation Error for Message Length",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the contact page.",
+        "Enter valid first name, last name, email, subject.",
+        "Enter a message with fewer than 50 characters.",
+        "Submit the contact form."
+      ],
+      "expectedResults": [
+        "A validation error is shown indicating that the message must be at least 50 characters."
+      ]
+    },
+    {
+      "testCaseId": "TC-005",
+      "scenarioId": "SC-005",
+      "title": "Successful Submission Displays Confirmation Message",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the contact page.",
+        "Enter valid first name, last name, email, subject, and message.",
+        "Submit the contact form."
+      ],
+      "expectedResults": [
+        "A confirmation message is displayed.",
+        "The contact form is hidden."
+      ]
+    }
+  ]
+}
