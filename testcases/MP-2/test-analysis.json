@@ -1,0 +1,21 @@
+{
+  "storyKey": "MP-2",
+  "storyTitle": "",
+  "application": "Practice Software Testing",
+  "functionalArea": "",
+  "businessGoal": "",
+  "scenarios": [
+    {
+      "scenarioId": "SC-001",
+      "category": "Positive",
+      "goal": "Validate that the feature works as intended when provided with valid input."
+    },
+    {
+      "scenarioId": "SC-002",
+      "category": "Negative",
+      "goal": "Ensure the system handles invalid input appropriately without crashing."
+    }
+  ],
+  "outOfScope": [],
+  "clarifications": []
+}
