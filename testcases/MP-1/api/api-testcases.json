@@ -1,0 +1,38 @@
+{
+  "storyKey": "MP-1",
+  "artifactType": "api-testcases",
+  "generatedAt": "2026-07-13T20:50:11.590Z",
+  "testLevel": "SIT_API",
+  "sourceEndpoint": {
+    "method": "GET",
+    "path": "/products",
+    "operationId": "getProducts",
+    "confidence": "HIGH"
+  },
+  "warnings": [],
+  "testCases": [
+    {
+      "testCaseId": "TC-MP-1-001",
+      "scenarioId": "SC-001",
+      "title": "Verify retrieval of product list returns 200 with valid product array",
+      "testType": "Positive",
+      "priority": "High",
+      "preconditions": [],
+      "method": "GET",
+      "path": "/products",
+      "requestHeaders": {},
+      "queryParams": {},
+      "requestBody": null,
+      "expectedStatus": 200,
+      "expectedResponseChecks": [
+        "Response body is a JSON array",
+        "Each item in the array conforms to ProductResponse schema"
+      ],
+      "contractChecks": [
+        "Response includes Cache-Control header with value matching string type",
+        "Response includes ETag header with value matching string type"
+      ],
+      "notes": ""
+    }
+  ]
+}
