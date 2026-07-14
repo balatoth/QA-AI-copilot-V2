@@ -1,0 +1,49 @@
+{
+  "storyKey": "MP-1",
+  "storyTitle": "Product Overview",
+  "application": "Practice Software Testing",
+  "testLevel": "UAT",
+  "testType": "MANUAL_FUNCTIONAL",
+  "testCases": [
+    {
+      "testCaseId": "TC-001",
+      "scenarioId": "SC-001",
+      "title": "Verify grid of product cards is displayed on home page",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the home page."
+      ],
+      "expectedResults": [
+        "A grid of product cards is displayed showing all products."
+      ]
+    },
+    {
+      "testCaseId": "TC-002",
+      "scenarioId": "SC-002",
+      "title": "Verify product card details are displayed",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the home page.",
+        "Observe the product cards displayed."
+      ],
+      "expectedResults": [
+        "Each product card displays a product image, name, and price."
+      ]
+    },
+    {
+      "testCaseId": "TC-003",
+      "scenarioId": "SC-003",
+      "title": "Verify navigation to product detail page from product card",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Click on a product card."
+      ],
+      "expectedResults": [
+        "User is navigated to the corresponding product detail page."
+      ]
+    }
+  ]
+}
