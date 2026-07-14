@@ -8,12 +8,12 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify product detail page display after clicking on a product",
+      "title": "Display Product Detail Page",
       "priority": "High",
       "preconditions": [],
       "steps": [
         "Navigate to the overview or category page.",
-        "Click on a product listed on the page."
+        "Click on a product."
       ],
       "expectedResults": [
         "The product detail page is displayed."
@@ -22,41 +22,33 @@
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Verify product information display on product detail page",
+      "title": "Verify Product Details Displayed",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the product detail page.",
-        "Check for the display of product image.",
-        "Check for the display of product name.",
-        "Check for the display of product description.",
-        "Check for the display of product price.",
-        "Check for the display of category badge.",
-        "Check for the display of brand badge."
+        "Navigate to the product detail page."
       ],
       "expectedResults": [
-        "Product image is displayed.",
-        "Product name is displayed.",
-        "Product description is displayed.",
-        "Product price is displayed.",
-        "Category badge is displayed.",
-        "Brand badge is displayed."
+        "The product image is displayed.",
+        "The product name is displayed.",
+        "The product description is displayed.",
+        "The product price is displayed.",
+        "The category badge is displayed.",
+        "The brand badge is displayed."
       ]
     },
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-003",
-      "title": "Verify related products display and clickability",
+      "title": "Display Related Products Section",
       "priority": "Medium",
       "preconditions": [],
       "steps": [
-        "Navigate to the product detail page.",
-        "Check for the display of related products below the main product information section.",
-        "Click on a related product."
+        "Navigate to the product detail page."
       ],
       "expectedResults": [
-        "Related products are displayed.",
-        "The related product detail page is displayed after clicking a related product."
+        "The related products section is displayed below the main product information.",
+        "Each related product is clickable and navigates to its detail page."
       ]
     }
   ]
