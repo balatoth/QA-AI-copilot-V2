@@ -1,0 +1,43 @@
+{
+  "storyKey": "MP-2",
+  "artifactType": "api-testcases",
+  "generatedAt": "2026-07-14T13:10:56.501Z",
+  "testLevel": "SIT_API",
+  "sourceEndpoint": {
+    "method": "GET",
+    "path": "/products/{id}",
+    "operationId": "getProduct",
+    "confidence": "HIGH"
+  },
+  "warnings": [],
+  "testCases": [
+    {
+      "testCaseId": "MP-2_SC-001_TC-001",
+      "scenarioId": "SC-001",
+      "title": "Verify product detail page retrieval for valid product ID",
+      "testType": "Positive",
+      "priority": "High",
+      "preconditions": [],
+      "method": "GET",
+      "path": "/products/1",
+      "requestHeaders": {},
+      "queryParams": {},
+      "requestBody": null,
+      "expectedStatus": 200,
+      "expectedResponseChecks": [
+        "response body contains product image",
+        "response body contains product name",
+        "response body contains product description",
+        "response body contains product price",
+        "response body contains category badge",
+        "response body contains brand badge"
+      ],
+      "contractChecks": [
+        "response Content-Type is application/json",
+        "response headers include Cache-Control and ETag",
+        "response body matches ProductResponse schema"
+      ],
+      "notes": ""
+    }
+  ]
+}
