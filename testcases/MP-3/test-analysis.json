@@ -3,7 +3,7 @@
   "storyTitle": "Browse Products by Category",
   "application": "Practice Software Testing",
   "functionalArea": "Product Browsing",
-  "businessGoal": "Allow visitors to easily find products by category.",
+  "businessGoal": "Enable users to find products by category.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
@@ -23,7 +23,6 @@
   ],
   "outOfScope": [],
   "clarifications": [
-    "What happens if a non-existent category is clicked?",
-    "Is there a default category displayed when the user first accesses the category page?"
+    "No information on what happens if a category has no products."
   ]
 }
