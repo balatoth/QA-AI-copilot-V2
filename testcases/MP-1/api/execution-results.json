@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-1",
   "artifactType": "execution-results",
-  "generatedAt": "2026-07-14T21:11:15.878Z",
+  "generatedAt": "2026-07-14T21:13:40.730Z",
   "summary": {
     "total": 1,
     "passed": 1,
@@ -19,7 +19,7 @@
       "expectedStatus": 200,
       "actualStatus": 200,
       "status": "PASS",
-      "executedAt": "2026-07-14T21:11:15.868Z",
+      "executedAt": "2026-07-14T21:13:40.723Z",
       "responsePreview": "{\"current_page\":1,\"data\":[{\"id\":\"01KXH6WF48ZSP61Z1J3QSP3M0F\",\"name\":\"Combination Pliers\",\"description\":\"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium steel construction with induction-hardened cutting edges, these pliers deliver excellent grip and leverage for a wide range of tasks. The precision-machined jaws combine flat gripping surfaces with a pipe-grip section and integrated wire cutter for true multi-purpose functionality",
       "originalTestCase": {
         "testCaseId": "MP-1-TC-001",
