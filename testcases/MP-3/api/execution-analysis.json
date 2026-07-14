@@ -1,0 +1,18 @@
+{
+  "storyKey": "MP-3",
+  "artifactType": "execution-analysis",
+  "artifactVersion": "v0.4.1.2",
+  "generatedAt": "2026-07-14T21:23:40.216Z",
+  "summary": {
+    "totalFailed": 0,
+    "failureClassifications": {
+      "APPLICATION_DEFECT": 0,
+      "GENERATOR_EXPECTATION_INCORRECT": 0,
+      "CONTRACT_MISMATCH": 0,
+      "ENVIRONMENT_FAILURE": 0,
+      "EXECUTION_ERROR": 0,
+      "UNKNOWN": 0
+    }
+  },
+  "analysis": []
+}
