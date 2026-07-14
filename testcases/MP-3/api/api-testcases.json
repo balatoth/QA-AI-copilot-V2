@@ -1,0 +1,41 @@
+{
+  "storyKey": "MP-3",
+  "artifactType": "api-testcases",
+  "generatedAt": "2026-07-14T13:11:23.896Z",
+  "testLevel": "SIT_API",
+  "sourceEndpoint": {
+    "method": "GET",
+    "path": "/products",
+    "operationId": "getProducts",
+    "confidence": "HIGH"
+  },
+  "warnings": [],
+  "testCases": [
+    {
+      "testCaseId": "TC_MP3_01",
+      "scenarioId": "SC-003",
+      "title": "Verify that products returned belong only to the selected category by category slug.",
+      "testType": "Positive",
+      "priority": "High",
+      "preconditions": [],
+      "method": "GET",
+      "path": "/products",
+      "requestHeaders": {},
+      "queryParams": {
+        "by_category_slug": "electronics"
+      },
+      "requestBody": null,
+      "expectedStatus": 200,
+      "expectedResponseChecks": [
+        "Response should be an array of products",
+        "Each product's category or categories should include 'electronics' slug or descendant category"
+      ],
+      "contractChecks": [
+        "Response Content-Type is application/json",
+        "Response code is 200",
+        "Response body matches array of ProductResponse schema"
+      ],
+      "notes": "This test uses 'electronics' as a sample category slug for deterministic filtering."
+    }
+  ]
+}
