@@ -8,75 +8,68 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify Accessibility of the Contact Form",
+      "title": "Verify Accessibility of Contact Form",
       "priority": "High",
       "preconditions": [],
       "steps": [
         "Navigate to the contact page."
       ],
       "expectedResults": [
-        "The contact form is displayed."
+        "The contact form is accessible on the contact page."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Ensure Required Fields are Displayed",
+      "title": "Verify Required Fields in Contact Form",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the contact page.",
-        "Inspect the contact form for required fields."
+        "Navigate to the contact page and open the contact form."
       ],
       "expectedResults": [
-        "All required fields are displayed on the contact form."
+        "All required fields are displayed in the contact form."
       ]
     },
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-003",
-      "title": "Confirm Subject Dropdown Options",
+      "title": "Verify Subject Dropdown Options",
       "priority": "Medium",
       "preconditions": [],
       "steps": [
-        "Navigate to the contact page.",
-        "Check the subject dropdown in the contact form."
+        "Open the subject dropdown in the contact form."
       ],
       "expectedResults": [
-        "The subject dropdown includes the specified options."
+        "The subject dropdown contains all specified options."
       ]
     },
     {
       "testCaseId": "TC-004",
       "scenarioId": "SC-004",
-      "title": "Validation Error for Message Length",
+      "title": "Verify Validation for Message Length",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the contact page.",
-        "Fill in all required fields with valid data.",
-        "Enter a message shorter than 50 characters.",
+        "Enter a message with less than 50 characters in the message field.",
         "Submit the contact form."
       ],
       "expectedResults": [
-        "A validation error is shown indicating the message must be at least 50 characters long."
+        "A validation error is shown indicating the message must be at least 50 characters."
       ]
     },
     {
       "testCaseId": "TC-005",
       "scenarioId": "SC-005",
-      "title": "Verify Confirmation Message on Successful Submission",
+      "title": "Verify Confirmation Message upon Successful Submission",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the contact page.",
-        "Fill in all required fields with valid data.",
-        "Enter a message of at least 50 characters.",
+        "Fill in all required fields in the contact form with valid data.",
         "Submit the contact form."
       ],
       "expectedResults": [
-        "A confirmation message is displayed.",
-        "The contact form is hidden."
+        "A confirmation message is displayed upon successful form submission."
       ]
     }
   ]
