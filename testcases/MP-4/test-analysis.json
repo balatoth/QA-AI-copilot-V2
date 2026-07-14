@@ -2,33 +2,33 @@
   "storyKey": "MP-4",
   "storyTitle": "Contact Form",
   "application": "Practice Software Testing",
-  "functionalArea": "Contact Management",
-  "businessGoal": "To allow visitors to send messages for support and inquiries.",
+  "functionalArea": "Contact Support",
+  "businessGoal": "Allow visitors to reach out for support or inquiries through a contact form.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that the contact form is displayed when navigating to the contact page."
+      "goal": "Verify that the contact form is accessible when navigating to the contact page."
     },
     {
       "scenarioId": "SC-002",
-      "category": "Positive",
-      "goal": "Verify that all required fields are shown in the contact form."
+      "category": "Validation",
+      "goal": "Ensure all required fields are displayed on the contact form."
     },
     {
       "scenarioId": "SC-003",
-      "category": "Positive",
-      "goal": "Verify that the subject dropdown includes all specified options."
+      "category": "Validation",
+      "goal": "Confirm that the subject dropdown includes the specified options."
     },
     {
       "scenarioId": "SC-004",
       "category": "Negative",
-      "goal": "Verify that a validation error is shown when the message is fewer than 50 characters."
+      "goal": "Check that a validation error is shown when the message is fewer than 50 characters."
     },
     {
       "scenarioId": "SC-005",
       "category": "Positive",
-      "goal": "Verify that a confirmation message is displayed upon successful submission of the contact form."
+      "goal": "Verify that a confirmation message is displayed and the form is hidden upon successful submission with valid data."
     }
   ],
   "outOfScope": [],
