@@ -3,27 +3,24 @@
   "storyTitle": "Product Detail",
   "application": "Practice Software Testing",
   "functionalArea": "Product Display",
-  "businessGoal": "Allow visitors to view full product details before making a purchase decision.",
+  "businessGoal": "Allow visitors to view detailed product information before making a purchase decision.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that the product detail page is displayed after clicking on a product from the overview or category page."
+      "goal": "Verify that the product detail page is displayed when a product is clicked from the overview or category page."
     },
     {
       "scenarioId": "SC-002",
       "category": "Positive",
-      "goal": "Verify that the product information (image, name, description, price, category badge, brand badge) is shown on the product detail page."
+      "goal": "Verify that the product image, name, description, price, category badge, and brand badge are displayed on the product detail page."
     },
     {
       "scenarioId": "SC-003",
       "category": "Positive",
-      "goal": "Verify that related products are displayed below the main product information section and are clickable."
+      "goal": "Verify that the related products section is displayed below the main product information and that each related product is clickable and navigates to its detail page."
     }
   ],
   "outOfScope": [],
-  "clarifications": [
-    "What happens if the product has no related products?",
-    "Is there a limit to the number of related products displayed?"
-  ]
+  "clarifications": []
 }
