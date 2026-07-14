@@ -8,12 +8,12 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Display of Category Page When Category is Clicked",
+      "title": "Display Category Page on Click",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the products page.",
-        "Click on a valid category name."
+        "Navigate to the products category list.",
+        "Click on a category name."
       ],
       "expectedResults": [
         "The category page is displayed."
@@ -22,26 +22,26 @@
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Category Name Displayed as Page Title",
+      "title": "Display Category Name as Page Title",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the products page.",
-        "Click on a valid category name."
+        "Navigate to the products category list.",
+        "Click on a category name."
       ],
       "expectedResults": [
-        "The category name is shown as the page title on the category page."
+        "The category name is shown as the page title."
       ]
     },
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-003",
-      "title": "Display of Products Belonging to Selected Category",
+      "title": "Show Only Relevant Products on Category Page",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the products page.",
-        "Click on a valid category name."
+        "Navigate to the products category list.",
+        "Click on a category name."
       ],
       "expectedResults": [
         "Only products belonging to the selected category are shown on the category page."
