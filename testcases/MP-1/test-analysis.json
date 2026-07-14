@@ -3,27 +3,27 @@
   "storyTitle": "Product Overview",
   "application": "Practice Software Testing",
   "functionalArea": "Product Catalog",
-  "businessGoal": "Allow visitors to browse the catalog and find items of interest",
+  "businessGoal": "Allow visitors to browse available products easily.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Display the product overview with a grid of product cards"
+      "goal": "Verify that a grid of product cards is displayed showing all products when navigating to the home page."
     },
     {
       "scenarioId": "SC-002",
       "category": "Positive",
-      "goal": "Show product card information including image, name, and price"
+      "goal": "Verify that each product card displays a product image, name, and price when the product overview is shown."
     },
     {
       "scenarioId": "SC-003",
       "category": "Positive",
-      "goal": "Navigate to the product detail page when clicking on a product card"
+      "goal": "Verify that clicking on a product card navigates to the corresponding product detail page."
     }
   ],
   "outOfScope": [],
   "clarifications": [
-    "What happens if the product overview fails to load?",
-    "What happens if there are no products available?"
+    "Behavior for navigating back from the product detail page to the product overview is not specified.",
+    "No information on what happens if there are no products available."
   ]
 }
