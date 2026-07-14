@@ -1,0 +1,54 @@
+{
+  "storyKey": "MP-2",
+  "artifactType": "execution-results",
+  "generatedAt": "2026-07-14T21:23:18.220Z",
+  "summary": {
+    "total": 1,
+    "passed": 0,
+    "failed": 1,
+    "passRate": 0
+  },
+  "executionResults": [
+    {
+      "storyKey": "MP-2",
+      "testCaseId": "MP-2_SC-001_TC-001",
+      "scenarioId": "SC-001",
+      "title": "Verify product detail page retrieval for valid product ID",
+      "method": "GET",
+      "url": "https://api.practicesoftwaretesting.com/products/1",
+      "expectedStatus": 200,
+      "actualStatus": 404,
+      "status": "FAIL",
+      "executedAt": "2026-07-14T21:23:18.214Z",
+      "responsePreview": "{\"message\":\"Requested item not found\"}",
+      "originalTestCase": {
+        "testCaseId": "MP-2_SC-001_TC-001",
+        "scenarioId": "SC-001",
+        "title": "Verify product detail page retrieval for valid product ID",
+        "testType": "Positive",
+        "priority": "High",
+        "preconditions": [],
+        "method": "GET",
+        "path": "/products/1",
+        "requestHeaders": {},
+        "queryParams": {},
+        "requestBody": null,
+        "expectedStatus": 200,
+        "expectedResponseChecks": [
+          "response body contains product image",
+          "response body contains product name",
+          "response body contains product description",
+          "response body contains product price",
+          "response body contains category badge",
+          "response body contains brand badge"
+        ],
+        "contractChecks": [
+          "response Content-Type is application/json",
+          "response headers include Cache-Control and ETag",
+          "response body matches ProductResponse schema"
+        ],
+        "notes": ""
+      }
+    }
+  ]
+}
