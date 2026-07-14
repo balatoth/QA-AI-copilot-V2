@@ -8,7 +8,7 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Access Contact Form",
+      "title": "Display of Contact Form",
       "priority": "High",
       "preconditions": [],
       "steps": [
@@ -21,60 +21,55 @@
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Display Required Fields in Contact Form",
+      "title": "Display of Required Fields",
       "priority": "High",
       "preconditions": [],
       "steps": [
         "Navigate to the contact page."
       ],
       "expectedResults": [
-        "The fields for first name, last name, email, subject, and message are displayed in the contact form."
+        "All required fields are shown in the contact form."
       ]
     },
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-003",
       "title": "Subject Dropdown Options",
-      "priority": "Medium",
+      "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the contact page.",
         "Open the subject dropdown in the contact form."
       ],
       "expectedResults": [
-        "All specified options are included in the subject dropdown."
+        "The subject dropdown includes all specified options."
       ]
     },
     {
       "testCaseId": "TC-004",
       "scenarioId": "SC-004",
-      "title": "Validation Error for Message Length",
+      "title": "Message Length Validation",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the contact page.",
-        "Enter valid first name, last name, email, subject.",
-        "Enter a message with fewer than 50 characters.",
+        "Fill out the contact form with a message containing fewer than 50 characters.",
         "Submit the contact form."
       ],
       "expectedResults": [
-        "A validation error is shown indicating that the message must be at least 50 characters."
+        "A validation error is shown indicating the message must be at least 50 characters."
       ]
     },
     {
       "testCaseId": "TC-005",
       "scenarioId": "SC-005",
-      "title": "Successful Submission Displays Confirmation Message",
+      "title": "Confirmation Message on Successful Submission",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the contact page.",
-        "Enter valid first name, last name, email, subject, and message.",
+        "Fill out the contact form with valid information.",
         "Submit the contact form."
       ],
       "expectedResults": [
-        "A confirmation message is displayed.",
-        "The contact form is hidden."
+        "A confirmation message is displayed upon successful submission."
       ]
     }
   ]
