@@ -2,10 +2,12 @@
   "storyKey": "MP-1",
   "storyTitle": "Product Overview",
   "application": "Practice Software Testing",
+  "manualReviewRequired": false,
+  "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": true,
-  "repairAttempt": 1,
+  "repaired": false,
+  "repairAttempt": 0,
   "generatedTestCount": 3,
   "skippedTestCount": 0,
   "generatedTestCases": [
@@ -35,10 +37,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "PASS",
+    "status": "WARNING",
     "passed": true,
-    "qualityScore": 90,
-    "reason": "The repaired Playwright TypeScript test file compiles and uses Playwright APIs correctly. All test cases with their IDs are present and correctly named. Locators are used properly without treating them as arrays. Await is used with asynchronous assertions. Selectors use data-testid attributes which are stable and specific. Minor warnings could be considered for selector robustness but overall quality is high."
+    "qualityScore": 8,
+    "reason": "The artifacts are syntactically correct, compile successfully, and largely follow Playwright best practices. All GENERATED test cases have corresponding Playwright tests with preserved testCaseIds. However, some selectors seem assumed or weak, role usage is unverified, and navigation validation is minimal."
   },
   "sourceContext": {
     "manualTestCasesPath": "testcases/MP-1/manual/manual-testcases.json",
@@ -47,5 +49,5 @@
     "analysisSha": "3203407844b2857ce036970a80368f62e533b576",
     "manualTestCaseCount": 3
   },
-  "createdAt": "2026-07-15T20:30:50.046Z"
+  "createdAt": "2026-07-15T20:53:58.754Z"
 }
