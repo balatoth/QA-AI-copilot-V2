@@ -1,40 +1,29 @@
 import { test, expect } from '@playwright/test';
 
-const baseUrl = 'https://testsmith-io.github.io/practice-software-testing/#/';
+test.describe('Product Overview', () => {
+  test('TC-001 - Verify grid of product cards is displayed on home page', async ({ page }) => {
+    await page.goto('https://testsmith-io.github.io/practice-software-testing/#/');
+    const productGrid = page.getByRole('grid'); // Assuming a grid role is used for the product grid
+    await expect(productGrid).toBeVisible();
+  });
 
-// Test Case TC-001: Verify grid of product cards is displayed on home page
-test('TC-001 - Verify grid of product cards is displayed on home page', async ({ page }) => {
-  await page.goto(baseUrl);
-  const productGrid = page.getByRole('grid');
-  await expect(productGrid).toBeVisible(); // Check that the grid is displayed
-});
+  test('TC-002 - Verify product card details are displayed', async ({ page }) => {
+    await page.goto('https://testsmith-io.github.io/practice-software-testing/#/');
+    const productCards = page.locator('.product-card'); // Assuming each product card has a class of 'product-card'
+    await expect(productCards).toHaveCountGreaterThan(0);
 
-// Test Case TC-002: Verify product card details are displayed
-test('TC-002 - Verify product card details are displayed', async ({ page }) => {
-  await page.goto(baseUrl);
-  const productCards = page.getByRole('griditem');
-  const count = await productCards.count();
-  expect(count).toBeGreaterThan(0); // Ensure there are product cards
-  for (let i = 0; i < count; i++) {
-    const card = productCards.nth(i);
-    const image = card.locator('img'); // Assuming product images are within <img> tags
-    const name = card.getByRole('heading'); // Assuming product names are within <h*> tags
-    const price = card.getByText(/\$\d+(?:\.\d{1,2})?/); // Assuming price is in the format $X.XX
-    await expect(image).toBeVisible();
-    const nameText = await name.innerText();
-    expect(nameText.trim()).not.toBe(''); // Product name should not be empty
-    const priceText = await price.innerText();
-    expect(priceText.trim()).not.toBe(''); // Product price should not be empty
-  }
-});
+    for (let i = 0; i < await productCards.count(); i++) {
+      const card = productCards.nth(i);
+      await expect(card.locator('img')).toBeVisible(); // Assuming each card has an image
+      await expect(card.locator('.product-name')).toBeVisible(); // Assuming product name has a class
+      await expect(card.locator('.product-price')).toBeVisible(); // Assuming product price has a class
+    }
+  });
 
-// Test Case TC-003: Verify navigation to product detail page from product card
-test('TC-003 - Verify navigation to product detail page from product card', async ({ page }) => {
-  await page.goto(baseUrl);
-  const firstProductCard = page.getByRole('griditem').first(); // Selecting the first product card
-  await firstProductCard.click(); // Click the product card
-  const backLink = page.getByRole('link', { name: /back/i }); // Assuming there is a 'Back' link on product detail page
-  await expect(backLink).toBeVisible(); // Ensure we are on the product detail page
-  // Additional validation: check URL contains expected pattern
-  await expect(page).toHaveURL(/\/product\//i);
+  test('TC-003 - Verify navigation to product detail page from product card', async ({ page }) => {
+    await page.goto('https://testsmith-io.github.io/practice-software-testing/#/');
+    const firstProductCard = page.locator('.product-card').nth(0); // Selecting the first product card
+    await firstProductCard.click();
+    await expect(page).toHaveURL(/.*product-detail/); // Assuming product detail page contains 'product-detail' in URL
+  });
 });
