@@ -1,0 +1,51 @@
+{
+  "storyKey": "MP-1",
+  "storyTitle": "Product Overview",
+  "application": "Practice Software Testing",
+  "status": "COMPLETED",
+  "scope": "PLAYWRIGHT_GENERATION",
+  "repaired": true,
+  "repairAttempt": 1,
+  "generatedTestCount": 3,
+  "skippedTestCount": 0,
+  "generatedTestCases": [
+    {
+      "testCaseId": "TC-001",
+      "status": "GENERATED",
+      "filePath": "playwright/product-overview.spec.ts"
+    },
+    {
+      "testCaseId": "TC-002",
+      "status": "GENERATED",
+      "filePath": "playwright/product-overview.spec.ts"
+    },
+    {
+      "testCaseId": "TC-003",
+      "status": "GENERATED",
+      "filePath": "playwright/product-overview.spec.ts"
+    }
+  ],
+  "skippedTestCases": [],
+  "generatedFiles": [
+    "playwright/product-overview.spec.ts"
+  ],
+  "persistedGeneratedFiles": [
+    "playwright/product-overview.spec.ts"
+  ],
+  "blockedGeneratedFiles": [],
+  "warnings": [],
+  "qualityGate": {
+    "status": "WARNING",
+    "passed": true,
+    "qualityScore": 70,
+    "reason": "The TypeScript code compiles and uses Playwright APIs correctly with proper async/await usage. All test cases with correct IDs are present. However, selectors rely on assumed roles (grid, gridcell) without verification and use generic selectors (h1, h2, .price) that may be insufficiently specific, which could reduce test robustness."
+  },
+  "sourceContext": {
+    "manualTestCasesPath": "testcases/MP-1/manual/manual-testcases.json",
+    "manualTestCasesSha": "5bdfc91171c7ce62cd19b2d8857bd265aeefaaff",
+    "analysisPath": "testcases/MP-1/test-analysis.json",
+    "analysisSha": "3203407844b2857ce036970a80368f62e533b576",
+    "manualTestCaseCount": 3
+  },
+  "createdAt": "2026-07-15T20:27:16.112Z"
+}
