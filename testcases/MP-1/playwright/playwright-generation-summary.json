@@ -35,10 +35,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "WARNING",
+    "status": "PASS",
     "passed": true,
-    "qualityScore": 70,
-    "reason": "The TypeScript code compiles and uses Playwright APIs correctly with proper async/await usage. All test cases with correct IDs are present. However, selectors rely on assumed roles (grid, gridcell) without verification and use generic selectors (h1, h2, .price) that may be insufficiently specific, which could reduce test robustness."
+    "qualityScore": 90,
+    "reason": "The repaired Playwright TypeScript test file compiles and uses Playwright APIs correctly. All test cases with their IDs are present and correctly named. Locators are used properly without treating them as arrays. Await is used with asynchronous assertions. Selectors use data-testid attributes which are stable and specific. Minor warnings could be considered for selector robustness but overall quality is high."
   },
   "sourceContext": {
     "manualTestCasesPath": "testcases/MP-1/manual/manual-testcases.json",
@@ -47,5 +47,5 @@
     "analysisSha": "3203407844b2857ce036970a80368f62e533b576",
     "manualTestCaseCount": 3
   },
-  "createdAt": "2026-07-15T20:27:16.112Z"
+  "createdAt": "2026-07-15T20:30:50.046Z"
 }
