@@ -6,8 +6,8 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": true,
-  "repairAttempt": 1,
+  "repaired": false,
+  "repairAttempt": 0,
   "generatedTestCount": 3,
   "skippedTestCount": 0,
   "generatedTestCases": [
@@ -37,10 +37,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "PASS",
+    "status": "WARNING",
     "passed": true,
-    "qualityScore": 90,
-    "reason": "The repaired Playwright TypeScript test file compiles and uses Playwright APIs correctly. All test cases with their IDs are present and correctly named. Await is used properly with asynchronous assertions. Locators are used correctly without direct iteration. Selectors using roles like 'grid' and 'griditem' are reasonable given the context, though some assumptions on roles may warrant caution. Assertions are strong and relevant. The code is maintainable and reusable with clear test case separation."
+    "qualityScore": 7,
+    "reason": "The tests compile and use Playwright APIs correctly, but some selectors appear guessed and weak, and the navigation URL assertion is not fully reliable to confirm the correct product detail page is opened."
   },
   "sourceContext": {
     "manualTestCasesPath": "testcases/MP-1/manual/manual-testcases.json",
@@ -49,5 +49,5 @@
     "analysisSha": "3203407844b2857ce036970a80368f62e533b576",
     "manualTestCaseCount": 3
   },
-  "createdAt": "2026-07-15T21:19:13.877Z"
+  "createdAt": "2026-07-15T21:22:09.768Z"
 }
