@@ -1,0 +1,41 @@
+{
+  "executionId": "MP-SPRINT-20260715152353",
+  "artifactType": "sprint-api-execution-summary",
+  "generatedAt": "2026-07-15T15:25:45.617Z",
+  "summary": {
+    "totalStories": 4,
+    "completedStories": 3,
+    "notExecutableStories": 1,
+    "failedStories": 0
+  },
+  "stories": [
+    {
+      "storyKey": "MP-1",
+      "executionId": "MP-SPRINT-20260715152353",
+      "status": "COMPLETED",
+      "executionResultsPath": "testcases/MP-1/api/execution-results.json",
+      "executionAnalysisPath": "testcases/MP-1/api/execution-analysis.json"
+    },
+    {
+      "storyKey": "MP-2",
+      "executionId": "MP-SPRINT-20260715152353",
+      "status": "COMPLETED",
+      "executionResultsPath": "testcases/MP-2/api/execution-results.json",
+      "executionAnalysisPath": "testcases/MP-2/api/execution-analysis.json"
+    },
+    {
+      "storyKey": "MP-3",
+      "executionId": "MP-SPRINT-20260715152353",
+      "status": "COMPLETED",
+      "executionResultsPath": "testcases/MP-3/api/execution-results.json",
+      "executionAnalysisPath": "testcases/MP-3/api/execution-analysis.json"
+    },
+    {
+      "storyKey": "MP-4",
+      "executionId": "MP-SPRINT-20260715152353",
+      "status": "NOT_EXECUTABLE",
+      "reason": "NO_API_TEST_CASES",
+      "executionResultsPath": null
+    }
+  ]
+}
