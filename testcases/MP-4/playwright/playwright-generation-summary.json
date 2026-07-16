@@ -29,7 +29,7 @@
     {
       "testCaseId": "TC-004",
       "status": "GENERATED",
-      "filePath": "playwright/contact-form-validation.spec.ts"
+      "filePath": "playwright/contact-form-validation-message-length.spec.ts"
     },
     {
       "testCaseId": "TC-005",
@@ -42,14 +42,14 @@
     "playwright/contact-form-accessibility.spec.ts",
     "playwright/contact-form-required-fields.spec.ts",
     "playwright/contact-form-subject-dropdown.spec.ts",
-    "playwright/contact-form-validation.spec.ts",
+    "playwright/contact-form-validation-message-length.spec.ts",
     "playwright/contact-form-success-message.spec.ts"
   ],
   "persistedGeneratedFiles": [
     "playwright/contact-form-accessibility.spec.ts",
     "playwright/contact-form-required-fields.spec.ts",
     "playwright/contact-form-subject-dropdown.spec.ts",
-    "playwright/contact-form-validation.spec.ts",
+    "playwright/contact-form-validation-message-length.spec.ts",
     "playwright/contact-form-success-message.spec.ts"
   ],
   "blockedGeneratedFiles": [],
@@ -58,7 +58,7 @@
     "status": "WARNING",
     "passed": true,
     "qualityScore": 85,
-    "reason": "The generated Playwright tests are mostly correct and compilable, with proper asynchronous handling and assertions. However, some selectors and assumptions about the UI accessibility roles and element counts appear guessed or weak. There are also hardcoded expected values marked with comments indicating adjustments needed based on the actual application. Overall, the tests are executable but require maintenance effort to align selectors and expected data with the real application."
+    "reason": "The Playwright test artifacts are mostly correct and executable with proper TypeScript usage and API utilization. All testCaseId values are preserved in test titles. The selectors leverage accessible roles and labels predominantly, improving selector quality. However, some selectors make assumptions about accessibility names and labels that may not be guaranteed, leading to potential fragility. The tests lack explicit verification of navigation success or navigation validation. Assertions on Locators are correctly awaited, and no invalid iterations over Locator objects are present. The code is maintainable and reusable with clear structure. Overall, the tests are useful but could be improved by strengthening selector robustness and adding navigation validation."
   },
   "sourceContext": {
     "manualTestCasesPath": "testcases/MP-4/manual/manual-testcases.json",
@@ -67,5 +67,5 @@
     "analysisSha": "df7ca19b23d8de2a82fc9fe80e37c8aee1badada",
     "manualTestCaseCount": 5
   },
-  "createdAt": "2026-07-16T11:25:14.540Z"
+  "createdAt": "2026-07-16T11:31:46.570Z"
 }
