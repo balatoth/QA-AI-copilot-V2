@@ -6,8 +6,8 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": false,
-  "repairAttempt": 0,
+  "repaired": true,
+  "repairAttempt": 1,
   "generatedTestCount": 3,
   "skippedTestCount": 0,
   "generatedTestCases": [
@@ -37,10 +37,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "WARNING",
+    "status": "PASS",
     "passed": true,
-    "qualityScore": 70,
-    "reason": "The Playwright tests are syntactically correct and mostly use Playwright APIs correctly but have some weaknesses in selectors and test robustness. There are incorrect assumptions about role names and page URLs, and some selectors appear guessed or generic. The test flow and assertions are mostly fine, but issues with selectors and navigation checks reduce reliability."
+    "qualityScore": 90,
+    "reason": "The repaired Playwright TypeScript tests are syntactically correct, use Playwright APIs properly, and include awaited asynchronous assertions. Selectors are mostly specific and reusable with a helper function. Test case IDs are preserved in test titles. Minor warnings on selector specificity but overall maintainable and robust."
   },
   "sourceContext": {
     "manualTestCasesPath": "testcases/MP-2/manual/manual-testcases.json",
@@ -49,5 +49,5 @@
     "analysisSha": "0a047e4542da3dcd27bcc87bf3ffdd8b59ec6b05",
     "manualTestCaseCount": 3
   },
-  "createdAt": "2026-07-16T12:13:50.245Z"
+  "createdAt": "2026-07-16T12:23:27.240Z"
 }
