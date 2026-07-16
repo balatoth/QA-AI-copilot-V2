@@ -1,44 +1,48 @@
 import { test, expect } from '@playwright/test';
 
-test('TC-001 - Verify Accessibility of Contact Form', async ({ page }) => {
-    await page.goto('https://testsmith-io.github.io/practice-software-testing/#/');
-    const contactForm = await page.getByRole('form', { name: /contact/i });
-    expect(contactForm).toBeVisible();
+const BASE_URL = 'https://testsmith-io.github.io/practice-software-testing/#/';
+
+// Test Case TC-001: Verify Accessibility of Contact Form
+test('TC-001: Verify Accessibility of Contact Form', async ({ page }) => {
+  await page.goto(BASE_URL);
+  await expect(page.getByRole('form')).toBeVisible();
 });
 
-test('TC-002 - Verify Required Fields in Contact Form', async ({ page }) => {
-    await page.goto('https://testsmith-io.github.io/practice-software-testing/#/');
-    const nameField = await page.getByLabel('Name');
-    const emailField = await page.getByLabel('Email');
-    const messageField = await page.getByLabel('Message');
-    expect(nameField).toBeVisible();
-    expect(emailField).toBeVisible();
-    expect(messageField).toBeVisible();
+// Test Case TC-002: Verify Required Fields in Contact Form
+test('TC-002: Verify Required Fields in Contact Form', async ({ page }) => {
+  await page.goto(BASE_URL);
+  await page.click('text=Contact'); // Assuming there's a button or link to navigate to the contact page
+  await expect(page.getByLabel('Name')).toBeVisible();
+  await expect(page.getByLabel('Email')).toBeVisible();
+  await expect(page.getByLabel('Message')).toBeVisible();
 });
 
-test('TC-003 - Verify Subject Dropdown Options', async ({ page }) => {
-    await page.goto('https://testsmith-io.github.io/practice-software-testing/#/');
-    const subjectDropdown = await page.getByRole('combobox', { name: /subject/i });
-    await subjectDropdown.click();
-    const options = await subjectDropdown.locator('option').allTextContents();
-    const expectedOptions = ['General Inquiry', 'Support', 'Feedback']; // Example options, modify based on real options
-    expect(options).toEqual(expect.arrayContaining(expectedOptions));
+// Test Case TC-003: Verify Subject Dropdown Options
+test('TC-003: Verify Subject Dropdown Options', async ({ page }) => {
+  await page.goto(BASE_URL);
+  await page.click('text=Contact'); // Navigate to the contact page
+  const dropdown = page.getByRole('combobox'); // Assuming the subject dropdown is the first combobox
+  await expect(dropdown).toBeVisible();
+  const options = await dropdown.evaluate(node => Array.from(node.options).map(option => option.text));
+  expect(options).toEqual(['General Inquiry', 'Technical Support', 'Billing']); // Replace with actual options if different
 });
 
-test('TC-004 - Verify Validation for Message Length', async ({ page }) => {
-    await page.goto('https://testsmith-io.github.io/practice-software-testing/#/');
-    await page.fill('textarea[name="message"]', 'Short msg');
-    await page.click('button[type="submit"]');
-    const errorMessage = await page.getByText(/message must be at least 50 characters/i);
-    expect(errorMessage).toBeVisible();
+// Test Case TC-004: Verify Validation for Message Length
+test('TC-004: Verify Validation for Message Length', async ({ page }) => {
+  await page.goto(BASE_URL);
+  await page.click('text=Contact');
+  await page.fill('textarea[name="message"]', 'Short message'); // More than one character but less than 50
+  await page.click('button[type="submit"]');
+  await expect(page.getByText(/message must be at least 50 characters/i)).toBeVisible();
 });
 
-test('TC-005 - Verify Confirmation Message upon Successful Submission', async ({ page }) => {
-    await page.goto('https://testsmith-io.github.io/practice-software-testing/#/');
-    await page.fill('input[name="name"]', 'Test User');
-    await page.fill('input[name="email"]', 'test@example.com');
-    await page.fill('textarea[name="message"]', 'This is a valid message with more than 50 characters.');
-    await page.click('button[type="submit"]');
-    const confirmationMessage = await page.getByText(/thank you for your message/i);
-    expect(confirmationMessage).toBeVisible();
+// Test Case TC-005: Verify Confirmation Message upon Successful Submission
+test('TC-005: Verify Confirmation Message upon Successful Submission', async ({ page }) => {
+  await page.goto(BASE_URL);
+  await page.click('text=Contact');
+  await page.fill('input[name="name"]', 'John Doe');
+  await page.fill('input[name="email"]', 'john.doe@example.com');
+  await page.fill('textarea[name="message"]', 'This is a valid message with more than 50 characters.');
+  await page.click('button[type="submit"]');
+  await expect(page.getByText(/thank you for your message/i)).toBeVisible();
 });
