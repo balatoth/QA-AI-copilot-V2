@@ -1,10 +1,12 @@
 import { test, expect } from '@playwright/test';
 
+const baseUrl = 'https://testsmith-io.github.io/practice-software-testing/#/';
+
 test('TC-002 - Verify Required Fields in Contact Form', async ({ page }) => {
-  await page.goto('https://testsmith-io.github.io/practice-software-testing/#/');
-  const contactLink = await page.getByText('Contact');
+  await page.goto(baseUrl);
+  const contactLink = page.getByRole('link', { name: 'Contact' });
   await contactLink.click();
-  const requiredFields = await page.getByRole('textbox', { name: /name/i }); // Example field
-  expect(requiredFields).toBeVisible();
-  // Add checks for all required fields
+
+  const requiredFields = await page.locator('input[required], textarea[required]'); // Selecting all required fields
+  await expect(requiredFields).toHaveCount(3); // Adjust count based on actual required fields
 });
