@@ -2,45 +2,51 @@
   "artifactType": "playwright",
   "storyKey": "MP-2",
   "reviewStatus": "WARNING",
-  "qualityScore": 75,
-  "summary": "The tests compile and run without errors, correctly using Playwright APIs and asynchronous assertions. The testCaseIds are preserved in test titles, and all GENERATED tests are included. However, some selectors are weak or placeholders, and assumptions made in selectors and assertions reduce reliability. Iteration over element handles instead of Locator violates best practices and risks flakiness.",
+  "qualityScore": 7,
+  "summary": "The Playwright tests compile and run without evident errors and largely use Playwright APIs correctly. However, selectors are often weak or assumed (e.g., generic 'product name' link, generic roles like heading without robust context, text matching with placeholders like 'category badge' and 'brand badge'). Navigation assertions checking URLs are regex-based but generic and might not uniquely identify detail pages. Clicking each related product assumes all related products share a URL pattern /product-detail/ which may be unreliable. There is some reuse in baseUrl and reasonable assertions, but robustness and selector specificity need improvement for maintainability and reliability.",
   "scores": {
-    "correctness": 10,
-    "selectorQuality": 6,
-    "assertionStrength": 8,
+    "correctness": 9,
+    "selectorQuality": 5,
+    "assertionStrength": 7,
     "reusability": 7,
-    "maintainability": 7,
-    "testDataHandling": 8,
-    "playwrightBestPractices": 6
+    "maintainability": 6,
+    "testDataHandling": 7,
+    "playwrightBestPractices": 8
   },
   "issues": [
     {
-      "severity": "HIGH",
-      "category": "Playwright API Misuse",
-      "file": "playwright/product-overview.spec.ts",
-      "description": "In TC-003, the code uses page.$$(selector) to get an array of ElementHandle and then attempts to use expect(product).toBeClickable() on each handle. Playwright assertions should be applied on Locators, not ElementHandles. This violates best practices and risks flakiness or errors.",
-      "recommendation": "Use page.locator(selector) and iterate with locator.nth(i) or locator.first() for assertions instead of querying with page.$$."
-    },
-    {
-      "severity": "LOW",
+      "severity": "MEDIUM",
       "category": "Selector Quality",
-      "file": "playwright/product-overview.spec.ts",
-      "description": "In all tests, selectors such as 'link with /product name/i', 'selector-for-related-products', and generic getByText or getByRole with minimal context are weak and rely on assumptions. This reduces test stability.",
-      "recommendation": "Use more specific selectors or data-testid attributes when possible to ensure stable and robust element targeting."
+      "file": "playwright/product-detail.spec.ts",
+      "description": "Selectors use assumptions or generic text such as 'product name', 'category badge', 'brand badge', and regexes that might not uniquely identify elements.",
+      "recommendation": "Use stable, data-driven selectors or attributes (data-testid or data-qa) to uniquely identify key elements."
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "Navigation Validation",
+      "file": "playwright/product-detail.spec.ts",
+      "description": "URL validation with /product-detail/ regex is generic and might not ensure the test is on the expected product detail page.",
+      "recommendation": "Assert on URL including product ID or slug or on the presence of unique page elements to confirm correct navigation."
     },
     {
       "severity": "LOW",
-      "category": "Navigation Validation",
-      "file": "playwright/product-overview.spec.ts",
-      "description": "In TC-001, URL validation only checks if the URL contains 'product-detail' which is weak to confirm the correct product detail page loaded.",
-      "recommendation": "Enhance validation by checking page content or more detailed URL structure to confirm that the expected product detail page was loaded."
+      "category": "Selectors and Assertions",
+      "file": "playwright/product-detail.spec.ts",
+      "description": "Assertions apply to generic roles or text that may lead to false positives, e.g., getByRole('heading') and getByText(/product description/i).",
+      "recommendation": "Narrow selectors by specific roles with accessible names or use test IDs to increase robustness."
+    },
+    {
+      "severity": "LOW",
+      "category": "Test Flow",
+      "file": "playwright/product-detail.spec.ts",
+      "description": "In TC-003, clicking each related product assumes all navigate to a product detail page and uses page.goBack() to return, which may be flaky.",
+      "recommendation": "Consider validating product links before clicking or isolate tests per related product navigation to avoid flaky back navigation."
     }
   ],
   "recommendations": [
-    "Replace page.$$ with page.locator to handle multiple elements properly.",
-    "Avoid using placeholder selectors like 'selector-for-related-products'; replace with real, stable selectors.",
-    "Improve URL and content validations in tests to strengthen assertion reliability.",
-    "Consider adding comments or test data management to reduce assumptions in selectors.",
-    "Refine selectors by using data attributes or unique identifiers instead of generic role or text queries."
+    "Add or use stable selectors such as data-testid attributes to uniquely identify elements.",
+    "Enhance navigation assertions to check for product-specific identifiers in URL or page content.",
+    "Avoid generic roles or text selectors that may collide with multiple elements.",
+    "Consider splitting loop iterations in related product tests into separate parameterized tests for clarity and stability."
   ]
 }
