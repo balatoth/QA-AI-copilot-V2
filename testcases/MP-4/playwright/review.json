@@ -1,38 +1,38 @@
 {
   "artifactType": "playwright",
   "storyKey": "MP-4",
-  "reviewStatus": "PASS",
+  "reviewStatus": "WARNING",
   "qualityScore": 85,
-  "summary": "The generated Playwright tests are functionally sound with proper asynchronous handling, correct use of API, and valid TypeScript syntax. Each test case includes the testCaseId in the title and correctly maps to the intended test steps. Assertions target locators properly and use 'await' where required. Some selector usage relies on roles and labels which may become brittle if the UI changes; also, hardcoded expected options in test TC-003 might lead to fragility if the dropdown items change. Overall, the tests are maintainable and reusable, but selector robustness and externalizing test data could be improved.",
+  "summary": "The code is mostly correct, compilable, and uses Playwright APIs properly with awaited assertions. All testCaseIds are preserved in test titles and the tests cover the stated scenarios. However, some selectors rely on guessed text selectors and assumptions about page structure which could be brittle if UI changes. The checks for dropdown options and message validation are good but could be more robust with better selectors and possibly explicit navigation validation for the contact page. No major API misuse or asynchronous issues found.",
   "scores": {
     "correctness": 10,
-    "selectorQuality": 7,
+    "selectorQuality": 8,
     "assertionStrength": 9,
-    "reusability": 8,
+    "reusability": 7,
     "maintainability": 8,
-    "testDataHandling": 6,
+    "testDataHandling": 8,
     "playwrightBestPractices": 9
   },
   "issues": [
     {
-      "severity": "LOW",
-      "category": "Selector Quality",
+      "severity": "MEDIUM",
+      "category": "Selector Robustness",
       "file": "playwright/contact-form.spec.ts",
-      "description": "Selectors rely on roles and labels which may be fragile if UI or accessibility roles change.",
-      "recommendation": "Consider using more robust data-testid attributes or stable element identifiers for selectors."
+      "description": "Selectors such as 'text=Contact' and assumptions on getByRole('combobox') being the subject dropdown may be brittle if UI text or structure changes.",
+      "recommendation": "Use more stable selectors such as data-testid attributes or more specific roles/labels. Consider confirming navigation to the contact form page explicitly."
     },
     {
       "severity": "LOW",
-      "category": "Test Data Handling",
+      "category": "Navigation Validation",
       "file": "playwright/contact-form.spec.ts",
-      "description": "Test data such as expected dropdown options and input message strings are hardcoded inside tests.",
-      "recommendation": "Externalize test data into data files or test fixtures to improve maintainability and reuse."
+      "description": "Navigation to the Contact page is done by clicking 'text=Contact' but there is no validation that the navigation succeeded before assertions.",
+      "recommendation": "Add an assertion to confirm the contact form is visible after navigation before proceeding with further checks."
     }
   ],
   "recommendations": [
-    "Enhance selector resilience by using dedicated test attributes where possible.",
-    "Extract test data into separate files or constants for better maintenance.",
-    "Add validation on navigation to confirm landing on the correct page before interacting with elements.",
-    "Consider wrapping repetitive navigation steps into reusable test hooks or functions."
+    "Add explicit navigation validation after clicking Contact, e.g., await expect(page.getByRole('form')).toBeVisible();",
+    "Replace 'text=Contact' with more robust selectors if possible (e.g., test ids).",
+    "Verify the subject dropdown selector to avoid relying on the first 'combobox' role if multiple exist.",
+    "Consider extracting common navigation or selectors into reusable fixtures or functions to improve maintainability."
   ]
 }
