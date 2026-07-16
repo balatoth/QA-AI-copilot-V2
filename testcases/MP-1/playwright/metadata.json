@@ -5,14 +5,14 @@
   "repaired": false,
   "repairAttempt": 0,
   "reviewStatus": "WARNING",
-  "qualityScore": 75,
+  "qualityScore": 60,
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 75,
-    "reason": "The Playwright tests are compilable and mostly use Playwright APIs correctly. All async assertions are awaited, and there is no incorrect use of Locators as arrays. However, the selectors rely on assumed roles like 'grid' and generic locators that may not be robust or guaranteed. The navigation check on product detail page URL is weak, using only a partial URL match. Test case IDs are preserved in test titles, and all GENERATED cases have Playwright tests."
+    "qualityScore": 60,
+    "reason": "The Playwright tests compile and use Playwright APIs correctly but contain weak selectors and assertions with potential placeholder or guessed values. Await is correctly used on async assertions, and testCaseId values are preserved. However, some assertions appear contradictory or too generic, and navigation verification could be stronger. No test data handling or reusable elements are implemented, reducing maintainability and reusability."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-16T08:46:06.224Z"
+  "createdAt": "2026-07-16T08:52:58.414Z"
 }
