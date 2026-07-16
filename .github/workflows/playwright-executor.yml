@@ -54,19 +54,66 @@ jobs:
         working-directory: practice-software-testing
         shell: bash
         run: |
-          docker compose -f docker-compose.yml up -d
+          docker compose \
+            -f docker-compose.prod.yml \
+            up --pull missing -d
 
-      - name: Seed Practice Software Testing database
+      - name: Show running containers
         working-directory: practice-software-testing
         shell: bash
         run: |
-          docker compose exec -T laravel-api php artisan migrate:refresh --seed
+          docker compose \
+            -f docker-compose.prod.yml \
+            ps
+
+      - name: Wait for Practice Software Testing UI
+        shell: bash
+        run: |
+          echo "Waiting for UI at http://localhost:4200"
+
+          for attempt in {1..60}; do
+            if curl --fail --silent --show-error \
+              http://localhost:4200 > /dev/null; then
+              echo "Practice Software Testing UI is ready."
+              exit 0
+            fi
+
+            echo "Attempt ${attempt}/60: UI is not ready yet."
+            sleep 5
+          done
+
+          echo "UI did not become ready in time."
+          docker compose \
+            -f practice-software-testing/docker-compose.prod.yml \
+            ps
+
+          docker compose \
+            -f practice-software-testing/docker-compose.prod.yml \
+            logs --tail=200
+
+          exit 1
 
       - name: Create Playwright execution workspace
         shell: bash
         run: |
           mkdir -p playwright-execution/tests
-          cp "${{ inputs.specPath }}" playwright-execution/tests/story.spec.ts
+          cp "${{ inputs.specPath }}" \
+            playwright-execution/tests/story.spec.ts
+
+      - name: Replace hosted application URL with local Docker URL
+        shell: bash
+        run: |
+          sed -i \
+            "s|https://practicesoftwaretesting.com/|http://localhost:4200/|g" \
+            playwright-execution/tests/story.spec.ts
+
+          sed -i \
+            "s|https://testsmith-io.github.io/practice-software-testing/#/|http://localhost:4200/|g" \
+            playwright-execution/tests/story.spec.ts
+
+          echo "Execution target:"
+          grep -n "baseUrl" \
+            playwright-execution/tests/story.spec.ts || true
 
       - name: Create package.json
         working-directory: playwright-execution
@@ -125,18 +172,23 @@ jobs:
         shell: bash
         run: |
           set +e
+
           npx playwright test tests/story.spec.ts
+
           exit_code=$?
+
           echo "exitCode=$exit_code" >> "$GITHUB_OUTPUT"
+
           exit 0
 
       - name: Ensure results file exists
         if: always()
-        working-directory: playwright-execution
         shell: bash
         run: |
-          if [ ! -f playwright-results.json ]; then
-            cat > playwright-results.json <<EOF
+          mkdir -p playwright-execution
+
+          if [ ! -f playwright-execution/playwright-results.json ]; then
+            cat > playwright-execution/playwright-results.json <<EOF
           {
             "config": {},
             "suites": [],
@@ -159,15 +211,17 @@ jobs:
 
       - name: Create execution metadata
         if: always()
-        working-directory: playwright-execution
         shell: bash
         run: |
-          cat > execution-metadata.json <<EOF
+          mkdir -p playwright-execution
+
+          cat > playwright-execution/execution-metadata.json <<EOF
           {
             "storyKey": "${{ inputs.storyKey }}",
             "executionId": "${{ inputs.executionId }}",
             "specPath": "${{ inputs.specPath }}",
             "branch": "${{ inputs.branch }}",
+            "executionApplicationUrl": "http://localhost:4200/",
             "workflowRunId": "${{ github.run_id }}",
             "workflowRunAttempt": "${{ github.run_attempt }}",
             "commitSha": "${{ github.sha }}",
@@ -187,3 +241,23 @@ jobs:
             playwright-execution/test-results/
           if-no-files-found: warn
           retention-days: 14
+
+      - name: Show Docker logs on failure
+        if: failure()
+        shell: bash
+        run: |
+          docker compose \
+            -f practice-software-testing/docker-compose.prod.yml \
+            ps || true
+
+          docker compose \
+            -f practice-software-testing/docker-compose.prod.yml \
+            logs --tail=200 || true
+
+      - name: Stop Practice Software Testing
+        if: always()
+        shell: bash
+        run: |
+          docker compose \
+            -f practice-software-testing/docker-compose.prod.yml \
+            down --volumes || true
