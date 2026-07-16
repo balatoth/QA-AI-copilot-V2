@@ -3,30 +3,29 @@ import { test, expect } from '@playwright/test';
 const baseURL = 'https://testsmith-io.github.io/practice-software-testing/#/';
 
 test.describe('Product Browsing by Category', () => {
-  test('TC-001 - Display Category Page on Click', async ({ page }) => {
+  test('TC-001: Display Category Page on Click', async ({ page }) => {
     await page.goto(baseURL);
-    // Assuming there's a role for category list items
-    const categoryLink = page.getByRole('link', { name: 'Desired Category Name' }); // replace with an actual category name
+    // Assuming categories are listed as buttons/links that can be clicked
+    const categoryLink = await page.locator('text=Electronics'); // Adjust based on actual category
     await categoryLink.click();
-    await expect(page).toHaveURL(/category/); // Assuming categories have URLs containing the word 'category'
-    await expect(page.locator('h1')).toBeVisible(); // Assuming the category name appears in an h1
+    expect(await page.title()).toContain('Electronics'); // Adjust according to expected title
   });
 
-  test('TC-002 - Display Category Name as Page Title', async ({ page }) => {
+  test('TC-002: Display Category Name as Page Title', async ({ page }) => {
     await page.goto(baseURL);
-    const categoryLink = page.getByRole('link', { name: 'Desired Category Name' }); // replace with an actual category name
+    const categoryLink = await page.locator('text=Electronics');
     await categoryLink.click();
-    const categoryTitle = await page.locator('h1').innerText();
-    await expect(categoryTitle).toBe('Desired Category Name'); // replace with the category name
+    expect(await page.title()).toContain('Electronics'); // Ensure title reflects clicked category
   });
 
-  test('TC-003 - Show Only Relevant Products on Category Page', async ({ page }) => {
+  test('TC-003: Show Only Relevant Products on Category Page', async ({ page }) => {
     await page.goto(baseURL);
-    const categoryLink = page.getByRole('link', { name: 'Desired Category Name' }); // replace with an actual category name
+    const categoryLink = await page.locator('text=Electronics');
     await categoryLink.click();
-    const products = page.locator('.product'); // Assuming '.product' is the class for product items
-    const visibleProducts = await products.count();
-    await expect(visibleProducts).toBeGreaterThan(0); // Ensure there are products displayed
-    // Additional logic might be needed to verify products belong to the selected category, assumed already in the Products page
+    const productItems = await page.locator('.product-item'); // Assuming products have a specific class
+    const productsVisible = await productItems.count();
+    // This needs logical checks based on the actual product data; assuming some way to verify products
+    expect(productsVisible).toBeGreaterThan(0); // Verify that there are products listed
+    // Additional verification would be done here to ensure they belong to 'Electronics'
   });
 });
