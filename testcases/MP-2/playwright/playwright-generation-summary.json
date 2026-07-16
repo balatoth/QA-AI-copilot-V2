@@ -1,0 +1,53 @@
+{
+  "storyKey": "MP-2",
+  "storyTitle": "Product Detail",
+  "application": "Practice Software Testing",
+  "manualReviewRequired": false,
+  "finalStatus": "COMPLETED",
+  "status": "COMPLETED",
+  "scope": "PLAYWRIGHT_GENERATION",
+  "repaired": false,
+  "repairAttempt": 0,
+  "generatedTestCount": 3,
+  "skippedTestCount": 0,
+  "generatedTestCases": [
+    {
+      "testCaseId": "TC-001",
+      "status": "GENERATED",
+      "filePath": "playwright/product-overview.spec.ts"
+    },
+    {
+      "testCaseId": "TC-002",
+      "status": "GENERATED",
+      "filePath": "playwright/product-overview.spec.ts"
+    },
+    {
+      "testCaseId": "TC-003",
+      "status": "GENERATED",
+      "filePath": "playwright/product-overview.spec.ts"
+    }
+  ],
+  "skippedTestCases": [],
+  "generatedFiles": [
+    "playwright/product-overview.spec.ts"
+  ],
+  "persistedGeneratedFiles": [
+    "playwright/product-overview.spec.ts"
+  ],
+  "blockedGeneratedFiles": [],
+  "warnings": [],
+  "qualityGate": {
+    "status": "WARNING",
+    "passed": true,
+    "qualityScore": 75,
+    "reason": "The provided Playwright tests are mostly correct in usage of Playwright APIs and asynchronous assertions. However, there are weaknesses in selector quality (use of unclear or placeholder selectors), assumptions about page structure without explicit evidence, and slightly weak navigation validation in TC-001. The iteration over locator elements is done correctly by using count and nth methods. There are no compilation or major API misuse issues."
+  },
+  "sourceContext": {
+    "manualTestCasesPath": "testcases/MP-2/manual/manual-testcases.json",
+    "manualTestCasesSha": "e81bceb651d96cb1949981cd038d0185cfdb57f6",
+    "analysisPath": "testcases/MP-2/test-analysis.json",
+    "analysisSha": "0a047e4542da3dcd27bcc87bf3ffdd8b59ec6b05",
+    "manualTestCaseCount": 3
+  },
+  "createdAt": "2026-07-16T09:05:41.915Z"
+}
