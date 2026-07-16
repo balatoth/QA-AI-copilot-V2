@@ -5,14 +5,14 @@
   "repaired": false,
   "repairAttempt": 0,
   "reviewStatus": "WARNING",
-  "qualityScore": 75,
+  "qualityScore": 70,
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 75,
-    "reason": "The artifacts compile and use Playwright APIs correctly but have some issues with selectors which are weak and some navigation assertions lack robustness. There are no asynchronous assertion issues or misuse of Locator APIs. The testCaseIds are correctly preserved and mapping is complete."
+    "qualityScore": 70,
+    "reason": "The Playwright tests compile and use Playwright APIs correctly, preserving test case IDs and using valid asynchronous assertions. However, selectors contain placeholders and appear weak or guessed, e.g., 'product name', 'related product name', 'category badge', and 'brand badge', reducing reliability. Navigation URL checks use weak regex patterns without verifying unique product identity, risking false positives. Assertions rely on generic roles and text matching that may not be robust. No reusability or maintainability patterns such as page objects are employed."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-16T09:49:33.308Z"
+  "createdAt": "2026-07-16T09:53:38.502Z"
 }
