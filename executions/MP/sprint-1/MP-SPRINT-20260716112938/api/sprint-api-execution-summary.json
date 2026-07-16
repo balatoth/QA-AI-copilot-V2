@@ -1,0 +1,165 @@
+{
+  "executionId": "MP-SPRINT-20260716112938",
+  "artifactType": "sprint-api-execution-summary",
+  "generatedAt": "2026-07-16T11:31:55.522Z",
+  "summary": {
+    "totalStories": 4,
+    "completedStories": 4,
+    "notExecutableStories": 0,
+    "failedStories": 0
+  },
+  "stories": [
+    {
+      "storyKey": "MP-1",
+      "executionId": "MP-SPRINT-20260716112938",
+      "status": "COMPLETED",
+      "scope": "STORY_EXECUTION",
+      "apiExecution": {
+        "storyKey": "MP-1",
+        "executionId": "MP-SPRINT-20260716112938",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-1/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-1/api/execution-analysis.json"
+      },
+      "playwrightGeneration": {
+        "storyKey": "MP-1",
+        "executionId": "MP-SPRINT-20260716112938",
+        "status": "COMPLETED",
+        "scope": "PLAYWRIGHT_GENERATION",
+        "qualityGatePassed": true,
+        "reviewStatus": "WARNING",
+        "qualityScore": 75,
+        "repaired": false,
+        "repairAttempt": 0,
+        "generatedTestCount": 3,
+        "skippedTestCount": 0,
+        "generatedFiles": [
+          "playwright/product-overview.spec.ts"
+        ],
+        "persistedGeneratedFiles": [
+          "playwright/product-overview.spec.ts"
+        ],
+        "blockedGeneratedFiles": [],
+        "playwrightSummaryPath": "testcases/MP-1/playwright/playwright-generation-summary.json",
+        "playwrightReviewPath": "testcases/MP-1/playwright/review.json",
+        "playwrightMetadataPath": "testcases/MP-1/playwright/metadata.json"
+      }
+    },
+    {
+      "storyKey": "MP-2",
+      "executionId": "MP-SPRINT-20260716112938",
+      "status": "COMPLETED",
+      "scope": "STORY_EXECUTION",
+      "apiExecution": {
+        "storyKey": "MP-2",
+        "executionId": "MP-SPRINT-20260716112938",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-2/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-2/api/execution-analysis.json"
+      },
+      "playwrightGeneration": {
+        "storyKey": "MP-2",
+        "executionId": "MP-SPRINT-20260716112938",
+        "status": "COMPLETED",
+        "scope": "PLAYWRIGHT_GENERATION",
+        "qualityGatePassed": true,
+        "reviewStatus": "WARNING",
+        "qualityScore": 75,
+        "repaired": false,
+        "repairAttempt": 0,
+        "generatedTestCount": 3,
+        "skippedTestCount": 0,
+        "generatedFiles": [
+          "playwright/product-overview.spec.ts"
+        ],
+        "persistedGeneratedFiles": [
+          "playwright/product-overview.spec.ts"
+        ],
+        "blockedGeneratedFiles": [],
+        "playwrightSummaryPath": "testcases/MP-2/playwright/playwright-generation-summary.json",
+        "playwrightReviewPath": "testcases/MP-2/playwright/review.json",
+        "playwrightMetadataPath": "testcases/MP-2/playwright/metadata.json"
+      }
+    },
+    {
+      "storyKey": "MP-3",
+      "executionId": "MP-SPRINT-20260716112938",
+      "status": "COMPLETED",
+      "scope": "STORY_EXECUTION",
+      "apiExecution": {
+        "storyKey": "MP-3",
+        "executionId": "MP-SPRINT-20260716112938",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-3/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-3/api/execution-analysis.json"
+      },
+      "playwrightGeneration": {
+        "storyKey": "MP-3",
+        "executionId": "MP-SPRINT-20260716112938",
+        "status": "COMPLETED",
+        "scope": "PLAYWRIGHT_GENERATION",
+        "qualityGatePassed": true,
+        "reviewStatus": "WARNING",
+        "qualityScore": 65,
+        "repaired": false,
+        "repairAttempt": 0,
+        "generatedTestCount": 3,
+        "skippedTestCount": 0,
+        "generatedFiles": [
+          "playwright/product-overview.spec.ts"
+        ],
+        "persistedGeneratedFiles": [
+          "playwright/product-overview.spec.ts"
+        ],
+        "blockedGeneratedFiles": [],
+        "playwrightSummaryPath": "testcases/MP-3/playwright/playwright-generation-summary.json",
+        "playwrightReviewPath": "testcases/MP-3/playwright/review.json",
+        "playwrightMetadataPath": "testcases/MP-3/playwright/metadata.json"
+      }
+    },
+    {
+      "storyKey": "MP-4",
+      "executionId": "MP-SPRINT-20260716112938",
+      "status": "COMPLETED",
+      "scope": "STORY_EXECUTION",
+      "apiExecution": {
+        "storyKey": "MP-4",
+        "executionId": "MP-SPRINT-20260716112938",
+        "status": "NOT_EXECUTABLE",
+        "reason": "NO_API_TEST_CASES",
+        "executionResultsPath": null
+      },
+      "playwrightGeneration": {
+        "storyKey": "MP-4",
+        "executionId": "MP-SPRINT-20260716112938",
+        "status": "COMPLETED",
+        "scope": "PLAYWRIGHT_GENERATION",
+        "qualityGatePassed": true,
+        "reviewStatus": "WARNING",
+        "qualityScore": 85,
+        "repaired": false,
+        "repairAttempt": 0,
+        "generatedTestCount": 5,
+        "skippedTestCount": 0,
+        "generatedFiles": [
+          "playwright/contact-form-accessibility.spec.ts",
+          "playwright/contact-form-required-fields.spec.ts",
+          "playwright/contact-form-subject-dropdown.spec.ts",
+          "playwright/contact-form-validation-message-length.spec.ts",
+          "playwright/contact-form-success-message.spec.ts"
+        ],
+        "persistedGeneratedFiles": [
+          "playwright/contact-form-accessibility.spec.ts",
+          "playwright/contact-form-required-fields.spec.ts",
+          "playwright/contact-form-subject-dropdown.spec.ts",
+          "playwright/contact-form-validation-message-length.spec.ts",
+          "playwright/contact-form-success-message.spec.ts"
+        ],
+        "blockedGeneratedFiles": [],
+        "playwrightSummaryPath": "testcases/MP-4/playwright/playwright-generation-summary.json",
+        "playwrightReviewPath": "testcases/MP-4/playwright/review.json",
+        "playwrightMetadataPath": "testcases/MP-4/playwright/metadata.json"
+      }
+    }
+  ]
+}
