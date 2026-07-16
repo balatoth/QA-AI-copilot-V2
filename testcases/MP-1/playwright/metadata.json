@@ -5,14 +5,14 @@
   "repaired": false,
   "repairAttempt": 0,
   "reviewStatus": "WARNING",
-  "qualityScore": 75,
+  "qualityScore": 8,
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 75,
-    "reason": "The tests are generally valid TypeScript and use Playwright APIs correctly with proper awaits and assertions. However, there are some concerns regarding selector quality and assertion strength. The selectors rely on generic classes and elements (e.g., '.product-card', 'h2', '.price') without robust specificity or context, which may cause flakiness. The use of 'role=grid' is assumed without verified semantic roles, and the navigation check verifies only a partial URL match, which may not fully confirm correct navigation. The test cases preserve their IDs in test titles and the coverage matches the generated mapping. No compilation or API misuse issues were found, nor iteration over Locator type without awaited elementHandles. Overall, the tests are executable but could be improved in selector robustness and assertion certainty."
+    "qualityScore": 8,
+    "reason": "The generated Playwright tests are syntactically correct and mostly follow Playwright best practices. All test cases have preserved testCaseIds in the test titles and include proper use of await with assertions. However, there are concerns about selector reliability and navigation validation strength. The selector '[role=\"grid\"]' is assumed without verification the page uses roles, which might be weak or brittle. Similarly, selectors like '.product-card', '.product-name', and '.product-price' rely on assumed class names without additional context, which could reduce robustness. The navigation URL check uses a generic regex pattern that may not guarantee correct product detail page navigation. There are no issues with asynchronous handling or incorrect API usage."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-16T08:58:14.131Z"
+  "createdAt": "2026-07-16T09:01:46.080Z"
 }
