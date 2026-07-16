@@ -1,0 +1,18 @@
+{
+  "storyKey": "MP-4",
+  "artifactType": "playwright",
+  "generatorVersion": "v0.4.7.1",
+  "repaired": false,
+  "repairAttempt": 0,
+  "reviewStatus": "WARNING",
+  "qualityScore": 85,
+  "qualityGate": {
+    "status": "WARNING",
+    "passed": true,
+    "qualityScore": 85,
+    "reason": "The Playwright tests compile and use Playwright APIs correctly, with proper use of locators and asynchronous assertions. However, there are some warnings related to weak or assumed selectors and some fragile assumptions on accessibility roles and element presence without explicit validation. All testCaseIds are preserved in titles and corresponding tests exist. No compilation, API misuse, or async assertion issues are found."
+  },
+  "manualReviewRequired": false,
+  "finalStatus": "COMPLETED",
+  "createdAt": "2026-07-16T09:19:18.162Z"
+}
