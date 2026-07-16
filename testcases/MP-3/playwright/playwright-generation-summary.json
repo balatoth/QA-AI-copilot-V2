@@ -6,8 +6,8 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": false,
-  "repairAttempt": 0,
+  "repaired": true,
+  "repairAttempt": 1,
   "generatedTestCount": 3,
   "skippedTestCount": 0,
   "generatedTestCases": [
@@ -37,10 +37,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "WARNING",
+    "status": "PASS",
     "passed": true,
-    "qualityScore": 65,
-    "reason": "The Playwright tests compile and use APIs correctly with awaited assertions, preserving test case IDs. However, selector quality is weak due to placeholder regex selectors ('category name'), generic selectors (h1), and assumptions without verification about the page content and product-category relationship. Assertions on page title and product relevance require stronger selectors or additional validation. There is no test data handling or reuse of selectors which impacts maintainability and reusability."
+    "qualityScore": 90,
+    "reason": "The repaired Playwright TypeScript tests compile and run correctly, use Playwright APIs properly with awaited asynchronous assertions, and maintain all test case IDs. Selectors are reasonable given the context, and the tests are maintainable and reusable. Minor improvements could be made in selector specificity and test data handling."
   },
   "sourceContext": {
     "manualTestCasesPath": "testcases/MP-3/manual/manual-testcases.json",
@@ -49,5 +49,5 @@
     "analysisSha": "b62632b449d6f00fd060b3fa822afa48314dfb27",
     "manualTestCaseCount": 3
   },
-  "createdAt": "2026-07-16T09:28:55.645Z"
+  "createdAt": "2026-07-16T09:44:00.324Z"
 }
