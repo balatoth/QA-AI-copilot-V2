@@ -4,15 +4,15 @@
   "generatorVersion": "v0.4.7.1",
   "repaired": false,
   "repairAttempt": 0,
-  "reviewStatus": "PASS",
+  "reviewStatus": "WARNING",
   "qualityScore": 85,
   "qualityGate": {
-    "status": "PASS",
+    "status": "WARNING",
     "passed": true,
     "qualityScore": 85,
-    "reason": "The generated Playwright tests are functionally sound with proper asynchronous handling, correct use of API, and valid TypeScript syntax. Each test case includes the testCaseId in the title and correctly maps to the intended test steps. Assertions target locators properly and use 'await' where required. Some selector usage relies on roles and labels which may become brittle if the UI changes; also, hardcoded expected options in test TC-003 might lead to fragility if the dropdown items change. Overall, the tests are maintainable and reusable, but selector robustness and externalizing test data could be improved."
+    "reason": "The code is mostly correct, compilable, and uses Playwright APIs properly with awaited assertions. All testCaseIds are preserved in test titles and the tests cover the stated scenarios. However, some selectors rely on guessed text selectors and assumptions about page structure which could be brittle if UI changes. The checks for dropdown options and message validation are good but could be more robust with better selectors and possibly explicit navigation validation for the contact page. No major API misuse or asynchronous issues found."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-16T12:14:46.119Z"
+  "createdAt": "2026-07-16T12:24:13.901Z"
 }
