@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const baseUrl = 'https://testsmith-io.github.io/practice-software-testing/#/';
+const baseUrl = 'https://practicesoftwaretesting.com/';
 
 // Test Case TC-001
 test('TC-001 - Verify grid of product cards is displayed on home page', async ({ page }) => {
