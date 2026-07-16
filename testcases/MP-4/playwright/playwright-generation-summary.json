@@ -1,0 +1,71 @@
+{
+  "storyKey": "MP-4",
+  "storyTitle": "Contact Form",
+  "application": "Practice Software Testing",
+  "manualReviewRequired": false,
+  "finalStatus": "COMPLETED",
+  "status": "COMPLETED",
+  "scope": "PLAYWRIGHT_GENERATION",
+  "repaired": false,
+  "repairAttempt": 0,
+  "generatedTestCount": 5,
+  "skippedTestCount": 0,
+  "generatedTestCases": [
+    {
+      "testCaseId": "TC-001",
+      "status": "GENERATED",
+      "filePath": "playwright/contact-form.accessibility.spec.ts"
+    },
+    {
+      "testCaseId": "TC-002",
+      "status": "GENERATED",
+      "filePath": "playwright/contact-form.required-fields.spec.ts"
+    },
+    {
+      "testCaseId": "TC-003",
+      "status": "GENERATED",
+      "filePath": "playwright/contact-form.subject-dropdown.spec.ts"
+    },
+    {
+      "testCaseId": "TC-004",
+      "status": "GENERATED",
+      "filePath": "playwright/contact-form.message-validation.spec.ts"
+    },
+    {
+      "testCaseId": "TC-005",
+      "status": "GENERATED",
+      "filePath": "playwright/contact-form.successful-submission.spec.ts"
+    }
+  ],
+  "skippedTestCases": [],
+  "generatedFiles": [
+    "playwright/contact-form.accessibility.spec.ts",
+    "playwright/contact-form.required-fields.spec.ts",
+    "playwright/contact-form.subject-dropdown.spec.ts",
+    "playwright/contact-form.message-validation.spec.ts",
+    "playwright/contact-form.successful-submission.spec.ts"
+  ],
+  "persistedGeneratedFiles": [
+    "playwright/contact-form.accessibility.spec.ts",
+    "playwright/contact-form.required-fields.spec.ts",
+    "playwright/contact-form.subject-dropdown.spec.ts",
+    "playwright/contact-form.message-validation.spec.ts",
+    "playwright/contact-form.successful-submission.spec.ts"
+  ],
+  "blockedGeneratedFiles": [],
+  "warnings": [],
+  "qualityGate": {
+    "status": "WARNING",
+    "passed": true,
+    "qualityScore": 85,
+    "reason": "The Playwright tests compile and use Playwright APIs correctly, with proper use of locators and asynchronous assertions. However, there are some warnings related to weak or assumed selectors and some fragile assumptions on accessibility roles and element presence without explicit validation. All testCaseIds are preserved in titles and corresponding tests exist. No compilation, API misuse, or async assertion issues are found."
+  },
+  "sourceContext": {
+    "manualTestCasesPath": "testcases/MP-4/manual/manual-testcases.json",
+    "manualTestCasesSha": "839cbd8b1318ce036e062748a14951f0c110ed60",
+    "analysisPath": "testcases/MP-4/test-analysis.json",
+    "analysisSha": "df7ca19b23d8de2a82fc9fe80e37c8aee1badada",
+    "manualTestCaseCount": 5
+  },
+  "createdAt": "2026-07-16T09:19:18.162Z"
+}
