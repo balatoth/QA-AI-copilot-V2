@@ -39,8 +39,8 @@
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 8,
-    "reason": "The TypeScript code compiles and uses Playwright APIs correctly. Await is used properly with all assertions. The testCaseIds are preserved and each GENERATED manual test case has a corresponding test. However, some selectors rely on assumed roles (grid, article) without guaranteed evidence from the page. The navigation validation checking the URL contains 'product' is too generic for strong validation of the correct product detail page. The selector quality can be weak if the roles do not exist or differ. No issues with async handling or assertion usage were found. No hard-coded waits or placeholder URLs are present."
+    "qualityScore": 7,
+    "reason": "The code compiles and uses Playwright APIs correctly, but contains weak selectors and unclear assumptions. Using roles 'grid' and 'gridcell' for products may not be reliable without verification. The product details selectors ('text=name', 'text=price') are placeholders and unlikely to work. Navigation URL check uses a broad regex that may not robustly confirm navigation to the correct product detail page."
   },
   "sourceContext": {
     "manualTestCasesPath": "testcases/MP-1/manual/manual-testcases.json",
@@ -49,5 +49,5 @@
     "analysisSha": "3203407844b2857ce036970a80368f62e533b576",
     "manualTestCaseCount": 3
   },
-  "createdAt": "2026-07-16T09:05:15.137Z"
+  "createdAt": "2026-07-16T09:08:00.086Z"
 }
