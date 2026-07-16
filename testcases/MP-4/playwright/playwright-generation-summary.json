@@ -14,51 +14,43 @@
     {
       "testCaseId": "TC-001",
       "status": "GENERATED",
-      "filePath": "playwright/contact-form-accessibility.spec.ts"
+      "filePath": "playwright/contact-form.spec.ts"
     },
     {
       "testCaseId": "TC-002",
       "status": "GENERATED",
-      "filePath": "playwright/contact-form-required-fields.spec.ts"
+      "filePath": "playwright/contact-form.spec.ts"
     },
     {
       "testCaseId": "TC-003",
       "status": "GENERATED",
-      "filePath": "playwright/contact-form-subject-dropdown.spec.ts"
+      "filePath": "playwright/contact-form.spec.ts"
     },
     {
       "testCaseId": "TC-004",
       "status": "GENERATED",
-      "filePath": "playwright/contact-form-validation-message-length.spec.ts"
+      "filePath": "playwright/contact-form.spec.ts"
     },
     {
       "testCaseId": "TC-005",
       "status": "GENERATED",
-      "filePath": "playwright/contact-form-success-message.spec.ts"
+      "filePath": "playwright/contact-form.spec.ts"
     }
   ],
   "skippedTestCases": [],
   "generatedFiles": [
-    "playwright/contact-form-accessibility.spec.ts",
-    "playwright/contact-form-required-fields.spec.ts",
-    "playwright/contact-form-subject-dropdown.spec.ts",
-    "playwright/contact-form-validation-message-length.spec.ts",
-    "playwright/contact-form-success-message.spec.ts"
+    "playwright/contact-form.spec.ts"
   ],
   "persistedGeneratedFiles": [
-    "playwright/contact-form-accessibility.spec.ts",
-    "playwright/contact-form-required-fields.spec.ts",
-    "playwright/contact-form-subject-dropdown.spec.ts",
-    "playwright/contact-form-validation-message-length.spec.ts",
-    "playwright/contact-form-success-message.spec.ts"
+    "playwright/contact-form.spec.ts"
   ],
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "WARNING",
+    "status": "PASS",
     "passed": true,
     "qualityScore": 85,
-    "reason": "The Playwright test artifacts are mostly correct and executable with proper TypeScript usage and API utilization. All testCaseId values are preserved in test titles. The selectors leverage accessible roles and labels predominantly, improving selector quality. However, some selectors make assumptions about accessibility names and labels that may not be guaranteed, leading to potential fragility. The tests lack explicit verification of navigation success or navigation validation. Assertions on Locators are correctly awaited, and no invalid iterations over Locator objects are present. The code is maintainable and reusable with clear structure. Overall, the tests are useful but could be improved by strengthening selector robustness and adding navigation validation."
+    "reason": "The generated Playwright tests are functionally sound with proper asynchronous handling, correct use of API, and valid TypeScript syntax. Each test case includes the testCaseId in the title and correctly maps to the intended test steps. Assertions target locators properly and use 'await' where required. Some selector usage relies on roles and labels which may become brittle if the UI changes; also, hardcoded expected options in test TC-003 might lead to fragility if the dropdown items change. Overall, the tests are maintainable and reusable, but selector robustness and externalizing test data could be improved."
   },
   "sourceContext": {
     "manualTestCasesPath": "testcases/MP-4/manual/manual-testcases.json",
@@ -67,5 +59,5 @@
     "analysisSha": "df7ca19b23d8de2a82fc9fe80e37c8aee1badada",
     "manualTestCaseCount": 5
   },
-  "createdAt": "2026-07-16T11:31:46.570Z"
+  "createdAt": "2026-07-16T12:14:46.119Z"
 }
