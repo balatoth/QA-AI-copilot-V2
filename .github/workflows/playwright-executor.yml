@@ -35,12 +35,12 @@ jobs:
 
     steps:
       - name: Checkout requested branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ inputs.branch }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: "20"
 
@@ -160,7 +160,7 @@ jobs:
 
       - name: Upload execution artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: playwright-${{ inputs.storyKey }}-${{ inputs.executionId }}
           path: |
