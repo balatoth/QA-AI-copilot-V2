@@ -39,8 +39,8 @@
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 7,
-    "reason": "The Playwright tests are compilable and use Playwright APIs correctly, preserving testCaseId in titles. However, selectors like text=Electronics and .product-item may be fragile without more specific attributes or roles. Assertions on page title are somewhat weak to fully guarantee correct page load. The third test lacks proper validation to confirm products belong to the selected category beyond counting visible elements. Additional test data handling and strong assertions are recommended for robustness."
+    "qualityScore": 65,
+    "reason": "The test code is syntactically correct and should compile and run without errors. It uses Playwright APIs correctly with proper awaiting of asynchronous assertions. The testCaseIds are preserved in the test titles. However, selectors rely on placeholder text 'Category Name' which needs real category names to work in practice. Assumptions about the existence and class names of elements like '.product-item' and generic 'heading' role usage introduce selector fragility. Assertions check for basic navigation and element presence but do not validate that filtered products exactly match the selected category. This reduces assertion strength. No test data injection or reuse mechanisms are implemented, affecting maintainability and reusability. The code shows straightforward, readable test structure but could improve test data handling and selector robustness."
   },
   "sourceContext": {
     "manualTestCasesPath": "testcases/MP-3/manual/manual-testcases.json",
@@ -49,5 +49,5 @@
     "analysisSha": "b62632b449d6f00fd060b3fa822afa48314dfb27",
     "manualTestCaseCount": 3
   },
-  "createdAt": "2026-07-16T11:24:45.212Z"
+  "createdAt": "2026-07-16T11:31:11.591Z"
 }
