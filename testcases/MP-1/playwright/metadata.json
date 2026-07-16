@@ -5,14 +5,14 @@
   "repaired": false,
   "repairAttempt": 0,
   "reviewStatus": "WARNING",
-  "qualityScore": 75,
+  "qualityScore": 70,
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 75,
-    "reason": "The generated Playwright tests compile and use Playwright APIs correctly, but there are issues with the reliability and quality of selectors, and some weak assertions especially on navigation and text selectors. Await is correctly used with assertions and Locators are handled properly. Test case IDs are preserved in test titles and all GENERATED test cases are implemented."
+    "qualityScore": 70,
+    "reason": "The TypeScript compiles and uses Playwright APIs correctly. All generated test cases map correctly to tests with preserved testCaseIds. However, some selectors are guessed or placeholders (.product-card class) without confirmation these exist on the actual page, and the locator 'role=grid' is assumed without evidence. The selectors 'text=name' and 'text=price' used in TC-002 are likely invalid and too generic; 'text=' selector expects full text or exact match strings, but 'name' and 'price' are placeholders here. Also, in TC-003 navigation validation is weak because it only checks that URL contains /product-detail/, which may not be fully reliable. Await is correctly applied on Playwright assertions. No usage mistakes or asynchronous issues detected."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-16T08:36:59.651Z"
+  "createdAt": "2026-07-16T08:38:18.655Z"
 }
