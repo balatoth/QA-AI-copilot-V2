@@ -10,9 +10,9 @@
     "status": "WARNING",
     "passed": true,
     "qualityScore": 85,
-    "reason": "The Playwright tests compile and use Playwright APIs correctly, with proper use of locators and asynchronous assertions. However, there are some warnings related to weak or assumed selectors and some fragile assumptions on accessibility roles and element presence without explicit validation. All testCaseIds are preserved in titles and corresponding tests exist. No compilation, API misuse, or async assertion issues are found."
+    "reason": "The TypeScript Playwright code compiles and runs with correct use of async/await and Playwright APIs. Locators are correctly used with asynchronous assertions. However, there are some selector concerns such as reliance on assumed roles (form with name, combobox with name) without guarantee these exist, and generic selectors like 'textarea' or 'button[type=\"submit\"]'. Some assertion texts are generic or placeholders (e.g., confirmation message detection), reducing reliability. Test titles preserve testCaseId and cover all GENERATED cases. No compilation or API misuse found."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-16T09:19:18.162Z"
+  "createdAt": "2026-07-16T09:44:25.800Z"
 }
