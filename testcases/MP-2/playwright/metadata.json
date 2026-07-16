@@ -5,14 +5,14 @@
   "repaired": false,
   "repairAttempt": 0,
   "reviewStatus": "WARNING",
-  "qualityScore": 75,
+  "qualityScore": 70,
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 75,
-    "reason": "The TypeScript code compiles and uses Playwright APIs correctly with valid assertions. Test case IDs are preserved in test titles. However, some selectors appear weak or guessed, and there is a potentially incorrect assertion call that would cause a runtime error. The navigation validation is also somewhat generic and may not confirm the correct product detail page is opened."
+    "qualityScore": 70,
+    "reason": "The Playwright test file is syntactically correct and uses Playwright APIs properly, but has some issues related to selector quality, assertion strength, and maintainability. Selectors like /product/i and /related product/i in getByRole may be too generic or weak, potentially leading to flaky tests. Some assertions rely on text matching which could be brittle. Navigation assertions rely on regex matching without verifying the actual product context. The test titles correctly preserve testCaseIds. No asynchronous assertion lacks await. No locator misuse detected."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-16T09:28:33.847Z"
+  "createdAt": "2026-07-16T09:43:22.909Z"
 }
