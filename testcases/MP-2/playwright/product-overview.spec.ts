@@ -1,34 +1,50 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Product Detail Tests', () => {
-  test('TC-001 - Display Product Detail Page', async ({ page }) => {
-    await page.goto('https://testsmith-io.github.io/practice-software-testing/#/');
-    // Assume products are listed on the overview page and click the first product
-    await page.getByRole('link', { name: 'First Product' }).click(); // Update this selector as needed
-    await expect(page).toHaveURL(/.*product-detail/);
-  });
+const BASE_URL = 'https://testsmith-io.github.io/practice-software-testing/#/';
 
-  test('TC-002 - Verify Product Details Displayed', async ({ page }) => {
-    await page.goto('https://testsmith-io.github.io/practice-software-testing/#/product-detail');
-    await expect(page.getByRole('img')).toBeVisible(); // Product image
-    await expect(page.getByRole('heading')).toBeVisible(); // Product name
-    await expect(page.getByText(/Description/i)).toBeVisible(); // Product description
-    await expect(page.getByText(/Price/i)).toBeVisible(); // Product price
-    await expect(page.getByText(/Category/i)).toBeVisible(); // Category badge
-    await expect(page.getByText(/Brand/i)).toBeVisible(); // Brand badge
-  });
+test('TC-001 - Display Product Detail Page', async ({ page }) => {
+  await page.goto(BASE_URL);
+  // Use page.getByRole to get the product link with a more specific name
+  const productLink = page.getByRole('link', { name: /product name/i });
+  await productLink.click();
+  // Validate URL contains product-detail and some product identifier or validate page content
+  await expect(page).toHaveURL(new RegExp(`${BASE_URL}product-detail`));
+  // Additional content validation to ensure correct product detail page
+  await expect(page.locator('h1[data-testid="product-name"]')).toBeVisible();
+});
 
-  test('TC-003 - Display Related Products Section', async ({ page }) => {
-    await page.goto('https://testsmith-io.github.io/practice-software-testing/#/product-detail');
-    await expect(page.getByText(/Related Products/i)).toBeVisible(); // Related products section
-    const relatedProducts = await page.locator('.related-products .product'); // Update this selector as needed
-    const count = await relatedProducts.count();
-    for (let i = 0; i < count; i++) {
-      await expect(relatedProducts.nth(i)).toBeClickable();
-      await relatedProducts.nth(i).click();
-      await expect(page).toHaveURL(/.*product-detail/);
-      await page.goBack(); // Navigate back to the previous page
-      await expect(page).toHaveURL(/.*product-overview/); // Update this to the correct overview URL
-    }
-  });
+// Helper function to improve selector robustness
+function getProductDetailSelectors() {
+  return {
+    image: 'img[data-testid="product-image"]',
+    name: 'h1[data-testid="product-name"]',
+    description: 'p[data-testid="product-description"]',
+    price: 'span[data-testid="product-price"]',
+    categoryBadge: 'span[data-testid="product-category"]',
+    brandBadge: 'span[data-testid="product-brand"]'
+  };
+}
+
+test('TC-002 - Verify Product Details Displayed', async ({ page }) => {
+  await page.goto(`${BASE_URL}product-detail`);
+  const selectors = getProductDetailSelectors();
+  await expect(page.locator(selectors.image)).toBeVisible();
+  await expect(page.locator(selectors.name)).toBeVisible();
+  await expect(page.locator(selectors.description)).toBeVisible();
+  await expect(page.locator(selectors.price)).toBeVisible();
+  await expect(page.locator(selectors.categoryBadge)).toBeVisible();
+  await expect(page.locator(selectors.brandBadge)).toBeVisible();
+});
+
+test('TC-003 - Display Related Products Section', async ({ page }) => {
+  await page.goto(`${BASE_URL}product-detail`);
+  const relatedSection = page.locator('section[data-testid="related-products"]');
+  await expect(relatedSection).toBeVisible();
+  const relatedProducts = relatedSection.locator('a[data-testid="related-product-link"]');
+  const count = await relatedProducts.count();
+  expect(count).toBeGreaterThan(0);
+  await relatedProducts.first().click();
+  await expect(page).toHaveURL(new RegExp(`${BASE_URL}product-detail`));
+  // Validate that the new product detail page loaded
+  await expect(page.locator('h1[data-testid="product-name"]')).toBeVisible();
 });
