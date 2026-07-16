@@ -1,0 +1,121 @@
+{
+  "executionId": "MP-SPRINT-20260716111710",
+  "artifactType": "sprint-api-execution-summary",
+  "generatedAt": "2026-07-16T11:19:05.875Z",
+  "summary": {
+    "totalStories": 3,
+    "completedStories": 3,
+    "notExecutableStories": 0,
+    "failedStories": 0
+  },
+  "stories": [
+    {
+      "storyKey": "MP-1",
+      "executionId": "MP-SPRINT-20260716111710",
+      "status": "COMPLETED",
+      "scope": "STORY_EXECUTION",
+      "apiExecution": {
+        "storyKey": "MP-1",
+        "executionId": "MP-SPRINT-20260716111710",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-1/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-1/api/execution-analysis.json"
+      },
+      "playwrightGeneration": {
+        "storyKey": "MP-1",
+        "executionId": "MP-SPRINT-20260716111710",
+        "status": "COMPLETED",
+        "scope": "PLAYWRIGHT_GENERATION",
+        "qualityGatePassed": true,
+        "reviewStatus": "WARNING",
+        "qualityScore": 85,
+        "repaired": false,
+        "repairAttempt": 0,
+        "generatedTestCount": 3,
+        "skippedTestCount": 0,
+        "generatedFiles": [
+          "playwright/product-overview.spec.ts"
+        ],
+        "persistedGeneratedFiles": [
+          "playwright/product-overview.spec.ts"
+        ],
+        "blockedGeneratedFiles": [],
+        "playwrightSummaryPath": "testcases/MP-1/playwright/playwright-generation-summary.json",
+        "playwrightReviewPath": "testcases/MP-1/playwright/review.json",
+        "playwrightMetadataPath": "testcases/MP-1/playwright/metadata.json"
+      }
+    },
+    {
+      "storyKey": "MP-2",
+      "executionId": "MP-SPRINT-20260716111710",
+      "status": "COMPLETED",
+      "scope": "STORY_EXECUTION",
+      "apiExecution": {
+        "storyKey": "MP-2",
+        "executionId": "MP-SPRINT-20260716111710",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-2/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-2/api/execution-analysis.json"
+      },
+      "playwrightGeneration": {
+        "storyKey": "MP-2",
+        "executionId": "MP-SPRINT-20260716111710",
+        "status": "COMPLETED",
+        "scope": "PLAYWRIGHT_GENERATION",
+        "qualityGatePassed": true,
+        "reviewStatus": "WARNING",
+        "qualityScore": 7,
+        "repaired": false,
+        "repairAttempt": 0,
+        "generatedTestCount": 3,
+        "skippedTestCount": 0,
+        "generatedFiles": [
+          "playwright/product-overview.spec.ts"
+        ],
+        "persistedGeneratedFiles": [
+          "playwright/product-overview.spec.ts"
+        ],
+        "blockedGeneratedFiles": [],
+        "playwrightSummaryPath": "testcases/MP-2/playwright/playwright-generation-summary.json",
+        "playwrightReviewPath": "testcases/MP-2/playwright/review.json",
+        "playwrightMetadataPath": "testcases/MP-2/playwright/metadata.json"
+      }
+    },
+    {
+      "storyKey": "MP-3",
+      "executionId": "MP-SPRINT-20260716111710",
+      "status": "COMPLETED",
+      "scope": "STORY_EXECUTION",
+      "apiExecution": {
+        "storyKey": "MP-3",
+        "executionId": "MP-SPRINT-20260716111710",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-3/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-3/api/execution-analysis.json"
+      },
+      "playwrightGeneration": {
+        "storyKey": "MP-3",
+        "executionId": "MP-SPRINT-20260716111710",
+        "status": "MANUAL_REVIEW_REQUIRED",
+        "scope": "PLAYWRIGHT_GENERATION",
+        "qualityGatePassed": false,
+        "reviewStatus": "FAIL",
+        "qualityScore": 40,
+        "repaired": true,
+        "repairAttempt": 1,
+        "generatedTestCount": 3,
+        "skippedTestCount": 0,
+        "generatedFiles": [
+          "playwright/product-overview.spec.ts"
+        ],
+        "persistedGeneratedFiles": [],
+        "blockedGeneratedFiles": [
+          "playwright/product-overview.spec.ts"
+        ],
+        "playwrightSummaryPath": "testcases/MP-3/playwright/playwright-generation-summary.json",
+        "playwrightReviewPath": "testcases/MP-3/playwright/review.json",
+        "playwrightMetadataPath": "testcases/MP-3/playwright/metadata.json"
+      }
+    }
+  ]
+}
