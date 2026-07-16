@@ -2,44 +2,43 @@
   "artifactType": "playwright",
   "storyKey": "MP-2",
   "reviewStatus": "WARNING",
-  "qualityScore": 75,
-  "summary": "The TypeScript code compiles and uses Playwright APIs correctly with valid assertions. Test case IDs are preserved in test titles. However, some selectors appear weak or guessed, and there is a potentially incorrect assertion call that would cause a runtime error. The navigation validation is also somewhat generic and may not confirm the correct product detail page is opened.",
+  "qualityScore": 70,
+  "summary": "The Playwright test file is syntactically correct and uses Playwright APIs properly, but has some issues related to selector quality, assertion strength, and maintainability. Selectors like /product/i and /related product/i in getByRole may be too generic or weak, potentially leading to flaky tests. Some assertions rely on text matching which could be brittle. Navigation assertions rely on regex matching without verifying the actual product context. The test titles correctly preserve testCaseIds. No asynchronous assertion lacks await. No locator misuse detected.",
   "scores": {
-    "correctness": 90,
-    "selectorQuality": 60,
-    "assertionStrength": 70,
-    "reusability": 80,
-    "maintainability": 75,
-    "testDataHandling": 80,
-    "playwrightBestPractices": 90
+    "correctness": 10,
+    "selectorQuality": 8,
+    "assertionStrength": 7,
+    "reusability": 7,
+    "maintainability": 7,
+    "testDataHandling": 7,
+    "playwrightBestPractices": 8
   },
   "issues": [
     {
-      "severity": "HIGH",
-      "category": "API misuse",
+      "severity": "MEDIUM",
+      "category": "Selector Quality",
       "file": "playwright/product-overview.spec.ts",
-      "description": "Incorrect use of expect().toHaveCountGreaterThan(0) on Locator 'relatedProductLinks'. 'toHaveCountGreaterThan' is not a valid Playwright assertion method.",
-      "recommendation": "Replace toHaveCountGreaterThan(0) with correct assertion logic, e.g., check toHaveCount with a positive integer or use a different approach to verify count > 0."
+      "description": "Selectors using regex like /product/i in getByRole('link', { name: /product/i }) might be too generic, risking flaky tests if multiple matches occur.",
+      "recommendation": "Use more specific text or attributes for getByRole selectors to precisely identify the intended elements."
     },
     {
       "severity": "MEDIUM",
-      "category": "Selector quality",
+      "category": "Assertion Strength",
       "file": "playwright/product-overview.spec.ts",
-      "description": "Selectors such as getByText(/Category Badge/i) and getByText(/Brand Badge/i) appear to rely on placeholder or guessed text rather than known stable selectors.",
-      "recommendation": "Use more robust selectors based on data-testid attributes or stable element properties if available."
+      "description": "Navigation assertions use generic URL regex like /detail/ or /related-detail/ which may not sufficiently verify navigation to the correct product detail page.",
+      "recommendation": "Enhance navigation assertions with more precise URL patterns or verify page content reflects the targeted product."
     },
     {
-      "severity": "MEDIUM",
-      "category": "Navigation validation",
+      "severity": "LOW",
+      "category": "Selector Quality",
       "file": "playwright/product-overview.spec.ts",
-      "description": "Navigation verification uses a generic regex to check URL contains 'product-detail', which may not be sufficient to confirm the correct product detail page is loaded.",
-      "recommendation": "Use more specific URL validation or verify key product details on the page after navigation."
+      "description": "Assertions on getByText for static strings like /category badge/i or /brand badge/i assume these texts are present exactly, which may not be robust.",
+      "recommendation": "Consider using more stable selectors or additional attributes such as test ids for badges."
     }
   ],
   "recommendations": [
-    "Correct the incorrect assertion method toHaveCountGreaterThan to avoid runtime errors.",
-    "Use more precise and robust selectors instead of generic or guessed getByText calls.",
-    "Improve navigation validation by adding specific assertions on page content related to the product clicked.",
-    "Consider defining constants or helper functions for repetitive actions (e.g., navigating to first product) to improve reusability and maintainability."
+    "Refine selectors to be more specific and stable.",
+    "Improve assertion strategies for verifying correct page navigation and product details.",
+    "Consider adding helper functions or test data abstraction for maintainability."
   ]
 }
