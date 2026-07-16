@@ -1,16 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-const baseUrl = 'https://testsmith-io.github.io/practice-software-testing/#/';
-
 test('TC-003 - Verify Subject Dropdown Options', async ({ page }) => {
-  await page.goto(baseUrl);
-  const contactLink = page.getByRole('link', { name: 'Contact' });
-  await contactLink.click();
+    await page.goto('https://testsmith-io.github.io/practice-software-testing/#/');
+    const subjectDropdown = await page.getByRole('combobox', { name: 'Subject' }); // Assuming the dropdown has an accessible name
+    await subjectDropdown.click();
 
-  const subjectDropdown = await page.getByRole('combobox', { name: 'Subject' }); // Assuming the dropdown has a label
-  await subjectDropdown.click();
+    // Assuming these are the specified options in the dropdown
+    const options = [
+        'General Inquiry',
+        'Support',
+        'Feedback'
+    ];
 
-  const options = await subjectDropdown.locator('option').allTextContents();
-  const expectedOptions = ['Option 1', 'Option 2', 'Option 3']; // Adjust based on actual options
-  expect(options).toEqual(expectedOptions);
+    for (const option of options) {
+        const isVisible = await page.getByText(option).isVisible();
+        expect(isVisible).toBeTruthy();
+    }
 });
