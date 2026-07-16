@@ -6,51 +6,59 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": true,
-  "repairAttempt": 1,
+  "repaired": false,
+  "repairAttempt": 0,
   "generatedTestCount": 5,
   "skippedTestCount": 0,
   "generatedTestCases": [
     {
       "testCaseId": "TC-001",
       "status": "GENERATED",
-      "filePath": "playwright/contact-form.spec.ts"
+      "filePath": "playwright/contact-form-accessibility.spec.ts"
     },
     {
       "testCaseId": "TC-002",
       "status": "GENERATED",
-      "filePath": "playwright/contact-form.spec.ts"
+      "filePath": "playwright/contact-form-required-fields.spec.ts"
     },
     {
       "testCaseId": "TC-003",
       "status": "GENERATED",
-      "filePath": "playwright/contact-form.spec.ts"
+      "filePath": "playwright/contact-form-subject-dropdown.spec.ts"
     },
     {
       "testCaseId": "TC-004",
       "status": "GENERATED",
-      "filePath": "playwright/contact-form.spec.ts"
+      "filePath": "playwright/contact-form-validation.spec.ts"
     },
     {
       "testCaseId": "TC-005",
       "status": "GENERATED",
-      "filePath": "playwright/contact-form.spec.ts"
+      "filePath": "playwright/contact-form-success-message.spec.ts"
     }
   ],
   "skippedTestCases": [],
   "generatedFiles": [
-    "playwright/contact-form.spec.ts"
+    "playwright/contact-form-accessibility.spec.ts",
+    "playwright/contact-form-required-fields.spec.ts",
+    "playwright/contact-form-subject-dropdown.spec.ts",
+    "playwright/contact-form-validation.spec.ts",
+    "playwright/contact-form-success-message.spec.ts"
   ],
   "persistedGeneratedFiles": [
-    "playwright/contact-form.spec.ts"
+    "playwright/contact-form-accessibility.spec.ts",
+    "playwright/contact-form-required-fields.spec.ts",
+    "playwright/contact-form-subject-dropdown.spec.ts",
+    "playwright/contact-form-validation.spec.ts",
+    "playwright/contact-form-success-message.spec.ts"
   ],
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "PASS",
+    "status": "WARNING",
     "passed": true,
-    "qualityScore": 90,
-    "reason": "The Playwright TypeScript test file compiles and uses Playwright APIs correctly with proper async/await usage. Test cases include the required testCaseId in titles and cover the intended scenarios. Selectors are mostly clear and appropriate, though some selectors like 'text=Contact' and 'select[name=\"subject\"]' could be more robust. The code is maintainable and reusable with a helper function defined but not used in tests. Overall, the repair addressed critical defects and the tests are executable."
+    "qualityScore": 85,
+    "reason": "The generated Playwright tests are mostly correct and compilable, with proper asynchronous handling and assertions. However, some selectors and assumptions about the UI accessibility roles and element counts appear guessed or weak. There are also hardcoded expected values marked with comments indicating adjustments needed based on the actual application. Overall, the tests are executable but require maintenance effort to align selectors and expected data with the real application."
   },
   "sourceContext": {
     "manualTestCasesPath": "testcases/MP-4/manual/manual-testcases.json",
@@ -59,5 +67,5 @@
     "analysisSha": "df7ca19b23d8de2a82fc9fe80e37c8aee1badada",
     "manualTestCaseCount": 5
   },
-  "createdAt": "2026-07-16T11:19:47.031Z"
+  "createdAt": "2026-07-16T11:25:14.540Z"
 }
