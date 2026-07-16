@@ -1,0 +1,53 @@
+{
+  "storyKey": "MP-3",
+  "storyTitle": "Browse Products by Category",
+  "application": "Practice Software Testing",
+  "manualReviewRequired": false,
+  "finalStatus": "COMPLETED",
+  "status": "COMPLETED",
+  "scope": "PLAYWRIGHT_GENERATION",
+  "repaired": false,
+  "repairAttempt": 0,
+  "generatedTestCount": 3,
+  "skippedTestCount": 0,
+  "generatedTestCases": [
+    {
+      "testCaseId": "TC-001",
+      "status": "GENERATED",
+      "filePath": "playwright/product-overview.spec.ts"
+    },
+    {
+      "testCaseId": "TC-002",
+      "status": "GENERATED",
+      "filePath": "playwright/product-overview.spec.ts"
+    },
+    {
+      "testCaseId": "TC-003",
+      "status": "GENERATED",
+      "filePath": "playwright/product-overview.spec.ts"
+    }
+  ],
+  "skippedTestCases": [],
+  "generatedFiles": [
+    "playwright/product-overview.spec.ts"
+  ],
+  "persistedGeneratedFiles": [
+    "playwright/product-overview.spec.ts"
+  ],
+  "blockedGeneratedFiles": [],
+  "warnings": [],
+  "qualityGate": {
+    "status": "WARNING",
+    "passed": true,
+    "qualityScore": 7,
+    "reason": "The tests compile and use Playwright APIs correctly with awaited assertions. Test case IDs are preserved in titles. Selectors use role-based selectors which is good, but hardcoded assumptions about product count and page title reduce flexibility. URL and title assertions are adequate but could be more thorough. The usage of expect(products) for a collection count is correct. The baseUrl is a specific test URL, not a placeholder. No hardcoded waits or invalid API usage detected. The locator usage is correct; no direct iteration over locators. Some assumptions in selectors and expected counts pose risks for maintainability and reliability."
+  },
+  "sourceContext": {
+    "manualTestCasesPath": "testcases/MP-3/manual/manual-testcases.json",
+    "manualTestCasesSha": "1c92580afb4a0eb5224d2f527151a5895360dc0f",
+    "analysisPath": "testcases/MP-3/test-analysis.json",
+    "analysisSha": "b62632b449d6f00fd060b3fa822afa48314dfb27",
+    "manualTestCaseCount": 3
+  },
+  "createdAt": "2026-07-16T09:06:09.283Z"
+}
