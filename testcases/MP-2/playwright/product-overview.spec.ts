@@ -1,19 +1,17 @@
 import { test, expect } from '@playwright/test';
 
-const baseUrl = 'https://testsmith-io.github.io/practice-software-testing/#/';
+const baseURL = 'https://testsmith-io.github.io/practice-software-testing/#/';
 
-// Test case TC-001: Display Product Detail Page
-test('TC-001 - Display Product Detail Page', async ({ page }) => {
-  await page.goto(baseUrl);
-  // Assuming that products have a role of 'button' or similar on the overview page.
-  const productButton = page.getByRole('button', { name: /product name/i }); // Replace with actual product name or selector
-  await productButton.click();
-  await expect(page).toHaveURL(/.*product-detail/); // Verify navigation to detail page
+test('TC-001: Display Product Detail Page', async ({ page }) => {
+  await page.goto(baseURL);
+  // Assume that products are listed with a role that can be located
+  const productLink = page.getByRole('link', { name: /Product Name/i }); // Adjust selector as needed
+  await productLink.click();
+  await expect(page).toHaveURL(/.*product-detail/);
 });
 
-// Test case TC-002: Verify Product Details Displayed
-test('TC-002 - Verify Product Details Displayed', async ({ page }) => {
-  await page.goto(baseUrl + 'product-detail');
+test('TC-002: Verify Product Details Displayed', async ({ page }) => {
+  await page.goto(`${baseURL}product-detail`); // Navigate to a specific product detail
   await expect(page.getByRole('img')).toBeVisible(); // Product image
   await expect(page.getByRole('heading')).toBeVisible(); // Product name
   await expect(page.getByText(/description/i)).toBeVisible(); // Product description
@@ -22,12 +20,15 @@ test('TC-002 - Verify Product Details Displayed', async ({ page }) => {
   await expect(page.getByText(/brand badge/i)).toBeVisible(); // Brand badge
 });
 
-// Test case TC-003: Display Related Products Section
-test('TC-003 - Display Related Products Section', async ({ page }) => {
-  await page.goto(baseUrl + 'product-detail');
-  await expect(page.getByText(/related products/i)).toBeVisible(); // Assuming there's a title for the related products section
-  const relatedProduct = page.getByRole('link', { name: /related product name/i }); // Replace with actual related product name or selector
-  await expect(relatedProduct).toBeVisible(); // Each related product should be visible
-  await relatedProduct.click();
-  await expect(page).toHaveURL(/.*related-product-detail/); // Verify navigation to related product detail page
+test('TC-003: Display Related Products Section', async ({ page }) => {
+  await page.goto(`${baseURL}product-detail`); // Navigate to a specific product detail
+  await expect(page.getByRole('region', { name: /related products/i })).toBeVisible(); // Related products section
+  const relatedProductLinks = page.locator('selector-for-related-products'); // Replace with an actual selector
+  const count = await relatedProductLinks.count();
+  expect(count).toBeGreaterThan(0); // At least one related product
+  for (let i = 0; i < count; i++) {
+    await relatedProductLinks.nth(i).click(); // Click each related product
+    await expect(page).toHaveURL(/.*product-detail/); // Ensure it navigates to a detail page
+    await page.goBack(); // Go back to the related products section
+  }
 });
