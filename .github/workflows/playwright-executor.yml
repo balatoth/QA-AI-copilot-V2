@@ -1,0 +1,171 @@
+name: Playwright Story Executor
+
+run-name: Playwright execution - ${{ inputs.storyKey }} - ${{ inputs.executionId }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      storyKey:
+        description: Jira story key
+        required: true
+        type: string
+
+      executionId:
+        description: QA AI Copilot execution ID
+        required: true
+        type: string
+
+      specPath:
+        description: Repository path of the Playwright spec
+        required: true
+        type: string
+
+      branch:
+        description: Repository branch
+        required: true
+        default: main
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  execute-playwright:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout requested branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.branch }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Create Playwright execution workspace
+        shell: bash
+        run: |
+          mkdir -p playwright-execution/tests
+          cp "${{ inputs.specPath }}" playwright-execution/tests/story.spec.ts
+
+      - name: Create package.json
+        working-directory: playwright-execution
+        shell: bash
+        run: |
+          cat > package.json <<'EOF'
+          {
+            "name": "qa-ai-copilot-playwright-execution",
+            "private": true,
+            "scripts": {
+              "test": "playwright test"
+            },
+            "devDependencies": {
+              "@playwright/test": "^1.55.0"
+            }
+          }
+          EOF
+
+      - name: Create Playwright configuration
+        working-directory: playwright-execution
+        shell: bash
+        run: |
+          cat > playwright.config.ts <<'EOF'
+          import { defineConfig } from '@playwright/test';
+
+          export default defineConfig({
+            testDir: './tests',
+            fullyParallel: false,
+            workers: 1,
+            timeout: 30000,
+            reporter: [
+              ['json', { outputFile: 'playwright-results.json' }],
+              ['line']
+            ],
+            use: {
+              headless: true,
+              browserName: 'chromium',
+              screenshot: 'only-on-failure',
+              trace: 'retain-on-failure'
+            }
+          });
+          EOF
+
+      - name: Install dependencies
+        working-directory: playwright-execution
+        run: npm install
+
+      - name: Install Chromium
+        working-directory: playwright-execution
+        run: npx playwright install --with-deps chromium
+
+      - name: Execute Playwright tests
+        id: playwright
+        working-directory: playwright-execution
+        continue-on-error: true
+        shell: bash
+        run: |
+          set +e
+          npx playwright test tests/story.spec.ts
+          exit_code=$?
+          echo "exitCode=$exit_code" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Ensure results file exists
+        if: always()
+        working-directory: playwright-execution
+        shell: bash
+        run: |
+          if [ ! -f playwright-results.json ]; then
+            cat > playwright-results.json <<EOF
+          {
+            "config": {},
+            "suites": [],
+            "errors": [
+              {
+                "message": "Playwright did not create a JSON results file."
+              }
+            ],
+            "stats": {
+              "startTime": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+              "duration": 0,
+              "expected": 0,
+              "skipped": 0,
+              "unexpected": 1,
+              "flaky": 0
+            }
+          }
+          EOF
+          fi
+
+      - name: Create execution metadata
+        if: always()
+        working-directory: playwright-execution
+        shell: bash
+        run: |
+          cat > execution-metadata.json <<EOF
+          {
+            "storyKey": "${{ inputs.storyKey }}",
+            "executionId": "${{ inputs.executionId }}",
+            "specPath": "${{ inputs.specPath }}",
+            "branch": "${{ inputs.branch }}",
+            "workflowRunId": "${{ github.run_id }}",
+            "workflowRunAttempt": "${{ github.run_attempt }}",
+            "commitSha": "${{ github.sha }}",
+            "playwrightExitCode": "${{ steps.playwright.outputs.exitCode }}",
+            "completedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          }
+          EOF
+
+      - name: Upload execution artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-${{ inputs.storyKey }}-${{ inputs.executionId }}
+          path: |
+            playwright-execution/playwright-results.json
+            playwright-execution/execution-metadata.json
+            playwright-execution/test-results/
+          if-no-files-found: warn
+          retention-days: 14
