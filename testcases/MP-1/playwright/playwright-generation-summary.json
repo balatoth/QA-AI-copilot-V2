@@ -39,8 +39,8 @@
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 85,
-    "reason": "The Playwright tests are mostly correct and should execute without compile errors. Await is used appropriately, and the testCaseIds are preserved. However, there are several assumptions in selectors and asserts that weaken the reliability of the tests. Additionally, navigation verification relies on a generic URL pattern and could be more robust. No critical API misuse is found."
+    "qualityScore": 7,
+    "reason": "The Playwright tests are mostly valid and likely to compile and run without syntax errors. However, there are weaknesses in selector specificity, assumptions about element roles, and navigation validation robustness. The test titles preserve testCaseId values and match generated test cases properly. No asynchronous assertion is missing await, and Playwright APIs are used correctly. Selectors such as 'h2' and 'p.price' are generic and assume page structure without stronger attributes. The URL pattern match after navigation is weak and may pass incorrectly. No high severity issues or failures detected."
   },
   "sourceContext": {
     "manualTestCasesPath": "testcases/MP-1/manual/manual-testcases.json",
@@ -49,5 +49,5 @@
     "analysisSha": "3203407844b2857ce036970a80368f62e533b576",
     "manualTestCaseCount": 3
   },
-  "createdAt": "2026-07-16T11:17:55.351Z"
+  "createdAt": "2026-07-16T11:24:02.944Z"
 }
