@@ -39,8 +39,8 @@
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 60,
-    "reason": "The Playwright tests compile and use Playwright APIs correctly but contain weak selectors and assertions with potential placeholder or guessed values. Await is correctly used on async assertions, and testCaseId values are preserved. However, some assertions appear contradictory or too generic, and navigation verification could be stronger. No test data handling or reusable elements are implemented, reducing maintainability and reusability."
+    "qualityScore": 75,
+    "reason": "The tests are generally valid TypeScript and use Playwright APIs correctly with proper awaits and assertions. However, there are some concerns regarding selector quality and assertion strength. The selectors rely on generic classes and elements (e.g., '.product-card', 'h2', '.price') without robust specificity or context, which may cause flakiness. The use of 'role=grid' is assumed without verified semantic roles, and the navigation check verifies only a partial URL match, which may not fully confirm correct navigation. The test cases preserve their IDs in test titles and the coverage matches the generated mapping. No compilation or API misuse issues were found, nor iteration over Locator type without awaited elementHandles. Overall, the tests are executable but could be improved in selector robustness and assertion certainty."
   },
   "sourceContext": {
     "manualTestCasesPath": "testcases/MP-1/manual/manual-testcases.json",
@@ -49,5 +49,5 @@
     "analysisSha": "3203407844b2857ce036970a80368f62e533b576",
     "manualTestCaseCount": 3
   },
-  "createdAt": "2026-07-16T08:52:58.414Z"
+  "createdAt": "2026-07-16T08:58:14.131Z"
 }
