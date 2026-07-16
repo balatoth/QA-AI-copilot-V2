@@ -2,17 +2,17 @@
   "storyKey": "MP-3",
   "artifactType": "playwright",
   "generatorVersion": "v0.4.7.1",
-  "repaired": true,
-  "repairAttempt": 1,
+  "repaired": false,
+  "repairAttempt": 0,
   "reviewStatus": "PASS",
-  "qualityScore": 90,
+  "qualityScore": 9,
   "qualityGate": {
     "status": "PASS",
     "passed": true,
-    "qualityScore": 90,
-    "reason": "The repaired Playwright TypeScript test file compiles and uses Playwright APIs correctly. All test cases with their IDs are present and correctly named. Await is used properly with asynchronous assertions. Selectors use role-based queries which are robust, though the product item selector relies on a data-testid attribute which is acceptable if present. The code is maintainable with constants for category names and URLs. Minor warning on assumption of data-testid attribute for products, but this is common practice."
+    "qualityScore": 9,
+    "reason": "The TypeScript Playwright tests compile and use the API correctly with proper async/await usage. Test case IDs are preserved in the test titles. Selectors mostly use accessible roles and names, which is good practice. Assertions are applied correctly, including to locators and URL checks. The tests are maintainable and reusability could be improved slightly by defining a helper method to navigate to the category. The product count check in TC-003 is basic but valid."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-16T09:09:11.633Z"
+  "createdAt": "2026-07-16T09:18:49.945Z"
 }
