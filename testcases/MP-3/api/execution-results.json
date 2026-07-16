@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-3",
   "artifactType": "execution-results",
-  "generatedAt": "2026-07-16T09:07:21.994Z",
+  "generatedAt": "2026-07-16T09:17:21.599Z",
   "summary": {
     "total": 1,
     "passed": 1,
@@ -19,7 +19,7 @@
       "expectedStatus": 200,
       "actualStatus": 200,
       "status": "PASS",
-      "executedAt": "2026-07-16T09:07:21.986Z",
+      "executedAt": "2026-07-16T09:17:21.592Z",
       "responsePreview": "{\"current_page\":1,\"data\":[],\"from\":null,\"last_page\":1,\"per_page\":9,\"to\":null,\"total\":0}",
       "originalTestCase": {
         "testCaseId": "TC_MP3_01",
