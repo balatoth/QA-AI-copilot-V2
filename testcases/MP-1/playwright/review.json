@@ -3,34 +3,35 @@
   "storyKey": "MP-1",
   "reviewStatus": "WARNING",
   "qualityScore": 8,
-  "summary": "The generated Playwright tests are syntactically correct and mostly follow Playwright best practices. All test cases have preserved testCaseIds in the test titles and include proper use of await with assertions. However, there are concerns about selector reliability and navigation validation strength. The selector '[role=\"grid\"]' is assumed without verification the page uses roles, which might be weak or brittle. Similarly, selectors like '.product-card', '.product-name', and '.product-price' rely on assumed class names without additional context, which could reduce robustness. The navigation URL check uses a generic regex pattern that may not guarantee correct product detail page navigation. There are no issues with asynchronous handling or incorrect API usage.",
+  "summary": "The TypeScript code compiles and uses Playwright APIs correctly. Await is used properly with all assertions. The testCaseIds are preserved and each GENERATED manual test case has a corresponding test. However, some selectors rely on assumed roles (grid, article) without guaranteed evidence from the page. The navigation validation checking the URL contains 'product' is too generic for strong validation of the correct product detail page. The selector quality can be weak if the roles do not exist or differ. No issues with async handling or assertion usage were found. No hard-coded waits or placeholder URLs are present.",
   "scores": {
     "correctness": 10,
     "selectorQuality": 6,
     "assertionStrength": 8,
-    "reusability": 8,
-    "maintainability": 8,
+    "reusability": 7,
+    "maintainability": 7,
     "testDataHandling": 10,
-    "playwrightBestPractices": 9
+    "playwrightBestPractices": 10
   },
   "issues": [
     {
-      "severity": "MEDIUM",
-      "category": "Selector Reliability",
+      "severity": "WARNING",
+      "category": "Selector Quality",
       "file": "playwright/product-overview.spec.ts",
-      "description": "Selectors such as '[role=\"grid\"]' and '.product-card' are assumed without confirmation these roles and classes exist or are unique, which might lead to brittle tests.",
-      "recommendation": "Verify the application's accessibility roles and CSS classes or use more robust selectors based on test IDs or data attributes."
+      "description": "Selectors use roles such as 'grid' and 'article' without guaranteed evidence that these roles exist on the target page. This assumption may reduce the reliability of the tests.",
+      "recommendation": "Confirm the accessibility roles are used on the page or replace selectors with more stable and verified attributes or test-ids."
     },
     {
-      "severity": "LOW",
+      "severity": "WARNING",
       "category": "Navigation Validation",
       "file": "playwright/product-overview.spec.ts",
-      "description": "The navigation URL assertion uses a generic regex /.*product-detail/ which may not sufficiently verify the correct product detail page is loaded.",
-      "recommendation": "Improve navigation verification by asserting specific elements on the detail page or a more precise URL pattern."
+      "description": "Navigation validation uses a generic substring check for 'product' in the URL to verify navigation to the product detail page, which may be insufficient to ensure correctness.",
+      "recommendation": "Improve navigation validation by checking more specific URL patterns or page content unique to the product detail page."
     }
   ],
   "recommendations": [
-    "Consider using data-testids or stable test-specific attributes for selectors to improve reliability and maintainability.",
-    "Enhance navigation assertions by verifying page content unique to the product detail to strengthen test robustness."
+    "Add verification or fallback selectors if expected ARIA roles (grid, article) do not exist on the page.",
+    "Strengthen navigation checks to confirm that the intended product detail page loaded, potentially by URL exact match or unique page elements.",
+    "Consider using test-specific attributes (e.g., data-testid) for more stable selectors."
   ]
 }
