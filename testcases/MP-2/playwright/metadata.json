@@ -5,14 +5,14 @@
   "repaired": false,
   "repairAttempt": 0,
   "reviewStatus": "WARNING",
-  "qualityScore": 75,
+  "qualityScore": 7,
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 75,
-    "reason": "The tests compile and run without errors, correctly using Playwright APIs and asynchronous assertions. The testCaseIds are preserved in test titles, and all GENERATED tests are included. However, some selectors are weak or placeholders, and assumptions made in selectors and assertions reduce reliability. Iteration over element handles instead of Locator violates best practices and risks flakiness."
+    "qualityScore": 7,
+    "reason": "The Playwright tests compile and run without evident errors and largely use Playwright APIs correctly. However, selectors are often weak or assumed (e.g., generic 'product name' link, generic roles like heading without robust context, text matching with placeholders like 'category badge' and 'brand badge'). Navigation assertions checking URLs are regex-based but generic and might not uniquely identify detail pages. Clicking each related product assumes all related products share a URL pattern /product-detail/ which may be unreliable. There is some reuse in baseUrl and reasonable assertions, but robustness and selector specificity need improvement for maintainability and reliability."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-16T09:08:23.220Z"
+  "createdAt": "2026-07-16T09:18:31.931Z"
 }
