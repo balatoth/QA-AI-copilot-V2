@@ -1,38 +1,34 @@
 import { test, expect } from '@playwright/test';
 
-const baseUrl = 'https://testsmith-io.github.io/practice-software-testing/#/';
+test.describe('Product Detail Tests', () => {
+  test('TC-001 - Display Product Detail Page', async ({ page }) => {
+    await page.goto('https://testsmith-io.github.io/practice-software-testing/#/');
+    // Assume products are listed on the overview page and click the first product
+    await page.getByRole('link', { name: 'First Product' }).click(); // Update this selector as needed
+    await expect(page).toHaveURL(/.*product-detail/);
+  });
 
-// Test to display the product detail page when a product is clicked from the overview or category page.
-test('TC-001 - Display Product Detail Page', async ({ page }) => {
-  await page.goto(baseUrl);
-  // Navigate to the overview or category page first, assuming the default page is the overview page.
-  const productLink = await page.locator('text=Product Name'); // Replace with actual product name or locator
-  await productLink.click();
-  // Verify that the product detail page is displayed.
-  const productDetail = await page.locator('h1'); // Assuming the product name is in an <h1> tag
-  await expect(productDetail).toBeVisible();
-});
+  test('TC-002 - Verify Product Details Displayed', async ({ page }) => {
+    await page.goto('https://testsmith-io.github.io/practice-software-testing/#/product-detail');
+    await expect(page.getByRole('img')).toBeVisible(); // Product image
+    await expect(page.getByRole('heading')).toBeVisible(); // Product name
+    await expect(page.getByText(/Description/i)).toBeVisible(); // Product description
+    await expect(page.getByText(/Price/i)).toBeVisible(); // Product price
+    await expect(page.getByText(/Category/i)).toBeVisible(); // Category badge
+    await expect(page.getByText(/Brand/i)).toBeVisible(); // Brand badge
+  });
 
-// Test to verify that product details are displayed on the product detail page.
-test('TC-002 - Verify Product Details Displayed', async ({ page }) => {
-  await page.goto(baseUrl + 'product-detail'); // Replace with actual product detail URL
-  // Verify each product detail element.
-  await expect(page.locator('img[alt="Product Image"]')).toBeVisible(); // Assuming the product image has an alt attribute
-  await expect(page.locator('h1')).toBeVisible(); // Product name
-  await expect(page.locator('.product-description')).toBeVisible(); // Product description assumed from class
-  await expect(page.locator('.product-price')).toBeVisible(); // Product price assumed from class
-  await expect(page.locator('.category-badge')).toBeVisible(); // Category badge assumed from class
-  await expect(page.locator('.brand-badge')).toBeVisible(); // Brand badge assumed from class
-});
-
-// Test to verify that the related products section is displayed below main product information.
-test('TC-003 - Display Related Products Section', async ({ page }) => {
-  await page.goto(baseUrl + 'product-detail'); // Replace with actual product detail URL
-  // Check if related products section is visible.
-  await expect(page.locator('.related-products')).toBeVisible(); // Assumed class for the related products section
-  const relatedProducts = page.locator('.related-product-item'); // Assumed class for each related product item
-  await expect(relatedProducts).toHaveCount(3); // Check for count, adjust based on expected number of related products
-  await relatedProducts.first().click(); // Click on the first related product
-  // Verify that the URL changes to the related product detail page.
-  await expect(page).toHaveURL(/product-detail/); // assuming the related product leads to a URL with the pattern
+  test('TC-003 - Display Related Products Section', async ({ page }) => {
+    await page.goto('https://testsmith-io.github.io/practice-software-testing/#/product-detail');
+    await expect(page.getByText(/Related Products/i)).toBeVisible(); // Related products section
+    const relatedProducts = await page.locator('.related-products .product'); // Update this selector as needed
+    const count = await relatedProducts.count();
+    for (let i = 0; i < count; i++) {
+      await expect(relatedProducts.nth(i)).toBeClickable();
+      await relatedProducts.nth(i).click();
+      await expect(page).toHaveURL(/.*product-detail/);
+      await page.goBack(); // Navigate back to the previous page
+      await expect(page).toHaveURL(/.*product-overview/); // Update this to the correct overview URL
+    }
+  });
 });
