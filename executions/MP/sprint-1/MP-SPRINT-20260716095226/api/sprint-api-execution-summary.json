@@ -1,28 +1,28 @@
 {
   "executionId": "MP-SPRINT-20260716095226",
   "artifactType": "sprint-api-execution-summary",
-  "generatedAt": "2026-07-16T09:54:06.724Z",
+  "generatedAt": "2026-07-16T09:54:53.600Z",
   "summary": {
-    "totalStories": 3,
-    "completedStories": 3,
+    "totalStories": 2,
+    "completedStories": 2,
     "notExecutableStories": 0,
     "failedStories": 0
   },
   "stories": [
     {
-      "storyKey": "MP-1",
+      "storyKey": "MP-4",
       "executionId": "MP-SPRINT-20260716095226",
       "status": "COMPLETED",
       "scope": "STORY_EXECUTION",
       "apiExecution": {
-        "storyKey": "MP-1",
+        "storyKey": "MP-4",
         "executionId": "MP-SPRINT-20260716095226",
-        "status": "COMPLETED",
-        "executionResultsPath": "testcases/MP-1/api/execution-results.json",
-        "executionAnalysisPath": "testcases/MP-1/api/execution-analysis.json"
+        "status": "NOT_EXECUTABLE",
+        "reason": "NO_API_TEST_CASES",
+        "executionResultsPath": null
       },
       "playwrightGeneration": {
-        "storyKey": "MP-1",
+        "storyKey": "MP-4",
         "executionId": "MP-SPRINT-20260716095226",
         "status": "COMPLETED",
         "scope": "PLAYWRIGHT_GENERATION",
@@ -31,70 +31,42 @@
         "qualityScore": 75,
         "repaired": false,
         "repairAttempt": 0,
-        "generatedTestCount": 3,
+        "generatedTestCount": 5,
         "skippedTestCount": 0,
         "generatedFiles": [
-          "playwright/product-overview.spec.ts"
+          "playwright/contact-form-accessibility.spec.ts",
+          "playwright/contact-form-required-fields.spec.ts",
+          "playwright/contact-form-subject-dropdown.spec.ts",
+          "playwright/contact-form-message-validation.spec.ts",
+          "playwright/contact-form-confirmation-message.spec.ts"
         ],
         "persistedGeneratedFiles": [
-          "playwright/product-overview.spec.ts"
+          "playwright/contact-form-accessibility.spec.ts",
+          "playwright/contact-form-required-fields.spec.ts",
+          "playwright/contact-form-subject-dropdown.spec.ts",
+          "playwright/contact-form-message-validation.spec.ts",
+          "playwright/contact-form-confirmation-message.spec.ts"
         ],
         "blockedGeneratedFiles": [],
-        "playwrightSummaryPath": "testcases/MP-1/playwright/playwright-generation-summary.json",
-        "playwrightReviewPath": "testcases/MP-1/playwright/review.json",
-        "playwrightMetadataPath": "testcases/MP-1/playwright/metadata.json"
+        "playwrightSummaryPath": "testcases/MP-4/playwright/playwright-generation-summary.json",
+        "playwrightReviewPath": "testcases/MP-4/playwright/review.json",
+        "playwrightMetadataPath": "testcases/MP-4/playwright/metadata.json"
       }
     },
     {
-      "storyKey": "MP-2",
+      "storyKey": "MP-4",
       "executionId": "MP-SPRINT-20260716095226",
       "status": "COMPLETED",
       "scope": "STORY_EXECUTION",
       "apiExecution": {
-        "storyKey": "MP-2",
+        "storyKey": "MP-4",
         "executionId": "MP-SPRINT-20260716095226",
-        "status": "COMPLETED",
-        "executionResultsPath": "testcases/MP-2/api/execution-results.json",
-        "executionAnalysisPath": "testcases/MP-2/api/execution-analysis.json"
+        "status": "NOT_EXECUTABLE",
+        "reason": "NO_API_TEST_CASES",
+        "executionResultsPath": null
       },
       "playwrightGeneration": {
-        "storyKey": "MP-2",
-        "executionId": "MP-SPRINT-20260716095226",
-        "status": "COMPLETED",
-        "scope": "PLAYWRIGHT_GENERATION",
-        "qualityGatePassed": true,
-        "reviewStatus": "WARNING",
-        "qualityScore": 70,
-        "repaired": false,
-        "repairAttempt": 0,
-        "generatedTestCount": 3,
-        "skippedTestCount": 0,
-        "generatedFiles": [
-          "playwright/product-overview.spec.ts"
-        ],
-        "persistedGeneratedFiles": [
-          "playwright/product-overview.spec.ts"
-        ],
-        "blockedGeneratedFiles": [],
-        "playwrightSummaryPath": "testcases/MP-2/playwright/playwright-generation-summary.json",
-        "playwrightReviewPath": "testcases/MP-2/playwright/review.json",
-        "playwrightMetadataPath": "testcases/MP-2/playwright/metadata.json"
-      }
-    },
-    {
-      "storyKey": "MP-3",
-      "executionId": "MP-SPRINT-20260716095226",
-      "status": "COMPLETED",
-      "scope": "STORY_EXECUTION",
-      "apiExecution": {
-        "storyKey": "MP-3",
-        "executionId": "MP-SPRINT-20260716095226",
-        "status": "COMPLETED",
-        "executionResultsPath": "testcases/MP-3/api/execution-results.json",
-        "executionAnalysisPath": "testcases/MP-3/api/execution-analysis.json"
-      },
-      "playwrightGeneration": {
-        "storyKey": "MP-3",
+        "storyKey": "MP-4",
         "executionId": "MP-SPRINT-20260716095226",
         "status": "COMPLETED",
         "scope": "PLAYWRIGHT_GENERATION",
@@ -103,18 +75,26 @@
         "qualityScore": 75,
         "repaired": false,
         "repairAttempt": 0,
-        "generatedTestCount": 3,
+        "generatedTestCount": 5,
         "skippedTestCount": 0,
         "generatedFiles": [
-          "playwright/product-overview.spec.ts"
+          "playwright/contact-form-accessibility.spec.ts",
+          "playwright/contact-form-required-fields.spec.ts",
+          "playwright/contact-form-subject-dropdown.spec.ts",
+          "playwright/contact-form-message-validation.spec.ts",
+          "playwright/contact-form-confirmation-message.spec.ts"
         ],
         "persistedGeneratedFiles": [
-          "playwright/product-overview.spec.ts"
+          "playwright/contact-form-accessibility.spec.ts",
+          "playwright/contact-form-required-fields.spec.ts",
+          "playwright/contact-form-subject-dropdown.spec.ts",
+          "playwright/contact-form-message-validation.spec.ts",
+          "playwright/contact-form-confirmation-message.spec.ts"
         ],
         "blockedGeneratedFiles": [],
-        "playwrightSummaryPath": "testcases/MP-3/playwright/playwright-generation-summary.json",
-        "playwrightReviewPath": "testcases/MP-3/playwright/review.json",
-        "playwrightMetadataPath": "testcases/MP-3/playwright/metadata.json"
+        "playwrightSummaryPath": "testcases/MP-4/playwright/playwright-generation-summary.json",
+        "playwrightReviewPath": "testcases/MP-4/playwright/review.json",
+        "playwrightMetadataPath": "testcases/MP-4/playwright/metadata.json"
       }
     }
   ]
