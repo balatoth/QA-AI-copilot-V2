@@ -3,49 +3,43 @@
   "storyKey": "MP-4",
   "reviewStatus": "WARNING",
   "qualityScore": 85,
-  "summary": "The Playwright tests compile and use Playwright APIs correctly, with proper use of locators and asynchronous assertions. However, there are some warnings related to weak or assumed selectors and some fragile assumptions on accessibility roles and element presence without explicit validation. All testCaseIds are preserved in titles and corresponding tests exist. No compilation, API misuse, or async assertion issues are found.",
+  "summary": "The TypeScript Playwright code compiles and runs with correct use of async/await and Playwright APIs. Locators are correctly used with asynchronous assertions. However, there are some selector concerns such as reliance on assumed roles (form with name, combobox with name) without guarantee these exist, and generic selectors like 'textarea' or 'button[type=\"submit\"]'. Some assertion texts are generic or placeholders (e.g., confirmation message detection), reducing reliability. Test titles preserve testCaseId and cover all GENERATED cases. No compilation or API misuse found.",
   "scores": {
     "correctness": 10,
     "selectorQuality": 7,
-    "assertionStrength": 9,
-    "reusability": 8,
-    "maintainability": 8,
+    "assertionStrength": 7,
+    "reusability": 9,
+    "maintainability": 9,
     "testDataHandling": 9,
-    "playwrightBestPractices": 8
+    "playwrightBestPractices": 10
   },
   "issues": [
     {
-      "severity": "LOW",
+      "severity": "MEDIUM",
       "category": "Selector Quality",
-      "file": "playwright/contact-form.accessibility.spec.ts",
-      "description": "The selector assumes the form has a role of 'form' with an accessible name containing 'contact form'. This may be weak if the accessible name is not defined or inconsistent.",
-      "recommendation": "Verify the form has a valid accessible name or use additional attributes or test IDs to select the form more reliably."
+      "file": "playwright/contact-form.spec.ts",
+      "description": "Selectors like getByRole('form', { name: /contact/i }) and getByRole('combobox', { name: /subject/i }) assume accessibility roles and names that may not exist in the tested page, potentially causing flakiness.",
+      "recommendation": "Verify the accessibility tree of the target page to ensure these roles and names exist, or use more robust selectors combining attributes or test IDs."
+    },
+    {
+      "severity": "LOW",
+      "category": "Assertion Strength",
+      "file": "playwright/contact-form.spec.ts",
+      "description": "Assertions checking visible error or confirmation messages rely on generic text patterns such as /confirmation message/i or /must be at least 50 characters/i which may not match actual messages on the page.",
+      "recommendation": "Update assertions to match exact visible text in the application to ensure test reliability."
     },
     {
       "severity": "LOW",
       "category": "Selector Quality",
-      "file": "playwright/contact-form.subject-dropdown.spec.ts",
-      "description": "The test selects dropdown options using the locator 'option' inside a combobox role. This depends on native select elements and may be fragile if custom dropdown is used.",
-      "recommendation": "Confirm the dropdown is a native select element, or adapt selectors to custom implementations."
-    },
-    {
-      "severity": "LOW",
-      "category": "Selector Quality",
-      "file": "playwright/contact-form.message-validation.spec.ts",
-      "description": "The error message is assumed to be shown using a '.error-message' class. This could be too generic or fail if the UI changes.",
-      "recommendation": "Use more specific selectors or ARIA live regions to detect validation errors."
-    },
-    {
-      "severity": "LOW",
-      "category": "Selector Quality",
-      "file": "playwright/contact-form.successful-submission.spec.ts",
-      "description": "The confirmation message selector uses a '.confirmation-message' class, which might not be unique or could change.",
-      "recommendation": "Use data-testid or accessible roles/attributes for more reliable selection."
+      "file": "playwright/contact-form.spec.ts",
+      "description": "Usage of generic selectors such as 'textarea' or 'button[type=\"submit\"]' may match unexpected elements if page structure changes.",
+      "recommendation": "Consider using more specific locators, e.g., by label text or data-test attributes to increase stability."
     }
   ],
   "recommendations": [
-    "Consider adding stronger selectors using test-ids or ARIA attributes when possible.",
-    "Validate accessibility roles and names explicitly before relying on them for selection.",
-    "Add navigation or URL assertions to confirm correct page load where applicable."
+    "Confirm that all role and name selectors correspond to real attributes in the tested page.",
+    "Replace generic error and confirmation message patterns with exact expected texts.",
+    "Use test-specific attributes or more descriptive selectors to avoid ambiguity.",
+    "Add navigation validation such as URL checks or wait for specific page states after navigation or submission."
   ]
 }
