@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-2",
   "artifactType": "execution-results",
-  "generatedAt": "2026-07-16T09:27:13.398Z",
+  "generatedAt": "2026-07-16T09:42:05.186Z",
   "summary": {
     "total": 1,
     "passed": 0,
@@ -19,7 +19,7 @@
       "expectedStatus": 200,
       "actualStatus": 404,
       "status": "FAIL",
-      "executedAt": "2026-07-16T09:27:13.392Z",
+      "executedAt": "2026-07-16T09:42:05.180Z",
       "responsePreview": "{\"message\":\"Requested item not found\"}",
       "originalTestCase": {
         "testCaseId": "MP-2_SC-001_TC-001",
