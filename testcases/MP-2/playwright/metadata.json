@@ -5,14 +5,14 @@
   "repaired": false,
   "repairAttempt": 0,
   "reviewStatus": "WARNING",
-  "qualityScore": 75,
+  "qualityScore": 70,
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 75,
-    "reason": "The Playwright tests are syntactically correct and use Playwright APIs properly, so no compile or runtime API errors are detected. All GENERATED test cases (TC-001, TC-002, TC-003) have corresponding tests with preserved testCaseId in titles. Await is correctly used in async assertions. However, selectors are mostly placeholders or weak (e.g., 'text=Product Name', generic 'h1', '.product-description') and URLs with placeholders ('product-detail') weaken navigation validation. The assumption that related products count is 3 may be brittle without data setup. The test design is straightforward but could benefit from more precise selectors and URL validations."
+    "qualityScore": 70,
+    "reason": "The Playwright tests are syntactically correct and mostly use Playwright APIs correctly but have some weaknesses in selectors and test robustness. There are incorrect assumptions about role names and page URLs, and some selectors appear guessed or generic. The test flow and assertions are mostly fine, but issues with selectors and navigation checks reduce reliability."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-16T11:30:49.570Z"
+  "createdAt": "2026-07-16T12:13:50.245Z"
 }
