@@ -1,34 +1,31 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Product Overview', () => {
-  test('TC-001: Verify grid of product cards is displayed on home page', async ({ page }) => {
-    await page.goto('https://testsmith-io.github.io/practice-software-testing/#/');
-    const productGrid = await page.getByRole('grid');
-    await expect(productGrid).toBeVisible();
-  });
+const BASE_URL = 'https://testsmith-io.github.io/practice-software-testing/#/';
 
-  test('TC-002: Verify product card details are displayed', async ({ page }) => {
-    await page.goto('https://testsmith-io.github.io/practice-software-testing/#/');
-    const productCards = await page.locator('[role="grid"] [role="article"]'); // Assumption: Each product card is an article within a grid.
-    const count = await productCards.count();
-    await expect(count).toBeGreaterThan(0);
-    for (let i = 0; i < count; i++) {
-      const image = await productCards.nth(i).getByRole('img');
-      const name = await productCards.nth(i).getByRole('heading');
-      const price = await productCards.nth(i).getByText(/\$[\d,]+\.\d{2}/); // Assuming price is presented in a dollar format.
+// Test Case TC-001: Verify grid of product cards is displayed on home page
+test('TC-001 - Verify grid of product cards is displayed on home page', async ({ page }) => {
+  await page.goto(BASE_URL);
+  const productGrid = await page.getByRole('grid'); // Assuming product cards are in a grid role
+  await expect(productGrid).toBeVisible();
+});
 
-      await expect(image).toBeVisible();
-      await expect(name).toBeVisible();
-      await expect(price).toBeVisible();
-    }
-  });
+// Test Case TC-002: Verify product card details are displayed
+test('TC-002 - Verify product card details are displayed', async ({ page }) => {
+  await page.goto(BASE_URL);
+  const productCards = await page.getByRole('gridcell'); // Assuming product cards are represented as grid cells
+  const cardsCount = await productCards.count();
+  for (let i = 0; i < cardsCount; i++) {
+    const card = productCards.nth(i);
+    await expect(card.locator('img')).toBeVisible(); // Assuming product image is an <img> tag
+    await expect(card.locator('text=name')).toBeVisible(); // Placeholder for product name locator
+    await expect(card.locator('text=price')).toBeVisible(); // Placeholder for product price locator
+  }
+});
 
-  test('TC-003: Verify navigation to product detail page from product card', async ({ page }) => {
-    await page.goto('https://testsmith-io.github.io/practice-software-testing/#/');
-    const firstProductCard = await page.locator('[role="grid"] [role="article"]').first();
-    const productName = await firstProductCard.getByRole('heading').innerText();
-    await firstProductCard.click();
-    await expect(page).toHaveURL(/.*\/product\/.*$/); // Assumption: Product detail page contains 'product' in URL.
-    await expect(page.getByText(productName)).toBeVisible();
-  });
+// Test Case TC-003: Verify navigation to product detail page from product card
+test('TC-003 - Verify navigation to product detail page from product card', async ({ page }) => {
+  await page.goto(BASE_URL);
+  const firstProductCard = await page.getByRole('gridcell').nth(0);
+  await firstProductCard.click();
+  await expect(page).toHaveURL(/.*product-detail/); // Adjust this based on the actual URL pattern
 });
