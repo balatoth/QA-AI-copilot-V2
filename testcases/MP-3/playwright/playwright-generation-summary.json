@@ -37,10 +37,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "PASS",
+    "status": "WARNING",
     "passed": true,
-    "qualityScore": 9,
-    "reason": "The TypeScript Playwright tests compile and use the API correctly with proper async/await usage. Test case IDs are preserved in the test titles. Selectors mostly use accessible roles and names, which is good practice. Assertions are applied correctly, including to locators and URL checks. The tests are maintainable and reusability could be improved slightly by defining a helper method to navigate to the category. The product count check in TC-003 is basic but valid."
+    "qualityScore": 65,
+    "reason": "The Playwright tests compile and use APIs correctly with awaited assertions, preserving test case IDs. However, selector quality is weak due to placeholder regex selectors ('category name'), generic selectors (h1), and assumptions without verification about the page content and product-category relationship. Assertions on page title and product relevance require stronger selectors or additional validation. There is no test data handling or reuse of selectors which impacts maintainability and reusability."
   },
   "sourceContext": {
     "manualTestCasesPath": "testcases/MP-3/manual/manual-testcases.json",
@@ -49,5 +49,5 @@
     "analysisSha": "b62632b449d6f00fd060b3fa822afa48314dfb27",
     "manualTestCaseCount": 3
   },
-  "createdAt": "2026-07-16T09:18:49.945Z"
+  "createdAt": "2026-07-16T09:28:55.645Z"
 }
