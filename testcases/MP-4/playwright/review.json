@@ -1,0 +1,51 @@
+{
+  "artifactType": "playwright",
+  "storyKey": "MP-4",
+  "reviewStatus": "WARNING",
+  "qualityScore": 85,
+  "summary": "The Playwright tests compile and use Playwright APIs correctly, with proper use of locators and asynchronous assertions. However, there are some warnings related to weak or assumed selectors and some fragile assumptions on accessibility roles and element presence without explicit validation. All testCaseIds are preserved in titles and corresponding tests exist. No compilation, API misuse, or async assertion issues are found.",
+  "scores": {
+    "correctness": 10,
+    "selectorQuality": 7,
+    "assertionStrength": 9,
+    "reusability": 8,
+    "maintainability": 8,
+    "testDataHandling": 9,
+    "playwrightBestPractices": 8
+  },
+  "issues": [
+    {
+      "severity": "LOW",
+      "category": "Selector Quality",
+      "file": "playwright/contact-form.accessibility.spec.ts",
+      "description": "The selector assumes the form has a role of 'form' with an accessible name containing 'contact form'. This may be weak if the accessible name is not defined or inconsistent.",
+      "recommendation": "Verify the form has a valid accessible name or use additional attributes or test IDs to select the form more reliably."
+    },
+    {
+      "severity": "LOW",
+      "category": "Selector Quality",
+      "file": "playwright/contact-form.subject-dropdown.spec.ts",
+      "description": "The test selects dropdown options using the locator 'option' inside a combobox role. This depends on native select elements and may be fragile if custom dropdown is used.",
+      "recommendation": "Confirm the dropdown is a native select element, or adapt selectors to custom implementations."
+    },
+    {
+      "severity": "LOW",
+      "category": "Selector Quality",
+      "file": "playwright/contact-form.message-validation.spec.ts",
+      "description": "The error message is assumed to be shown using a '.error-message' class. This could be too generic or fail if the UI changes.",
+      "recommendation": "Use more specific selectors or ARIA live regions to detect validation errors."
+    },
+    {
+      "severity": "LOW",
+      "category": "Selector Quality",
+      "file": "playwright/contact-form.successful-submission.spec.ts",
+      "description": "The confirmation message selector uses a '.confirmation-message' class, which might not be unique or could change.",
+      "recommendation": "Use data-testid or accessible roles/attributes for more reliable selection."
+    }
+  ],
+  "recommendations": [
+    "Consider adding stronger selectors using test-ids or ARIA attributes when possible.",
+    "Validate accessibility roles and names explicitly before relying on them for selection.",
+    "Add navigation or URL assertions to confirm correct page load where applicable."
+  ]
+}
