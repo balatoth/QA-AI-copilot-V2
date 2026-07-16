@@ -2,17 +2,17 @@
   "storyKey": "MP-1",
   "artifactType": "playwright",
   "generatorVersion": "v0.4.7.1",
-  "repaired": false,
-  "repairAttempt": 0,
-  "reviewStatus": "WARNING",
-  "qualityScore": 7,
+  "repaired": true,
+  "repairAttempt": 1,
+  "reviewStatus": "PASS",
+  "qualityScore": 90,
   "qualityGate": {
-    "status": "WARNING",
+    "status": "PASS",
     "passed": true,
-    "qualityScore": 7,
-    "reason": "The TypeScript code compiles and uses Playwright APIs mostly correctly. There is proper awaiting of asynchronous assertions. Test case IDs are preserved in test titles, and all GENERATED test cases are present. However, some selectors rely on roles like 'grid' and 'gridcell' without validation of their presence on the page, which is risky. The data-testid attribute usage is good but might be guessed without confirmation. The navigation assertion checking only for a substring in the URL is weak and may cause false positives. Overall, the tests are executable and maintainable but could benefit from stronger selectors and more robust navigation validation."
+    "qualityScore": 90,
+    "reason": "The repaired Playwright TypeScript tests compile and run correctly with proper use of async/await and Playwright APIs. Selectors use data-testid attributes which improves reliability. Assertions are strong and awaited. Test case IDs are preserved in test titles. Minor warnings on generic heading selectors and price regex but acceptable given context."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-16T09:18:00.643Z"
+  "createdAt": "2026-07-16T09:28:08.501Z"
 }
