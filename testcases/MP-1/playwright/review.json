@@ -3,11 +3,11 @@
   "storyKey": "MP-1",
   "reviewStatus": "WARNING",
   "qualityScore": 75,
-  "summary": "The Playwright tests are syntactically correct and use Playwright APIs properly, so the code will compile and run. Test case IDs are preserved in the test titles. However, there are subjective assumptions on roles ('grid', 'griditem') that are not guaranteed, creating risk of weak selectors. The navigation check uses a generic URL pattern which is a weak indicator of correct navigation. Assertions are applied correctly with proper awaits. There are no hard-coded waits or unsupported APIs. Overall, the code is functional but selectors and navigation validation could be improved for stronger reliability and maintainability.",
+  "summary": "The tests compile and use Playwright APIs correctly with awaited assertions. However, selectors rely on assumptions such as the grid role and generic text locators ('text=Product Name', 'text=$'), which are weak and possibly incorrect. The assertion for product count uses a non-existent 'toHaveCountGreaterThan' method on Locator, which will fail. Navigation URL check is generic and might pass incorrectly. All testCaseIds are preserved in titles and tests exist for them.",
   "scores": {
-    "correctness": 10,
-    "selectorQuality": 6,
-    "assertionStrength": 9,
+    "correctness": 8,
+    "selectorQuality": 5,
+    "assertionStrength": 7,
     "reusability": 7,
     "maintainability": 7,
     "testDataHandling": 8,
@@ -15,23 +15,31 @@
   },
   "issues": [
     {
-      "severity": "MEDIUM",
-      "category": "Selector Quality",
+      "severity": "HIGH",
+      "category": "Playwright API misuse",
       "file": "playwright/product-overview.spec.ts",
-      "description": "The locator selectors assume the existence of roles 'grid' and 'griditem' which may not be supported or reliable selectors for the product cards.",
-      "recommendation": "Verify the actual accessible roles or use more robust selectors such as data-testid or specific class/attribute selectors if available."
+      "description": "Locator 'productCards' uses 'toHaveCountGreaterThan' which is not a valid Playwright assertion.",
+      "recommendation": "Use 'expect(productCards.count()).resolves.toBeGreaterThan(0)' or similar for count checks."
     },
     {
-      "severity": "MEDIUM",
-      "category": "Navigation Validation",
+      "severity": "WARNING",
+      "category": "Selector quality",
       "file": "playwright/product-overview.spec.ts",
-      "description": "URL validation after clicking a product card uses a weak regex matching '/product-detail/', which might not guarantee that the correct detail page is loaded.",
-      "recommendation": "Enhance navigation verification by asserting page content, unique elements, or more precise URL patterns to ensure the correct product detail page is displayed."
+      "description": "Selectors such as 'role=grid' and 'text=Product Name' are guessed or generic and may not reliably select elements.",
+      "recommendation": "Use data-testids or more specific selectors tied to stable attributes."
+    },
+    {
+      "severity": "WARNING",
+      "category": "Navigation validation",
+      "file": "playwright/product-overview.spec.ts",
+      "description": "The navigation assertion checks URL contains 'product-detail', which is a weak indicator and may pass incorrectly.",
+      "recommendation": "Validate unique identifiers or product-specific parameters in the URL or check page content to confirm navigation."
     }
   ],
   "recommendations": [
-    "Use more specific and stable selectors instead of assumed ARIA roles to improve test robustness.",
-    "Strengthen navigation assertions by checking page content or more exact URL patterns.",
-    "Consider extracting repeated selectors or navigation steps into reusable functions to improve maintainability."
+    "Replace the invalid 'toHaveCountGreaterThan' assertion with valid asynchronous count check.",
+    "Avoid using guessed 'role=grid' without confirmation from DOM or app documentation.",
+    "Avoid generic text-based locators like 'text=Product Name' and 'text=$'; use stable selectors.",
+    "Enhance navigation verification by asserting specific elements or URL parameters unique to the product detail page."
   ]
 }
