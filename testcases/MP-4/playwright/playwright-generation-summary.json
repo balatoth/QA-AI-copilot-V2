@@ -6,59 +6,51 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": false,
-  "repairAttempt": 0,
+  "repaired": true,
+  "repairAttempt": 1,
   "generatedTestCount": 5,
   "skippedTestCount": 0,
   "generatedTestCases": [
     {
       "testCaseId": "TC-001",
       "status": "GENERATED",
-      "filePath": "playwright/contact-form-accessibility.spec.ts"
+      "filePath": "playwright/contact-form.spec.ts"
     },
     {
       "testCaseId": "TC-002",
       "status": "GENERATED",
-      "filePath": "playwright/contact-form-required-fields.spec.ts"
+      "filePath": "playwright/contact-form.spec.ts"
     },
     {
       "testCaseId": "TC-003",
       "status": "GENERATED",
-      "filePath": "playwright/contact-form-subject-dropdown.spec.ts"
+      "filePath": "playwright/contact-form.spec.ts"
     },
     {
       "testCaseId": "TC-004",
       "status": "GENERATED",
-      "filePath": "playwright/contact-form-message-validation.spec.ts"
+      "filePath": "playwright/contact-form.spec.ts"
     },
     {
       "testCaseId": "TC-005",
       "status": "GENERATED",
-      "filePath": "playwright/contact-form-confirmation-message.spec.ts"
+      "filePath": "playwright/contact-form.spec.ts"
     }
   ],
   "skippedTestCases": [],
   "generatedFiles": [
-    "playwright/contact-form-accessibility.spec.ts",
-    "playwright/contact-form-required-fields.spec.ts",
-    "playwright/contact-form-subject-dropdown.spec.ts",
-    "playwright/contact-form-message-validation.spec.ts",
-    "playwright/contact-form-confirmation-message.spec.ts"
+    "playwright/contact-form.spec.ts"
   ],
   "persistedGeneratedFiles": [
-    "playwright/contact-form-accessibility.spec.ts",
-    "playwright/contact-form-required-fields.spec.ts",
-    "playwright/contact-form-subject-dropdown.spec.ts",
-    "playwright/contact-form-message-validation.spec.ts",
-    "playwright/contact-form-confirmation-message.spec.ts"
+    "playwright/contact-form.spec.ts"
   ],
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "WARNING",
+    "status": "PASS",
     "passed": true,
-    "qualityScore": 75,
-    "reason": "All test files are valid TypeScript and use Playwright APIs correctly, so no FAIL conditions. All testCaseIds are preserved in test titles and all GENERATED manual test cases have corresponding tests. However, there are weaknesses in selectors being potentially fragile (e.g., generic text selectors like getByText('Contact'), assumptions on page structure like a single combobox, option tag usage inside dropdown, and partial field coverage in required fields test). Some assertions miss the use of await (e.g., expect(await options.count()).toBeGreaterThan(0)) could be clearer if awaited properly. Locator usage does not treat them as arrays or iterate directly, and no incorrect assertions on locators detected. Navigation validation is minimal and could improve by checking URL or page state after clicking Contact. Overall, code is maintainable but could be improved with better selectors and more exhaustive assertions."
+    "qualityScore": 90,
+    "reason": "The Playwright TypeScript test file compiles and uses Playwright APIs correctly with proper async/await usage. Test cases include the required testCaseId in titles and cover the intended scenarios. Selectors are mostly clear and appropriate, though some selectors like 'text=Contact' and 'select[name=\"subject\"]' could be more robust. The code is maintainable and reusable with a helper function defined but not used in tests. Overall, the repair addressed critical defects and the tests are executable."
   },
   "sourceContext": {
     "manualTestCasesPath": "testcases/MP-4/manual/manual-testcases.json",
@@ -67,5 +59,5 @@
     "analysisSha": "df7ca19b23d8de2a82fc9fe80e37c8aee1badada",
     "manualTestCaseCount": 5
   },
-  "createdAt": "2026-07-16T09:54:44.521Z"
+  "createdAt": "2026-07-16T11:19:47.031Z"
 }
