@@ -39,8 +39,8 @@
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 65,
-    "reason": "The Playwright tests compile and use Playwright APIs correctly, preserving testCaseId in titles. However, selectors use placeholder text ('Category Name') which weakens test reliability and maintainability; the test assumes the number of products is exactly 3 without context; asynchronous assertions use await properly; the tests could be more robust by replacing placeholders and parametrizing expected data."
+    "qualityScore": 75,
+    "reason": "The Playwright test artifact compiles and uses APIs correctly but includes placeholder selectors and test data. Assertions are properly awaited, and asynchronous Playwright APIs are used correctly. The test titles preserve testCaseIds. However, selectors depend on placeholder names such as 'Desired Category Name' and generic elements like 'h1'. The URL validation is weak, using a regex that only matches 'category' in the URL. There is incomplete verification for product-category matching in the last test. No hard-coded waits or unsupported API usage is found."
   },
   "sourceContext": {
     "manualTestCasesPath": "testcases/MP-3/manual/manual-testcases.json",
@@ -49,5 +49,5 @@
     "analysisSha": "b62632b449d6f00fd060b3fa822afa48314dfb27",
     "manualTestCaseCount": 3
   },
-  "createdAt": "2026-07-16T09:49:54.112Z"
+  "createdAt": "2026-07-16T09:54:01.959Z"
 }
