@@ -5,14 +5,14 @@
   "repaired": false,
   "repairAttempt": 0,
   "reviewStatus": "WARNING",
-  "qualityScore": 70,
+  "qualityScore": 75,
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 70,
-    "reason": "The Playwright test file is syntactically correct and uses Playwright APIs properly, but has some issues related to selector quality, assertion strength, and maintainability. Selectors like /product/i and /related product/i in getByRole may be too generic or weak, potentially leading to flaky tests. Some assertions rely on text matching which could be brittle. Navigation assertions rely on regex matching without verifying the actual product context. The test titles correctly preserve testCaseIds. No asynchronous assertion lacks await. No locator misuse detected."
+    "qualityScore": 75,
+    "reason": "The artifacts compile and use Playwright APIs correctly but have some issues with selectors which are weak and some navigation assertions lack robustness. There are no asynchronous assertion issues or misuse of Locator APIs. The testCaseIds are correctly preserved and mapping is complete."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-16T09:43:22.909Z"
+  "createdAt": "2026-07-16T09:49:33.308Z"
 }
