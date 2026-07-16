@@ -5,14 +5,14 @@
   "repaired": false,
   "repairAttempt": 0,
   "reviewStatus": "WARNING",
-  "qualityScore": 7,
+  "qualityScore": 75,
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 7,
-    "reason": "The tests compile and use Playwright APIs correctly, but some selectors appear guessed and weak, and the navigation URL assertion is not fully reliable to confirm the correct product detail page is opened."
+    "qualityScore": 75,
+    "reason": "The generated Playwright tests compile and use Playwright APIs correctly, but there are issues with the reliability and quality of selectors, and some weak assertions especially on navigation and text selectors. Await is correctly used with assertions and Locators are handled properly. Test case IDs are preserved in test titles and all GENERATED test cases are implemented."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-15T21:22:09.768Z"
+  "createdAt": "2026-07-16T08:36:59.651Z"
 }
