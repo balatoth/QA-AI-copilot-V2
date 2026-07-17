@@ -52,6 +52,25 @@
               });
 
               await page.waitForTimeout(3000);
+
+              const productCards = page.locator('.card');
+
+              console.log(
+                'Product cards found:',
+                await productCards.count()
+              );
+              
+              const cardTitles = page.locator('.card-title');
+              
+              console.log(
+                'Card titles found:',
+                await cardTitles.count()
+              );
+              
+              console.log(
+                'First card title:',
+                await cardTitles.first().textContent()
+              );
               
               await page.screenshot({
                 path: 'homepage.png',
