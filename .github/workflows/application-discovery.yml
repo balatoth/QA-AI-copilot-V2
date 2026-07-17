@@ -450,6 +450,68 @@ jobs:
 
               const completedAt = new Date().toISOString();
 
+              const selectorLibrary = {
+                schemaVersion: '1.0',
+              
+                storyKey,
+                executionId,
+                discoveryId,
+              
+                application: {
+                  name: applicationName,
+                  pageTitle: pageData.document.title,
+                  pageUrl: pageData.document.url
+                },
+              
+                generatedAt: completedAt,
+              
+                selectors: candidateSelectors
+                  .filter((candidate) => candidate.confidence >= 0.85)
+                  .map((candidate) => ({
+                    name:
+                      candidate.value ||
+                      candidate.accessibleName ||
+                      candidate.placeholder ||
+                      candidate.selector,
+              
+                    strategy: candidate.strategy,
+                    selector: candidate.selector,
+                    tagName: candidate.tagName || null,
+                    text: candidate.text || null,
+                    accessibleName:
+                      candidate.accessibleName || null,
+                    confidence: candidate.confidence
+                  })),
+              
+                testIds: pageData.testIdElements
+                  .filter((element) => element.dataTestId)
+                  .map((element) => ({
+                    name: element.dataTestId,
+                    selector:
+                      `[data-testid="${element.dataTestId}"]`,
+                    tagName: element.tagName,
+                    text: element.text || null,
+                    role: element.role || null,
+                    visible: element.visible
+                  })),
+              
+                summary: {
+                  selectorCount: candidateSelectors.filter(
+                    (candidate) => candidate.confidence >= 0.85
+                  ).length,
+              
+                  testIdSelectorCount:
+                    pageData.testIdElements.filter(
+                      (element) => element.dataTestId
+                    ).length
+                }
+              };
+              
+              fs.writeFileSync(
+                'selector-library.json',
+                JSON.stringify(selectorLibrary, null, 2)
+              );
+
               const discoveryResult = {
                 schemaVersion: '1.0',
 
@@ -690,6 +752,7 @@ jobs:
           name: application-discovery-${{ inputs.storyKey }}-${{ inputs.discoveryId }}
           path: |
             application-discovery/application-discovery.json
+            application-discovery/selector-library.json
             application-discovery/discovery-metadata.json
             application-discovery/homepage.png
           if-no-files-found: warn
