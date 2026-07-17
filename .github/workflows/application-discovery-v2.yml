@@ -79,6 +79,23 @@ jobs:
         working-directory: practice-software-testing
         shell: bash
         run: |
+          echo "===== Docker Compose Services ====="
+
+          docker compose \
+            -f docker-compose.prod.yml \
+            ps
+
+          echo ""
+          echo "===== Container Logs ====="
+
+          docker compose \
+            -f docker-compose.prod.yml \
+            logs --tail=100
+
+      - name: Show Practice Software Testing services
+        working-directory: practice-software-testing
+        shell: bash
+        run: |
           docker compose \
             -f docker-compose.prod.yml \
             ps
