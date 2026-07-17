@@ -75,6 +75,20 @@ jobs:
             -f docker-compose.prod.yml \
             up --pull missing -d
 
+      - name: Show Practice Software Testing services
+        working-directory: practice-software-testing
+        shell: bash
+        run: |
+          docker compose \
+            -f docker-compose.prod.yml \
+            ps
+
+          echo "----- Recent container logs -----"
+
+          docker compose \
+            -f docker-compose.prod.yml \
+            logs --tail=100
+
       - name: Wait for Practice Software Testing UI
         shell: bash
         run: |
