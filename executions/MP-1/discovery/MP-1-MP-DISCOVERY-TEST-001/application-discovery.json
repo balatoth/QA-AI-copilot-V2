@@ -1,0 +1,1232 @@
+{
+  "schemaVersion": "1.0",
+  "storyKey": "MP-1",
+  "executionId": "MP-DISCOVERY-TEST-004",
+  "discoveryId": "MP-1-MP-DISCOVERY-TEST-001",
+  "application": {
+    "name": "Practice Software Testing",
+    "requestedUrl": "http://localhost:4200",
+    "discoveredUrl": "http://localhost:4200/"
+  },
+  "discovery": {
+    "scope": "SINGLE_PAGE",
+    "status": "COMPLETED",
+    "startedAt": "2026-07-17T12:57:44.838Z",
+    "completedAt": "2026-07-17T12:57:49.522Z"
+  },
+  "page": {
+    "title": "Practice Software Testing - Toolshop - v5.0",
+    "url": "http://localhost:4200/",
+    "origin": "http://localhost:4200",
+    "pathname": "/",
+    "hash": "",
+    "language": "en"
+  },
+  "summary": {
+    "headingCount": 15,
+    "linkCount": 9,
+    "buttonCount": 6,
+    "inputCount": 3,
+    "formCount": 2,
+    "landmarkCount": 1,
+    "imageCount": 1,
+    "tableCount": 0,
+    "listCount": 1,
+    "dialogCount": 0,
+    "dataTestIdCount": 25,
+    "explicitRoleCount": 6,
+    "candidateSelectorCount": 27
+  },
+  "elements": {
+    "headings": [
+      {
+        "tagName": "h4",
+        "text": "Sort",
+        "id": null,
+        "className": "grid-title",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "class": "grid-title"
+        }
+      },
+      {
+        "tagName": "h4",
+        "text": "Price Range",
+        "id": null,
+        "className": "grid-title",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "class": "grid-title"
+        }
+      },
+      {
+        "tagName": "h4",
+        "text": "Search",
+        "id": null,
+        "className": "grid-title",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "class": "grid-title"
+        }
+      },
+      {
+        "tagName": "h4",
+        "text": "Filters",
+        "id": null,
+        "className": "grid-title",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "class": "grid-title"
+        }
+      },
+      {
+        "tagName": "h4",
+        "text": "By category:",
+        "id": null,
+        "className": "",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": ""
+        }
+      },
+      {
+        "tagName": "h4",
+        "text": "By brand:",
+        "id": null,
+        "className": "",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": ""
+        }
+      },
+      {
+        "tagName": "h4",
+        "text": "Sustainability:",
+        "id": null,
+        "className": "",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": ""
+        }
+      },
+      {
+        "tagName": "h5",
+        "text": "",
+        "id": null,
+        "className": "card-title",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "class": "card-title"
+        }
+      },
+      {
+        "tagName": "h5",
+        "text": "",
+        "id": null,
+        "className": "card-title",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "class": "card-title"
+        }
+      },
+      {
+        "tagName": "h5",
+        "text": "",
+        "id": null,
+        "className": "card-title",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "class": "card-title"
+        }
+      },
+      {
+        "tagName": "h5",
+        "text": "",
+        "id": null,
+        "className": "card-title",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "class": "card-title"
+        }
+      },
+      {
+        "tagName": "h5",
+        "text": "",
+        "id": null,
+        "className": "card-title",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "class": "card-title"
+        }
+      },
+      {
+        "tagName": "h5",
+        "text": "",
+        "id": null,
+        "className": "card-title",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "class": "card-title"
+        }
+      },
+      {
+        "tagName": "h5",
+        "text": "",
+        "id": null,
+        "className": "card-title",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "class": "card-title"
+        }
+      },
+      {
+        "tagName": "h5",
+        "text": "",
+        "id": null,
+        "className": "card-title",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "class": "card-title"
+        }
+      }
+    ],
+    "links": [
+      {
+        "tagName": "a",
+        "text": "Documentation",
+        "id": null,
+        "className": "text-white",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": "https://testsmith-io.github.io/practice-software-testing/#/",
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "target": "_blank",
+          "href": "https://testsmith-io.github.io/practice-software-testing/#/",
+          "class": "text-white"
+        }
+      },
+      {
+        "tagName": "a",
+        "text": "",
+        "id": null,
+        "className": "navbar-brand",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": "/",
+        "title": "Practice Software Testing - Toolshop",
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c2913155081": "",
+          "href": "/",
+          "class": "navbar-brand",
+          "title": "Practice Software Testing - Toolshop"
+        }
+      },
+      {
+        "tagName": "a",
+        "text": "Home",
+        "id": null,
+        "className": "nav-link active",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": "nav-home",
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": "/",
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c2913155081": "",
+          "data-test": "nav-home",
+          "aria-current": "page",
+          "href": "/",
+          "class": "nav-link active"
+        }
+      },
+      {
+        "tagName": "a",
+        "text": "Contact",
+        "id": null,
+        "className": "nav-link",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": "nav-contact",
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": "/contact",
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c2913155081": "",
+          "data-test": "nav-contact",
+          "routerlink": "/contact",
+          "class": "nav-link",
+          "href": "/contact"
+        }
+      },
+      {
+        "tagName": "a",
+        "text": "Sign in",
+        "id": null,
+        "className": "nav-link",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": "nav-sign-in",
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": "/auth/login",
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c2913155081": "",
+          "data-test": "nav-sign-in",
+          "routerlink": "/auth/login",
+          "class": "nav-link",
+          "href": "/auth/login"
+        }
+      },
+      {
+        "tagName": "a",
+        "text": "GitHub repo",
+        "id": null,
+        "className": "",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": "https://github.com/testsmith-io/practice-software-testing",
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "target": "_blank",
+          "href": "https://github.com/testsmith-io/practice-software-testing"
+        }
+      },
+      {
+        "tagName": "a",
+        "text": "Privacy Policy",
+        "id": null,
+        "className": "",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": "/privacy",
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "routerlink": "privacy",
+          "href": "/privacy"
+        }
+      },
+      {
+        "tagName": "a",
+        "text": "Barn Images",
+        "id": null,
+        "className": "",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": "https://unsplash.com/@barnimages",
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "target": "_blank",
+          "href": "https://unsplash.com/@barnimages"
+        }
+      },
+      {
+        "tagName": "a",
+        "text": "Unsplash",
+        "id": null,
+        "className": "",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": "https://unsplash.com/photos/t5YUoHW6zRo",
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "target": "_blank",
+          "href": "https://unsplash.com/photos/t5YUoHW6zRo"
+        }
+      }
+    ],
+    "buttons": [
+      {
+        "tagName": "button",
+        "text": "Testing Guide",
+        "id": null,
+        "className": "testing-guide-btn",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c2913155081": "",
+          "class": "testing-guide-btn"
+        }
+      },
+      {
+        "tagName": "button",
+        "text": "Categories",
+        "id": null,
+        "className": "nav-link dropdown-toggle btn-link-style",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": "nav-categories",
+        "name": null,
+        "type": "button",
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c2913155081": "",
+          "type": "button",
+          "data-test": "nav-categories",
+          "data-bs-toggle": "dropdown",
+          "aria-expanded": "false",
+          "class": "nav-link dropdown-toggle btn-link-style"
+        }
+      },
+      {
+        "tagName": "button",
+        "text": "EN",
+        "id": "language",
+        "className": "btn nav-link dropdown-toggle",
+        "role": null,
+        "ariaLabel": "Select language",
+        "ariaLabelledBy": null,
+        "dataTestId": "language-select",
+        "name": null,
+        "type": "button",
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c2913155081": "",
+          "id": "language",
+          "type": "button",
+          "data-test": "language-select",
+          "aria-label": "Select language",
+          "data-bs-toggle": "dropdown",
+          "aria-expanded": "false",
+          "class": "btn nav-link dropdown-toggle"
+        }
+      },
+      {
+        "tagName": "button",
+        "text": "X",
+        "id": null,
+        "className": "btn btn-warning",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": "search-reset",
+        "name": null,
+        "type": "reset",
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "type": "reset",
+          "data-test": "search-reset",
+          "class": "btn btn-warning"
+        }
+      },
+      {
+        "tagName": "button",
+        "text": "Search",
+        "id": null,
+        "className": "btn btn-secondary",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": "search-submit",
+        "name": null,
+        "type": "submit",
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "type": "submit",
+          "data-test": "search-submit",
+          "class": "btn btn-secondary"
+        }
+      },
+      {
+        "tagName": "button",
+        "text": "",
+        "id": null,
+        "className": "chat-toggle-btn",
+        "role": null,
+        "ariaLabel": "Open chat",
+        "ariaLabelledBy": null,
+        "dataTestId": "chat-toggle",
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c208528153": "",
+          "aria-label": "Open chat",
+          "data-test": "chat-toggle",
+          "class": "chat-toggle-btn"
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "tagName": "select",
+        "text": "Name (A - Z) Name (Z - A) Price (High - Low) Price (Low - High) CO₂ Rating (A - E) CO₂ Rating (E - A)",
+        "id": null,
+        "className": "form-select",
+        "role": null,
+        "ariaLabel": "sort",
+        "ariaLabelledBy": null,
+        "dataTestId": "sort",
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "aria-label": "sort",
+          "data-test": "sort",
+          "class": "form-select"
+        }
+      },
+      {
+        "tagName": "input",
+        "text": "",
+        "id": "search-query",
+        "className": "form-control ng-untouched ng-pristine ng-invalid",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": "search-query",
+        "name": null,
+        "type": "text",
+        "placeholder": "Search",
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "formcontrolname": "query",
+          "id": "search-query",
+          "data-test": "search-query",
+          "type": "text",
+          "class": "form-control ng-untouched ng-pristine ng-invalid",
+          "placeholder": "Search",
+          "style": ""
+        }
+      },
+      {
+        "tagName": "input",
+        "text": "",
+        "id": null,
+        "className": "icheck",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": "eco-friendly-filter",
+        "name": "eco_friendly",
+        "type": "checkbox",
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "type": "checkbox",
+          "name": "eco_friendly",
+          "data-test": "eco-friendly-filter",
+          "class": "icheck",
+          "style": ""
+        }
+      }
+    ],
+    "forms": [
+      {
+        "tagName": "form",
+        "text": "Name (A - Z) Name (Z - A) Price (High - Low) Price (Low - High) CO₂ Rating (A - E) CO₂ Rating (E - A)",
+        "id": null,
+        "className": "",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "novalidate": "",
+          "autocomplete": "off"
+        },
+        "action": null,
+        "method": null,
+        "controls": [
+          {
+            "tagName": "select",
+            "text": "Name (A - Z) Name (Z - A) Price (High - Low) Price (Low - High) CO₂ Rating (A - E) CO₂ Rating (E - A)",
+            "id": null,
+            "className": "form-select",
+            "role": null,
+            "ariaLabel": "sort",
+            "ariaLabelledBy": null,
+            "dataTestId": "sort",
+            "name": null,
+            "type": null,
+            "placeholder": null,
+            "href": null,
+            "title": null,
+            "visible": true,
+            "attributes": {
+              "_ngcontent-ng-c670033506": "",
+              "aria-label": "sort",
+              "data-test": "sort",
+              "class": "form-select"
+            }
+          }
+        ]
+      },
+      {
+        "tagName": "form",
+        "text": "Search X Search",
+        "id": null,
+        "className": "ng-untouched ng-pristine ng-invalid",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "novalidate": "",
+          "autocomplete": "off",
+          "class": "ng-untouched ng-pristine ng-invalid"
+        },
+        "action": null,
+        "method": null,
+        "controls": [
+          {
+            "tagName": "input",
+            "text": "",
+            "id": "search-query",
+            "className": "form-control ng-untouched ng-pristine ng-invalid",
+            "role": null,
+            "ariaLabel": null,
+            "ariaLabelledBy": null,
+            "dataTestId": "search-query",
+            "name": null,
+            "type": "text",
+            "placeholder": "Search",
+            "href": null,
+            "title": null,
+            "visible": true,
+            "attributes": {
+              "_ngcontent-ng-c670033506": "",
+              "formcontrolname": "query",
+              "id": "search-query",
+              "data-test": "search-query",
+              "type": "text",
+              "class": "form-control ng-untouched ng-pristine ng-invalid",
+              "placeholder": "Search",
+              "style": ""
+            }
+          },
+          {
+            "tagName": "button",
+            "text": "X",
+            "id": null,
+            "className": "btn btn-warning",
+            "role": null,
+            "ariaLabel": null,
+            "ariaLabelledBy": null,
+            "dataTestId": "search-reset",
+            "name": null,
+            "type": "reset",
+            "placeholder": null,
+            "href": null,
+            "title": null,
+            "visible": true,
+            "attributes": {
+              "_ngcontent-ng-c670033506": "",
+              "type": "reset",
+              "data-test": "search-reset",
+              "class": "btn btn-warning"
+            }
+          },
+          {
+            "tagName": "button",
+            "text": "Search",
+            "id": null,
+            "className": "btn btn-secondary",
+            "role": null,
+            "ariaLabel": null,
+            "ariaLabelledBy": null,
+            "dataTestId": "search-submit",
+            "name": null,
+            "type": "submit",
+            "placeholder": null,
+            "href": null,
+            "title": null,
+            "visible": true,
+            "attributes": {
+              "_ngcontent-ng-c670033506": "",
+              "type": "submit",
+              "data-test": "search-submit",
+              "class": "btn btn-secondary"
+            }
+          }
+        ]
+      }
+    ],
+    "landmarks": [
+      {
+        "tagName": "nav",
+        "text": "Home Categories Contact Sign in EN",
+        "id": null,
+        "className": "navbar navbar-expand-lg navbar-light bg-light",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c2913155081": "",
+          "class": "navbar navbar-expand-lg navbar-light bg-light"
+        }
+      }
+    ],
+    "images": [
+      {
+        "tagName": "img",
+        "text": "",
+        "id": null,
+        "className": "img-fluid",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c670033506": "",
+          "fetchpriority": "high",
+          "alt": "Banner",
+          "src": "../assets/img/barn-2400x1600.avif",
+          "class": "img-fluid"
+        }
+      }
+    ],
+    "tables": [],
+    "lists": [
+      {
+        "tagName": "ul",
+        "text": "Home Categories Contact Sign in",
+        "id": null,
+        "className": "navbar-nav ms-auto mb-2 mb-lg-0",
+        "role": "menubar",
+        "ariaLabel": "Main menu",
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "_ngcontent-ng-c2913155081": "",
+          "role": "menubar",
+          "aria-label": "Main menu",
+          "class": "navbar-nav ms-auto mb-2 mb-lg-0"
+        }
+      }
+    ],
+    "dialogs": []
+  },
+  "selectorDiscovery": {
+    "dataTestIds": [
+      "notification-bar",
+      "nav-home",
+      "nav-categories",
+      "nav-hand-tools",
+      "nav-power-tools",
+      "nav-other",
+      "nav-special-tools",
+      "nav-rentals",
+      "nav-contact",
+      "nav-sign-in",
+      "language-select",
+      "lang-de",
+      "lang-el",
+      "lang-en",
+      "lang-es",
+      "lang-fr",
+      "lang-nl",
+      "lang-tr",
+      "filters",
+      "sort",
+      "search-query",
+      "search-reset",
+      "search-submit",
+      "eco-friendly-filter",
+      "chat-toggle"
+    ],
+    "explicitRoles": [
+      "menubar",
+      "menuitem",
+      "img",
+      "menu",
+      "button",
+      "slider"
+    ],
+    "candidates": [
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"notification-bar\"]",
+        "value": "notification-bar",
+        "tagName": "div",
+        "text": "View the Documentation for this application.",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"nav-home\"]",
+        "value": "nav-home",
+        "tagName": "a",
+        "text": "Home",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"nav-categories\"]",
+        "value": "nav-categories",
+        "tagName": "button",
+        "text": "Categories",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"nav-hand-tools\"]",
+        "value": "nav-hand-tools",
+        "tagName": "a",
+        "text": "Hand Tools",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"nav-power-tools\"]",
+        "value": "nav-power-tools",
+        "tagName": "a",
+        "text": "Power Tools",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"nav-other\"]",
+        "value": "nav-other",
+        "tagName": "a",
+        "text": "Other",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"nav-special-tools\"]",
+        "value": "nav-special-tools",
+        "tagName": "a",
+        "text": "Special Tools",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"nav-rentals\"]",
+        "value": "nav-rentals",
+        "tagName": "a",
+        "text": "Rentals",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"nav-contact\"]",
+        "value": "nav-contact",
+        "tagName": "a",
+        "text": "Contact",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"nav-sign-in\"]",
+        "value": "nav-sign-in",
+        "tagName": "a",
+        "text": "Sign in",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"language-select\"]",
+        "value": "language-select",
+        "tagName": "button",
+        "text": "EN",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"lang-de\"]",
+        "value": "lang-de",
+        "tagName": "a",
+        "text": "DE",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"lang-el\"]",
+        "value": "lang-el",
+        "tagName": "a",
+        "text": "EL",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"lang-en\"]",
+        "value": "lang-en",
+        "tagName": "a",
+        "text": "EN",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"lang-es\"]",
+        "value": "lang-es",
+        "tagName": "a",
+        "text": "ES",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"lang-fr\"]",
+        "value": "lang-fr",
+        "tagName": "a",
+        "text": "FR",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"lang-nl\"]",
+        "value": "lang-nl",
+        "tagName": "a",
+        "text": "NL",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"lang-tr\"]",
+        "value": "lang-tr",
+        "tagName": "a",
+        "text": "TR",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"filters\"]",
+        "value": "filters",
+        "tagName": "a",
+        "text": "Filters",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"filters\"]",
+        "value": "filters",
+        "tagName": "div",
+        "text": "Sort Name (A - Z) Name (Z - A) Price (High - Low) Price (Low - High) CO₂ Rating (A - E) CO₂ Rating (E - A) Price Range 0 200 1 100 Search Search X Search Filters By category: Categories By brand: Brands Sustainability: Eco-Friendly Products Show only eco-friendly products",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"sort\"]",
+        "value": "sort",
+        "tagName": "select",
+        "text": "Name (A - Z) Name (Z - A) Price (High - Low) Price (Low - High) CO₂ Rating (A - E) CO₂ Rating (E - A)",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"search-query\"]",
+        "value": "search-query",
+        "tagName": "input",
+        "text": "",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"search-reset\"]",
+        "value": "search-reset",
+        "tagName": "button",
+        "text": "X",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"search-submit\"]",
+        "value": "search-submit",
+        "tagName": "button",
+        "text": "Search",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"eco-friendly-filter\"]",
+        "value": "eco-friendly-filter",
+        "tagName": "input",
+        "text": "",
+        "confidence": 1
+      },
+      {
+        "strategy": "test-id",
+        "selector": "[data-testid=\"chat-toggle\"]",
+        "value": "chat-toggle",
+        "tagName": "button",
+        "text": "",
+        "confidence": 1
+      },
+      {
+        "strategy": "button-name",
+        "selector": "getByRole('button', { name: 'Testing Guide' })",
+        "role": "button",
+        "accessibleName": "Testing Guide",
+        "tagName": "button",
+        "confidence": 0.9
+      }
+    ]
+  },
+  "accessibility": {
+    "snapshot": "- text: View the\n- link \"Documentation\":\n  - /url: https://testsmith-io.github.io/practice-software-testing/#/\n- text: for this application. Practice Black Box Testing & Bug Hunting\n- button \"Testing Guide\"\n- navigation:\n  - link \"Practice Software Testing - Toolshop\":\n    - /url: /\n    - img\n  - menubar \"Main menu\":\n    - menuitem \"Home\":\n      - link \"Home\":\n        - /url: /\n    - menuitem \"Categories\":\n      - button \"Categories\"\n    - menuitem \"Contact\":\n      - link \"Contact\":\n        - /url: /contact\n    - menuitem \"Sign in\":\n      - link \"Sign in\":\n        - /url: /auth/login\n  - button \"Select language\": EN\n- paragraph:\n  - img \"Banner\"\n- separator\n- heading \"Sort\" [level=4]\n- separator\n- combobox \"sort\":\n  - option [selected]\n  - option \"Name (A - Z)\"\n  - option \"Name (Z - A)\"\n  - option \"Price (High - Low)\"\n  - option \"Price (Low - High)\"\n  - option \"CO₂ Rating (A - E)\"\n  - option \"CO₂ Rating (E - A)\"\n- heading \"Price Range\" [level=4]\n- separator\n- slider \"ngx-slider\"\n- slider \"ngx-slider-max\"\n- text: 0 200 1 100\n- heading \"Search\" [level=4]\n- separator\n- text: Search\n- textbox \"Search\"\n- button \"X\"\n- button \"Search\"\n- heading \"Filters\" [level=4]\n- separator\n- heading \"By category:\" [level=4]\n- group \"Categories\"\n- heading \"By brand:\" [level=4]\n- group \"Brands\"\n- heading \"Sustainability:\" [level=4]\n- group \"Eco-Friendly Products\":\n  - text: Eco-Friendly Products\n  - checkbox \"Show only eco-friendly products\"\n  - text: Show only eco-friendly products\n- heading [level=5]\n- heading [level=5]\n- heading [level=5]\n- heading [level=5]\n- heading [level=5]\n- heading [level=5]\n- heading [level=5]\n- heading [level=5]\n- paragraph:\n  - text: This is a DEMO application (\n  - link \"GitHub repo\":\n    - /url: https://github.com/testsmith-io/practice-software-testing\n  - text: ), used for software testing training purpose. |\n  - link \"Privacy Policy\":\n    - /url: /privacy\n  - text: \"| Banner photo by\"\n  - link \"Barn Images\":\n    - /url: https://unsplash.com/@barnimages\n  - text: \"on\"\n  - link \"Unsplash\":\n    - /url: https://unsplash.com/photos/t5YUoHW6zRo\n  - text: .\n- button \"Open chat\":\n  - img"
+  },
+  "artifacts": {
+    "screenshot": "homepage.png",
+    "discoveryJson": "application-discovery.json"
+  },
+  "github": {
+    "workflowRunId": "29582055463",
+    "workflowRunAttempt": "1",
+    "commitSha": "06a0bc749488d754482d5536dec76879acacd9c5"
+  }
+}
