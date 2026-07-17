@@ -52,15 +52,14 @@
               });
 
               await page.waitForTimeout(3000);
-
+              
               const productCards = page.locator('.card');
-
+              const cardTitles = page.locator('.card-title');
+              
               console.log(
                 'Product cards found:',
                 await productCards.count()
               );
-              
-              const cardTitles = page.locator('.card-title');
               
               console.log(
                 'Card titles found:',
@@ -70,6 +69,13 @@
               console.log(
                 'First card title:',
                 await cardTitles.first().textContent()
+              );
+              
+              console.log(
+                'First product card HTML:',
+                await productCards.first().evaluate(
+                  (element) => element.outerHTML
+                )
               );
               
               await page.screenshot({
