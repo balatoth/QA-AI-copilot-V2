@@ -37,7 +37,7 @@
               });
 
               const page = await context.newPage();
-              
+
               page.on('console', (message) => {
                 console.log(
                   `[Browser console ${message.type()}] ${message.text()}`
@@ -60,12 +60,11 @@
               page.on('response', (response) => {
                 if (response.status() >= 400) {
                   console.log(
-                    `[HTTP ${response.status()}] ${response.request().method()} ${response.url()}`
+                    `[HTTP ${response.status()}] ` +
+                    `${response.request().method()} ${response.url()}`
                   );
                 }
               });
-              
-              await page.goto(targetUrl, {
               
               await page.goto(targetUrl, {
                 waitUntil: 'domcontentloaded',
