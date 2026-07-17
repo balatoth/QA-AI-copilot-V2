@@ -160,20 +160,19 @@ jobs:
           EOF
 
       - name: Prepare discovery knowledge for repository
-        working-directory: application-discovery-v2
         shell: bash
         run: |
-          TARGET_DIR="../executions/${{ inputs.storyKey }}/discovery/${{ inputs.discoveryId }}"
+          TARGET_DIR="executions/${{ inputs.storyKey }}/discovery/${{ inputs.discoveryId }}"
 
           mkdir -p "$TARGET_DIR"
 
-          cp application-discovery.json \
+          cp application-discovery-v2/application-discovery.json \
             "$TARGET_DIR/application-discovery.json"
 
-          cp selector-library.json \
+          cp application-discovery-v2/selector-library.json \
             "$TARGET_DIR/selector-library.json"
 
-          cp discovery-metadata.json \
+          cp application-discovery-v2/discovery-metadata.json \
             "$TARGET_DIR/discovery-metadata.json"
 
           echo ""
