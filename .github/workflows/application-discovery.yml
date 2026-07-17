@@ -44,7 +44,7 @@ on:
         type: string
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   discover-application:
@@ -736,7 +736,35 @@ jobs:
             "completedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           }
           EOF
+          
+       - name: Prepare discovery knowledge for repository
+        if: steps.discovery.outputs.exitCode == '0'
+        shell: bash
+        run: |
+          TARGET_DIR="executions/${{ inputs.storyKey }}/discovery/${{ inputs.discoveryId }}"
 
+          mkdir -p "$TARGET_DIR"
+
+          cp application-discovery/application-discovery.json \
+            "$TARGET_DIR/application-discovery.json"
+
+          cp application-discovery/selector-library.json \
+            "$TARGET_DIR/selector-library.json"
+
+          cp application-discovery/discovery-metadata.json \
+            "$TARGET_DIR/discovery-metadata.json"
+
+          echo "Prepared repository knowledge files:"
+          find "$TARGET_DIR" -maxdepth 1 -type f -print
+          
+      - name: Commit discovery knowledge
+        if: steps.discovery.outputs.exitCode == '0'
+        uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: Add application discovery knowledge for ${{ inputs.storyKey }} - ${{ inputs.discoveryId }}
+          file_pattern: executions/${{ inputs.storyKey }}/discovery/${{ inputs.discoveryId }}/*.json
+          branch: ${{ inputs.branch }}
+      
       - name: Show discovery summary
         if: always()
         working-directory: application-discovery
