@@ -184,7 +184,7 @@ jobs:
           find "$TARGET_DIR" -maxdepth 1 -type f | sort
 
       - name: Commit discovery knowledge
-        uses: stefanzweifel/git-auto-commit-action@v6
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: |
             Store discovery knowledge for ${{ inputs.storyKey }}
