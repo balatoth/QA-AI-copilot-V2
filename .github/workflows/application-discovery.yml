@@ -715,7 +715,7 @@ jobs:
           EOF
           fi
 
-      - name: Create discovery metadata
+           - name: Create discovery metadata
         if: always()
         working-directory: application-discovery
         shell: bash
@@ -736,8 +736,8 @@ jobs:
             "completedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           }
           EOF
-          
-       - name: Prepare discovery knowledge for repository
+
+      - name: Prepare discovery knowledge for repository
         if: steps.discovery.outputs.exitCode == '0'
         shell: bash
         run: |
@@ -756,7 +756,7 @@ jobs:
 
           echo "Prepared repository knowledge files:"
           find "$TARGET_DIR" -maxdepth 1 -type f -print
-          
+
       - name: Commit discovery knowledge
         if: steps.discovery.outputs.exitCode == '0'
         uses: stefanzweifel/git-auto-commit-action@v6
@@ -764,7 +764,7 @@ jobs:
           commit_message: Add application discovery knowledge for ${{ inputs.storyKey }} - ${{ inputs.discoveryId }}
           file_pattern: executions/${{ inputs.storyKey }}/discovery/${{ inputs.discoveryId }}/*.json
           branch: ${{ inputs.branch }}
-      
+
       - name: Show discovery summary
         if: always()
         working-directory: application-discovery
