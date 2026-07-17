@@ -61,6 +61,48 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Checkout Practice Software Testing
+        uses: actions/checkout@v5
+        with:
+          repository: testsmith-io/practice-software-testing
+          path: practice-software-testing
+
+      - name: Start Practice Software Testing
+        working-directory: practice-software-testing
+        shell: bash
+        run: |
+          docker compose \
+            -f docker-compose.prod.yml \
+            up --pull missing -d
+
+      - name: Wait for Practice Software Testing UI
+        shell: bash
+        run: |
+          echo "Waiting for UI at http://localhost:4200"
+
+          for attempt in {1..60}; do
+            if curl --fail --silent --show-error \
+              http://localhost:4200 > /dev/null; then
+              echo "Practice Software Testing UI is ready."
+              exit 0
+            fi
+
+            echo "Attempt ${attempt}/60: UI is not ready yet."
+            sleep 5
+          done
+
+          echo "UI did not become ready in time."
+
+          docker compose \
+            -f practice-software-testing/docker-compose.prod.yml \
+            ps
+
+          docker compose \
+            -f practice-software-testing/docker-compose.prod.yml \
+            logs --tail=200
+
+          exit 1
+
       - name: Create validation workspace
         shell: bash
         run: |
