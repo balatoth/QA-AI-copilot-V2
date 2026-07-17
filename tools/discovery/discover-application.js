@@ -51,7 +51,16 @@
                 );
               });
 
-              await page.waitForTimeout(3000);
+             try {
+                await page.locator('.card.skeleton').first().waitFor({
+                  state: 'hidden',
+                  timeout: 15000
+                });
+              } catch {
+                console.log(
+                  'Skeleton cards still present after timeout. Continuing discovery.'
+                );
+              }
               
               const productCards = page.locator('.card');
               const cardTitles = page.locator('.card-title');
