@@ -108,6 +108,19 @@ jobs:
         run: |
           mkdir -p application-discovery-v2
 
+      - name: Create discovery package
+        working-directory: application-discovery-v2
+        shell: bash
+        run: |
+          npm init -y
+          npm install playwright@1.55.0
+
+      - name: Install Chromium
+        working-directory: application-discovery-v2
+        shell: bash
+        run: |
+          npx playwright install --with-deps chromium
+
       - name: Execute standalone discovery script
         working-directory: application-discovery-v2
         shell: bash
@@ -118,8 +131,12 @@ jobs:
           APPLICATION_NAME: ${{ inputs.applicationName }}
           TARGET_URL: ${{ inputs.targetUrl }}
           DISCOVERY_SCOPE: ${{ inputs.discoveryScope }}
+          WORKFLOW_RUN_ID: ${{ github.run_id }}
+          WORKFLOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+          COMMIT_SHA: ${{ github.sha }}
         run: |
-          node ../tools/discovery/discover-application.js
+          cp ../tools/discovery/discover-application.js .
+          node discover-application.js
 
       - name: Show discovery output
         working-directory: application-discovery-v2
