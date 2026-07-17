@@ -1,0 +1,708 @@
+name: Application Discovery
+
+run-name: Application discovery - ${{ inputs.storyKey }} - ${{ inputs.discoveryId }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      storyKey:
+        description: Jira story key
+        required: true
+        type: string
+
+      executionId:
+        description: QA AI Copilot execution ID
+        required: true
+        type: string
+
+      discoveryId:
+        description: Application discovery ID
+        required: true
+        type: string
+
+      applicationName:
+        description: Application name
+        required: true
+        type: string
+
+      targetUrl:
+        description: URL to inspect
+        required: true
+        default: http://localhost:4200
+        type: string
+
+      discoveryScope:
+        description: Discovery scope
+        required: true
+        default: SINGLE_PAGE
+        type: string
+
+      branch:
+        description: Repository branch
+        required: true
+        default: main
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  discover-application:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout QA AI Copilot repository
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.branch }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+
+      - name: Checkout Practice Software Testing
+        uses: actions/checkout@v5
+        with:
+          repository: testsmith-io/practice-software-testing
+          path: practice-software-testing
+
+      - name: Start Practice Software Testing
+        working-directory: practice-software-testing
+        shell: bash
+        run: |
+          docker compose \
+            -f docker-compose.prod.yml \
+            up --pull missing -d
+
+      - name: Show running containers
+        working-directory: practice-software-testing
+        shell: bash
+        run: |
+          docker compose \
+            -f docker-compose.prod.yml \
+            ps
+
+      - name: Wait for Practice Software Testing UI
+        shell: bash
+        run: |
+          echo "Waiting for UI at http://localhost:4200"
+
+          for attempt in {1..60}; do
+            if curl --fail --silent --show-error \
+              http://localhost:4200 > /dev/null; then
+              echo "Practice Software Testing UI is ready."
+              exit 0
+            fi
+
+            echo "Attempt ${attempt}/60: UI is not ready yet."
+            sleep 5
+          done
+
+          echo "UI did not become ready in time."
+
+          docker compose \
+            -f practice-software-testing/docker-compose.prod.yml \
+            ps
+
+          docker compose \
+            -f practice-software-testing/docker-compose.prod.yml \
+            logs --tail=200
+
+          exit 1
+
+      - name: Create discovery workspace
+        shell: bash
+        run: |
+          mkdir -p application-discovery
+
+      - name: Create package.json
+        working-directory: application-discovery
+        shell: bash
+        run: |
+          cat > package.json <<'EOF'
+          {
+            "name": "qa-ai-copilot-application-discovery",
+            "private": true,
+            "scripts": {
+              "discover": "node discover-application.js"
+            },
+            "dependencies": {
+              "playwright": "^1.55.0"
+            }
+          }
+          EOF
+
+      - name: Create application discovery script
+        working-directory: application-discovery
+        shell: bash
+        run: |
+          cat > discover-application.js <<'EOF'
+          const fs = require('fs');
+          const { chromium } = require('playwright');
+
+          const storyKey = process.env.STORY_KEY;
+          const executionId = process.env.EXECUTION_ID;
+          const discoveryId = process.env.DISCOVERY_ID;
+          const applicationName = process.env.APPLICATION_NAME;
+          const targetUrl = process.env.TARGET_URL;
+          const discoveryScope = process.env.DISCOVERY_SCOPE;
+          const workflowRunId = process.env.WORKFLOW_RUN_ID;
+          const workflowRunAttempt = process.env.WORKFLOW_RUN_ATTEMPT;
+          const commitSha = process.env.COMMIT_SHA;
+
+          const startedAt = new Date().toISOString();
+
+          const cleanText = (value) =>
+            String(value || '')
+              .replace(/\s+/g, ' ')
+              .trim();
+
+          const uniqueStrings = (values) =>
+            [...new Set(values.filter(Boolean))];
+
+          async function runDiscovery() {
+            let browser;
+
+            try {
+              browser = await chromium.launch({
+                headless: true
+              });
+
+              const context = await browser.newContext({
+                viewport: {
+                  width: 1440,
+                  height: 1000
+                }
+              });
+
+              const page = await context.newPage();
+
+              await page.goto(targetUrl, {
+                waitUntil: 'domcontentloaded',
+                timeout: 60000
+              });
+
+              await page.waitForLoadState('networkidle', {
+                timeout: 30000
+              }).catch(() => {
+                console.log(
+                  'Network did not become idle before timeout. Continuing discovery.'
+                );
+              });
+
+              await page.screenshot({
+                path: 'homepage.png',
+                fullPage: true
+              });
+
+              const pageData = await page.evaluate(() => {
+                const normalizeText = (value) =>
+                  String(value || '')
+                    .replace(/\s+/g, ' ')
+                    .trim();
+
+                const isVisible = (element) => {
+                  const style = window.getComputedStyle(element);
+                  const rect = element.getBoundingClientRect();
+
+                  return (
+                    style.display !== 'none' &&
+                    style.visibility !== 'hidden' &&
+                    Number(style.opacity) !== 0 &&
+                    rect.width > 0 &&
+                    rect.height > 0
+                  );
+                };
+
+                const getAttributes = (element) => {
+                  const attributes = {};
+
+                  for (const attribute of element.attributes || []) {
+                    attributes[attribute.name] = attribute.value;
+                  }
+
+                  return attributes;
+                };
+
+                const getElementSummary = (element) => ({
+                  tagName: element.tagName.toLowerCase(),
+                  text: normalizeText(
+                    element.innerText ||
+                    element.textContent ||
+                    ''
+                  ),
+                  id: element.id || null,
+                  className:
+                    typeof element.className === 'string'
+                      ? element.className
+                      : null,
+                  role: element.getAttribute('role'),
+                  ariaLabel: element.getAttribute('aria-label'),
+                  ariaLabelledBy:
+                    element.getAttribute('aria-labelledby'),
+                  dataTestId:
+                    element.getAttribute('data-testid') ||
+                    element.getAttribute('data-test') ||
+                    element.getAttribute('data-cy'),
+                  name: element.getAttribute('name'),
+                  type: element.getAttribute('type'),
+                  placeholder:
+                    element.getAttribute('placeholder'),
+                  href: element.getAttribute('href'),
+                  title: element.getAttribute('title'),
+                  visible: isVisible(element),
+                  attributes: getAttributes(element)
+                });
+
+                const selectVisible = (selector) =>
+                  [...document.querySelectorAll(selector)]
+                    .filter(isVisible)
+                    .map(getElementSummary);
+
+                const allElements = [
+                  ...document.querySelectorAll('*')
+                ];
+
+                const testIdElements = allElements
+                  .filter((element) =>
+                    element.hasAttribute('data-testid') ||
+                    element.hasAttribute('data-test') ||
+                    element.hasAttribute('data-cy')
+                  )
+                  .map(getElementSummary);
+
+                const roleElements = allElements
+                  .filter((element) =>
+                    element.hasAttribute('role')
+                  )
+                  .map(getElementSummary);
+
+                const forms = [
+                  ...document.querySelectorAll('form')
+                ].map((form) => ({
+                  ...getElementSummary(form),
+                  action: form.getAttribute('action'),
+                  method: form.getAttribute('method'),
+                  controls: [
+                    ...form.querySelectorAll(
+                      'input, select, textarea, button'
+                    )
+                  ].map(getElementSummary)
+                }));
+
+                return {
+                  document: {
+                    title: document.title,
+                    url: window.location.href,
+                    origin: window.location.origin,
+                    pathname: window.location.pathname,
+                    hash: window.location.hash,
+                    language:
+                      document.documentElement.lang || null
+                  },
+
+                  headings: selectVisible(
+                    'h1, h2, h3, h4, h5, h6'
+                  ),
+
+                  links: selectVisible('a[href]'),
+
+                  buttons: selectVisible(
+                    'button, input[type="button"], input[type="submit"], [role="button"]'
+                  ),
+
+                  inputs: selectVisible(
+                    'input, textarea, select'
+                  ),
+
+                  forms,
+
+                  landmarks: selectVisible(
+                    'header, nav, main, aside, footer, [role="banner"], [role="navigation"], [role="main"], [role="complementary"], [role="contentinfo"]'
+                  ),
+
+                  images: selectVisible('img'),
+
+                  tables: selectVisible(
+                    'table, [role="table"], [role="grid"]'
+                  ),
+
+                  lists: selectVisible(
+                    'ul, ol, [role="list"]'
+                  ),
+
+                  dialogs: selectVisible(
+                    'dialog, [role="dialog"], [role="alertdialog"]'
+                  ),
+
+                  testIdElements,
+
+                  explicitRoleElements: roleElements
+                };
+              });
+
+              const accessibilitySnapshot =
+                await page.accessibility.snapshot({
+                  interestingOnly: true
+                }).catch(() => null);
+
+              const dataTestIds = uniqueStrings(
+                pageData.testIdElements.map(
+                  (element) => element.dataTestId
+                )
+              );
+
+              const explicitRoles = uniqueStrings(
+                pageData.explicitRoleElements.map(
+                  (element) => element.role
+                )
+              );
+
+              const candidateSelectors = [];
+
+              for (const element of pageData.testIdElements) {
+                if (!element.dataTestId) {
+                  continue;
+                }
+
+                candidateSelectors.push({
+                  strategy: 'test-id',
+                  selector: `[data-testid="${element.dataTestId}"]`,
+                  value: element.dataTestId,
+                  tagName: element.tagName,
+                  text: element.text,
+                  confidence: 1
+                });
+              }
+
+              for (const button of pageData.buttons) {
+                if (button.dataTestId) {
+                  continue;
+                }
+
+                if (button.role && button.ariaLabel) {
+                  candidateSelectors.push({
+                    strategy: 'accessible-role',
+                    selector:
+                      `getByRole('${button.role}', { name: '${button.ariaLabel}' })`,
+                    role: button.role,
+                    accessibleName: button.ariaLabel,
+                    tagName: button.tagName,
+                    confidence: 0.95
+                  });
+
+                  continue;
+                }
+
+                if (button.text) {
+                  candidateSelectors.push({
+                    strategy: 'button-name',
+                    selector:
+                      `getByRole('button', { name: '${cleanText(button.text)}' })`,
+                    role: 'button',
+                    accessibleName: cleanText(button.text),
+                    tagName: button.tagName,
+                    confidence: 0.9
+                  });
+                }
+              }
+
+              for (const input of pageData.inputs) {
+                if (input.dataTestId) {
+                  continue;
+                }
+
+                if (input.ariaLabel) {
+                  candidateSelectors.push({
+                    strategy: 'label',
+                    selector:
+                      `getByLabel('${cleanText(input.ariaLabel)}')`,
+                    accessibleName:
+                      cleanText(input.ariaLabel),
+                    tagName: input.tagName,
+                    confidence: 0.95
+                  });
+
+                  continue;
+                }
+
+                if (input.placeholder) {
+                  candidateSelectors.push({
+                    strategy: 'placeholder',
+                    selector:
+                      `getByPlaceholder('${cleanText(input.placeholder)}')`,
+                    placeholder:
+                      cleanText(input.placeholder),
+                    tagName: input.tagName,
+                    confidence: 0.85
+                  });
+                }
+              }
+
+              const completedAt = new Date().toISOString();
+
+              const discoveryResult = {
+                schemaVersion: '1.0',
+
+                storyKey,
+                executionId,
+                discoveryId,
+
+                application: {
+                  name: applicationName,
+                  requestedUrl: targetUrl,
+                  discoveredUrl: pageData.document.url
+                },
+
+                discovery: {
+                  scope: discoveryScope,
+                  status: 'COMPLETED',
+                  startedAt,
+                  completedAt
+                },
+
+                page: pageData.document,
+
+                summary: {
+                  headingCount: pageData.headings.length,
+                  linkCount: pageData.links.length,
+                  buttonCount: pageData.buttons.length,
+                  inputCount: pageData.inputs.length,
+                  formCount: pageData.forms.length,
+                  landmarkCount: pageData.landmarks.length,
+                  imageCount: pageData.images.length,
+                  tableCount: pageData.tables.length,
+                  listCount: pageData.lists.length,
+                  dialogCount: pageData.dialogs.length,
+                  dataTestIdCount: dataTestIds.length,
+                  explicitRoleCount: explicitRoles.length,
+                  candidateSelectorCount:
+                    candidateSelectors.length
+                },
+
+                elements: {
+                  headings: pageData.headings,
+                  links: pageData.links,
+                  buttons: pageData.buttons,
+                  inputs: pageData.inputs,
+                  forms: pageData.forms,
+                  landmarks: pageData.landmarks,
+                  images: pageData.images,
+                  tables: pageData.tables,
+                  lists: pageData.lists,
+                  dialogs: pageData.dialogs
+                },
+
+                selectorDiscovery: {
+                  dataTestIds,
+                  explicitRoles,
+                  candidates: candidateSelectors
+                },
+
+                accessibility: {
+                  snapshot: accessibilitySnapshot
+                },
+
+                artifacts: {
+                  screenshot: 'homepage.png',
+                  discoveryJson:
+                    'application-discovery.json'
+                },
+
+                github: {
+                  workflowRunId,
+                  workflowRunAttempt,
+                  commitSha
+                }
+              };
+
+              fs.writeFileSync(
+                'application-discovery.json',
+                JSON.stringify(discoveryResult, null, 2)
+              );
+
+              console.log(
+                JSON.stringify(discoveryResult.summary, null, 2)
+              );
+
+              await context.close();
+            } catch (error) {
+              const failedAt = new Date().toISOString();
+
+              const failureResult = {
+                schemaVersion: '1.0',
+
+                storyKey,
+                executionId,
+                discoveryId,
+
+                application: {
+                  name: applicationName,
+                  requestedUrl: targetUrl
+                },
+
+                discovery: {
+                  scope: discoveryScope,
+                  status: 'FAILED',
+                  startedAt,
+                  completedAt: failedAt
+                },
+
+                error: {
+                  name: error.name,
+                  message: error.message,
+                  stack: error.stack
+                },
+
+                github: {
+                  workflowRunId,
+                  workflowRunAttempt,
+                  commitSha
+                }
+              };
+
+              fs.writeFileSync(
+                'application-discovery.json',
+                JSON.stringify(failureResult, null, 2)
+              );
+
+              console.error(error);
+              process.exitCode = 1;
+            } finally {
+              if (browser) {
+                await browser.close();
+              }
+            }
+          }
+
+          runDiscovery();
+          EOF
+
+      - name: Install discovery dependencies
+        working-directory: application-discovery
+        shell: bash
+        run: |
+          npm install
+
+      - name: Install Chromium
+        working-directory: application-discovery
+        shell: bash
+        run: |
+          npx playwright install --with-deps chromium
+
+      - name: Execute application discovery
+        id: discovery
+        working-directory: application-discovery
+        continue-on-error: true
+        shell: bash
+        env:
+          STORY_KEY: ${{ inputs.storyKey }}
+          EXECUTION_ID: ${{ inputs.executionId }}
+          DISCOVERY_ID: ${{ inputs.discoveryId }}
+          APPLICATION_NAME: ${{ inputs.applicationName }}
+          TARGET_URL: ${{ inputs.targetUrl }}
+          DISCOVERY_SCOPE: ${{ inputs.discoveryScope }}
+          WORKFLOW_RUN_ID: ${{ github.run_id }}
+          WORKFLOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          set +e
+
+          npm run discover
+
+          exit_code=$?
+
+          echo "exitCode=$exit_code" >> "$GITHUB_OUTPUT"
+
+          exit 0
+
+      - name: Ensure discovery result exists
+        if: always()
+        working-directory: application-discovery
+        shell: bash
+        run: |
+          if [ ! -f application-discovery.json ]; then
+            cat > application-discovery.json <<EOF
+          {
+            "schemaVersion": "1.0",
+            "storyKey": "${{ inputs.storyKey }}",
+            "executionId": "${{ inputs.executionId }}",
+            "discoveryId": "${{ inputs.discoveryId }}",
+            "application": {
+              "name": "${{ inputs.applicationName }}",
+              "requestedUrl": "${{ inputs.targetUrl }}"
+            },
+            "discovery": {
+              "scope": "${{ inputs.discoveryScope }}",
+              "status": "FAILED",
+              "completedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            },
+            "error": {
+              "message": "Application discovery did not create a result file."
+            }
+          }
+          EOF
+          fi
+
+      - name: Create discovery metadata
+        if: always()
+        working-directory: application-discovery
+        shell: bash
+        run: |
+          cat > discovery-metadata.json <<EOF
+          {
+            "storyKey": "${{ inputs.storyKey }}",
+            "executionId": "${{ inputs.executionId }}",
+            "discoveryId": "${{ inputs.discoveryId }}",
+            "applicationName": "${{ inputs.applicationName }}",
+            "targetUrl": "${{ inputs.targetUrl }}",
+            "discoveryScope": "${{ inputs.discoveryScope }}",
+            "branch": "${{ inputs.branch }}",
+            "workflowRunId": "${{ github.run_id }}",
+            "workflowRunAttempt": "${{ github.run_attempt }}",
+            "commitSha": "${{ github.sha }}",
+            "discoveryExitCode": "${{ steps.discovery.outputs.exitCode }}",
+            "completedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          }
+          EOF
+
+      - name: Show discovery summary
+        if: always()
+        working-directory: application-discovery
+        shell: bash
+        run: |
+          echo "Application discovery result:"
+          cat application-discovery.json
+
+      - name: Upload discovery artifacts
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: application-discovery-${{ inputs.storyKey }}-${{ inputs.discoveryId }}
+          path: |
+            application-discovery/application-discovery.json
+            application-discovery/discovery-metadata.json
+            application-discovery/homepage.png
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Show Docker logs when discovery fails
+        if: steps.discovery.outputs.exitCode != '0'
+        shell: bash
+        run: |
+          docker compose \
+            -f practice-software-testing/docker-compose.prod.yml \
+            ps || true
+
+          docker compose \
+            -f practice-software-testing/docker-compose.prod.yml \
+            logs --tail=200 || true
+
+      - name: Stop Practice Software Testing
+        if: always()
+        shell: bash
+        run: |
+          docker compose \
+            -f practice-software-testing/docker-compose.prod.yml \
+            down --volumes || true
