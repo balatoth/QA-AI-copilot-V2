@@ -79,16 +79,19 @@ jobs:
         run: |
           node ../tools/discovery/discover-application.js
 
-      - name: Show script output
+      - name: Show discovery output
         working-directory: application-discovery-v2
         shell: bash
         run: |
-          cat application-discovery-script-test.json
+          cat application-discovery.json
 
-      - name: Upload validation artifact
+      - name: Upload discovery artifacts
         uses: actions/upload-artifact@v6
         with:
-          name: discovery-script-validation-${{ inputs.storyKey }}-${{ inputs.discoveryId }}
-          path: application-discovery-v2/application-discovery-script-test.json
+          name: application-discovery-v2-${{ inputs.storyKey }}-${{ inputs.discoveryId }}
+          path: |
+            application-discovery-v2/application-discovery.json
+            application-discovery-v2/selector-library.json
+            application-discovery-v2/homepage.png
           if-no-files-found: error
           retention-days: 7
