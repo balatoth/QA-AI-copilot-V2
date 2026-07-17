@@ -1,0 +1,94 @@
+name: Application Discovery v2
+
+run-name: Application discovery v2 - ${{ inputs.storyKey }} - ${{ inputs.discoveryId }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      storyKey:
+        description: Jira story key
+        required: true
+        type: string
+
+      executionId:
+        description: QA AI Copilot execution ID
+        required: true
+        type: string
+
+      discoveryId:
+        description: Application discovery ID
+        required: true
+        type: string
+
+      applicationName:
+        description: Application name
+        required: true
+        type: string
+
+      targetUrl:
+        description: URL to inspect
+        required: true
+        default: http://localhost:4200
+        type: string
+
+      discoveryScope:
+        description: Discovery scope
+        required: true
+        default: SINGLE_PAGE
+        type: string
+
+      branch:
+        description: Repository branch
+        required: true
+        default: main
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validate-discovery-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout QA AI Copilot repository
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.branch }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+
+      - name: Create validation workspace
+        shell: bash
+        run: |
+          mkdir -p application-discovery-v2
+
+      - name: Execute standalone discovery script
+        working-directory: application-discovery-v2
+        shell: bash
+        env:
+          STORY_KEY: ${{ inputs.storyKey }}
+          EXECUTION_ID: ${{ inputs.executionId }}
+          DISCOVERY_ID: ${{ inputs.discoveryId }}
+          APPLICATION_NAME: ${{ inputs.applicationName }}
+          TARGET_URL: ${{ inputs.targetUrl }}
+          DISCOVERY_SCOPE: ${{ inputs.discoveryScope }}
+        run: |
+          node ../tools/discovery/discover-application.js
+
+      - name: Show script output
+        working-directory: application-discovery-v2
+        shell: bash
+        run: |
+          cat application-discovery-script-test.json
+
+      - name: Upload validation artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: discovery-script-validation-${{ inputs.storyKey }}-${{ inputs.discoveryId }}
+          path: application-discovery-v2/application-discovery-script-test.json
+          if-no-files-found: error
+          retention-days: 7
