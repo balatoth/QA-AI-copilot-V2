@@ -44,7 +44,7 @@ on:
         type: string
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validate-discovery-script:
@@ -182,6 +182,15 @@ jobs:
           echo ""
           echo "Files:"
           find "$TARGET_DIR" -maxdepth 1 -type f | sort
+
+      - name: Commit discovery knowledge
+        uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: |
+            Store discovery knowledge for ${{ inputs.storyKey }}
+
+          file_pattern: |
+            executions/${{ inputs.storyKey }}/discovery/${{ inputs.discoveryId }}/*.json
 
       - name: Show discovery output
         working-directory: application-discovery-v2
