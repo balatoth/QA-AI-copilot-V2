@@ -1,13 +1,13 @@
 {
   "storyKey": "MP-1",
-  "executionId": "MP-DISCOVERY-TEST-009",
+  "executionId": "MP-DISCOVERY-TEST-011",
   "discoveryId": "MP-1-MP-DISCOVERY-TEST-001",
   "applicationName": "Practice Software Testing",
   "targetUrl": "http://localhost:4200",
   "discoveryScope": "SINGLE_PAGE",
   "branch": "main",
-  "workflowRunId": "29592642878",
+  "workflowRunId": "29593337790",
   "workflowRunAttempt": "1",
-  "commitSha": "eb71b4bf938fa862b5aaac4810e533d7e5ae4191",
-  "completedAt": "2026-07-17T15:35:34Z"
+  "commitSha": "10b1efab80243320dab6973c1c5905123d54d3e0",
+  "completedAt": "2026-07-17T15:45:51Z"
 }
