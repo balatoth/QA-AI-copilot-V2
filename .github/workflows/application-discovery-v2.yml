@@ -176,8 +176,13 @@ jobs:
           cp discovery-metadata.json \
             "$TARGET_DIR/discovery-metadata.json"
 
-          echo "Prepared discovery knowledge files:"
-          find "$TARGET_DIR" -maxdepth 1 -type f -print
+          echo ""
+          echo "Prepared discovery knowledge:"
+          ls -la "$TARGET_DIR"
+
+          echo ""
+          echo "Files:"
+          find "$TARGET_DIR" -maxdepth 1 -type f | sort
 
       - name: Show discovery output
         working-directory: application-discovery-v2
