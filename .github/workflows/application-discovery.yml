@@ -191,6 +191,8 @@ jobs:
                 );
               });
 
+              await page.waitForTimeout(3000);
+              
               await page.screenshot({
                 path: 'homepage.png',
                 fullPage: true
@@ -342,10 +344,16 @@ jobs:
                 };
               });
 
-              const accessibilitySnapshot =
-                await page.accessibility.snapshot({
-                  interestingOnly: true
-                }).catch(() => null);
+              let accessibilitySnapshot = null;
+
+                try {
+                  accessibilitySnapshot =
+                    await page.locator('body').ariaSnapshot();
+                } catch (error) {
+                  console.log(
+                    `Accessibility snapshot unavailable: ${error.message}`
+                  );
+                }
 
               const dataTestIds = uniqueStrings(
                 pageData.testIdElements.map(
