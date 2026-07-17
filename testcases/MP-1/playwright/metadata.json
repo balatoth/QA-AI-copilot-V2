@@ -5,14 +5,14 @@
   "repaired": false,
   "repairAttempt": 0,
   "reviewStatus": "WARNING",
-  "qualityScore": 70,
+  "qualityScore": 65,
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 70,
-    "reason": "The code compiles and uses Playwright APIs correctly, but there are issues with selector choices and assertion strength. The locator '[data-testid=\"filters\"]' is used repeatedly and appears to target filters rather than product cards or product grids, which is misleading and likely incorrect. Navigation validation is weak since it checks only for '/product-detail' in the URL without verifying specific product identity. Test titles correctly preserve testCaseIds. No asynchronous assertion without await was found. There is no iteration over locators treated as arrays improperly. No hard-coded waits or placeholder URLs are present."
+    "qualityScore": 65,
+    "reason": "The code compiles and uses Playwright APIs mostly correctly but contains weak and placeholder selectors. Multiple assertions rely on a generic '[data-testid=\"filters\"]' selector instead of specific product card or link selectors. Navigation validation is weak with no URL or content checks confirming the product detail page load. Comments indicate incomplete test implementation and missing assertions. Test case IDs are correctly preserved in titles."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-17T15:01:57.460Z"
+  "createdAt": "2026-07-17T15:08:19.546Z"
 }
