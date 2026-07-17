@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "storyKey": "MP-1",
-  "executionId": "MP-DISCOVERY-TEST-004",
+  "executionId": "MP-DISCOVERY-TEST-006",
   "discoveryId": "MP-1-MP-DISCOVERY-TEST-001",
   "application": {
     "name": "Practice Software Testing",
@@ -11,8 +11,8 @@
   "discovery": {
     "scope": "SINGLE_PAGE",
     "status": "COMPLETED",
-    "startedAt": "2026-07-17T12:57:44.838Z",
-    "completedAt": "2026-07-17T12:57:49.522Z"
+    "startedAt": "2026-07-17T13:06:53.390Z",
+    "completedAt": "2026-07-17T13:06:57.872Z"
   },
   "page": {
     "title": "Practice Software Testing - Toolshop - v5.0",
@@ -1225,8 +1225,8 @@
     "discoveryJson": "application-discovery.json"
   },
   "github": {
-    "workflowRunId": "29582055463",
+    "workflowRunId": "29582627148",
     "workflowRunAttempt": "1",
-    "commitSha": "06a0bc749488d754482d5536dec76879acacd9c5"
+    "commitSha": "e5ad22a2031f1567205b61b013ad03950882eb56"
   }
 }
