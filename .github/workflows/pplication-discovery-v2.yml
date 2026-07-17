@@ -138,6 +138,27 @@ jobs:
           cp ../tools/discovery/discover-application.js .
           node discover-application.js
 
+      - name: Create discovery metadata
+        if: always()
+        working-directory: application-discovery-v2
+        shell: bash
+        run: |
+          cat > discovery-metadata.json <<EOF
+          {
+            "storyKey": "${{ inputs.storyKey }}",
+            "executionId": "${{ inputs.executionId }}",
+            "discoveryId": "${{ inputs.discoveryId }}",
+            "applicationName": "${{ inputs.applicationName }}",
+            "targetUrl": "${{ inputs.targetUrl }}",
+            "discoveryScope": "${{ inputs.discoveryScope }}",
+            "branch": "${{ inputs.branch }}",
+            "workflowRunId": "${{ github.run_id }}",
+            "workflowRunAttempt": "${{ github.run_attempt }}",
+            "commitSha": "${{ github.sha }}",
+            "completedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          }
+          EOF
+
       - name: Show discovery output
         working-directory: application-discovery-v2
         shell: bash
@@ -151,6 +172,7 @@ jobs:
           path: |
             application-discovery-v2/application-discovery.json
             application-discovery-v2/selector-library.json
+            application-discovery-v2/discovery-metadata.json
             application-discovery-v2/homepage.png
           if-no-files-found: error
           retention-days: 7
