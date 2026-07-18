@@ -83,14 +83,20 @@ jobs:
 
           docker compose \
             -f docker-compose.prod.yml \
-            ps
+            ps -a
+
+          echo ""
+          echo "===== Published Ports ====="
+
+          docker ps \
+            --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
           echo ""
           echo "===== Container Logs ====="
 
           docker compose \
             -f docker-compose.prod.yml \
-            logs --tail=100
+            logs --tail=200
 
       - name: Wait for Practice Software Testing UI
         shell: bash
@@ -117,6 +123,48 @@ jobs:
           docker compose \
             -f practice-software-testing/docker-compose.prod.yml \
             logs --tail=200
+
+          exit 1
+
+      - name: Wait for Practice Software Testing API
+        shell: bash
+        run: |
+          echo "Waiting for API at http://localhost:8091"
+
+          for attempt in {1..60}; do
+            if curl --fail --silent --show-error \
+              http://localhost:8091/products > /dev/null; then
+              echo "Practice Software Testing API is ready."
+              exit 0
+            fi
+
+            echo "Attempt ${attempt}/60: API is not ready yet."
+
+            echo ""
+            echo "===== Docker Compose Services ====="
+
+            docker compose \
+              -f practice-software-testing/docker-compose.prod.yml \
+              ps
+
+            sleep 5
+          done
+
+          echo "API did not become ready in time."
+
+          echo ""
+          echo "===== Docker Compose Services ====="
+
+          docker compose \
+            -f practice-software-testing/docker-compose.prod.yml \
+            ps
+
+          echo ""
+          echo "===== Container Logs ====="
+
+          docker compose \
+            -f practice-software-testing/docker-compose.prod.yml \
+            logs --tail=300
 
           exit 1
 
