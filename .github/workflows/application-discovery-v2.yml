@@ -168,15 +168,12 @@ jobs:
 
           exit 1
 
-      - name: Create validation workspace
+      - name: Create discovery workspace and package
         shell: bash
         run: |
           mkdir -p application-discovery-v2
+          cd application-discovery-v2
 
-      - name: Create discovery package
-        working-directory: application-discovery-v2
-        shell: bash
-        run: |
           npm init -y
           npm install playwright@1.55.0
 
