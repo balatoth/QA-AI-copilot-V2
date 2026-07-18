@@ -1,14 +1,14 @@
 {
   "schemaVersion": "1.0",
   "storyKey": "MP-1",
-  "executionId": "MP-DISCOVERY-TEST-012",
+  "executionId": "MP-DISCOVERY-TEST-001",
   "discoveryId": "MP-1-MP-DISCOVERY-TEST-001",
   "application": {
     "name": "Practice Software Testing",
-    "pageTitle": "Practice Software Testing - Toolshop - v5.0",
-    "pageUrl": "http://localhost:4200/"
+    "pageTitle": "Practice Software Testing - Toolshop - v1.0",
+    "pageUrl": "https://v1.practicesoftwaretesting.com/#/"
   },
-  "generatedAt": "2026-07-17T16:25:44.652Z",
+  "generatedAt": "2026-07-18T22:16:45.070Z",
   "selectors": [
     {
       "name": "notification-bar",
@@ -29,15 +29,6 @@
       "confidence": 1
     },
     {
-      "name": "nav-categories",
-      "strategy": "test-id",
-      "selector": "[data-testid=\"nav-categories\"]",
-      "tagName": "button",
-      "text": "Categories",
-      "accessibleName": null,
-      "confidence": 1
-    },
-    {
       "name": "nav-hand-tools",
       "strategy": "test-id",
       "selector": "[data-testid=\"nav-hand-tools\"]",
@@ -56,33 +47,6 @@
       "confidence": 1
     },
     {
-      "name": "nav-other",
-      "strategy": "test-id",
-      "selector": "[data-testid=\"nav-other\"]",
-      "tagName": "a",
-      "text": "Other",
-      "accessibleName": null,
-      "confidence": 1
-    },
-    {
-      "name": "nav-special-tools",
-      "strategy": "test-id",
-      "selector": "[data-testid=\"nav-special-tools\"]",
-      "tagName": "a",
-      "text": "Special Tools",
-      "accessibleName": null,
-      "confidence": 1
-    },
-    {
-      "name": "nav-rentals",
-      "strategy": "test-id",
-      "selector": "[data-testid=\"nav-rentals\"]",
-      "tagName": "a",
-      "text": "Rentals",
-      "accessibleName": null,
-      "confidence": 1
-    },
-    {
       "name": "nav-contact",
       "strategy": "test-id",
       "selector": "[data-testid=\"nav-contact\"]",
@@ -92,166 +56,706 @@
       "confidence": 1
     },
     {
-      "name": "nav-sign-in",
+      "name": "product-1",
       "strategy": "test-id",
-      "selector": "[data-testid=\"nav-sign-in\"]",
+      "selector": "[data-testid=\"product-1\"]",
       "tagName": "a",
-      "text": "Sign in",
+      "text": "Combination Pliers",
       "accessibleName": null,
       "confidence": 1
     },
     {
-      "name": "language-select",
+      "name": "product-name",
       "strategy": "test-id",
-      "selector": "[data-testid=\"language-select\"]",
-      "tagName": "button",
-      "text": "EN",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Combination Pliers",
       "accessibleName": null,
       "confidence": 1
     },
     {
-      "name": "lang-de",
+      "name": "product-price",
       "strategy": "test-id",
-      "selector": "[data-testid=\"lang-de\"]",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$14.15",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-2",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-2\"]",
       "tagName": "a",
-      "text": "DE",
+      "text": "Pliers",
       "accessibleName": null,
       "confidence": 1
     },
     {
-      "name": "lang-el",
+      "name": "product-name",
       "strategy": "test-id",
-      "selector": "[data-testid=\"lang-el\"]",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Pliers",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$12.01",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-3",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-3\"]",
       "tagName": "a",
-      "text": "EL",
+      "text": "Bolt Cutters",
       "accessibleName": null,
       "confidence": 1
     },
     {
-      "name": "lang-en",
+      "name": "product-name",
       "strategy": "test-id",
-      "selector": "[data-testid=\"lang-en\"]",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Bolt Cutters",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$48.41",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-4",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-4\"]",
       "tagName": "a",
-      "text": "EN",
+      "text": "Long Nose Pliers",
       "accessibleName": null,
       "confidence": 1
     },
     {
-      "name": "lang-es",
+      "name": "product-name",
       "strategy": "test-id",
-      "selector": "[data-testid=\"lang-es\"]",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Long Nose Pliers",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$14.24",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-5",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-5\"]",
       "tagName": "a",
-      "text": "ES",
+      "text": "Slip Joint Pliers",
       "accessibleName": null,
       "confidence": 1
     },
     {
-      "name": "lang-fr",
+      "name": "product-name",
       "strategy": "test-id",
-      "selector": "[data-testid=\"lang-fr\"]",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Slip Joint Pliers",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$9.17",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-6",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-6\"]",
       "tagName": "a",
-      "text": "FR",
+      "text": "Claw Hammer with Shock Reduction Grip",
       "accessibleName": null,
       "confidence": 1
     },
     {
-      "name": "lang-nl",
+      "name": "product-name",
       "strategy": "test-id",
-      "selector": "[data-testid=\"lang-nl\"]",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Claw Hammer with Shock Reduction Grip",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$13.41",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-7",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-7\"]",
       "tagName": "a",
-      "text": "NL",
+      "text": "Hammer",
       "accessibleName": null,
       "confidence": 1
     },
     {
-      "name": "lang-tr",
+      "name": "product-name",
       "strategy": "test-id",
-      "selector": "[data-testid=\"lang-tr\"]",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Hammer",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$12.58",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-8",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-8\"]",
       "tagName": "a",
-      "text": "TR",
+      "text": "Claw Hammer",
       "accessibleName": null,
       "confidence": 1
     },
     {
-      "name": "filters",
+      "name": "product-name",
       "strategy": "test-id",
-      "selector": "[data-testid=\"filters\"]",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Claw Hammer",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$11.48",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-9",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-9\"]",
       "tagName": "a",
-      "text": "Filters",
+      "text": "Thor Hammer",
       "accessibleName": null,
       "confidence": 1
     },
     {
-      "name": "filters",
+      "name": "product-name",
       "strategy": "test-id",
-      "selector": "[data-testid=\"filters\"]",
-      "tagName": "div",
-      "text": "Sort Name (A - Z) Name (Z - A) Price (High - Low) Price (Low - High) CO₂ Rating (A - E) CO₂ Rating (E - A) Price Range 0 200 1 100 Search Search X Search Filters By category: Categories By brand: Brands Sustainability: Eco-Friendly Products Show only eco-friendly products",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Thor Hammer",
       "accessibleName": null,
       "confidence": 1
     },
     {
-      "name": "sort",
+      "name": "product-price",
       "strategy": "test-id",
-      "selector": "[data-testid=\"sort\"]",
-      "tagName": "select",
-      "text": "Name (A - Z) Name (Z - A) Price (High - Low) Price (Low - High) CO₂ Rating (A - E) CO₂ Rating (E - A)",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$11.14",
       "accessibleName": null,
       "confidence": 1
     },
     {
-      "name": "search-query",
+      "name": "product-10",
       "strategy": "test-id",
-      "selector": "[data-testid=\"search-query\"]",
-      "tagName": "input",
-      "text": null,
+      "selector": "[data-testid=\"product-10\"]",
+      "tagName": "a",
+      "text": "Sledgehammer",
       "accessibleName": null,
       "confidence": 1
     },
     {
-      "name": "search-reset",
+      "name": "product-name",
       "strategy": "test-id",
-      "selector": "[data-testid=\"search-reset\"]",
-      "tagName": "button",
-      "text": "X",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Sledgehammer",
       "accessibleName": null,
       "confidence": 1
     },
     {
-      "name": "search-submit",
+      "name": "product-price",
       "strategy": "test-id",
-      "selector": "[data-testid=\"search-submit\"]",
-      "tagName": "button",
-      "text": "Search",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$17.75",
       "accessibleName": null,
       "confidence": 1
     },
     {
-      "name": "eco-friendly-filter",
+      "name": "product-11",
       "strategy": "test-id",
-      "selector": "[data-testid=\"eco-friendly-filter\"]",
-      "tagName": "input",
-      "text": null,
+      "selector": "[data-testid=\"product-11\"]",
+      "tagName": "a",
+      "text": "Claw Hammer with Fiberglass Handle",
       "accessibleName": null,
       "confidence": 1
     },
     {
-      "name": "chat-toggle",
+      "name": "product-name",
       "strategy": "test-id",
-      "selector": "[data-testid=\"chat-toggle\"]",
-      "tagName": "button",
-      "text": null,
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Claw Hammer with Fiberglass Handle",
       "accessibleName": null,
       "confidence": 1
     },
     {
-      "name": "Testing Guide",
-      "strategy": "button-name",
-      "selector": "getByRole('button', { name: 'Testing Guide' })",
-      "tagName": "button",
-      "text": null,
-      "accessibleName": "Testing Guide",
-      "confidence": 0.9
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$20.14",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-12",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-12\"]",
+      "tagName": "a",
+      "text": "Court Hammer",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-name",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Court Hammer",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$18.63",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-13",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-13\"]",
+      "tagName": "a",
+      "text": "Wood Saw",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-name",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Wood Saw",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$12.18",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-14",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-14\"]",
+      "tagName": "a",
+      "text": "Adjustable Wrench",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-name",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Adjustable Wrench",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$20.33",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-15",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-15\"]",
+      "tagName": "a",
+      "text": "Angled Spanner",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-name",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Angled Spanner",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$14.14",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-16",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-16\"]",
+      "tagName": "a",
+      "text": "Open-end Spanners (Set)",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-name",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Open-end Spanners (Set)",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$38.51",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-17",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-17\"]",
+      "tagName": "a",
+      "text": "Phillips Screwdriver",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-name",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Phillips Screwdriver",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$4.92",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-18",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-18\"]",
+      "tagName": "a",
+      "text": "Mini Screwdriver",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-name",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Mini Screwdriver",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$13.96",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-19",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-19\"]",
+      "tagName": "a",
+      "text": "Sheet Sander",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-name",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Sheet Sander",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$58.48",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-20",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-20\"]",
+      "tagName": "a",
+      "text": "Belt Sander",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-name",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Belt Sander",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$73.59",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-21",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-21\"]",
+      "tagName": "a",
+      "text": "Circular Saw",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-name",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Circular Saw",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$80.19",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-22",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-22\"]",
+      "tagName": "a",
+      "text": "Random Orbit Sander",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-name",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Random Orbit Sander",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$100.79",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-23",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-23\"]",
+      "tagName": "a",
+      "text": "Cordless Drill 20V",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-name",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Cordless Drill 20V",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$125.23",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-24",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-24\"]",
+      "tagName": "a",
+      "text": "Cordless Drill 24V",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-name",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Cordless Drill 24V",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$66.54",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-25",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-25\"]",
+      "tagName": "a",
+      "text": "Cordless Drill 18V",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-name",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Cordless Drill 18V",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$119.24",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-26",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-26\"]",
+      "tagName": "a",
+      "text": "Cordless Drill 12V",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-name",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Cordless Drill 12V",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "product-price",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$46.50",
+      "accessibleName": null,
+      "confidence": 1
     }
   ],
   "testIds": [
@@ -272,20 +776,12 @@
       "visible": true
     },
     {
-      "name": "nav-categories",
-      "selector": "[data-testid=\"nav-categories\"]",
-      "tagName": "button",
-      "text": "Categories",
-      "role": null,
-      "visible": true
-    },
-    {
       "name": "nav-hand-tools",
       "selector": "[data-testid=\"nav-hand-tools\"]",
       "tagName": "a",
       "text": "Hand Tools",
       "role": null,
-      "visible": false
+      "visible": true
     },
     {
       "name": "nav-power-tools",
@@ -293,31 +789,7 @@
       "tagName": "a",
       "text": "Power Tools",
       "role": null,
-      "visible": false
-    },
-    {
-      "name": "nav-other",
-      "selector": "[data-testid=\"nav-other\"]",
-      "tagName": "a",
-      "text": "Other",
-      "role": null,
-      "visible": false
-    },
-    {
-      "name": "nav-special-tools",
-      "selector": "[data-testid=\"nav-special-tools\"]",
-      "tagName": "a",
-      "text": "Special Tools",
-      "role": null,
-      "visible": false
-    },
-    {
-      "name": "nav-rentals",
-      "selector": "[data-testid=\"nav-rentals\"]",
-      "tagName": "a",
-      "text": "Rentals",
-      "role": null,
-      "visible": false
+      "visible": true
     },
     {
       "name": "nav-contact",
@@ -328,144 +800,632 @@
       "visible": true
     },
     {
-      "name": "nav-sign-in",
-      "selector": "[data-testid=\"nav-sign-in\"]",
+      "name": "product-1",
+      "selector": "[data-testid=\"product-1\"]",
       "tagName": "a",
-      "text": "Sign in",
+      "text": "Combination Pliers",
       "role": null,
       "visible": true
     },
     {
-      "name": "language-select",
-      "selector": "[data-testid=\"language-select\"]",
-      "tagName": "button",
-      "text": "EN",
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Combination Pliers",
       "role": null,
       "visible": true
     },
     {
-      "name": "lang-de",
-      "selector": "[data-testid=\"lang-de\"]",
-      "tagName": "a",
-      "text": "DE",
-      "role": null,
-      "visible": false
-    },
-    {
-      "name": "lang-el",
-      "selector": "[data-testid=\"lang-el\"]",
-      "tagName": "a",
-      "text": "EL",
-      "role": null,
-      "visible": false
-    },
-    {
-      "name": "lang-en",
-      "selector": "[data-testid=\"lang-en\"]",
-      "tagName": "a",
-      "text": "EN",
-      "role": null,
-      "visible": false
-    },
-    {
-      "name": "lang-es",
-      "selector": "[data-testid=\"lang-es\"]",
-      "tagName": "a",
-      "text": "ES",
-      "role": null,
-      "visible": false
-    },
-    {
-      "name": "lang-fr",
-      "selector": "[data-testid=\"lang-fr\"]",
-      "tagName": "a",
-      "text": "FR",
-      "role": null,
-      "visible": false
-    },
-    {
-      "name": "lang-nl",
-      "selector": "[data-testid=\"lang-nl\"]",
-      "tagName": "a",
-      "text": "NL",
-      "role": null,
-      "visible": false
-    },
-    {
-      "name": "lang-tr",
-      "selector": "[data-testid=\"lang-tr\"]",
-      "tagName": "a",
-      "text": "TR",
-      "role": null,
-      "visible": false
-    },
-    {
-      "name": "filters",
-      "selector": "[data-testid=\"filters\"]",
-      "tagName": "a",
-      "text": "Filters",
-      "role": "button",
-      "visible": false
-    },
-    {
-      "name": "filters",
-      "selector": "[data-testid=\"filters\"]",
-      "tagName": "div",
-      "text": "Sort Name (A - Z) Name (Z - A) Price (High - Low) Price (Low - High) CO₂ Rating (A - E) CO₂ Rating (E - A) Price Range 0 200 1 100 Search Search X Search Filters By category: Categories By brand: Brands Sustainability: Eco-Friendly Products Show only eco-friendly products",
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$14.15",
       "role": null,
       "visible": true
     },
     {
-      "name": "sort",
-      "selector": "[data-testid=\"sort\"]",
-      "tagName": "select",
-      "text": "Name (A - Z) Name (Z - A) Price (High - Low) Price (Low - High) CO₂ Rating (A - E) CO₂ Rating (E - A)",
+      "name": "product-2",
+      "selector": "[data-testid=\"product-2\"]",
+      "tagName": "a",
+      "text": "Pliers",
       "role": null,
       "visible": true
     },
     {
-      "name": "search-query",
-      "selector": "[data-testid=\"search-query\"]",
-      "tagName": "input",
-      "text": null,
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Pliers",
       "role": null,
       "visible": true
     },
     {
-      "name": "search-reset",
-      "selector": "[data-testid=\"search-reset\"]",
-      "tagName": "button",
-      "text": "X",
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$12.01",
       "role": null,
       "visible": true
     },
     {
-      "name": "search-submit",
-      "selector": "[data-testid=\"search-submit\"]",
-      "tagName": "button",
-      "text": "Search",
+      "name": "product-3",
+      "selector": "[data-testid=\"product-3\"]",
+      "tagName": "a",
+      "text": "Bolt Cutters",
       "role": null,
       "visible": true
     },
     {
-      "name": "eco-friendly-filter",
-      "selector": "[data-testid=\"eco-friendly-filter\"]",
-      "tagName": "input",
-      "text": null,
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Bolt Cutters",
       "role": null,
       "visible": true
     },
     {
-      "name": "chat-toggle",
-      "selector": "[data-testid=\"chat-toggle\"]",
-      "tagName": "button",
-      "text": null,
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$48.41",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-4",
+      "selector": "[data-testid=\"product-4\"]",
+      "tagName": "a",
+      "text": "Long Nose Pliers",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Long Nose Pliers",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$14.24",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-5",
+      "selector": "[data-testid=\"product-5\"]",
+      "tagName": "a",
+      "text": "Slip Joint Pliers",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Slip Joint Pliers",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$9.17",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-6",
+      "selector": "[data-testid=\"product-6\"]",
+      "tagName": "a",
+      "text": "Claw Hammer with Shock Reduction Grip",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Claw Hammer with Shock Reduction Grip",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$13.41",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-7",
+      "selector": "[data-testid=\"product-7\"]",
+      "tagName": "a",
+      "text": "Hammer",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Hammer",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$12.58",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-8",
+      "selector": "[data-testid=\"product-8\"]",
+      "tagName": "a",
+      "text": "Claw Hammer",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Claw Hammer",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$11.48",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-9",
+      "selector": "[data-testid=\"product-9\"]",
+      "tagName": "a",
+      "text": "Thor Hammer",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Thor Hammer",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$11.14",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-10",
+      "selector": "[data-testid=\"product-10\"]",
+      "tagName": "a",
+      "text": "Sledgehammer",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Sledgehammer",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$17.75",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-11",
+      "selector": "[data-testid=\"product-11\"]",
+      "tagName": "a",
+      "text": "Claw Hammer with Fiberglass Handle",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Claw Hammer with Fiberglass Handle",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$20.14",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-12",
+      "selector": "[data-testid=\"product-12\"]",
+      "tagName": "a",
+      "text": "Court Hammer",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Court Hammer",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$18.63",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-13",
+      "selector": "[data-testid=\"product-13\"]",
+      "tagName": "a",
+      "text": "Wood Saw",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Wood Saw",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$12.18",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-14",
+      "selector": "[data-testid=\"product-14\"]",
+      "tagName": "a",
+      "text": "Adjustable Wrench",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Adjustable Wrench",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$20.33",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-15",
+      "selector": "[data-testid=\"product-15\"]",
+      "tagName": "a",
+      "text": "Angled Spanner",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Angled Spanner",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$14.14",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-16",
+      "selector": "[data-testid=\"product-16\"]",
+      "tagName": "a",
+      "text": "Open-end Spanners (Set)",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Open-end Spanners (Set)",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$38.51",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-17",
+      "selector": "[data-testid=\"product-17\"]",
+      "tagName": "a",
+      "text": "Phillips Screwdriver",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Phillips Screwdriver",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$4.92",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-18",
+      "selector": "[data-testid=\"product-18\"]",
+      "tagName": "a",
+      "text": "Mini Screwdriver",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Mini Screwdriver",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$13.96",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-19",
+      "selector": "[data-testid=\"product-19\"]",
+      "tagName": "a",
+      "text": "Sheet Sander",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Sheet Sander",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$58.48",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-20",
+      "selector": "[data-testid=\"product-20\"]",
+      "tagName": "a",
+      "text": "Belt Sander",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Belt Sander",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$73.59",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-21",
+      "selector": "[data-testid=\"product-21\"]",
+      "tagName": "a",
+      "text": "Circular Saw",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Circular Saw",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$80.19",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-22",
+      "selector": "[data-testid=\"product-22\"]",
+      "tagName": "a",
+      "text": "Random Orbit Sander",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Random Orbit Sander",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$100.79",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-23",
+      "selector": "[data-testid=\"product-23\"]",
+      "tagName": "a",
+      "text": "Cordless Drill 20V",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Cordless Drill 20V",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$125.23",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-24",
+      "selector": "[data-testid=\"product-24\"]",
+      "tagName": "a",
+      "text": "Cordless Drill 24V",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Cordless Drill 24V",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$66.54",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-25",
+      "selector": "[data-testid=\"product-25\"]",
+      "tagName": "a",
+      "text": "Cordless Drill 18V",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Cordless Drill 18V",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$119.24",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-26",
+      "selector": "[data-testid=\"product-26\"]",
+      "tagName": "a",
+      "text": "Cordless Drill 12V",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-name",
+      "selector": "[data-testid=\"product-name\"]",
+      "tagName": "strong",
+      "text": "Cordless Drill 12V",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "product-price",
+      "selector": "[data-testid=\"product-price\"]",
+      "tagName": "span",
+      "text": "$46.50",
       "role": null,
       "visible": true
     }
   ],
   "summary": {
-    "selectorCount": 27,
-    "testIdSelectorCount": 26
+    "selectorCount": 83,
+    "testIdSelectorCount": 83
   }
 }
