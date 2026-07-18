@@ -1,0 +1,471 @@
+{
+  "schemaVersion": "1.0",
+  "storyKey": "MP-1",
+  "executionId": "MP-SPRINT-20260716110000",
+  "discoveryId": "MP-1-MP-DISCOVERY-V050-001",
+  "application": {
+    "name": "Practice Software Testing",
+    "pageTitle": "Practice Software Testing - Toolshop - v5.0",
+    "pageUrl": "http://localhost:4200/"
+  },
+  "generatedAt": "2026-07-18T20:51:36.243Z",
+  "selectors": [
+    {
+      "name": "notification-bar",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"notification-bar\"]",
+      "tagName": "div",
+      "text": "View the Documentation for this application.",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "nav-home",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"nav-home\"]",
+      "tagName": "a",
+      "text": "Home",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "nav-categories",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"nav-categories\"]",
+      "tagName": "button",
+      "text": "Categories",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "nav-hand-tools",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"nav-hand-tools\"]",
+      "tagName": "a",
+      "text": "Hand Tools",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "nav-power-tools",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"nav-power-tools\"]",
+      "tagName": "a",
+      "text": "Power Tools",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "nav-other",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"nav-other\"]",
+      "tagName": "a",
+      "text": "Other",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "nav-special-tools",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"nav-special-tools\"]",
+      "tagName": "a",
+      "text": "Special Tools",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "nav-rentals",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"nav-rentals\"]",
+      "tagName": "a",
+      "text": "Rentals",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "nav-contact",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"nav-contact\"]",
+      "tagName": "a",
+      "text": "Contact",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "nav-sign-in",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"nav-sign-in\"]",
+      "tagName": "a",
+      "text": "Sign in",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "language-select",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"language-select\"]",
+      "tagName": "button",
+      "text": "EN",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "lang-de",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"lang-de\"]",
+      "tagName": "a",
+      "text": "DE",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "lang-el",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"lang-el\"]",
+      "tagName": "a",
+      "text": "EL",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "lang-en",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"lang-en\"]",
+      "tagName": "a",
+      "text": "EN",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "lang-es",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"lang-es\"]",
+      "tagName": "a",
+      "text": "ES",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "lang-fr",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"lang-fr\"]",
+      "tagName": "a",
+      "text": "FR",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "lang-nl",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"lang-nl\"]",
+      "tagName": "a",
+      "text": "NL",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "lang-tr",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"lang-tr\"]",
+      "tagName": "a",
+      "text": "TR",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "filters",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"filters\"]",
+      "tagName": "a",
+      "text": "Filters",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "filters",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"filters\"]",
+      "tagName": "div",
+      "text": "Sort Name (A - Z) Name (Z - A) Price (High - Low) Price (Low - High) CO₂ Rating (A - E) CO₂ Rating (E - A) Price Range 0 200 1 100 Search Search X Search Filters By category: Categories By brand: Brands Sustainability: Eco-Friendly Products Show only eco-friendly products",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "sort",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"sort\"]",
+      "tagName": "select",
+      "text": "Name (A - Z) Name (Z - A) Price (High - Low) Price (Low - High) CO₂ Rating (A - E) CO₂ Rating (E - A)",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "search-query",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"search-query\"]",
+      "tagName": "input",
+      "text": null,
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "search-reset",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"search-reset\"]",
+      "tagName": "button",
+      "text": "X",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "search-submit",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"search-submit\"]",
+      "tagName": "button",
+      "text": "Search",
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "eco-friendly-filter",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"eco-friendly-filter\"]",
+      "tagName": "input",
+      "text": null,
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "chat-toggle",
+      "strategy": "test-id",
+      "selector": "[data-testid=\"chat-toggle\"]",
+      "tagName": "button",
+      "text": null,
+      "accessibleName": null,
+      "confidence": 1
+    },
+    {
+      "name": "Testing Guide",
+      "strategy": "button-name",
+      "selector": "getByRole('button', { name: 'Testing Guide' })",
+      "tagName": "button",
+      "text": null,
+      "accessibleName": "Testing Guide",
+      "confidence": 0.9
+    }
+  ],
+  "testIds": [
+    {
+      "name": "notification-bar",
+      "selector": "[data-testid=\"notification-bar\"]",
+      "tagName": "div",
+      "text": "View the Documentation for this application.",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "nav-home",
+      "selector": "[data-testid=\"nav-home\"]",
+      "tagName": "a",
+      "text": "Home",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "nav-categories",
+      "selector": "[data-testid=\"nav-categories\"]",
+      "tagName": "button",
+      "text": "Categories",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "nav-hand-tools",
+      "selector": "[data-testid=\"nav-hand-tools\"]",
+      "tagName": "a",
+      "text": "Hand Tools",
+      "role": null,
+      "visible": false
+    },
+    {
+      "name": "nav-power-tools",
+      "selector": "[data-testid=\"nav-power-tools\"]",
+      "tagName": "a",
+      "text": "Power Tools",
+      "role": null,
+      "visible": false
+    },
+    {
+      "name": "nav-other",
+      "selector": "[data-testid=\"nav-other\"]",
+      "tagName": "a",
+      "text": "Other",
+      "role": null,
+      "visible": false
+    },
+    {
+      "name": "nav-special-tools",
+      "selector": "[data-testid=\"nav-special-tools\"]",
+      "tagName": "a",
+      "text": "Special Tools",
+      "role": null,
+      "visible": false
+    },
+    {
+      "name": "nav-rentals",
+      "selector": "[data-testid=\"nav-rentals\"]",
+      "tagName": "a",
+      "text": "Rentals",
+      "role": null,
+      "visible": false
+    },
+    {
+      "name": "nav-contact",
+      "selector": "[data-testid=\"nav-contact\"]",
+      "tagName": "a",
+      "text": "Contact",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "nav-sign-in",
+      "selector": "[data-testid=\"nav-sign-in\"]",
+      "tagName": "a",
+      "text": "Sign in",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "language-select",
+      "selector": "[data-testid=\"language-select\"]",
+      "tagName": "button",
+      "text": "EN",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "lang-de",
+      "selector": "[data-testid=\"lang-de\"]",
+      "tagName": "a",
+      "text": "DE",
+      "role": null,
+      "visible": false
+    },
+    {
+      "name": "lang-el",
+      "selector": "[data-testid=\"lang-el\"]",
+      "tagName": "a",
+      "text": "EL",
+      "role": null,
+      "visible": false
+    },
+    {
+      "name": "lang-en",
+      "selector": "[data-testid=\"lang-en\"]",
+      "tagName": "a",
+      "text": "EN",
+      "role": null,
+      "visible": false
+    },
+    {
+      "name": "lang-es",
+      "selector": "[data-testid=\"lang-es\"]",
+      "tagName": "a",
+      "text": "ES",
+      "role": null,
+      "visible": false
+    },
+    {
+      "name": "lang-fr",
+      "selector": "[data-testid=\"lang-fr\"]",
+      "tagName": "a",
+      "text": "FR",
+      "role": null,
+      "visible": false
+    },
+    {
+      "name": "lang-nl",
+      "selector": "[data-testid=\"lang-nl\"]",
+      "tagName": "a",
+      "text": "NL",
+      "role": null,
+      "visible": false
+    },
+    {
+      "name": "lang-tr",
+      "selector": "[data-testid=\"lang-tr\"]",
+      "tagName": "a",
+      "text": "TR",
+      "role": null,
+      "visible": false
+    },
+    {
+      "name": "filters",
+      "selector": "[data-testid=\"filters\"]",
+      "tagName": "a",
+      "text": "Filters",
+      "role": "button",
+      "visible": false
+    },
+    {
+      "name": "filters",
+      "selector": "[data-testid=\"filters\"]",
+      "tagName": "div",
+      "text": "Sort Name (A - Z) Name (Z - A) Price (High - Low) Price (Low - High) CO₂ Rating (A - E) CO₂ Rating (E - A) Price Range 0 200 1 100 Search Search X Search Filters By category: Categories By brand: Brands Sustainability: Eco-Friendly Products Show only eco-friendly products",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "sort",
+      "selector": "[data-testid=\"sort\"]",
+      "tagName": "select",
+      "text": "Name (A - Z) Name (Z - A) Price (High - Low) Price (Low - High) CO₂ Rating (A - E) CO₂ Rating (E - A)",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "search-query",
+      "selector": "[data-testid=\"search-query\"]",
+      "tagName": "input",
+      "text": null,
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "search-reset",
+      "selector": "[data-testid=\"search-reset\"]",
+      "tagName": "button",
+      "text": "X",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "search-submit",
+      "selector": "[data-testid=\"search-submit\"]",
+      "tagName": "button",
+      "text": "Search",
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "eco-friendly-filter",
+      "selector": "[data-testid=\"eco-friendly-filter\"]",
+      "tagName": "input",
+      "text": null,
+      "role": null,
+      "visible": true
+    },
+    {
+      "name": "chat-toggle",
+      "selector": "[data-testid=\"chat-toggle\"]",
+      "tagName": "button",
+      "text": null,
+      "role": null,
+      "visible": true
+    }
+  ],
+  "summary": {
+    "selectorCount": 27,
+    "testIdSelectorCount": 26
+  }
+}
