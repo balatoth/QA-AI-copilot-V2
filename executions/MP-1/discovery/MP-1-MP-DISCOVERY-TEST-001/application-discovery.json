@@ -11,8 +11,8 @@
   "discovery": {
     "scope": "SINGLE_PAGE",
     "status": "COMPLETED",
-    "startedAt": "2026-07-18T22:16:42.638Z",
-    "completedAt": "2026-07-18T22:16:45.070Z"
+    "startedAt": "2026-07-18T22:21:58.745Z",
+    "completedAt": "2026-07-18T22:22:02.640Z"
   },
   "page": {
     "title": "Practice Software Testing - Toolshop - v1.0",
@@ -1586,8 +1586,8 @@
     "discoveryJson": "application-discovery.json"
   },
   "github": {
-    "workflowRunId": "29663132400",
+    "workflowRunId": "29663290241",
     "workflowRunAttempt": "1",
-    "commitSha": "c85a8cb4bc981d4376d558ce49114df21f348bda"
+    "commitSha": "f992cda2257655187ab7d083e81f35b8b15854a8"
   }
 }
