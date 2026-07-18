@@ -81,15 +81,41 @@ async function runDiscovery() {
 
     console.log('Waiting for real product cards...');
     
-    await page.waitForFunction(() => {
-      const cards = [...document.querySelectorAll('.card')];
-    
-      return cards.some(
-        card => !card.classList.contains('skeleton')
-      );
-    }, {
-      timeout: 30000
+console.log('Waiting for product content...');
+
+await page.waitForFunction(() => {
+  const productSelectors = [
+    '[data-test^="product-"]',
+    '[data-test="product-name"]',
+    '[data-test="product-price"]',
+    'a[href*="/product/"]',
+    'a[href*="/products/"]',
+    '.card'
+  ];
+
+  return productSelectors.some(selector => {
+    const elements = [...document.querySelectorAll(selector)];
+
+    return elements.some(element => {
+      const isSkeleton =
+        element.classList.contains('skeleton') ||
+        Boolean(element.closest('.skeleton'));
+
+      const isVisible =
+        element.getClientRects().length > 0;
+
+      const hasContent =
+        Boolean(element.textContent?.trim()) ||
+        element.querySelector('img') !== null;
+
+      return !isSkeleton && isVisible && hasContent;
     });
+  });
+}, {
+  timeout: 30000
+});
+
+console.log('Product content detected.');
     
     console.log('Real product cards detected.');
     
