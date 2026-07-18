@@ -1,4 +1,3 @@
-```yaml
 name: Application Discovery v2
 
 run-name: Application discovery v2 - ${{ inputs.storyKey }} - ${{ inputs.discoveryId }}
@@ -190,4 +189,3 @@ jobs:
             application-discovery-v2/homepage.png
           if-no-files-found: error
           retention-days: 7
-```
