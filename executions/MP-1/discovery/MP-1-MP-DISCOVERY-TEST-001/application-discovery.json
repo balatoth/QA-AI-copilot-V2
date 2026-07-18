@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0",
+  "schemaVersion": "1.1",
   "storyKey": "MP-1",
   "executionId": "MP-DISCOVERY-TEST-001",
   "discoveryId": "MP-1-MP-DISCOVERY-TEST-001",
@@ -11,8 +11,8 @@
   "discovery": {
     "scope": "SINGLE_PAGE",
     "status": "COMPLETED",
-    "startedAt": "2026-07-18T22:21:58.745Z",
-    "completedAt": "2026-07-18T22:22:02.640Z"
+    "startedAt": "2026-07-18T22:33:54.731Z",
+    "completedAt": "2026-07-18T22:34:00.774Z"
   },
   "page": {
     "title": "Practice Software Testing - Toolshop - v1.0",
@@ -33,10 +33,10 @@
     "tableCount": 0,
     "listCount": 1,
     "dialogCount": 0,
-    "productCardCount": 0,
+    "productCardCount": 26,
     "dataTestIdCount": 33,
     "explicitRoleCount": 0,
-    "candidateSelectorCount": 83
+    "candidateSelectorCount": 33
   },
   "elements": {
     "headings": [
@@ -48,6 +48,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": null,
         "dataTestId": null,
         "name": null,
         "type": null,
@@ -69,6 +70,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": null,
         "dataTestId": null,
         "name": null,
         "type": null,
@@ -90,6 +92,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": null,
         "dataTestId": null,
         "name": null,
         "type": null,
@@ -112,6 +115,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "nav-home",
         "name": null,
         "type": null,
@@ -134,6 +138,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "nav-hand-tools",
         "name": null,
         "type": null,
@@ -157,6 +162,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "nav-power-tools",
         "name": null,
         "type": null,
@@ -180,6 +186,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "nav-contact",
         "name": null,
         "type": null,
@@ -203,6 +210,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-1",
         "name": null,
         "type": null,
@@ -224,6 +232,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-2",
         "name": null,
         "type": null,
@@ -245,6 +254,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-3",
         "name": null,
         "type": null,
@@ -266,6 +276,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-4",
         "name": null,
         "type": null,
@@ -287,6 +298,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-5",
         "name": null,
         "type": null,
@@ -308,6 +320,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-6",
         "name": null,
         "type": null,
@@ -329,6 +342,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-7",
         "name": null,
         "type": null,
@@ -350,6 +364,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-8",
         "name": null,
         "type": null,
@@ -371,6 +386,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-9",
         "name": null,
         "type": null,
@@ -392,6 +408,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-10",
         "name": null,
         "type": null,
@@ -413,6 +430,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-11",
         "name": null,
         "type": null,
@@ -434,6 +452,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-12",
         "name": null,
         "type": null,
@@ -455,6 +474,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-13",
         "name": null,
         "type": null,
@@ -476,6 +496,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-14",
         "name": null,
         "type": null,
@@ -497,6 +518,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-15",
         "name": null,
         "type": null,
@@ -518,6 +540,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-16",
         "name": null,
         "type": null,
@@ -539,6 +562,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-17",
         "name": null,
         "type": null,
@@ -560,6 +584,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-18",
         "name": null,
         "type": null,
@@ -581,6 +606,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-19",
         "name": null,
         "type": null,
@@ -602,6 +628,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-20",
         "name": null,
         "type": null,
@@ -623,6 +650,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-21",
         "name": null,
         "type": null,
@@ -644,6 +672,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-22",
         "name": null,
         "type": null,
@@ -665,6 +694,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-23",
         "name": null,
         "type": null,
@@ -686,6 +716,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-24",
         "name": null,
         "type": null,
@@ -707,6 +738,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-25",
         "name": null,
         "type": null,
@@ -728,6 +760,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": "data-test",
         "dataTestId": "product-26",
         "name": null,
         "type": null,
@@ -749,6 +782,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": null,
         "dataTestId": null,
         "name": null,
         "type": null,
@@ -769,6 +803,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": null,
         "dataTestId": null,
         "name": null,
         "type": null,
@@ -789,6 +824,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": null,
         "dataTestId": null,
         "name": null,
         "type": null,
@@ -814,6 +850,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": null,
         "dataTestId": null,
         "name": null,
         "type": null,
@@ -836,6 +873,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": null,
         "dataTestId": null,
         "name": null,
         "type": null,
@@ -859,6 +897,7 @@
         "role": null,
         "ariaLabel": null,
         "ariaLabelledBy": null,
+        "testAttributeName": null,
         "dataTestId": null,
         "name": null,
         "type": null,
@@ -872,7 +911,2842 @@
       }
     ],
     "dialogs": [],
-    "productCards": []
+    "productCards": [
+      {
+        "index": 0,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Combination Pliers $14.15",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Combination Pliers",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-1",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/1",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-1",
+            "href": "#/product/1"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Combination Pliers",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$14.15",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Combination Pliers",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-1",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/1",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-1",
+            "href": "#/product/1"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 1,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Pliers $12.01",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Pliers",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-2",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/2",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-2",
+            "href": "#/product/2"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Pliers",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$12.01",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Pliers",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-2",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/2",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-2",
+            "href": "#/product/2"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 2,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Bolt Cutters $48.41",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Bolt Cutters",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-3",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/3",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-3",
+            "href": "#/product/3"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Bolt Cutters",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$48.41",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Bolt Cutters",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-3",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/3",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-3",
+            "href": "#/product/3"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 3,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Long Nose Pliers $14.24",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Long Nose Pliers",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-4",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/4",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-4",
+            "href": "#/product/4"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Long Nose Pliers",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$14.24",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Long Nose Pliers",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-4",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/4",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-4",
+            "href": "#/product/4"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 4,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Slip Joint Pliers $9.17",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Slip Joint Pliers",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-5",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/5",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-5",
+            "href": "#/product/5"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Slip Joint Pliers",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$9.17",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Slip Joint Pliers",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-5",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/5",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-5",
+            "href": "#/product/5"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 5,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Claw Hammer with Shock Reduction Grip $13.41",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Claw Hammer with Shock Reduction Grip",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-6",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/6",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-6",
+            "href": "#/product/6"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Claw Hammer with Shock Reduction Grip",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$13.41",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Claw Hammer with Shock Reduction Grip",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-6",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/6",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-6",
+            "href": "#/product/6"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 6,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Hammer $12.58",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Hammer",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-7",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/7",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-7",
+            "href": "#/product/7"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Hammer",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$12.58",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Hammer",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-7",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/7",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-7",
+            "href": "#/product/7"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 7,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Claw Hammer $11.48",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Claw Hammer",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-8",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/8",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-8",
+            "href": "#/product/8"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Claw Hammer",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$11.48",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Claw Hammer",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-8",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/8",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-8",
+            "href": "#/product/8"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 8,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Thor Hammer $11.14",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Thor Hammer",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-9",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/9",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-9",
+            "href": "#/product/9"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Thor Hammer",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$11.14",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Thor Hammer",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-9",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/9",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-9",
+            "href": "#/product/9"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 9,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Sledgehammer $17.75",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Sledgehammer",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-10",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/10",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-10",
+            "href": "#/product/10"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Sledgehammer",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$17.75",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Sledgehammer",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-10",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/10",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-10",
+            "href": "#/product/10"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 10,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Claw Hammer with Fiberglass Handle $20.14",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Claw Hammer with Fiberglass Handle",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-11",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/11",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-11",
+            "href": "#/product/11"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Claw Hammer with Fiberglass Handle",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$20.14",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Claw Hammer with Fiberglass Handle",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-11",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/11",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-11",
+            "href": "#/product/11"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 11,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Court Hammer $18.63",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Court Hammer",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-12",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/12",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-12",
+            "href": "#/product/12"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Court Hammer",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$18.63",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Court Hammer",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-12",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/12",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-12",
+            "href": "#/product/12"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 12,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Wood Saw $12.18",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Wood Saw",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-13",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/13",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-13",
+            "href": "#/product/13"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Wood Saw",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$12.18",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Wood Saw",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-13",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/13",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-13",
+            "href": "#/product/13"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 13,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Adjustable Wrench $20.33",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Adjustable Wrench",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-14",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/14",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-14",
+            "href": "#/product/14"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Adjustable Wrench",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$20.33",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Adjustable Wrench",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-14",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/14",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-14",
+            "href": "#/product/14"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 14,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Angled Spanner $14.14",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Angled Spanner",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-15",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/15",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-15",
+            "href": "#/product/15"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Angled Spanner",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$14.14",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Angled Spanner",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-15",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/15",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-15",
+            "href": "#/product/15"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 15,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Open-end Spanners (Set) $38.51",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Open-end Spanners (Set)",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-16",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/16",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-16",
+            "href": "#/product/16"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Open-end Spanners (Set)",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$38.51",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Open-end Spanners (Set)",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-16",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/16",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-16",
+            "href": "#/product/16"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 16,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Phillips Screwdriver $4.92",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Phillips Screwdriver",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-17",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/17",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-17",
+            "href": "#/product/17"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Phillips Screwdriver",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$4.92",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Phillips Screwdriver",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-17",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/17",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-17",
+            "href": "#/product/17"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 17,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Mini Screwdriver $13.96",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Mini Screwdriver",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-18",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/18",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-18",
+            "href": "#/product/18"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Mini Screwdriver",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$13.96",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Mini Screwdriver",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-18",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/18",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-18",
+            "href": "#/product/18"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 18,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Sheet Sander $58.48",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Sheet Sander",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-19",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/19",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-19",
+            "href": "#/product/19"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Sheet Sander",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$58.48",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Sheet Sander",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-19",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/19",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-19",
+            "href": "#/product/19"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 19,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Belt Sander $73.59",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Belt Sander",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-20",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/20",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-20",
+            "href": "#/product/20"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Belt Sander",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$73.59",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Belt Sander",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-20",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/20",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-20",
+            "href": "#/product/20"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 20,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Circular Saw $80.19",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Circular Saw",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-21",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/21",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-21",
+            "href": "#/product/21"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Circular Saw",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$80.19",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Circular Saw",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-21",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/21",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-21",
+            "href": "#/product/21"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 21,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Random Orbit Sander $100.79",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Random Orbit Sander",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-22",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/22",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-22",
+            "href": "#/product/22"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Random Orbit Sander",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$100.79",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Random Orbit Sander",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-22",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/22",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-22",
+            "href": "#/product/22"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 22,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Cordless Drill 20V $125.23",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Cordless Drill 20V",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-23",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/23",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-23",
+            "href": "#/product/23"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Cordless Drill 20V",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$125.23",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Cordless Drill 20V",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-23",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/23",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-23",
+            "href": "#/product/23"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 23,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Cordless Drill 24V $66.54",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Cordless Drill 24V",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-24",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/24",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-24",
+            "href": "#/product/24"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Cordless Drill 24V",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$66.54",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Cordless Drill 24V",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-24",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/24",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-24",
+            "href": "#/product/24"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 24,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Cordless Drill 18V $119.24",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Cordless Drill 18V",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-25",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/25",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-25",
+            "href": "#/product/25"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Cordless Drill 18V",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$119.24",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Cordless Drill 18V",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-25",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/25",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-25",
+            "href": "#/product/25"
+          }
+        },
+        "image": null
+      },
+      {
+        "index": 25,
+        "discoveryStrategy": "product-instance-test-id",
+        "container": {
+          "tagName": "li",
+          "text": "Cordless Drill 12V $46.50",
+          "id": null,
+          "className": "list-group-item d-flex justify-content-between align-items-center",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": null,
+          "dataTestId": null,
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "list-group-item d-flex justify-content-between align-items-center"
+          }
+        },
+        "root": {
+          "tagName": "a",
+          "text": "Cordless Drill 12V",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-26",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/26",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-26",
+            "href": "#/product/26"
+          }
+        },
+        "title": {
+          "tagName": "strong",
+          "text": "Cordless Drill 12V",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-name",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-name"
+          }
+        },
+        "price": {
+          "tagName": "span",
+          "text": "$46.50",
+          "id": null,
+          "className": "",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-price",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": null,
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "data-test": "product-price"
+          }
+        },
+        "link": {
+          "tagName": "a",
+          "text": "Cordless Drill 12V",
+          "id": null,
+          "className": "text-decoration-none text-dark",
+          "role": null,
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "testAttributeName": "data-test",
+          "dataTestId": "product-26",
+          "name": null,
+          "type": null,
+          "placeholder": null,
+          "href": "#/product/26",
+          "title": null,
+          "visible": true,
+          "attributes": {
+            "class": "text-decoration-none text-dark",
+            "data-test": "product-26",
+            "href": "#/product/26"
+          }
+        },
+        "image": null
+      }
+    ]
   },
   "selectorDiscovery": {
     "dataTestIds": [
@@ -914,666 +3788,299 @@
     "candidates": [
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"notification-bar\"]",
+        "selector": "[data-test=\"notification-bar\"]",
         "value": "notification-bar",
+        "testAttributeName": "data-test",
         "tagName": "div",
         "text": "View the Documentation for this application.",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"nav-home\"]",
+        "selector": "[data-test=\"nav-home\"]",
         "value": "nav-home",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Home",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"nav-hand-tools\"]",
+        "selector": "[data-test=\"nav-hand-tools\"]",
         "value": "nav-hand-tools",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Hand Tools",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"nav-power-tools\"]",
+        "selector": "[data-test=\"nav-power-tools\"]",
         "value": "nav-power-tools",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Power Tools",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"nav-contact\"]",
+        "selector": "[data-test=\"nav-contact\"]",
         "value": "nav-contact",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Contact",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-1\"]",
+        "selector": "[data-test=\"product-1\"]",
         "value": "product-1",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Combination Pliers",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
+        "selector": "[data-test=\"product-name\"]",
         "value": "product-name",
+        "testAttributeName": "data-test",
         "tagName": "strong",
         "text": "Combination Pliers",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
+        "selector": "[data-test=\"product-price\"]",
         "value": "product-price",
+        "testAttributeName": "data-test",
         "tagName": "span",
         "text": "$14.15",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-2\"]",
+        "selector": "[data-test=\"product-2\"]",
         "value": "product-2",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Pliers",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Pliers",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$12.01",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-3\"]",
+        "selector": "[data-test=\"product-3\"]",
         "value": "product-3",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Bolt Cutters",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Bolt Cutters",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$48.41",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-4\"]",
+        "selector": "[data-test=\"product-4\"]",
         "value": "product-4",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Long Nose Pliers",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Long Nose Pliers",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$14.24",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-5\"]",
+        "selector": "[data-test=\"product-5\"]",
         "value": "product-5",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Slip Joint Pliers",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Slip Joint Pliers",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$9.17",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-6\"]",
+        "selector": "[data-test=\"product-6\"]",
         "value": "product-6",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Claw Hammer with Shock Reduction Grip",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Claw Hammer with Shock Reduction Grip",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$13.41",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-7\"]",
+        "selector": "[data-test=\"product-7\"]",
         "value": "product-7",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Hammer",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Hammer",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$12.58",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-8\"]",
+        "selector": "[data-test=\"product-8\"]",
         "value": "product-8",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Claw Hammer",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Claw Hammer",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$11.48",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-9\"]",
+        "selector": "[data-test=\"product-9\"]",
         "value": "product-9",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Thor Hammer",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Thor Hammer",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$11.14",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-10\"]",
+        "selector": "[data-test=\"product-10\"]",
         "value": "product-10",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Sledgehammer",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Sledgehammer",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$17.75",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-11\"]",
+        "selector": "[data-test=\"product-11\"]",
         "value": "product-11",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Claw Hammer with Fiberglass Handle",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Claw Hammer with Fiberglass Handle",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$20.14",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-12\"]",
+        "selector": "[data-test=\"product-12\"]",
         "value": "product-12",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Court Hammer",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Court Hammer",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$18.63",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-13\"]",
+        "selector": "[data-test=\"product-13\"]",
         "value": "product-13",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Wood Saw",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Wood Saw",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$12.18",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-14\"]",
+        "selector": "[data-test=\"product-14\"]",
         "value": "product-14",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Adjustable Wrench",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Adjustable Wrench",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$20.33",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-15\"]",
+        "selector": "[data-test=\"product-15\"]",
         "value": "product-15",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Angled Spanner",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Angled Spanner",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$14.14",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-16\"]",
+        "selector": "[data-test=\"product-16\"]",
         "value": "product-16",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Open-end Spanners (Set)",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Open-end Spanners (Set)",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$38.51",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-17\"]",
+        "selector": "[data-test=\"product-17\"]",
         "value": "product-17",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Phillips Screwdriver",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Phillips Screwdriver",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$4.92",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-18\"]",
+        "selector": "[data-test=\"product-18\"]",
         "value": "product-18",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Mini Screwdriver",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Mini Screwdriver",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$13.96",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-19\"]",
+        "selector": "[data-test=\"product-19\"]",
         "value": "product-19",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Sheet Sander",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Sheet Sander",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$58.48",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-20\"]",
+        "selector": "[data-test=\"product-20\"]",
         "value": "product-20",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Belt Sander",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Belt Sander",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$73.59",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-21\"]",
+        "selector": "[data-test=\"product-21\"]",
         "value": "product-21",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Circular Saw",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Circular Saw",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$80.19",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-22\"]",
+        "selector": "[data-test=\"product-22\"]",
         "value": "product-22",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Random Orbit Sander",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Random Orbit Sander",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$100.79",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-23\"]",
+        "selector": "[data-test=\"product-23\"]",
         "value": "product-23",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Cordless Drill 20V",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Cordless Drill 20V",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$125.23",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-24\"]",
+        "selector": "[data-test=\"product-24\"]",
         "value": "product-24",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Cordless Drill 24V",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Cordless Drill 24V",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$66.54",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-25\"]",
+        "selector": "[data-test=\"product-25\"]",
         "value": "product-25",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Cordless Drill 18V",
         "confidence": 1
       },
       {
         "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Cordless Drill 18V",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$119.24",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-26\"]",
+        "selector": "[data-test=\"product-26\"]",
         "value": "product-26",
+        "testAttributeName": "data-test",
         "tagName": "a",
         "text": "Cordless Drill 12V",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-name\"]",
-        "value": "product-name",
-        "tagName": "strong",
-        "text": "Cordless Drill 12V",
-        "confidence": 1
-      },
-      {
-        "strategy": "test-id",
-        "selector": "[data-testid=\"product-price\"]",
-        "value": "product-price",
-        "tagName": "span",
-        "text": "$46.50",
         "confidence": 1
       }
     ]
@@ -1583,11 +4090,12 @@
   },
   "artifacts": {
     "screenshot": "homepage.png",
-    "discoveryJson": "application-discovery.json"
+    "discoveryJson": "application-discovery.json",
+    "selectorLibrary": "selector-library.json"
   },
   "github": {
-    "workflowRunId": "29663290241",
+    "workflowRunId": "29663654638",
     "workflowRunAttempt": "1",
-    "commitSha": "f992cda2257655187ab7d083e81f35b8b15854a8"
+    "commitSha": "291b7985d8b5852a8429116d5c462a59b4b60f7c"
   }
 }
