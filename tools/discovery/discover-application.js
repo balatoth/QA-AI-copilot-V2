@@ -79,16 +79,30 @@ async function runDiscovery() {
       );
     });
 
-    try {
-      await page.locator('.card.skeleton').first().waitFor({
-        state: 'hidden',
-        timeout: 15000
-      });
-    } catch {
-      console.log(
-        'Skeleton cards still present after timeout. Continuing discovery.'
+    console.log('Waiting for real product cards...');
+    
+    await page.waitForFunction(() => {
+      const cards = [...document.querySelectorAll('.card')];
+    
+      return cards.some(
+        card => !card.classList.contains('skeleton')
       );
-    }
+    }, {
+      timeout: 30000
+    });
+    
+    console.log('Real product cards detected.');
+    
+    const cardDebug = await page.evaluate(() => ({
+      totalCards: document.querySelectorAll('.card').length,
+      skeletonCards: document.querySelectorAll('.card.skeleton').length,
+      cardTitles: document.querySelectorAll('.card-title').length
+    }));
+    
+    console.log(
+      'Product card readiness:',
+      JSON.stringify(cardDebug, null, 2)
+    );
 
     const productCards = page.locator('.card');
     const cardTitles = page.locator('.card-title');
