@@ -1,3 +1,4 @@
+```yaml
 name: Application Discovery v2
 
 run-name: Application discovery v2 - ${{ inputs.storyKey }} - ${{ inputs.discoveryId }}
@@ -28,7 +29,7 @@ on:
       targetUrl:
         description: URL to inspect
         required: true
-        default: http://localhost:4200
+        default: https://v1.practicesoftwaretesting.com/#/
         type: string
 
       discoveryScope:
@@ -61,111 +62,29 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Checkout Practice Software Testing
-        uses: actions/checkout@v5
-        with:
-          repository: testsmith-io/practice-software-testing
-          path: practice-software-testing
-
-      - name: Start Practice Software Testing
-        working-directory: practice-software-testing
+      - name: Verify discovery target is reachable
         shell: bash
+        env:
+          TARGET_URL: ${{ inputs.targetUrl }}
         run: |
-          docker compose \
-            -f docker-compose.prod.yml \
-            up --pull missing -d
+          echo "Checking discovery target: $TARGET_URL"
 
-      - name: Show Practice Software Testing services
-        working-directory: practice-software-testing
-        shell: bash
-        run: |
-          echo "===== Docker Compose Services ====="
-
-          docker compose \
-            -f docker-compose.prod.yml \
-            ps -a
-
-          echo ""
-          echo "===== Published Ports ====="
-
-          docker ps \
-            --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
-
-          echo ""
-          echo "===== Container Logs ====="
-
-          docker compose \
-            -f docker-compose.prod.yml \
-            logs --tail=200
-
-      - name: Wait for Practice Software Testing UI
-        shell: bash
-        run: |
-          echo "Waiting for UI at http://localhost:4200"
-
-          for attempt in {1..60}; do
-            if curl --fail --silent --show-error \
-              http://localhost:4200 > /dev/null; then
-              echo "Practice Software Testing UI is ready."
+          for attempt in {1..12}; do
+            if curl \
+              --location \
+              --fail \
+              --silent \
+              --show-error \
+              "$TARGET_URL" > /dev/null; then
+              echo "Discovery target is reachable."
               exit 0
             fi
 
-            echo "Attempt ${attempt}/60: UI is not ready yet."
+            echo "Attempt ${attempt}/12: target is not reachable yet."
             sleep 5
           done
 
-          echo "UI did not become ready in time."
-
-          docker compose \
-            -f practice-software-testing/docker-compose.prod.yml \
-            ps
-
-          docker compose \
-            -f practice-software-testing/docker-compose.prod.yml \
-            logs --tail=200
-
-          exit 1
-
-      - name: Wait for Practice Software Testing API
-        shell: bash
-        run: |
-          echo "Waiting for API at http://localhost:8091"
-
-          for attempt in {1..60}; do
-            if curl --fail --silent --show-error \
-              http://localhost:8091/products > /dev/null; then
-              echo "Practice Software Testing API is ready."
-              exit 0
-            fi
-
-            echo "Attempt ${attempt}/60: API is not ready yet."
-
-            echo ""
-            echo "===== Docker Compose Services ====="
-
-            docker compose \
-              -f practice-software-testing/docker-compose.prod.yml \
-              ps
-
-            sleep 5
-          done
-
-          echo "API did not become ready in time."
-
-          echo ""
-          echo "===== Docker Compose Services ====="
-
-          docker compose \
-            -f practice-software-testing/docker-compose.prod.yml \
-            ps
-
-          echo ""
-          echo "===== Container Logs ====="
-
-          docker compose \
-            -f practice-software-testing/docker-compose.prod.yml \
-            logs --tail=300
-
+          echo "Discovery target could not be reached: $TARGET_URL"
           exit 1
 
       - name: Create discovery workspace and package
@@ -271,3 +190,4 @@ jobs:
             application-discovery-v2/homepage.png
           if-no-files-found: error
           retention-days: 7
+```
