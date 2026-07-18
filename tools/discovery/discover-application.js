@@ -114,63 +114,131 @@ await page.waitForFunction(() => {
 }, {
   timeout: 30000
 });
-
 console.log('Product content detected.');
-    
-    console.log('Real product cards detected.');
-    
-    const cardDebug = await page.evaluate(() => ({
-      totalCards: document.querySelectorAll('.card').length,
-      skeletonCards: document.querySelectorAll('.card.skeleton').length,
-      cardTitles: document.querySelectorAll('.card-title').length
-    }));
-    
-    console.log(
-      'Product card readiness:',
-      JSON.stringify(cardDebug, null, 2)
-    );
 
-    const productCards = page.locator('.card');
-    const cardTitles = page.locator('.card-title');
+const productCandidateSelectors = [
+  '[data-test^="product-"]',
+  '[data-test*="product"]',
+  'a[href*="/product/"]',
+  'a[href*="/products/"]',
+  '.card'
+];
 
-    const productCardCount = await productCards.count();
-    const cardTitleCount = await cardTitles.count();
+const selectorAnalysis = await page.evaluate((selectors) => {
+  return selectors.map((selector) => {
+    const elements = [...document.querySelectorAll(selector)];
 
-    console.log(
-      'Product cards found:',
-      productCardCount
-    );
+    const visibleElements = elements.filter((element) => {
+      const isSkeleton =
+        element.classList.contains('skeleton') ||
+        Boolean(element.closest('.skeleton'));
 
-    console.log(
-      'Card titles found:',
-      cardTitleCount
-    );
+      const isVisible =
+        element.getClientRects().length > 0;
 
-    if (cardTitleCount > 0) {
-      console.log(
-        'First card title:',
-        await cardTitles.first().textContent()
-      );
-    } else {
-      console.log('No card titles were found.');
-    }
+      const hasContent =
+        Boolean(element.textContent?.trim()) ||
+        Boolean(element.querySelector('img'));
 
-    if (productCardCount > 0) {
-      console.log(
-        'First product card HTML:',
-        await productCards.first().evaluate(
-          (element) => element.outerHTML
-        )
-      );
-    } else {
-      console.log('No product cards were found.');
-    }
-
-    await page.screenshot({
-      path: 'homepage.png',
-      fullPage: true
+      return !isSkeleton && isVisible && hasContent;
     });
 
+    return {
+      selector,
+      totalCount: elements.length,
+      visibleCount: visibleElements.length
+    };
+  });
+}, productCandidateSelectors);
+
+console.log(
+  'Product candidate selector analysis:',
+  JSON.stringify(selectorAnalysis, null, 2)
+);
+
+const selectedProductStrategy = selectorAnalysis
+  .filter(result => result.visibleCount > 0)
+  .sort((a, b) => b.visibleCount - a.visibleCount)[0];
+
+if (!selectedProductStrategy) {
+  throw new Error(
+    'No visible product-like elements were discovered.'
+  );
+}
+
+const selectedProductSelector =
+  selectedProductStrategy.selector;
+
+console.log(
+  'Selected product selector:',
+  selectedProductSelector
+);
+
+const productCards =
+  page.locator(selectedProductSelector);
+
+const productCardCount =
+  await productCards.count();
+
+console.log(
+  'Product cards found:',
+  productCardCount
+);
+
+const cardDebug = await productCards.evaluateAll((elements) => {
+  return elements.slice(0, 10).map((element, index) => {
+    const titleElement = element.querySelector(
+      [
+        '[data-test*="name"]',
+        '[data-test*="title"]',
+        '.card-title',
+        'h2',
+        'h3',
+        'h4'
+      ].join(', ')
+    );
+
+    const imageElement =
+      element.querySelector('img');
+
+    const linkElement =
+      element.matches('a')
+        ? element
+        : element.querySelector('a');
+
+    return {
+      index,
+      tagName: element.tagName,
+      dataTest: element.getAttribute('data-test'),
+      title: titleElement?.textContent?.trim() || null,
+      text: element.textContent
+        ?.replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 200) || null,
+      href: linkElement?.getAttribute('href') || null,
+      imageAlt: imageElement?.getAttribute('alt') || null
+    };
+  });
+});
+
+console.log(
+  'Discovered product candidates:',
+  JSON.stringify(cardDebug, null, 2)
+);
+
+if (productCardCount > 0) {
+  console.log(
+    'First product candidate HTML:',
+    await productCards.first().evaluate(
+      element => element.outerHTML
+    )
+  );
+}
+
+await page.screenshot({
+  path: 'homepage.png',
+  fullPage: true
+});
     const pageData = await page.evaluate(() => {
       const normalizeText = (value) =>
         String(value || '')
