@@ -1,571 +1,791 @@
-  const fs = require('fs');
-          const { chromium } = require('playwright');
+const fs = require('fs');
+const { chromium } = require('playwright');
 
-          const storyKey = process.env.STORY_KEY;
-          const executionId = process.env.EXECUTION_ID;
-          const discoveryId = process.env.DISCOVERY_ID;
-          const applicationName = process.env.APPLICATION_NAME;
-          const targetUrl = process.env.TARGET_URL;
-          const discoveryScope = process.env.DISCOVERY_SCOPE;
-          const workflowRunId = process.env.WORKFLOW_RUN_ID;
-          const workflowRunAttempt = process.env.WORKFLOW_RUN_ATTEMPT;
-          const commitSha = process.env.COMMIT_SHA;
+const storyKey = process.env.STORY_KEY;
+const executionId = process.env.EXECUTION_ID;
+const discoveryId = process.env.DISCOVERY_ID;
+const applicationName = process.env.APPLICATION_NAME;
+const targetUrl = process.env.TARGET_URL;
+const discoveryScope = process.env.DISCOVERY_SCOPE;
+const workflowRunId = process.env.WORKFLOW_RUN_ID;
+const workflowRunAttempt = process.env.WORKFLOW_RUN_ATTEMPT;
+const commitSha = process.env.COMMIT_SHA;
 
-          const startedAt = new Date().toISOString();
+const startedAt = new Date().toISOString();
 
-          const cleanText = (value) =>
-            String(value || '')
-              .replace(/\s+/g, ' ')
-              .trim();
+const cleanText = (value) =>
+  String(value || '')
+    .replace(/\s+/g, ' ')
+    .trim();
 
-          const uniqueStrings = (values) =>
-            [...new Set(values.filter(Boolean))];
+const uniqueStrings = (values) =>
+  [...new Set(values.filter(Boolean))];
 
-          async function runDiscovery() {
-            let browser;
+async function runDiscovery() {
+  let browser;
 
-            try {
-              browser = await chromium.launch({
-                headless: true
-              });
+  try {
+    browser = await chromium.launch({
+      headless: true
+    });
 
-              const context = await browser.newContext({
-                viewport: {
-                  width: 1440,
-                  height: 1000
-                }
-              });
+    const context = await browser.newContext({
+      viewport: {
+        width: 1440,
+        height: 1000
+      }
+    });
 
-              const page = await context.newPage();
+    const page = await context.newPage();
 
-              page.on('console', (message) => {
-                console.log(
-                  `[Browser console ${message.type()}] ${message.text()}`
-                );
-              });
-              
-              page.on('pageerror', (error) => {
-                console.log(
-                  `[Browser page error] ${error.message}`
-                );
-              });
-              
-              page.on('requestfailed', (request) => {
-                console.log(
-                  `[Request failed] ${request.method()} ${request.url()} - ` +
-                  `${request.failure()?.errorText || 'Unknown error'}`
-                );
-              });
-              
-              page.on('response', (response) => {
-                if (response.status() >= 400) {
-                  console.log(
-                    `[HTTP ${response.status()}] ` +
-                    `${response.request().method()} ${response.url()}`
-                  );
-                }
-              });
-              
-              await page.goto(targetUrl, {
-                waitUntil: 'domcontentloaded',
-                timeout: 60000
-              });
+    page.on('console', (message) => {
+      console.log(
+        `[Browser console ${message.type()}] ${message.text()}`
+      );
+    });
 
-              await page.waitForLoadState('networkidle', {
-                timeout: 30000
-              }).catch(() => {
-                console.log(
-                  'Network did not become idle before timeout. Continuing discovery.'
-                );
-              });
+    page.on('pageerror', (error) => {
+      console.log(
+        `[Browser page error] ${error.message}`
+      );
+    });
 
-             try {
-                await page.locator('.card.skeleton').first().waitFor({
-                  state: 'hidden',
-                  timeout: 15000
-                });
-              } catch {
-                console.log(
-                  'Skeleton cards still present after timeout. Continuing discovery.'
-                );
-              }
-              
-              const productCards = page.locator('.card');
-              const cardTitles = page.locator('.card-title');
-              
-              console.log(
-                'Product cards found:',
-                await productCards.count()
-              );
-              
-              console.log(
-                'Card titles found:',
-                await cardTitles.count()
-              );
-              
-              console.log(
-                'First card title:',
-                await cardTitles.first().textContent()
-              );
-              
-              console.log(
-                'First product card HTML:',
-                await productCards.first().evaluate(
-                  (element) => element.outerHTML
-                )
-              );
-              
-              await page.screenshot({
-                path: 'homepage.png',
-                fullPage: true
-              });
+    page.on('requestfailed', (request) => {
+      console.log(
+        `[Request failed] ${request.method()} ${request.url()} - ` +
+        `${request.failure()?.errorText || 'Unknown error'}`
+      );
+    });
 
-              const pageData = await page.evaluate(() => {
-                const normalizeText = (value) =>
-                  String(value || '')
-                    .replace(/\s+/g, ' ')
-                    .trim();
+    page.on('response', (response) => {
+      if (response.status() >= 400) {
+        console.log(
+          `[HTTP ${response.status()}] ` +
+          `${response.request().method()} ${response.url()}`
+        );
+      }
+    });
 
-                const isVisible = (element) => {
-                  const style = window.getComputedStyle(element);
-                  const rect = element.getBoundingClientRect();
+    await page.goto(targetUrl, {
+      waitUntil: 'domcontentloaded',
+      timeout: 60000
+    });
 
-                  return (
-                    style.display !== 'none' &&
-                    style.visibility !== 'hidden' &&
-                    Number(style.opacity) !== 0 &&
-                    rect.width > 0 &&
-                    rect.height > 0
-                  );
-                };
+    await page.waitForLoadState('networkidle', {
+      timeout: 30000
+    }).catch(() => {
+      console.log(
+        'Network did not become idle before timeout. Continuing discovery.'
+      );
+    });
 
-                const getAttributes = (element) => {
-                  const attributes = {};
+    try {
+      await page.locator('.card.skeleton').first().waitFor({
+        state: 'hidden',
+        timeout: 15000
+      });
+    } catch {
+      console.log(
+        'Skeleton cards still present after timeout. Continuing discovery.'
+      );
+    }
 
-                  for (const attribute of element.attributes || []) {
-                    attributes[attribute.name] = attribute.value;
+    const productCards = page.locator('.card');
+    const cardTitles = page.locator('.card-title');
+
+    const productCardCount = await productCards.count();
+    const cardTitleCount = await cardTitles.count();
+
+    console.log(
+      'Product cards found:',
+      productCardCount
+    );
+
+    console.log(
+      'Card titles found:',
+      cardTitleCount
+    );
+
+    if (cardTitleCount > 0) {
+      console.log(
+        'First card title:',
+        await cardTitles.first().textContent()
+      );
+    } else {
+      console.log('No card titles were found.');
+    }
+
+    if (productCardCount > 0) {
+      console.log(
+        'First product card HTML:',
+        await productCards.first().evaluate(
+          (element) => element.outerHTML
+        )
+      );
+    } else {
+      console.log('No product cards were found.');
+    }
+
+    await page.screenshot({
+      path: 'homepage.png',
+      fullPage: true
+    });
+
+    const pageData = await page.evaluate(() => {
+      const normalizeText = (value) =>
+        String(value || '')
+          .replace(/\s+/g, ' ')
+          .trim();
+
+      const isVisible = (element) => {
+        const style = window.getComputedStyle(element);
+        const rect = element.getBoundingClientRect();
+
+        return (
+          style.display !== 'none' &&
+          style.visibility !== 'hidden' &&
+          Number(style.opacity) !== 0 &&
+          rect.width > 0 &&
+          rect.height > 0
+        );
+      };
+
+      const getAttributes = (element) => {
+        const attributes = {};
+
+        for (const attribute of element.attributes || []) {
+          attributes[attribute.name] = attribute.value;
+        }
+
+        return attributes;
+      };
+
+      const getElementSummary = (element) => ({
+        tagName: element.tagName.toLowerCase(),
+
+        text: normalizeText(
+          element.innerText ||
+          element.textContent ||
+          ''
+        ),
+
+        id: element.id || null,
+
+        className:
+          typeof element.className === 'string'
+            ? element.className
+            : null,
+
+        role: element.getAttribute('role'),
+
+        ariaLabel: element.getAttribute('aria-label'),
+
+        ariaLabelledBy:
+          element.getAttribute('aria-labelledby'),
+
+        dataTestId:
+          element.getAttribute('data-testid') ||
+          element.getAttribute('data-test') ||
+          element.getAttribute('data-cy'),
+
+        name: element.getAttribute('name'),
+
+        type: element.getAttribute('type'),
+
+        placeholder:
+          element.getAttribute('placeholder'),
+
+        href: element.getAttribute('href'),
+
+        title: element.getAttribute('title'),
+
+        visible: isVisible(element),
+
+        attributes: getAttributes(element)
+      });
+
+      const selectVisible = (selector) =>
+        [...document.querySelectorAll(selector)]
+          .filter(isVisible)
+          .map(getElementSummary);
+
+      const allElements = [
+        ...document.querySelectorAll('*')
+      ];
+
+      const testIdElements = allElements
+        .filter((element) =>
+          element.hasAttribute('data-testid') ||
+          element.hasAttribute('data-test') ||
+          element.hasAttribute('data-cy')
+        )
+        .map(getElementSummary);
+
+      const roleElements = allElements
+        .filter((element) =>
+          element.hasAttribute('role')
+        )
+        .map(getElementSummary);
+
+      const forms = [
+        ...document.querySelectorAll('form')
+      ].map((form) => ({
+        ...getElementSummary(form),
+
+        action: form.getAttribute('action'),
+
+        method: form.getAttribute('method'),
+
+        controls: [
+          ...form.querySelectorAll(
+            'input, select, textarea, button'
+          )
+        ].map(getElementSummary)
+      }));
+
+      /*
+       * Discover visible product cards and persist their internal structure.
+       *
+       * No selectors are invented here. The extraction only records
+       * elements and attributes that actually exist in the loaded DOM.
+       */
+      const productCards = [
+        ...document.querySelectorAll('.card')
+      ]
+        .filter((card) =>
+          isVisible(card) &&
+          !card.classList.contains('skeleton')
+        )
+        .map((card, index) => {
+          const titleElement =
+            card.querySelector('.card-title');
+
+          const priceElement =
+            card.querySelector(
+              '[data-testid*="price"], ' +
+              '[data-test*="price"], ' +
+              '[data-cy*="price"], ' +
+              '.card-price, ' +
+              '.price'
+            );
+
+          const linkElement =
+            card.matches('a[href]')
+              ? card
+              : card.querySelector('a[href]');
+
+          const imageElement =
+            card.querySelector('img');
+
+          return {
+            index,
+
+            container:
+              getElementSummary(card),
+
+            title:
+              titleElement
+                ? getElementSummary(titleElement)
+                : null,
+
+            price:
+              priceElement
+                ? getElementSummary(priceElement)
+                : null,
+
+            link:
+              linkElement
+                ? getElementSummary(linkElement)
+                : null,
+
+            image:
+              imageElement
+                ? {
+                    ...getElementSummary(imageElement),
+                    alt:
+                      imageElement.getAttribute('alt'),
+                    src:
+                      imageElement.getAttribute('src')
                   }
+                : null
+          };
+        });
 
-                  return attributes;
-                };
+      return {
+        document: {
+          title: document.title,
+          url: window.location.href,
+          origin: window.location.origin,
+          pathname: window.location.pathname,
+          hash: window.location.hash,
+          language:
+            document.documentElement.lang || null
+        },
 
-                const getElementSummary = (element) => ({
-                  tagName: element.tagName.toLowerCase(),
-                  text: normalizeText(
-                    element.innerText ||
-                    element.textContent ||
-                    ''
-                  ),
-                  id: element.id || null,
-                  className:
-                    typeof element.className === 'string'
-                      ? element.className
-                      : null,
-                  role: element.getAttribute('role'),
-                  ariaLabel: element.getAttribute('aria-label'),
-                  ariaLabelledBy:
-                    element.getAttribute('aria-labelledby'),
-                  dataTestId:
-                    element.getAttribute('data-testid') ||
-                    element.getAttribute('data-test') ||
-                    element.getAttribute('data-cy'),
-                  name: element.getAttribute('name'),
-                  type: element.getAttribute('type'),
-                  placeholder:
-                    element.getAttribute('placeholder'),
-                  href: element.getAttribute('href'),
-                  title: element.getAttribute('title'),
-                  visible: isVisible(element),
-                  attributes: getAttributes(element)
-                });
+        headings: selectVisible(
+          'h1, h2, h3, h4, h5, h6'
+        ),
 
-                const selectVisible = (selector) =>
-                  [...document.querySelectorAll(selector)]
-                    .filter(isVisible)
-                    .map(getElementSummary);
+        links: selectVisible('a[href]'),
 
-                const allElements = [
-                  ...document.querySelectorAll('*')
-                ];
+        buttons: selectVisible(
+          'button, input[type="button"], input[type="submit"], [role="button"]'
+        ),
 
-                const testIdElements = allElements
-                  .filter((element) =>
-                    element.hasAttribute('data-testid') ||
-                    element.hasAttribute('data-test') ||
-                    element.hasAttribute('data-cy')
-                  )
-                  .map(getElementSummary);
+        inputs: selectVisible(
+          'input, textarea, select'
+        ),
 
-                const roleElements = allElements
-                  .filter((element) =>
-                    element.hasAttribute('role')
-                  )
-                  .map(getElementSummary);
+        forms,
 
-                const forms = [
-                  ...document.querySelectorAll('form')
-                ].map((form) => ({
-                  ...getElementSummary(form),
-                  action: form.getAttribute('action'),
-                  method: form.getAttribute('method'),
-                  controls: [
-                    ...form.querySelectorAll(
-                      'input, select, textarea, button'
-                    )
-                  ].map(getElementSummary)
-                }));
+        landmarks: selectVisible(
+          'header, nav, main, aside, footer, ' +
+          '[role="banner"], ' +
+          '[role="navigation"], ' +
+          '[role="main"], ' +
+          '[role="complementary"], ' +
+          '[role="contentinfo"]'
+        ),
 
-                return {
-                  document: {
-                    title: document.title,
-                    url: window.location.href,
-                    origin: window.location.origin,
-                    pathname: window.location.pathname,
-                    hash: window.location.hash,
-                    language:
-                      document.documentElement.lang || null
-                  },
+        images: selectVisible('img'),
 
-                  headings: selectVisible(
-                    'h1, h2, h3, h4, h5, h6'
-                  ),
+        tables: selectVisible(
+          'table, [role="table"], [role="grid"]'
+        ),
 
-                  links: selectVisible('a[href]'),
+        lists: selectVisible(
+          'ul, ol, [role="list"]'
+        ),
 
-                  buttons: selectVisible(
-                    'button, input[type="button"], input[type="submit"], [role="button"]'
-                  ),
+        dialogs: selectVisible(
+          'dialog, [role="dialog"], [role="alertdialog"]'
+        ),
 
-                  inputs: selectVisible(
-                    'input, textarea, select'
-                  ),
+        productCards,
 
-                  forms,
+        testIdElements,
 
-                  landmarks: selectVisible(
-                    'header, nav, main, aside, footer, [role="banner"], [role="navigation"], [role="main"], [role="complementary"], [role="contentinfo"]'
-                  ),
+        explicitRoleElements: roleElements
+      };
+    });
 
-                  images: selectVisible('img'),
+    let accessibilitySnapshot = null;
 
-                  tables: selectVisible(
-                    'table, [role="table"], [role="grid"]'
-                  ),
+    try {
+      accessibilitySnapshot =
+        await page.locator('body').ariaSnapshot();
+    } catch (error) {
+      console.log(
+        `Accessibility snapshot unavailable: ${error.message}`
+      );
+    }
 
-                  lists: selectVisible(
-                    'ul, ol, [role="list"]'
-                  ),
+    const dataTestIds = uniqueStrings(
+      pageData.testIdElements.map(
+        (element) => element.dataTestId
+      )
+    );
 
-                  dialogs: selectVisible(
-                    'dialog, [role="dialog"], [role="alertdialog"]'
-                  ),
+    const explicitRoles = uniqueStrings(
+      pageData.explicitRoleElements.map(
+        (element) => element.role
+      )
+    );
 
-                  testIdElements,
+    const candidateSelectors = [];
 
-                  explicitRoleElements: roleElements
-                };
-              });
+    for (const element of pageData.testIdElements) {
+      if (!element.dataTestId) {
+        continue;
+      }
 
-              let accessibilitySnapshot = null;
+      candidateSelectors.push({
+        strategy: 'test-id',
 
-                try {
-                  accessibilitySnapshot =
-                    await page.locator('body').ariaSnapshot();
-                } catch (error) {
-                  console.log(
-                    `Accessibility snapshot unavailable: ${error.message}`
-                  );
-                }
+        selector:
+          `[data-testid="${element.dataTestId}"]`,
 
-              const dataTestIds = uniqueStrings(
-                pageData.testIdElements.map(
-                  (element) => element.dataTestId
-                )
-              );
+        value: element.dataTestId,
 
-              const explicitRoles = uniqueStrings(
-                pageData.explicitRoleElements.map(
-                  (element) => element.role
-                )
-              );
+        tagName: element.tagName,
 
-              const candidateSelectors = [];
+        text: element.text,
 
-              for (const element of pageData.testIdElements) {
-                if (!element.dataTestId) {
-                  continue;
-                }
+        confidence: 1
+      });
+    }
 
-                candidateSelectors.push({
-                  strategy: 'test-id',
-                  selector: `[data-testid="${element.dataTestId}"]`,
-                  value: element.dataTestId,
-                  tagName: element.tagName,
-                  text: element.text,
-                  confidence: 1
-                });
-              }
+    for (const button of pageData.buttons) {
+      if (button.dataTestId) {
+        continue;
+      }
 
-              for (const button of pageData.buttons) {
-                if (button.dataTestId) {
-                  continue;
-                }
+      if (button.role && button.ariaLabel) {
+        candidateSelectors.push({
+          strategy: 'accessible-role',
 
-                if (button.role && button.ariaLabel) {
-                  candidateSelectors.push({
-                    strategy: 'accessible-role',
-                    selector:
-                      `getByRole('${button.role}', { name: '${button.ariaLabel}' })`,
-                    role: button.role,
-                    accessibleName: button.ariaLabel,
-                    tagName: button.tagName,
-                    confidence: 0.95
-                  });
+          selector:
+            `getByRole('${button.role}', { name: '${button.ariaLabel}' })`,
 
-                  continue;
-                }
+          role: button.role,
 
-                if (button.text) {
-                  candidateSelectors.push({
-                    strategy: 'button-name',
-                    selector:
-                      `getByRole('button', { name: '${cleanText(button.text)}' })`,
-                    role: 'button',
-                    accessibleName: cleanText(button.text),
-                    tagName: button.tagName,
-                    confidence: 0.9
-                  });
-                }
-              }
+          accessibleName:
+            button.ariaLabel,
 
-              for (const input of pageData.inputs) {
-                if (input.dataTestId) {
-                  continue;
-                }
+          tagName:
+            button.tagName,
 
-                if (input.ariaLabel) {
-                  candidateSelectors.push({
-                    strategy: 'label',
-                    selector:
-                      `getByLabel('${cleanText(input.ariaLabel)}')`,
-                    accessibleName:
-                      cleanText(input.ariaLabel),
-                    tagName: input.tagName,
-                    confidence: 0.95
-                  });
+          confidence: 0.95
+        });
 
-                  continue;
-                }
+        continue;
+      }
 
-                if (input.placeholder) {
-                  candidateSelectors.push({
-                    strategy: 'placeholder',
-                    selector:
-                      `getByPlaceholder('${cleanText(input.placeholder)}')`,
-                    placeholder:
-                      cleanText(input.placeholder),
-                    tagName: input.tagName,
-                    confidence: 0.85
-                  });
-                }
-              }
+      if (button.text) {
+        candidateSelectors.push({
+          strategy: 'button-name',
 
-              const completedAt = new Date().toISOString();
+          selector:
+            `getByRole('button', { name: '${cleanText(button.text)}' })`,
 
-              const selectorLibrary = {
-                schemaVersion: '1.0',
-              
-                storyKey,
-                executionId,
-                discoveryId,
-              
-                application: {
-                  name: applicationName,
-                  pageTitle: pageData.document.title,
-                  pageUrl: pageData.document.url
-                },
-              
-                generatedAt: completedAt,
-              
-                selectors: candidateSelectors
-                  .filter((candidate) => candidate.confidence >= 0.85)
-                  .map((candidate) => ({
-                    name:
-                      candidate.value ||
-                      candidate.accessibleName ||
-                      candidate.placeholder ||
-                      candidate.selector,
-              
-                    strategy: candidate.strategy,
-                    selector: candidate.selector,
-                    tagName: candidate.tagName || null,
-                    text: candidate.text || null,
-                    accessibleName:
-                      candidate.accessibleName || null,
-                    confidence: candidate.confidence
-                  })),
-              
-                testIds: pageData.testIdElements
-                  .filter((element) => element.dataTestId)
-                  .map((element) => ({
-                    name: element.dataTestId,
-                    selector:
-                      `[data-testid="${element.dataTestId}"]`,
-                    tagName: element.tagName,
-                    text: element.text || null,
-                    role: element.role || null,
-                    visible: element.visible
-                  })),
-              
-                summary: {
-                  selectorCount: candidateSelectors.filter(
-                    (candidate) => candidate.confidence >= 0.85
-                  ).length,
-              
-                  testIdSelectorCount:
-                    pageData.testIdElements.filter(
-                      (element) => element.dataTestId
-                    ).length
-                }
-              };
-              
-              fs.writeFileSync(
-                'selector-library.json',
-                JSON.stringify(selectorLibrary, null, 2)
-              );
+          role: 'button',
 
-              const discoveryResult = {
-                schemaVersion: '1.0',
+          accessibleName:
+            cleanText(button.text),
 
-                storyKey,
-                executionId,
-                discoveryId,
+          tagName:
+            button.tagName,
 
-                application: {
-                  name: applicationName,
-                  requestedUrl: targetUrl,
-                  discoveredUrl: pageData.document.url
-                },
+          confidence: 0.9
+        });
+      }
+    }
 
-                discovery: {
-                  scope: discoveryScope,
-                  status: 'COMPLETED',
-                  startedAt,
-                  completedAt
-                },
+    for (const input of pageData.inputs) {
+      if (input.dataTestId) {
+        continue;
+      }
 
-                page: pageData.document,
+      if (input.ariaLabel) {
+        candidateSelectors.push({
+          strategy: 'label',
 
-                summary: {
-                  headingCount: pageData.headings.length,
-                  linkCount: pageData.links.length,
-                  buttonCount: pageData.buttons.length,
-                  inputCount: pageData.inputs.length,
-                  formCount: pageData.forms.length,
-                  landmarkCount: pageData.landmarks.length,
-                  imageCount: pageData.images.length,
-                  tableCount: pageData.tables.length,
-                  listCount: pageData.lists.length,
-                  dialogCount: pageData.dialogs.length,
-                  dataTestIdCount: dataTestIds.length,
-                  explicitRoleCount: explicitRoles.length,
-                  candidateSelectorCount:
-                    candidateSelectors.length
-                },
+          selector:
+            `getByLabel('${cleanText(input.ariaLabel)}')`,
 
-                elements: {
-                  headings: pageData.headings,
-                  links: pageData.links,
-                  buttons: pageData.buttons,
-                  inputs: pageData.inputs,
-                  forms: pageData.forms,
-                  landmarks: pageData.landmarks,
-                  images: pageData.images,
-                  tables: pageData.tables,
-                  lists: pageData.lists,
-                  dialogs: pageData.dialogs
-                },
+          accessibleName:
+            cleanText(input.ariaLabel),
 
-                selectorDiscovery: {
-                  dataTestIds,
-                  explicitRoles,
-                  candidates: candidateSelectors
-                },
+          tagName:
+            input.tagName,
 
-                accessibility: {
-                  snapshot: accessibilitySnapshot
-                },
+          confidence: 0.95
+        });
 
-                artifacts: {
-                  screenshot: 'homepage.png',
-                  discoveryJson:
-                    'application-discovery.json'
-                },
+        continue;
+      }
 
-                github: {
-                  workflowRunId,
-                  workflowRunAttempt,
-                  commitSha
-                }
-              };
+      if (input.placeholder) {
+        candidateSelectors.push({
+          strategy: 'placeholder',
 
-              fs.writeFileSync(
-                'application-discovery.json',
-                JSON.stringify(discoveryResult, null, 2)
-              );
+          selector:
+            `getByPlaceholder('${cleanText(input.placeholder)}')`,
 
-              console.log(
-                JSON.stringify(discoveryResult.summary, null, 2)
-              );
+          placeholder:
+            cleanText(input.placeholder),
 
-              await context.close();
-            } catch (error) {
-              const failedAt = new Date().toISOString();
+          tagName:
+            input.tagName,
 
-              const failureResult = {
-                schemaVersion: '1.0',
+          confidence: 0.85
+        });
+      }
+    }
 
-                storyKey,
-                executionId,
-                discoveryId,
+    const completedAt = new Date().toISOString();
 
-                application: {
-                  name: applicationName,
-                  requestedUrl: targetUrl
-                },
+    const selectorLibrary = {
+      schemaVersion: '1.0',
 
-                discovery: {
-                  scope: discoveryScope,
-                  status: 'FAILED',
-                  startedAt,
-                  completedAt: failedAt
-                },
+      storyKey,
+      executionId,
+      discoveryId,
 
-                error: {
-                  name: error.name,
-                  message: error.message,
-                  stack: error.stack
-                },
+      application: {
+        name: applicationName,
+        pageTitle: pageData.document.title,
+        pageUrl: pageData.document.url
+      },
 
-                github: {
-                  workflowRunId,
-                  workflowRunAttempt,
-                  commitSha
-                }
-              };
+      generatedAt: completedAt,
 
-              fs.writeFileSync(
-                'application-discovery.json',
-                JSON.stringify(failureResult, null, 2)
-              );
+      selectors: candidateSelectors
+        .filter(
+          (candidate) =>
+            candidate.confidence >= 0.85
+        )
+        .map((candidate) => ({
+          name:
+            candidate.value ||
+            candidate.accessibleName ||
+            candidate.placeholder ||
+            candidate.selector,
 
-              console.error(error);
-              process.exitCode = 1;
-            } finally {
-              if (browser) {
-                await browser.close();
-              }
-            }
-          }
+          strategy:
+            candidate.strategy,
 
-          runDiscovery();
+          selector:
+            candidate.selector,
+
+          tagName:
+            candidate.tagName || null,
+
+          text:
+            candidate.text || null,
+
+          accessibleName:
+            candidate.accessibleName || null,
+
+          confidence:
+            candidate.confidence
+        })),
+
+      testIds: pageData.testIdElements
+        .filter(
+          (element) => element.dataTestId
+        )
+        .map((element) => ({
+          name:
+            element.dataTestId,
+
+          selector:
+            `[data-testid="${element.dataTestId}"]`,
+
+          tagName:
+            element.tagName,
+
+          text:
+            element.text || null,
+
+          role:
+            element.role || null,
+
+          visible:
+            element.visible
+        })),
+
+      summary: {
+        selectorCount:
+          candidateSelectors.filter(
+            (candidate) =>
+              candidate.confidence >= 0.85
+          ).length,
+
+        testIdSelectorCount:
+          pageData.testIdElements.filter(
+            (element) =>
+              element.dataTestId
+          ).length
+      }
+    };
+
+    fs.writeFileSync(
+      'selector-library.json',
+      JSON.stringify(selectorLibrary, null, 2)
+    );
+
+    const discoveryResult = {
+      schemaVersion: '1.0',
+
+      storyKey,
+      executionId,
+      discoveryId,
+
+      application: {
+        name: applicationName,
+        requestedUrl: targetUrl,
+        discoveredUrl:
+          pageData.document.url
+      },
+
+      discovery: {
+        scope: discoveryScope,
+        status: 'COMPLETED',
+        startedAt,
+        completedAt
+      },
+
+      page:
+        pageData.document,
+
+      summary: {
+        headingCount:
+          pageData.headings.length,
+
+        linkCount:
+          pageData.links.length,
+
+        buttonCount:
+          pageData.buttons.length,
+
+        inputCount:
+          pageData.inputs.length,
+
+        formCount:
+          pageData.forms.length,
+
+        landmarkCount:
+          pageData.landmarks.length,
+
+        imageCount:
+          pageData.images.length,
+
+        tableCount:
+          pageData.tables.length,
+
+        listCount:
+          pageData.lists.length,
+
+        dialogCount:
+          pageData.dialogs.length,
+
+        productCardCount:
+          pageData.productCards.length,
+
+        dataTestIdCount:
+          dataTestIds.length,
+
+        explicitRoleCount:
+          explicitRoles.length,
+
+        candidateSelectorCount:
+          candidateSelectors.length
+      },
+
+      elements: {
+        headings:
+          pageData.headings,
+
+        links:
+          pageData.links,
+
+        buttons:
+          pageData.buttons,
+
+        inputs:
+          pageData.inputs,
+
+        forms:
+          pageData.forms,
+
+        landmarks:
+          pageData.landmarks,
+
+        images:
+          pageData.images,
+
+        tables:
+          pageData.tables,
+
+        lists:
+          pageData.lists,
+
+        dialogs:
+          pageData.dialogs,
+
+        productCards:
+          pageData.productCards
+      },
+
+      selectorDiscovery: {
+        dataTestIds,
+        explicitRoles,
+        candidates:
+          candidateSelectors
+      },
+
+      accessibility: {
+        snapshot:
+          accessibilitySnapshot
+      },
+
+      artifacts: {
+        screenshot:
+          'homepage.png',
+
+        discoveryJson:
+          'application-discovery.json'
+      },
+
+      github: {
+        workflowRunId,
+        workflowRunAttempt,
+        commitSha
+      }
+    };
+
+    fs.writeFileSync(
+      'application-discovery.json',
+      JSON.stringify(discoveryResult, null, 2)
+    );
+
+    console.log(
+      JSON.stringify(
+        discoveryResult.summary,
+        null,
+        2
+      )
+    );
+
+    await context.close();
+  } catch (error) {
+    const failedAt = new Date().toISOString();
+
+    const failureResult = {
+      schemaVersion: '1.0',
+
+      storyKey,
+      executionId,
+      discoveryId,
+
+      application: {
+        name: applicationName,
+        requestedUrl: targetUrl
+      },
+
+      discovery: {
+        scope: discoveryScope,
+        status: 'FAILED',
+        startedAt,
+        completedAt: failedAt
+      },
+
+      error: {
+        name: error.name,
+        message: error.message,
+        stack: error.stack
+      },
+
+      github: {
+        workflowRunId,
+        workflowRunAttempt,
+        commitSha
+      }
+    };
+
+    fs.writeFileSync(
+      'application-discovery.json',
+      JSON.stringify(failureResult, null, 2)
+    );
+
+    console.error(error);
+    process.exitCode = 1;
+  } finally {
+    if (browser) {
+      await browser.close();
+    }
+  }
+}
+
+runDiscovery();
