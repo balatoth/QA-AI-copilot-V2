@@ -131,6 +131,32 @@
       line-height: 1.6;
     }
 
+.readiness-decision {
+  min-width: 220px;
+  padding: 18px 20px;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.12);
+  text-align: center;
+}
+
+.readiness-decision span {
+  display: block;
+  margin-bottom: 7px;
+  color: rgba(255,255,255,0.78);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.readiness-decision strong {
+  display: block;
+  color: #ffffff;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
     .cards {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
@@ -524,10 +550,10 @@
 
         <h1>Sprint Execution Report</h1>
 
-        <p>
-          Executive sprint-level quality assessment generated from planning,
-          API testing, Playwright generation and available execution evidence.
-        </p>
+      <p>
+        Executive sprint-level quality assessment generated from automated
+        API and UI execution evidence, risk analysis and release-readiness evaluation.
+      </p>
       </div>
 
       <div class="hero-meta">
@@ -550,21 +576,30 @@
           <span>Generated</span>
           <strong class="generated-date">
             <span>19 Jul 2026</span>
-            <span class="generated-date-time">15:16 UTC</span>
+            <span class="generated-date-time">16:07 UTC</span>
           </strong>
         </div>
       </div>
     </header>
 
-    <section class="readiness blocked">
-      <div>
-        <div class="eyebrow">Sprint Readiness</div>
+<section class="readiness blocked">
+  <div>
+    <div class="eyebrow">Release Readiness</div>
 
-        <h2>NOT READY</h2>
+    <h2>NOT READY</h2>
 
-        <p>Do not progress the sprint until failed or blocked conditions are resolved.</p>
-      </div>
-    </section>
+    <p>
+      Given the significant failures in the product overview suite, which are blocking essential UI validation, the release is not recommended at this time. It is critical to resolve these issues before considering deployment.
+    </p>
+  </div>
+
+  <div class="readiness-decision">
+    <span>Recommendation</span>
+    <strong>
+      DO NOT RELEASE
+    </strong>
+  </div>
+</section>
 
     <section class="cards">
       <div class="card">
@@ -588,19 +623,23 @@
       </div>
 
       <div class="card">
-        <div class="card-label">Playwright Tests</div>
-        <div class="card-value">0</div>
+        <div class="card-label">UI Failed Tests</div>
+        <div class="card-value">
+          3
+        </div>
       </div>
 
       <div class="card">
-        <div class="card-label">Warning Stories</div>
-        <div class="card-value">0</div>
+        <div class="card-label">Failed Stories</div>
+        <div class="card-value">
+          1
+        </div>
       </div>
     </section>
 
     <section class="section">
       <h3>Executive Summary</h3>
-      <p>MP Sprint 1 completed with 1 of 1 planned stories processed. API testing was completed for all 1 applicable stories, while 0 story had no applicable API layer. 0 Playwright tests were generated across the sprint. The current readiness status is not ready because manual execution evidence and Playwright execution results are still pending.</p>
+      <p>The sprint execution has concluded, but the overall test status is marked as failed due to critical UI component failures. One story was executed, with significant issues noted in test execution across both API and UI layers.</p>
     </section>
 
     <section class="section">
@@ -627,41 +666,68 @@
       </td>
 
       <td>
+
         <div class="manual-cell">
-          <span class="status-badge status-pass">Generated</span>
-          <span class="quality-detail">Execution Pending</span>
+
+          <span class="status-badge status-warning">
+            Not Reported
+          </span>
+
         </div>
+
       </td>
 
-      <td>
+<td>
+
+      <div class="playwright-cell">
+
         <span class="status-badge status-pass">
           Completed
         </span>
 
-        
-      </td>
+        <span class="quality-detail">
+          Failed Tests:
+          0
+        </span>
 
+        
+
+      </div>
+
+</td>
       <td>
+
         <div class="playwright-cell">
+
           <span class="status-badge status-fail">
             Failed
           </span>
 
           <span class="quality-detail">
-            0 tests
-            · score N/A
+            Passed:
+            0
           </span>
 
-          <span class="review-detail status-unknown">
-            Review: Unknown
+          <span class="quality-detail">
+            Failed:
+            3
           </span>
-        </div>
-      </td>
+
+          <span class="quality-detail">
+            Skipped:
+            0
+          </span>
+
+  </div>
+
+</td>
 
       <td>
-        <span class="status-badge status-pass">
-          Completed
-        </span>
+
+      <span class="status-badge status-fail">
+      Failed
+      </span>
+
       </td>
     </tr>
   
@@ -679,20 +745,24 @@
         <article class="coverage-card">
           <div class="coverage-header">
             <h4>Manual Testing</h4>
-            <p>Manual test design and execution evidence.</p>
+            <p>Manual execution status for the sprint.</p>
           </div>
 
           <div class="coverage-body">
-            <div class="coverage-metric">
-              <span class="coverage-metric-label">Test Design</span>
-              <span class="status-badge status-pass">Generated</span>
-            </div>
 
-            <div class="coverage-metric">
-              <span class="coverage-metric-label">Execution</span>
-              <span class="status-badge status-warning">Pending</span>
-            </div>
+          <div class="coverage-metric">
+
+            <span class="coverage-metric-label">
+              Manual Execution
+            </span>
+
+            <span class="status-badge status-warning">
+              Not Reported
+            </span>
+
           </div>
+
+        </div>
         </article>
 
         <article class="coverage-card">
@@ -726,103 +796,142 @@
         </article>
 
         <article class="coverage-card">
+
           <div class="coverage-header">
-            <h4>Playwright</h4>
-            <p>Generated automation, quality gates and execution evidence.</p>
+            <h4>UI Automation Execution</h4>
+            <p>Playwright execution results for the sprint.</p>
           </div>
 
           <div class="coverage-body">
+
             <div class="coverage-metric">
-              <span class="coverage-metric-label">Stories with Tests</span>
+              <span class="coverage-metric-label">Applicable Stories</span>
+              <span class="coverage-metric-value">
+                1
+              </span>
+            </div>
+
+            <div class="coverage-metric">
+              <span class="coverage-metric-label">Completed Stories</span>
+              <span class="coverage-metric-value">
+                1
+              </span>
+            </div>
+
+            <div class="coverage-metric">
+              <span class="coverage-metric-label">Passed Stories</span>
               <span class="coverage-metric-value">
                 0
               </span>
             </div>
 
             <div class="coverage-metric">
-              <span class="coverage-metric-label">Generated Tests</span>
+              <span class="coverage-metric-label">Failed Stories</span>
+              <span class="coverage-metric-value">
+                1
+              </span>
+            </div>
+
+            <div class="coverage-metric">
+              <span class="coverage-metric-label">Passed Tests</span>
               <span class="coverage-metric-value">
                 0
               </span>
             </div>
 
             <div class="coverage-metric">
-              <span class="coverage-metric-label">Quality Gates Passed</span>
+              <span class="coverage-metric-label">Failed Tests</span>
+              <span class="coverage-metric-value">
+                3
+              </span>
+            </div>
+
+            <div class="coverage-metric">
+              <span class="coverage-metric-label">Skipped Tests</span>
               <span class="coverage-metric-value">
                 0
               </span>
             </div>
 
             <div class="coverage-metric">
-              <span class="coverage-metric-label">Warning Stories</span>
-              <span class="coverage-metric-value">
-                0
-              </span>
-            </div>
-
-            <div class="coverage-metric">
-              <span class="coverage-metric-label">Execution</span>
+              <span class="coverage-metric-label">Execution Status</span>
 
               <span class="status-badge status-fail">
                 Failed
               </span>
             </div>
+
           </div>
+
         </article>
 
-      </div>
-    </section>
+              </div>
+            </section>
 
-<section class="section">
+        <section class="section">
 
-  <h3>Executive Assessment</h3>
+          <h3>Executive Assessment</h3>
 
-  <div class="executive-grid">
+          <div class="executive-grid">
 
-    <article class="executive-card">
+            <article class="executive-card">
 
-      <div class="executive-card-header">
-        <h4>Key Achievements</h4>
-      </div>
+              <div class="executive-card-header">
+                <h4>Key Achievements</h4>
+              </div>
 
-      <div class="executive-card-body">
+              <div class="executive-card-body">
 
-        <ul><li>1 of 1 stories completed</li><li>1 API-applicable stories completed</li><li>0 Playwright tests generated</li><li>0 Playwright quality gates passed</li></ul>
+                <ul><li>All defined API tests were successfully executed.</li><li>The sprint orchestration was completed despite failures.</li></ul>
 
-      </div>
+              </div>
 
-    </article>
+            </article>
 
-    <article class="executive-card">
+            <article class="executive-card">
 
-      <div class="executive-card-header">
-        <h4>Key Risks</h4>
-      </div>
+              <div class="executive-card-header">
+                <h4>Key Risks</h4>
+              </div>
 
-      <div class="executive-card-body">
+              <div class="executive-card-body">
 
-        <ul><li>Manual test coverage is not yet included in the Sprint report</li></ul>
+                <ul><li>High - All tests in the Product Overview suite failed, blocking validation of critical UI components and navigation flows.</li></ul>
 
-      </div>
+              </div>
 
-    </article>
-
-  </div>
-
-  <div class="recommendation-box">
-
-    <h4>Recommendation</h4>
-
-    <p>Do not progress the sprint until failed or blocked conditions are resolved.</p>
-
-    <div class="next-actions">
-      <h5>Recommended Next Actions</h5>
-      <ol>
-        <li>Execute the generated Playwright suites.</li><li>Complete manual validation for the sprint.</li><li>Review and address Playwright quality warnings.</li><li>Refresh sprint readiness after execution evidence is available.</li>
-      </ol>
-    </div>
+            </article>
 
   </div>
+
+<div class="recommendation-box">
+
+  <h4>
+    Recommendation:
+    DO NOT RELEASE
+  </h4>
+
+  <p>Given the significant failures in the product overview suite, which are blocking essential UI validation, the release is not recommended at this time. It is critical to resolve these issues before considering deployment.</p>
+
+  
+        <div class="next-actions">
+          <h5>Blocking Conditions</h5>
+          <ul>
+            <li>MP-1 has failed automated tests</li>
+          </ul>
+        </div>
+      
+
+  
+        <div class="next-actions">
+          <h5>Recommended Next Actions</h5>
+          <ol>
+            <li>Investigate and resolve failures for MP-1</li>
+          </ol>
+        </div>
+      
+
+</div>
 
 </section>
 
