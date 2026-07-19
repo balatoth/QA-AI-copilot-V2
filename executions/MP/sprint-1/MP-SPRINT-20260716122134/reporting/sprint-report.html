@@ -261,6 +261,7 @@
       color: #3730a3;
     }
 
+    .manual-cell,
     .playwright-cell {
       display: flex;
       flex-direction: column;
@@ -409,6 +410,41 @@
   margin-bottom: 0;
 }
 
+.generated-date {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.generated-date-time {
+  color: #cbd5e1;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.next-actions {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid #bfdbfe;
+}
+
+.next-actions h5 {
+  margin: 0 0 12px;
+  color: #1e3a8a;
+  font-size: 14px;
+}
+
+.next-actions ol {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.next-actions li {
+  margin-bottom: 9px;
+  color: #1f2937;
+  line-height: 1.55;
+}
+
 @media (max-width: 980px) {
   .executive-grid {
     grid-template-columns: 1fr;
@@ -512,7 +548,10 @@
 
         <div>
           <span>Generated</span>
-          <strong>2026-07-19T07:23:11.522Z</strong>
+          <strong class="generated-date">
+            <span>19 Jul 2026</span>
+            <span class="generated-date-time">07:32 UTC</span>
+          </strong>
         </div>
       </div>
     </header>
@@ -561,7 +600,7 @@
 
     <section class="section">
       <h3>Executive Summary</h3>
-      <p>4 stories were processed and 4 completed. 3 stories were API-applicable, while 1 were not applicable to API testing. 14 Playwright tests were generated.</p>
+      <p>MP Sprint 1 completed with 4 of 4 planned stories processed. API testing was completed for all 3 applicable stories, while 1 story had no applicable API layer. 14 Playwright tests were generated across the sprint. The current readiness status is ready with risks because manual execution evidence and Playwright execution results are still pending.</p>
     </section>
 
     <section class="section">
@@ -588,9 +627,10 @@
       </td>
 
       <td>
-        <span class="status-badge status-warning">
-          Not Reported
-        </span>
+        <div class="manual-cell">
+          <span class="status-badge status-pass">Generated</span>
+          <span class="quality-detail">Execution Pending</span>
+        </div>
       </td>
 
       <td>
@@ -631,9 +671,10 @@
       </td>
 
       <td>
-        <span class="status-badge status-warning">
-          Not Reported
-        </span>
+        <div class="manual-cell">
+          <span class="status-badge status-pass">Generated</span>
+          <span class="quality-detail">Execution Pending</span>
+        </div>
       </td>
 
       <td>
@@ -674,9 +715,10 @@
       </td>
 
       <td>
-        <span class="status-badge status-warning">
-          Not Reported
-        </span>
+        <div class="manual-cell">
+          <span class="status-badge status-pass">Generated</span>
+          <span class="quality-detail">Execution Pending</span>
+        </div>
       </td>
 
       <td>
@@ -717,9 +759,10 @@
       </td>
 
       <td>
-        <span class="status-badge status-warning">
-          Not Reported
-        </span>
+        <div class="manual-cell">
+          <span class="status-badge status-pass">Generated</span>
+          <span class="quality-detail">Execution Pending</span>
+        </div>
       </td>
 
       <td>
@@ -771,10 +814,16 @@
             <p>Manual test design and execution evidence.</p>
           </div>
 
-          <div class="coverage-status">
-            <span class="status-badge status-warning">
-              Not Reported
-            </span>
+          <div class="coverage-body">
+            <div class="coverage-metric">
+              <span class="coverage-metric-label">Test Design</span>
+              <span class="status-badge status-pass">Generated</span>
+            </div>
+
+            <div class="coverage-metric">
+              <span class="coverage-metric-label">Execution</span>
+              <span class="status-badge status-warning">Pending</span>
+            </div>
           </div>
         </article>
 
@@ -897,6 +946,13 @@
     <h4>Recommendation</h4>
 
     <p>The sprint may progress with caution, but missing execution evidence and quality warnings should be reviewed.</p>
+
+    <div class="next-actions">
+      <h5>Recommended Next Actions</h5>
+      <ol>
+        <li>Execute the generated Playwright suites.</li><li>Complete manual validation for the sprint.</li><li>Review and address Playwright quality warnings.</li><li>Refresh sprint readiness after execution evidence is available.</li>
+      </ol>
+    </div>
 
   </div>
 
