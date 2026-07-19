@@ -27,7 +27,7 @@ on:
         type: string
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   execute-playwright:
@@ -230,6 +230,145 @@ jobs:
           }
           EOF
 
+      - name: Create QA AI Copilot execution results
+        if: always()
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+
+          const storyKey = process.env.STORY_KEY;
+          const executionId = process.env.EXECUTION_ID;
+          const specPath = process.env.SPEC_PATH;
+          const branch = process.env.BRANCH;
+          const workflowRunId = process.env.WORKFLOW_RUN_ID;
+          const exitCode = Number(process.env.PLAYWRIGHT_EXIT_CODE || 1);
+
+          const rawResultsPath =
+            'playwright-execution/playwright-results.json';
+
+          let rawResults = {};
+
+          try {
+            rawResults = JSON.parse(
+              fs.readFileSync(rawResultsPath, 'utf8')
+            );
+          } catch (error) {
+            rawResults = {
+              suites: [],
+              errors: [
+                {
+                  message:
+                    `Unable to parse Playwright results: ${error.message}`
+                }
+              ],
+              stats: {}
+            };
+          }
+
+          const stats = rawResults.stats || {};
+
+          const expected = Number(stats.expected || 0);
+          const unexpected = Number(stats.unexpected || 0);
+          const skipped = Number(stats.skipped || 0);
+          const flaky = Number(stats.flaky || 0);
+
+          const status =
+            exitCode === 0 && unexpected === 0
+              ? 'COMPLETED'
+              : 'FAILED';
+
+          const result = {
+            schemaVersion: '0.1.0',
+            artifactType: 'PLAYWRIGHT_EXECUTION_RESULTS',
+            storyKey,
+            executionId,
+            executionType: 'PLAYWRIGHT',
+            status,
+            repository: {
+              owner: process.env.REPOSITORY_OWNER,
+              name: process.env.REPOSITORY_NAME,
+              branch
+            },
+            source: {
+              specPath,
+              rawResultsPath:
+                'playwright-execution/playwright-results.json',
+              metadataPath:
+                'playwright-execution/execution-metadata.json'
+            },
+            githubActions: {
+              workflowRunId,
+              workflowRunAttempt:
+                process.env.WORKFLOW_RUN_ATTEMPT,
+              commitSha: process.env.COMMIT_SHA,
+              playwrightExitCode: exitCode
+            },
+            summary: {
+              expected,
+              passed: Math.max(expected - skipped, 0),
+              failed: unexpected,
+              skipped,
+              flaky,
+              durationMs: Number(stats.duration || 0)
+            },
+            errors: Array.isArray(rawResults.errors)
+              ? rawResults.errors
+              : [],
+            rawResults,
+            completedAt: new Date().toISOString()
+          };
+
+          fs.writeFileSync(
+            'playwright-execution/execution-results.json',
+            JSON.stringify(result, null, 2)
+          );
+          NODE
+        env:
+          STORY_KEY: ${{ inputs.storyKey }}
+          EXECUTION_ID: ${{ inputs.executionId }}
+          SPEC_PATH: ${{ inputs.specPath }}
+          BRANCH: ${{ inputs.branch }}
+          WORKFLOW_RUN_ID: ${{ github.run_id }}
+          WORKFLOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+          COMMIT_SHA: ${{ github.sha }}
+          PLAYWRIGHT_EXIT_CODE: ${{ steps.playwright.outputs.exitCode }}
+          REPOSITORY_OWNER: ${{ github.repository_owner }}
+          REPOSITORY_NAME: ${{ github.event.repository.name }}
+
+      - name: Persist Playwright execution results
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          RESULTS_SOURCE="playwright-execution/execution-results.json"
+          RESULTS_TARGET="testcases/${{ inputs.storyKey }}/playwright/execution-results.json"
+
+          if [ ! -f "$RESULTS_SOURCE" ]; then
+            echo "Missing generated result file: $RESULTS_SOURCE"
+            exit 1
+          fi
+
+          mkdir -p "$(dirname "$RESULTS_TARGET")"
+          cp "$RESULTS_SOURCE" "$RESULTS_TARGET"
+
+          git config user.name "github-actions[bot]"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add "$RESULTS_TARGET"
+
+          if git diff --cached --quiet; then
+            echo "No Playwright execution result changes to commit."
+            exit 0
+          fi
+
+          git commit -m \
+            "Update Playwright execution results for ${{ inputs.storyKey }}"
+
+          git push origin "HEAD:${{ inputs.branch }}"
+
       - name: Upload execution artifacts
         if: always()
         uses: actions/upload-artifact@v6
@@ -237,6 +376,7 @@ jobs:
           name: playwright-${{ inputs.storyKey }}-${{ inputs.executionId }}
           path: |
             playwright-execution/playwright-results.json
+            playwright-execution/execution-results.json
             playwright-execution/execution-metadata.json
             playwright-execution/test-results/
           if-no-files-found: warn
