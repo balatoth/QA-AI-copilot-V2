@@ -1,0 +1,29 @@
+{
+  "storyKey": "MP-1",
+  "storyTitle": "Product Overview",
+  "application": "Practice Software Testing",
+  "functionalArea": "Product Catalog",
+  "businessGoal": "Enable visitors to browse products easily.",
+  "scenarios": [
+    {
+      "scenarioId": "SC-001",
+      "category": "Positive",
+      "goal": "Verify that the product overview grid is displayed on the home page."
+    },
+    {
+      "scenarioId": "SC-002",
+      "category": "Positive",
+      "goal": "Verify that each product card displays the correct product image, name, and price."
+    },
+    {
+      "scenarioId": "SC-003",
+      "category": "Positive",
+      "goal": "Verify that clicking on a product card navigates to the correct product detail page."
+    }
+  ],
+  "outOfScope": [],
+  "clarifications": [
+    "What happens if there are no products available to display?",
+    "Is there a maximum number of products displayed in the grid?"
+  ]
+}
