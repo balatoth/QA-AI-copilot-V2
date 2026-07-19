@@ -16,9 +16,9 @@
     "metadataPath": "playwright-execution/execution-metadata.json"
   },
   "githubActions": {
-    "workflowRunId": "29689265630",
+    "workflowRunId": "29689343467",
     "workflowRunAttempt": "1",
-    "commitSha": "517686b9271658f232b08ef0fcad71da0a4b14a3",
+    "commitSha": "d9b76e9e98fb5ef4026d5de0471d46348c6c015b",
     "playwrightExitCode": 1
   },
   "summary": {
@@ -27,7 +27,7 @@
     "failed": 3,
     "skipped": 0,
     "flaky": 0,
-    "durationMs": 42427.432
+    "durationMs": 41025.655999999995
   },
   "errors": [],
   "rawResults": {
@@ -51,24 +51,24 @@
       "maxFailures": 0,
       "metadata": {
         "ci": {
-          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/517686b9271658f232b08ef0fcad71da0a4b14a3",
-          "commitHash": "517686b9271658f232b08ef0fcad71da0a4b14a3",
-          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/29689265630"
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/d9b76e9e98fb5ef4026d5de0471d46348c6c015b",
+          "commitHash": "d9b76e9e98fb5ef4026d5de0471d46348c6c015b",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/29689343467"
         },
         "gitCommit": {
-          "shortHash": "517686b",
-          "hash": "517686b9271658f232b08ef0fcad71da0a4b14a3",
+          "shortHash": "d9b76e9",
+          "hash": "d9b76e9e98fb5ef4026d5de0471d46348c6c015b",
           "subject": "Update execution-results.json for MP-1",
           "body": "Update execution-results.json for MP-1",
           "author": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1784468299000
+            "time": 1784468444000
           },
           "committer": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1784468299000
+            "time": 1784468444000
           },
           "branch": "main"
         },
@@ -82,24 +82,24 @@
           "retries": 0,
           "metadata": {
             "ci": {
-              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/517686b9271658f232b08ef0fcad71da0a4b14a3",
-              "commitHash": "517686b9271658f232b08ef0fcad71da0a4b14a3",
-              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/29689265630"
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/d9b76e9e98fb5ef4026d5de0471d46348c6c015b",
+              "commitHash": "d9b76e9e98fb5ef4026d5de0471d46348c6c015b",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/29689343467"
             },
             "gitCommit": {
-              "shortHash": "517686b",
-              "hash": "517686b9271658f232b08ef0fcad71da0a4b14a3",
+              "shortHash": "d9b76e9",
+              "hash": "d9b76e9e98fb5ef4026d5de0471d46348c6c015b",
               "subject": "Update execution-results.json for MP-1",
               "body": "Update execution-results.json for MP-1",
               "author": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1784468299000
+                "time": 1784468444000
               },
               "committer": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1784468299000
+                "time": 1784468444000
               },
               "branch": "main"
             },
@@ -170,7 +170,7 @@
                         "workerIndex": 0,
                         "parallelIndex": 0,
                         "status": "failed",
-                        "duration": 6203,
+                        "duration": 6108,
                         "error": {
                           "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-testid=\"product-grid\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"product-grid\"]')\u001b[22m\n",
                           "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-testid=\"product-grid\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"product-grid\"]')\u001b[22m\n\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:9:31",
@@ -194,7 +194,7 @@
                         "stdout": [],
                         "stderr": [],
                         "retry": 0,
-                        "startTime": "2026-07-19T13:39:52.133Z",
+                        "startTime": "2026-07-19T13:42:07.875Z",
                         "annotations": [],
                         "attachments": [
                           {
@@ -244,7 +244,7 @@
                         "workerIndex": 1,
                         "parallelIndex": 0,
                         "status": "failed",
-                        "duration": 1119,
+                        "duration": 1079,
                         "error": {
                           "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m",
                           "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:17:19",
@@ -268,7 +268,7 @@
                         "stdout": [],
                         "stderr": [],
                         "retry": 0,
-                        "startTime": "2026-07-19T13:40:00.482Z",
+                        "startTime": "2026-07-19T13:42:14.993Z",
                         "annotations": [],
                         "attachments": [
                           {
@@ -318,7 +318,7 @@
                         "workerIndex": 2,
                         "parallelIndex": 0,
                         "status": "timedOut",
-                        "duration": 30800,
+                        "duration": 30804,
                         "error": {
                           "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                           "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -339,7 +339,7 @@
                         "stdout": [],
                         "stderr": [],
                         "retry": 0,
-                        "startTime": "2026-07-19T13:40:02.404Z",
+                        "startTime": "2026-07-19T13:42:16.808Z",
                         "annotations": [],
                         "attachments": [
                           {
@@ -375,13 +375,13 @@
     ],
     "errors": [],
     "stats": {
-      "startTime": "2026-07-19T13:39:51.531Z",
-      "duration": 42427.432,
+      "startTime": "2026-07-19T13:42:07.329Z",
+      "duration": 41025.655999999995,
       "expected": 0,
       "skipped": 0,
       "unexpected": 3,
       "flaky": 0
     }
   },
-  "completedAt": "2026-07-19T13:40:34.079Z"
+  "completedAt": "2026-07-19T13:42:48.483Z"
 }
