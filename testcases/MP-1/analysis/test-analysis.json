@@ -1,0 +1,29 @@
+{
+  "storyKey": "MP-1",
+  "storyTitle": "Product Overview",
+  "application": "Practice Software Testing",
+  "functionalArea": "Product Catalog",
+  "businessGoal": "Allow visitors to browse available products easily.",
+  "scenarios": [
+    {
+      "scenarioId": "SC-001",
+      "category": "Positive",
+      "goal": "Display the product overview grid on the home page."
+    },
+    {
+      "scenarioId": "SC-002",
+      "category": "Positive",
+      "goal": "Display product card information including image, name, and price."
+    },
+    {
+      "scenarioId": "SC-003",
+      "category": "Positive",
+      "goal": "Navigate to the product detail page when clicking a product card."
+    }
+  ],
+  "outOfScope": [],
+  "clarifications": [
+    "No details provided on what happens if no products are available for display.",
+    "No information on the behavior if the product detail page fails to load."
+  ]
+}
