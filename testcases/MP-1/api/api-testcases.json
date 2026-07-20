@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-1",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-07-20T12:48:07.012Z",
+  "generatedAt": "2026-07-20T13:51:50.275Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -12,9 +12,9 @@
   "warnings": [],
   "testCases": [
     {
-      "testCaseId": "MP-1-TC-001",
+      "testCaseId": "TC_MP_001",
       "scenarioId": "SC-001",
-      "title": "Retrieve product overview grid with all products",
+      "title": "Verify retrieving all products returns status 200 and an array of products",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -25,18 +25,15 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        {
-          "check": "response is JSON array"
-        },
-        {
-          "check": "each item has fields: id, image, name, price"
-        }
+        "Response body is an array",
+        "Each item has product details matching ProductResponse schema"
       ],
       "contractChecks": [
-        "response includes Cache-Control header",
-        "response includes ETag header"
+        "Response status code is 200",
+        "Response Content-Type is application/json",
+        "Response headers include Cache-Control and ETag"
       ],
-      "notes": "Validates that the product overview grid is retrievable and products include required fields for display."
+      "notes": ""
     }
   ]
 }
