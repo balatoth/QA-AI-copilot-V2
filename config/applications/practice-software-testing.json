@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "0.1.0",
+  "applicationId": "practice-software-testing",
+  "applicationName": "Practice Software Testing",
+
+  "ui": {
+    "baseUrl": "http://localhost:4200"
+  },
+
+  "api": {
+    "baseUrl": "http://localhost:8091",
+    "openApiSpec": "http://localhost:8091/docs?api-docs",
+    "type": "REST"
+  },
+
+  "authentication": {
+    "type": "NONE"
+  }
+}
