@@ -1,19 +1,157 @@
 {
-  "schemaVersion": "0.1.0",
+  "schemaVersion": "0.3.0",
+
   "applicationId": "practice-software-testing",
   "applicationName": "Practice Software Testing",
 
-  "ui": {
-    "baseUrl": "http://localhost:4200"
-  },
+  "defaultEnvironmentId": "docker-local",
 
-  "api": {
-    "baseUrl": "http://localhost:8091",
-    "openApiSpec": "http://localhost:8091/docs?api-docs",
-    "type": "REST"
-  },
+  "environments": {
+    "docker-local": {
+      "environmentId": "docker-local",
+      "environmentName": "Local Docker",
+      "environmentType": "LOCAL",
+      "deploymentType": "DOCKER",
 
-  "authentication": {
-    "type": "NONE"
+      "ui": {
+        "baseUrl": "http://localhost:4200"
+      },
+
+      "api": {
+        "baseUrl": "http://localhost:8091",
+        "openApiSpec": "http://localhost:8091/docs?api-docs",
+        "type": "REST"
+      },
+
+      "authentication": {
+        "type": "NONE"
+      }
+    },
+
+    "hosted-sprint-1": {
+      "environmentId": "hosted-sprint-1",
+      "environmentName": "Hosted Sprint 1",
+      "environmentType": "TEST",
+      "deploymentType": "HOSTED",
+
+      "ui": {
+        "baseUrl": "https://v1.practicesoftwaretesting.com"
+      },
+
+      "api": {
+        "baseUrl": "https://api-v1.practicesoftwaretesting.com",
+        "openApiSpec": "https://api-v1.practicesoftwaretesting.com/docs?api-docs",
+        "type": "REST"
+      },
+
+      "authentication": {
+        "type": "NONE"
+      }
+    },
+
+    "hosted-sprint-2": {
+      "environmentId": "hosted-sprint-2",
+      "environmentName": "Hosted Sprint 2",
+      "environmentType": "TEST",
+      "deploymentType": "HOSTED",
+
+      "ui": {
+        "baseUrl": "https://v2.practicesoftwaretesting.com"
+      },
+
+      "api": {
+        "baseUrl": "https://api-v2.practicesoftwaretesting.com",
+        "openApiSpec": "https://api-v2.practicesoftwaretesting.com/docs?api-docs",
+        "type": "REST"
+      },
+
+      "authentication": {
+        "type": "NONE"
+      }
+    },
+
+    "hosted-sprint-3": {
+      "environmentId": "hosted-sprint-3",
+      "environmentName": "Hosted Sprint 3",
+      "environmentType": "TEST",
+      "deploymentType": "HOSTED",
+
+      "ui": {
+        "baseUrl": "https://v3.practicesoftwaretesting.com"
+      },
+
+      "api": {
+        "baseUrl": "https://api-v3.practicesoftwaretesting.com",
+        "openApiSpec": "https://api-v3.practicesoftwaretesting.com/docs?api-docs",
+        "type": "REST"
+      },
+
+      "authentication": {
+        "type": "NONE"
+      }
+    },
+
+    "hosted-sprint-4": {
+      "environmentId": "hosted-sprint-4",
+      "environmentName": "Hosted Sprint 4",
+      "environmentType": "TEST",
+      "deploymentType": "HOSTED",
+
+      "ui": {
+        "baseUrl": "https://v4.practicesoftwaretesting.com"
+      },
+
+      "api": {
+        "baseUrl": "https://api-v4.practicesoftwaretesting.com",
+        "openApiSpec": "https://api-v4.practicesoftwaretesting.com/docs?api-docs",
+        "type": "REST"
+      },
+
+      "authentication": {
+        "type": "NONE"
+      }
+    },
+
+    "hosted-sprint-5": {
+      "environmentId": "hosted-sprint-5",
+      "environmentName": "Hosted Sprint 5",
+      "environmentType": "TEST",
+      "deploymentType": "HOSTED",
+
+      "ui": {
+        "baseUrl": "https://practicesoftwaretesting.com"
+      },
+
+      "api": {
+        "baseUrl": "https://api.practicesoftwaretesting.com",
+        "openApiSpec": "https://api.practicesoftwaretesting.com/docs?api-docs",
+        "type": "REST"
+      },
+
+      "authentication": {
+        "type": "NONE"
+      }
+    },
+
+    "hosted-sprint-5-with-bugs": {
+      "environmentId": "hosted-sprint-5-with-bugs",
+      "environmentName": "Hosted Sprint 5 With Bugs",
+      "environmentType": "TEST",
+      "deploymentType": "HOSTED",
+
+      "ui": {
+        "baseUrl": "https://with-bugs.practicesoftwaretesting.com"
+      },
+
+      "api": {
+        "baseUrl": "https://api-with-bugs.practicesoftwaretesting.com",
+        "openApiSpec": "https://api-with-bugs.practicesoftwaretesting.com/docs?api-docs",
+        "type": "REST"
+      },
+
+      "authentication": {
+        "type": "NONE"
+      }
+    }
   }
 }
