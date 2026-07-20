@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-1",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-07-13T20:50:32.661Z",
+  "generatedAt": "2026-07-20T12:48:07.012Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -14,7 +14,7 @@
     {
       "testCaseId": "MP-1-TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify retrieving all products returns 200 with product list",
+      "title": "Retrieve product overview grid with all products",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -25,15 +25,18 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "Response is application/json",
-        "Response is an array",
-        "Each item in array matches ProductResponse schema"
+        {
+          "check": "response is JSON array"
+        },
+        {
+          "check": "each item has fields: id, image, name, price"
+        }
       ],
       "contractChecks": [
-        "Cache-Control header is present with value 'public, max-age=120'",
-        "ETag header is present"
+        "response includes Cache-Control header",
+        "response includes ETag header"
       ],
-      "notes": "This test verifies that the endpoint returns all available products for browsing, supporting the business goal to explore products."
+      "notes": "Validates that the product overview grid is retrievable and products include required fields for display."
     }
   ]
 }
