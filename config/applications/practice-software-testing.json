@@ -19,7 +19,7 @@
 
       "api": {
         "baseUrl": "http://localhost:8091",
-        "openApiSpec": "http://localhost:8091/docs?api-docs",
+        "openApiSpec": "https://api-v1.practicesoftwaretesting.com/docs?api-docs",
         "type": "REST"
       },
 
