@@ -8,44 +8,42 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify product overview grid is displayed",
+      "title": "Display the product overview grid on the home page",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the product overview page."
+        "Navigate to the home page."
       ],
       "expectedResults": [
-        "The product overview grid is displayed showing all products."
+        "The product overview grid is displayed on the home page."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Verify product card details",
+      "title": "Display product card information",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the product overview page.",
-        "Observe each product card."
+        "Navigate to the home page.",
+        "Observe the product card information."
       ],
       "expectedResults": [
-        "Each product card shows a product image.",
-        "Each product card shows a product name.",
-        "Each product card shows a product price."
+        "Each product card displays the correct image, name, and price."
       ]
     },
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-003",
-      "title": "Verify navigation to product detail page",
+      "title": "Navigate to the product detail page from product card",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the product overview page.",
+        "Navigate to the home page.",
         "Click on a product card."
       ],
       "expectedResults": [
-        "The application navigates to the product detail page for that product."
+        "The product detail page is displayed."
       ]
     }
   ]
