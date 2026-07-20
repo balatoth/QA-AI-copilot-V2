@@ -2,28 +2,28 @@
   "storyKey": "MP-1",
   "storyTitle": "Product Overview",
   "application": "Practice Software Testing",
-  "functionalArea": "Product Catalog",
-  "businessGoal": "Allow visitors to browse the product catalog and find items of interest.",
+  "functionalArea": "Product Display",
+  "businessGoal": "Allow visitors to browse the catalog and find items of interest.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that the product overview is displayed with a grid of product cards."
+      "goal": "Verify that the product overview grid is displayed showing all products."
     },
     {
       "scenarioId": "SC-002",
       "category": "Positive",
-      "goal": "Ensure each product card displays the product image, name, and price."
+      "goal": "Verify that each product card shows a product image, product name, and product price."
     },
     {
       "scenarioId": "SC-003",
       "category": "Positive",
-      "goal": "Confirm that clicking on a product card navigates to the product detail page."
+      "goal": "Verify that clicking on a product card navigates to the product detail page for that product."
     }
   ],
   "outOfScope": [],
   "clarifications": [
-    "No information is provided about the behavior when there are no products available.",
-    "There is no detail on what the product detail page should contain."
+    "No scenarios for displaying product cards with missing images or details.",
+    "No scenarios for the behavior when there are no products to display."
   ]
 }
