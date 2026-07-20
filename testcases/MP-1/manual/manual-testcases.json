@@ -21,12 +21,12 @@
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Check Product Card Details",
+      "title": "Verify Product Card Details",
       "priority": "High",
       "preconditions": [],
       "steps": [
         "Navigate to the product overview page.",
-        "Examine each product card."
+        "Observe each product card."
       ],
       "expectedResults": [
         "Each product card displays the product image.",
@@ -37,7 +37,7 @@
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-003",
-      "title": "Product Card Navigation",
+      "title": "Verify Navigation to Product Detail Page",
       "priority": "High",
       "preconditions": [],
       "steps": [
