@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-1",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-07-23T14:22:07.583Z",
+  "generatedAt": "2026-07-23T14:29:22.793Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -12,9 +12,9 @@
   "warnings": [],
   "testCases": [
     {
-      "testCaseId": "TC-MP-1-001",
+      "testCaseId": "MP-1-TC-001",
       "scenarioId": "SC-001",
-      "title": "Retrieve all products and verify presence of product cards data",
+      "title": "Verify retrieval of product list with required product fields",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -25,15 +25,14 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response body is a JSON array",
-        "each item in array contains 'image', 'name', and 'price' fields"
+        "Response is an array",
+        "Each item contains fields as defined in ProductResponse schema"
       ],
       "contractChecks": [
-        "response status code is 200",
-        "response Content-Type is application/json",
-        "response headers include Cache-Control and ETag"
+        "Response has Cache-Control and ETag headers",
+        "Response content-type is application/json"
       ],
-      "notes": "Validates that product grid displays product images, names, and prices by matching product response fields."
+      "notes": "This test verifies that the product catalog endpoint returns a list of products with the expected schema, supporting browsing and rendering product cards."
     }
   ]
 }
