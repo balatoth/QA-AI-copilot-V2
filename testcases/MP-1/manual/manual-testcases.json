@@ -1,0 +1,52 @@
+{
+  "storyKey": "MP-1",
+  "storyTitle": "Product Overview",
+  "application": "Practice Software Testing",
+  "testLevel": "UAT",
+  "testType": "MANUAL_FUNCTIONAL",
+  "testCases": [
+    {
+      "testCaseId": "TC-001",
+      "scenarioId": "SC-001",
+      "title": "Display of Product Grid on Home Page",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the home page."
+      ],
+      "expectedResults": [
+        "A grid of product cards is displayed."
+      ]
+    },
+    {
+      "testCaseId": "TC-002",
+      "scenarioId": "SC-002",
+      "title": "Product Card Information Display",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the home page.",
+        "Observe each product card displayed."
+      ],
+      "expectedResults": [
+        "Each product card shows a product image.",
+        "Each product card displays the product name.",
+        "Each product card shows the product price."
+      ]
+    },
+    {
+      "testCaseId": "TC-003",
+      "scenarioId": "SC-003",
+      "title": "Navigation to Product Detail Page",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the home page.",
+        "Click on a product card."
+      ],
+      "expectedResults": [
+        "User is navigated to the product detail page."
+      ]
+    }
+  ]
+}
