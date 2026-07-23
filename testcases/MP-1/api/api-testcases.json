@@ -1,0 +1,38 @@
+{
+  "storyKey": "MP-1",
+  "artifactType": "api-testcases",
+  "generatedAt": "2026-07-23T14:30:22.035Z",
+  "testLevel": "SIT_API",
+  "sourceEndpoint": {
+    "method": "GET",
+    "path": "/products",
+    "operationId": "getProducts",
+    "confidence": "HIGH"
+  },
+  "warnings": [],
+  "testCases": [
+    {
+      "testCaseId": "MP-1_SC-001-002_Positive",
+      "scenarioId": "SC-001",
+      "title": "Verify GET /products returns a list suitable for product grid with images, names and prices",
+      "testType": "Positive",
+      "priority": "High",
+      "preconditions": [],
+      "method": "GET",
+      "path": "/products",
+      "requestHeaders": {},
+      "queryParams": {},
+      "requestBody": null,
+      "expectedStatus": 200,
+      "expectedResponseChecks": [
+        "Response body is an array",
+        "Each item has defined fields for image, name, and price per ProductResponse schema"
+      ],
+      "contractChecks": [
+        "Response Content-Type is application/json",
+        "Response headers include Cache-Control and ETag"
+      ],
+      "notes": "This test covers scenario SC-001 and SC-002 validating catalog grid product info display from API."
+    }
+  ]
+}
