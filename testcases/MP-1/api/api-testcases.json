@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-1",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-07-23T14:54:26.075Z",
+  "generatedAt": "2026-07-23T14:59:14.052Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -12,9 +12,9 @@
   "warnings": [],
   "testCases": [
     {
-      "testCaseId": "MP-1-SC-001-001",
+      "testCaseId": "MP-1-SC-001-TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify that GET /products returns a list of products",
+      "title": "Verify that GET /products returns a list of product cards for the home page",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -25,16 +25,33 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response is an array",
-        "each item in response conforms to ProductResponse schema"
+        {
+          "checkType": "isArray",
+          "field": ""
+        },
+        {
+          "checkType": "fieldExistsInArrayItems",
+          "field": "id"
+        },
+        {
+          "checkType": "fieldExistsInArrayItems",
+          "field": "name"
+        },
+        {
+          "checkType": "fieldExistsInArrayItems",
+          "field": "price"
+        },
+        {
+          "checkType": "fieldExistsInArrayItems",
+          "field": "image"
+        }
       ],
       "contractChecks": [
-        "response code 200",
-        "response content-type application/json",
-        "response headers include Cache-Control",
-        "response headers include ETag"
+        "responseContentType: application/json",
+        "headersInclude: Cache-Control",
+        "headersInclude: ETag"
       ],
-      "notes": "This validates retrieval of the product list required for product cards grid on home page."
+      "notes": "This test ensures the product catalog grid data can be fetched and that each product card includes image, name, and price fields as required by the story."
     }
   ]
 }
