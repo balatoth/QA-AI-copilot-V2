@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-1",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-07-23T14:29:22.793Z",
+  "generatedAt": "2026-07-23T14:29:44.362Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -12,9 +12,9 @@
   "warnings": [],
   "testCases": [
     {
-      "testCaseId": "MP-1-TC-001",
+      "testCaseId": "TC_MP_001",
       "scenarioId": "SC-001",
-      "title": "Verify retrieval of product list with required product fields",
+      "title": "Retrieve all products successfully returns product array for catalog display",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -25,14 +25,27 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "Response is an array",
-        "Each item contains fields as defined in ProductResponse schema"
+        {
+          "check": "isArray",
+          "field": "responseBody"
+        }
       ],
       "contractChecks": [
-        "Response has Cache-Control and ETag headers",
-        "Response content-type is application/json"
+        {
+          "check": "responseHeaderExists",
+          "header": "Cache-Control"
+        },
+        {
+          "check": "responseHeaderExists",
+          "header": "ETag"
+        },
+        {
+          "check": "responseBodySchema",
+          "schemaRef": "#/components/schemas/ProductResponse",
+          "arrayItems": true
+        }
       ],
-      "notes": "This test verifies that the product catalog endpoint returns a list of products with the expected schema, supporting browsing and rendering product cards."
+      "notes": "Validates that the GET /products endpoint returns a 200 with an array of products matching the ProductResponse schema, suitable for displaying a product catalog overview with image, name, and price."
     }
   ]
 }
