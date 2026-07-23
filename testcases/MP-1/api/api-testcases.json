@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-1",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-07-20T13:56:47.878Z",
+  "generatedAt": "2026-07-23T11:29:37.045Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -12,9 +12,9 @@
   "warnings": [],
   "testCases": [
     {
-      "testCaseId": "MP-1-SC-001-TC-001",
+      "testCaseId": "TC-MP1-001",
       "scenarioId": "SC-001",
-      "title": "Retrieve product overview grid displaying all products",
+      "title": "Retrieve all products for product overview grid",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -25,15 +25,14 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response is json array",
-        "each item conforms to ProductResponse schema"
+        "Response is JSON array",
+        "Each item has fields consistent with ProductResponse schema"
       ],
       "contractChecks": [
-        "response status code is 200",
-        "response content type is application/json",
-        "response body is an array of ProductResponse objects"
+        "Verify 'Cache-Control' and 'ETag' headers presence",
+        "Verify response status is 200"
       ],
-      "notes": "Validates product overview retrieval for display of all products as per story scenario SC-001"
+      "notes": "This test verifies the retrieval of all products, fulfilling product overview scenario."
     }
   ]
 }
