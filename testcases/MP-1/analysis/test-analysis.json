@@ -1,0 +1,29 @@
+{
+  "storyKey": "MP-1",
+  "storyTitle": "Product Overview",
+  "application": "Practice Software Testing",
+  "functionalArea": "Product Catalog",
+  "businessGoal": "Allow visitors to browse the catalog and find items of interest",
+  "scenarios": [
+    {
+      "scenarioId": "SC-001",
+      "category": "Positive",
+      "goal": "Verify that a grid of product cards is displayed on the home page"
+    },
+    {
+      "scenarioId": "SC-002",
+      "category": "Positive",
+      "goal": "Verify that each product card shows a product image, name, and price"
+    },
+    {
+      "scenarioId": "SC-003",
+      "category": "Positive",
+      "goal": "Verify that clicking on a product card navigates to the product detail page"
+    }
+  ],
+  "outOfScope": [],
+  "clarifications": [
+    "Behavior for product cards with missing images, names, or prices is not specified.",
+    "The behavior for navigating back from the product detail page is not mentioned."
+  ]
+}
