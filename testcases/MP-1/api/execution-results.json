@@ -1,23 +1,50 @@
 {
   "storyKey": "MP-1",
   "artifactType": "execution-results",
-  "generatedAt": "2026-07-27T16:21:34.794Z",
+  "generatedAt": "2026-07-27T16:21:47.575Z",
   "summary": {
     "total": 1,
-    "passed": 0,
+    "passed": 1,
     "failed": 0,
-    "passRate": 0
+    "passRate": 100
   },
   "executionResults": [
     {
-      "schemaVersion": "1.0.0",
-      "resultType": "API_EXECUTION_RESULT",
-      "executionId": "MP-SPRINT-20260723113852",
       "storyKey": "MP-1",
-      "executionType": "API",
-      "status": "COMPLETED",
-      "executionResultsPath": "testcases/MP-1/api/execution-results.json",
-      "executionAnalysisPath": "testcases/MP-1/api/execution-analysis.json"
+      "testCaseId": "TC_MP1_001",
+      "scenarioId": "SC-001",
+      "title": "Retrieve all products successfully returns product list",
+      "method": "GET",
+      "url": "https://api.practicesoftwaretesting.com/products",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "status": "PASS",
+      "executedAt": "2026-07-27T16:21:47.569Z",
+      "responsePreview": "{\"current_page\":1,\"data\":[{\"id\":\"01KYJ4WH5MKEGNK7GQ4Z66KQC5\",\"name\":\"Combination Pliers\",\"description\":\"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium steel construction with induction-hardened cutting edges, these pliers deliver excellent grip and leverage for a wide range of tasks. The precision-machined jaws combine flat gripping surfaces with a pipe-grip section and integrated wire cutter for true multi-purpose functionality",
+      "originalTestCase": {
+        "testCaseId": "TC_MP1_001",
+        "scenarioId": "SC-001",
+        "title": "Retrieve all products successfully returns product list",
+        "testType": "Positive",
+        "priority": "High",
+        "preconditions": [],
+        "method": "GET",
+        "path": "/products",
+        "requestHeaders": {},
+        "queryParams": {},
+        "requestBody": null,
+        "expectedStatus": 200,
+        "expectedResponseChecks": [
+          "response is an array",
+          "each item contains fields required by ProductResponse schema"
+        ],
+        "contractChecks": [
+          "response content-type is application/json",
+          "presence of Cache-Control header with string value",
+          "presence of ETag header with string value"
+        ],
+        "notes": "Validates the endpoint returning the product grid data to support product card overview."
+      }
     }
   ]
 }
