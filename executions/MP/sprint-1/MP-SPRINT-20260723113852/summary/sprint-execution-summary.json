@@ -28,14 +28,14 @@
         "executionAnalysisPath": "testcases/MP-1/api/execution-analysis.json",
         "artifactVersion": null,
         "repository": {
-          "owner": null,
-          "name": null,
-          "branch": null
+          "owner": "balatoth",
+          "name": "QA-AI-copilot-V2",
+          "branch": "main"
         },
-        "completedAt": "2026-07-27T13:55:53.747Z"
+        "completedAt": "2026-07-27T16:25:09.898Z"
       },
       "playwrightExecution": null
     }
   ],
-  "completedAt": "2026-07-27T13:55:53.755Z"
+  "completedAt": "2026-07-27T16:25:09.906Z"
 }
