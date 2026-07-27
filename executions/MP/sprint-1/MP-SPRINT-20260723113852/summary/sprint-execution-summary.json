@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "0.1.0",
+  "artifactType": "SPRINT_EXECUTION_SUMMARY",
+  "executionId": "MP-SPRINT-20260723113852",
+  "status": "COMPLETED",
+  "executionStatus": "PASSED",
+  "scope": "SPRINT_EXECUTION",
+  "summary": {
+    "totalStories": 1,
+    "completedStories": 1,
+    "notExecutableStories": 0,
+    "technicalFailedStories": 0,
+    "testFailedStories": 0
+  },
+  "stories": [
+    {
+      "storyKey": "MP-1",
+      "executionId": "MP-SPRINT-20260723113852",
+      "status": "COMPLETED",
+      "executionStatus": "PASSED",
+      "scope": "STORY_EXECUTION",
+      "apiExecution": {
+        "executionId": "MP-SPRINT-20260723113852",
+        "storyKey": "MP-1",
+        "executionType": "API",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-1/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-1/api/execution-analysis.json",
+        "artifactVersion": null,
+        "repository": {
+          "owner": null,
+          "name": null,
+          "branch": null
+        },
+        "completedAt": "2026-07-27T13:25:51.370Z"
+      },
+      "playwrightExecution": null
+    }
+  ],
+  "completedAt": "2026-07-27T13:25:51.389Z"
+}
