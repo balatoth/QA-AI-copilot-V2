@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-1",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-07-27T16:50:45.100Z",
+  "generatedAt": "2026-07-27T16:53:21.072Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -12,9 +12,9 @@
   "warnings": [],
   "testCases": [
     {
-      "testCaseId": "TC_MP1_001",
+      "testCaseId": "TC_MP1_01",
       "scenarioId": "SC-001",
-      "title": "Retrieve all products to display product cards grid on home page",
+      "title": "Verify retrieving all products returns a grid of product cards",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -26,19 +26,22 @@
       "expectedStatus": 200,
       "expectedResponseChecks": [
         {
-          "check": "response is an array"
+          "check": "responseBodyIsArray"
         },
         {
-          "check": "each item contains product fields per ProductResponse schema"
+          "check": "eachItemHasFields",
+          "fields": [
+            "image",
+            "name",
+            "price"
+          ]
         }
       ],
       "contractChecks": [
-        "Response code 200 is documented and expected",
-        "Response content type is application/json",
-        "Cache-Control header present in response",
-        "ETag header present in response"
+        "responseContentTypeIsApplicationJson",
+        "responseContainsHeaders(Cache-Control, ETag)"
       ],
-      "notes": "Validates that the API successfully returns the product list required to render the product cards grid."
+      "notes": "This test verifies that a request to /products returns HTTP 200 with a JSON array of products. Each product must have image, name, and price fields as per ProductResponse schema."
     }
   ]
 }
