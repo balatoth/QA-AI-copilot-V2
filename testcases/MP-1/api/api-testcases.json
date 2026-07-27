@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-1",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-07-24T11:43:57.838Z",
+  "generatedAt": "2026-07-27T16:50:45.100Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -14,7 +14,7 @@
     {
       "testCaseId": "TC_MP1_001",
       "scenarioId": "SC-001",
-      "title": "Retrieve all products successfully returns product list",
+      "title": "Retrieve all products to display product cards grid on home page",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -25,15 +25,20 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response is an array",
-        "each item contains fields required by ProductResponse schema"
+        {
+          "check": "response is an array"
+        },
+        {
+          "check": "each item contains product fields per ProductResponse schema"
+        }
       ],
       "contractChecks": [
-        "response content-type is application/json",
-        "presence of Cache-Control header with string value",
-        "presence of ETag header with string value"
+        "Response code 200 is documented and expected",
+        "Response content type is application/json",
+        "Cache-Control header present in response",
+        "ETag header present in response"
       ],
-      "notes": "Validates the endpoint returning the product grid data to support product card overview."
+      "notes": "Validates that the API successfully returns the product list required to render the product cards grid."
     }
   ]
 }
