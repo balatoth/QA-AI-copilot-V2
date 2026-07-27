@@ -8,7 +8,7 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify product cards grid is displayed on home page",
+      "title": "Verify that a grid of product cards is displayed on the home page",
       "priority": "High",
       "preconditions": [],
       "steps": [
@@ -21,27 +21,27 @@
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Verify product card displays image, name, and price",
+      "title": "Verify that each product card shows a product image, name, and price",
       "priority": "High",
-      "preconditions": [],
+      "preconditions": [
+        "A grid of product cards is displayed on the home page"
+      ],
       "steps": [
-        "Navigate to the home page",
-        "Select a product card"
+        "Inspect each product card in the grid"
       ],
       "expectedResults": [
-        "The product card shows a product image",
-        "The product card shows the product name",
-        "The product card shows the price"
+        "Each product card displays a product image, name, and price"
       ]
     },
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-003",
-      "title": "Verify navigation to product detail page on card click",
+      "title": "Verify that clicking on a product card navigates to the product detail page",
       "priority": "High",
-      "preconditions": [],
+      "preconditions": [
+        "A grid of product cards is displayed on the home page"
+      ],
       "steps": [
-        "Navigate to the home page",
         "Click on a product card"
       ],
       "expectedResults": [
