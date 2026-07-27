@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-1",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-07-27T16:53:21.072Z",
+  "generatedAt": "2026-07-27T17:01:01.181Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -12,9 +12,9 @@
   "warnings": [],
   "testCases": [
     {
-      "testCaseId": "TC_MP1_01",
+      "testCaseId": "TC_MP1_SC001_POS_01",
       "scenarioId": "SC-001",
-      "title": "Verify retrieving all products returns a grid of product cards",
+      "title": "Verify retrieval of all products for product overview grid",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -26,11 +26,14 @@
       "expectedStatus": 200,
       "expectedResponseChecks": [
         {
-          "check": "responseBodyIsArray"
+          "type": "responseBodyType",
+          "field": "",
+          "value": "array"
         },
         {
-          "check": "eachItemHasFields",
-          "fields": [
+          "type": "responseBodyItemProperties",
+          "field": "",
+          "value": [
             "image",
             "name",
             "price"
@@ -38,10 +41,10 @@
         }
       ],
       "contractChecks": [
-        "responseContentTypeIsApplicationJson",
-        "responseContainsHeaders(Cache-Control, ETag)"
+        "Header 'Cache-Control' is present and is type string",
+        "Header 'ETag' is present and is type string"
       ],
-      "notes": "This test verifies that a request to /products returns HTTP 200 with a JSON array of products. Each product must have image, name, and price fields as per ProductResponse schema."
+      "notes": "This test verifies the primary positive scenario of fetching the products list to support displaying a grid of product cards with product image, name, and price."
     }
   ]
 }
