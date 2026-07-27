@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-1",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-07-27T17:01:01.181Z",
+  "generatedAt": "2026-07-27T17:06:20.554Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -12,9 +12,9 @@
   "warnings": [],
   "testCases": [
     {
-      "testCaseId": "TC_MP1_SC001_POS_01",
+      "testCaseId": "MP-1-SC-001-TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify retrieval of all products for product overview grid",
+      "title": "Retrieve all products to verify product grid data",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -26,25 +26,16 @@
       "expectedStatus": 200,
       "expectedResponseChecks": [
         {
-          "type": "responseBodyType",
-          "field": "",
-          "value": "array"
-        },
-        {
-          "type": "responseBodyItemProperties",
-          "field": "",
-          "value": [
-            "image",
-            "name",
-            "price"
-          ]
+          "type": "responseJsonArrayItemsExist",
+          "field": null
         }
       ],
       "contractChecks": [
-        "Header 'Cache-Control' is present and is type string",
-        "Header 'ETag' is present and is type string"
+        "Response content-type is application/json",
+        "Response array items conform to ProductResponse schema",
+        "Response includes Cache-Control and ETag headers"
       ],
-      "notes": "This test verifies the primary positive scenario of fetching the products list to support displaying a grid of product cards with product image, name, and price."
+      "notes": "Verifies product catalog page data which includes product cards information. Product detail page navigation is out of scope for this endpoint."
     }
   ]
 }
