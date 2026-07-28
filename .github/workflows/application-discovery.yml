@@ -1,807 +1,1115 @@
-name: Application Discovery
+const fs = require('fs');
+const { chromium } = require('playwright');
 
-run-name: Application discovery - ${{ inputs.storyKey }} - ${{ inputs.discoveryId }}
+const storyKey = process.env.STORY_KEY;
+const executionId = process.env.EXECUTION_ID;
+const discoveryId = process.env.DISCOVERY_ID;
+const applicationName = process.env.APPLICATION_NAME;
+const targetUrl = process.env.TARGET_URL;
+const discoveryScope = process.env.DISCOVERY_SCOPE;
+const workflowRunId = process.env.WORKFLOW_RUN_ID;
+const workflowRunAttempt = process.env.WORKFLOW_RUN_ATTEMPT;
+const commitSha = process.env.COMMIT_SHA;
 
-on:
-  workflow_dispatch:
-    inputs:
-      storyKey:
-        description: Jira story key
-        required: true
-        type: string
+const startedAt = new Date().toISOString();
 
-      executionId:
-        description: QA AI Copilot execution ID
-        required: true
-        type: string
+const cleanText = (value) =>
+  String(value || '')
+    .replace(/\s+/g, ' ')
+    .trim();
 
-      discoveryId:
-        description: Application discovery ID
-        required: true
-        type: string
+const uniqueStrings = (values) =>
+  [...new Set(values.filter(Boolean))];
 
-      applicationName:
-        description: Application name
-        required: true
-        type: string
+const escapeSelectorValue = (value) =>
+  String(value || '')
+    .replace(/\\/g, '\\\\')
+    .replace(/"/g, '\\"');
 
-      targetUrl:
-        description: URL to inspect
-        required: true
-        default: http://localhost:4200
-        type: string
+async function runDiscovery() {
+  let browser;
 
-      discoveryScope:
-        description: Discovery scope
-        required: true
-        default: SINGLE_PAGE
-        type: string
+  try {
+    browser = await chromium.launch({
+      headless: true
+    });
 
-      branch:
-        description: Repository branch
-        required: true
-        default: main
-        type: string
+    const context = await browser.newContext({
+      viewport: {
+        width: 1440,
+        height: 1000
+      }
+    });
 
-permissions:
-  contents: write
+    const page = await context.newPage();
 
-jobs:
-  discover-application:
-    runs-on: ubuntu-latest
+    await page.goto(targetUrl, {
+      waitUntil: 'domcontentloaded',
+      timeout: 60000
+    });
 
-    steps:
-      - name: Checkout QA AI Copilot repository
-        uses: actions/checkout@v5
-        with:
-          ref: ${{ inputs.branch }}
+    await page
+      .waitForLoadState('networkidle', {
+        timeout: 30000
+      })
+      .catch(() => {
+        console.log(
+          'Network did not become idle before timeout. Continuing discovery.'
+        );
+      });
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: "20"
+    await page.waitForTimeout(3000);
 
-      - name: Checkout Practice Software Testing
-        uses: actions/checkout@v5
-        with:
-          repository: testsmith-io/practice-software-testing
-          path: practice-software-testing
+    await page.screenshot({
+      path: 'homepage.png',
+      fullPage: true
+    });
 
-      - name: Start Practice Software Testing
-        working-directory: practice-software-testing
-        shell: bash
-        run: |
-          docker compose \
-            -f docker-compose.prod.yml \
-            up --pull missing -d
+    const pageData = await page.evaluate(() => {
+      const normalizeText = (value) =>
+        String(value || '')
+          .replace(/\s+/g, ' ')
+          .trim();
 
-      - name: Show running containers
-        working-directory: practice-software-testing
-        shell: bash
-        run: |
-          docker compose \
-            -f docker-compose.prod.yml \
-            ps
+      const escapeSelectorValue = (value) =>
+        String(value || '')
+          .replace(/\\/g, '\\\\')
+          .replace(/"/g, '\\"');
 
-      - name: Wait for Practice Software Testing UI
-        shell: bash
-        run: |
-          echo "Waiting for UI at http://localhost:4200"
+      const isVisible = (element) => {
+        if (!(element instanceof Element)) {
+          return false;
+        }
 
-          for attempt in {1..60}; do
-            if curl --fail --silent --show-error \
-              http://localhost:4200 > /dev/null; then
-              echo "Practice Software Testing UI is ready."
-              exit 0
-            fi
+        const style = window.getComputedStyle(element);
+        const rect = element.getBoundingClientRect();
 
-            echo "Attempt ${attempt}/60: UI is not ready yet."
-            sleep 5
-          done
+        return (
+          style.display !== 'none' &&
+          style.visibility !== 'hidden' &&
+          Number(style.opacity) !== 0 &&
+          rect.width > 0 &&
+          rect.height > 0
+        );
+      };
 
-          echo "UI did not become ready in time."
+      const getAttributes = (element) => {
+        const attributes = {};
 
-          docker compose \
-            -f practice-software-testing/docker-compose.prod.yml \
-            ps
+        for (const attribute of element.attributes || []) {
+          attributes[attribute.name] = attribute.value;
+        }
 
-          docker compose \
-            -f practice-software-testing/docker-compose.prod.yml \
-            logs --tail=200
+        return attributes;
+      };
 
-          exit 1
+      const getTestIdentifier = (element) => {
+        if (element.hasAttribute('data-testid')) {
+          return {
+            attribute: 'data-testid',
+            value: element.getAttribute('data-testid')
+          };
+        }
 
-      - name: Create discovery workspace
-        shell: bash
-        run: |
-          mkdir -p application-discovery
+        if (element.hasAttribute('data-test')) {
+          return {
+            attribute: 'data-test',
+            value: element.getAttribute('data-test')
+          };
+        }
 
-      - name: Create package.json
-        working-directory: application-discovery
-        shell: bash
-        run: |
-          cat > package.json <<'EOF'
-          {
-            "name": "qa-ai-copilot-application-discovery",
-            "private": true,
-            "scripts": {
-              "discover": "node discover-application.js"
-            },
-            "dependencies": {
-              "playwright": "^1.55.0"
+        if (element.hasAttribute('data-cy')) {
+          return {
+            attribute: 'data-cy',
+            value: element.getAttribute('data-cy')
+          };
+        }
+
+        return {
+          attribute: null,
+          value: null
+        };
+      };
+
+      const buildAttributeSelector = (attribute, value) => {
+        if (!attribute || !value) {
+          return null;
+        }
+
+        return `[${attribute}="${escapeSelectorValue(value)}"]`;
+      };
+
+      const getElementSummary = (element) => {
+        const testIdentifier = getTestIdentifier(element);
+
+        return {
+          tagName: element.tagName.toLowerCase(),
+
+          text: normalizeText(
+            element.innerText ||
+              element.textContent ||
+              ''
+          ),
+
+          id: element.id || null,
+
+          className:
+            typeof element.className === 'string'
+              ? element.className
+              : null,
+
+          role: element.getAttribute('role'),
+
+          ariaLabel: element.getAttribute('aria-label'),
+
+          ariaLabelledBy:
+            element.getAttribute('aria-labelledby'),
+
+          dataTestId: testIdentifier.value,
+
+          dataTestAttribute:
+            testIdentifier.attribute,
+
+          testIdSelector: buildAttributeSelector(
+            testIdentifier.attribute,
+            testIdentifier.value
+          ),
+
+          name: element.getAttribute('name'),
+
+          type: element.getAttribute('type'),
+
+          placeholder:
+            element.getAttribute('placeholder'),
+
+          href: element.getAttribute('href'),
+
+          title: element.getAttribute('title'),
+
+          visible: isVisible(element),
+
+          attributes: getAttributes(element)
+        };
+      };
+
+      const selectVisible = (selector) =>
+        [...document.querySelectorAll(selector)]
+          .filter(isVisible)
+          .map(getElementSummary);
+
+      const allElements = [
+        ...document.querySelectorAll('*')
+      ];
+
+      const testIdElements = allElements
+        .filter(
+          (element) =>
+            element.hasAttribute('data-testid') ||
+            element.hasAttribute('data-test') ||
+            element.hasAttribute('data-cy')
+        )
+        .map(getElementSummary);
+
+      const roleElements = allElements
+        .filter((element) =>
+          element.hasAttribute('role')
+        )
+        .map(getElementSummary);
+
+      const forms = [
+        ...document.querySelectorAll('form')
+      ].map((form) => ({
+        ...getElementSummary(form),
+
+        action: form.getAttribute('action'),
+
+        method: form.getAttribute('method'),
+
+        controls: [
+          ...form.querySelectorAll(
+            'input, select, textarea, button'
+          )
+        ].map(getElementSummary)
+      }));
+
+      /*
+       * Semantic component discovery
+       *
+       * Product cards in Practice Software Testing use root identifiers
+       * such as data-test="product-1", data-test="product-2", etc.
+       *
+       * Each root is connected to its discovered child elements so that
+       * downstream Playwright generation does not need to infer DOM
+       * parent/child relationships with first(), nth(), or locator('..').
+       */
+      const productComponents = [
+        ...document.querySelectorAll('[data-test^="product-"]')
+      ]
+        .filter((element) => {
+          const value =
+            element.getAttribute('data-test') || '';
+
+          return (
+            /^product-\d+$/.test(value) &&
+            isVisible(element)
+          );
+        })
+        .map((element) => {
+          const productTestId =
+            element.getAttribute('data-test');
+
+          const rootSelector =
+            `[data-test="${escapeSelectorValue(
+              productTestId
+            )}"]`;
+
+          const nameElement =
+            element.querySelector(
+              '[data-test="product-name"]'
+            );
+
+          const priceElement =
+            element.querySelector(
+              '[data-test="product-price"]'
+            );
+
+          const imageElement =
+            element.querySelector('img');
+
+          const categoryElement =
+            element.querySelector(
+              '[data-test="product-category"]'
+            );
+
+          const brandElement =
+            element.querySelector(
+              '[data-test="product-brand"]'
+            );
+
+          const childComponents = {};
+
+          if (nameElement) {
+            childComponents.name = {
+              type: 'PRODUCT_NAME',
+
+              relationship: 'DESCENDANT_OF_ROOT',
+
+              selector:
+                '[data-test="product-name"]',
+
+              scopedSelector:
+                `${rootSelector} [data-test="product-name"]`,
+
+              tagName:
+                nameElement.tagName.toLowerCase(),
+
+              text: normalizeText(
+                nameElement.innerText ||
+                  nameElement.textContent ||
+                  ''
+              ),
+
+              visible: isVisible(nameElement)
+            };
+          }
+
+          if (priceElement) {
+            childComponents.price = {
+              type: 'PRODUCT_PRICE',
+
+              relationship: 'DESCENDANT_OF_ROOT',
+
+              selector:
+                '[data-test="product-price"]',
+
+              scopedSelector:
+                `${rootSelector} [data-test="product-price"]`,
+
+              tagName:
+                priceElement.tagName.toLowerCase(),
+
+              text: normalizeText(
+                priceElement.innerText ||
+                  priceElement.textContent ||
+                  ''
+              ),
+
+              visible: isVisible(priceElement)
+            };
+          }
+
+          if (imageElement) {
+            childComponents.image = {
+              type: 'PRODUCT_IMAGE',
+
+              relationship: 'DESCENDANT_OF_ROOT',
+
+              selector: 'img',
+
+              scopedSelector:
+                `${rootSelector} img`,
+
+              tagName: 'img',
+
+              alt:
+                imageElement.getAttribute('alt'),
+
+              src:
+                imageElement.getAttribute('src'),
+
+              visible: isVisible(imageElement)
+            };
+          }
+
+          if (categoryElement) {
+            childComponents.category = {
+              type: 'PRODUCT_CATEGORY',
+
+              relationship: 'DESCENDANT_OF_ROOT',
+
+              selector:
+                '[data-test="product-category"]',
+
+              scopedSelector:
+                `${rootSelector} [data-test="product-category"]`,
+
+              tagName:
+                categoryElement.tagName.toLowerCase(),
+
+              text: normalizeText(
+                categoryElement.innerText ||
+                  categoryElement.textContent ||
+                  ''
+              ),
+
+              visible: isVisible(categoryElement)
+            };
+          }
+
+          if (brandElement) {
+            childComponents.brand = {
+              type: 'PRODUCT_BRAND',
+
+              relationship: 'DESCENDANT_OF_ROOT',
+
+              selector:
+                '[data-test="product-brand"]',
+
+              scopedSelector:
+                `${rootSelector} [data-test="product-brand"]`,
+
+              tagName:
+                brandElement.tagName.toLowerCase(),
+
+              text: normalizeText(
+                brandElement.innerText ||
+                  brandElement.textContent ||
+                  ''
+              ),
+
+              visible: isVisible(brandElement)
+            };
+          }
+
+          const productName =
+            childComponents.name?.text ||
+            normalizeText(
+              element.innerText ||
+                element.textContent ||
+                ''
+            ) ||
+            productTestId;
+
+          const assertionCandidates = [
+            {
+              target: 'root',
+              assertion: 'toBeVisible',
+              selector: rootSelector
+            }
+          ];
+
+          if (childComponents.name) {
+            assertionCandidates.push({
+              target: 'name',
+              assertion: 'toBeVisible',
+              selector:
+                childComponents.name.scopedSelector
+            });
+
+            if (childComponents.name.text) {
+              assertionCandidates.push({
+                target: 'name',
+                assertion: 'toHaveText',
+                selector:
+                  childComponents.name.scopedSelector,
+                expectedValue:
+                  childComponents.name.text
+              });
             }
           }
-          EOF
 
-      - name: Create application discovery script
-        working-directory: application-discovery
-        shell: bash
-        run: |
-          cat > discover-application.js <<'EOF'
-          const fs = require('fs');
-          const { chromium } = require('playwright');
+          if (childComponents.price) {
+            assertionCandidates.push({
+              target: 'price',
+              assertion: 'toBeVisible',
+              selector:
+                childComponents.price.scopedSelector
+            });
 
-          const storyKey = process.env.STORY_KEY;
-          const executionId = process.env.EXECUTION_ID;
-          const discoveryId = process.env.DISCOVERY_ID;
-          const applicationName = process.env.APPLICATION_NAME;
-          const targetUrl = process.env.TARGET_URL;
-          const discoveryScope = process.env.DISCOVERY_SCOPE;
-          const workflowRunId = process.env.WORKFLOW_RUN_ID;
-          const workflowRunAttempt = process.env.WORKFLOW_RUN_ATTEMPT;
-          const commitSha = process.env.COMMIT_SHA;
-
-          const startedAt = new Date().toISOString();
-
-          const cleanText = (value) =>
-            String(value || '')
-              .replace(/\s+/g, ' ')
-              .trim();
-
-          const uniqueStrings = (values) =>
-            [...new Set(values.filter(Boolean))];
-
-          async function runDiscovery() {
-            let browser;
-
-            try {
-              browser = await chromium.launch({
-                headless: true
+            if (childComponents.price.text) {
+              assertionCandidates.push({
+                target: 'price',
+                assertion: 'toHaveText',
+                selector:
+                  childComponents.price.scopedSelector,
+                expectedValue:
+                  childComponents.price.text
               });
+            }
+          }
 
-              const context = await browser.newContext({
-                viewport: {
-                  width: 1440,
-                  height: 1000
-                }
-              });
+          if (
+            childComponents.image &&
+            childComponents.image.alt
+          ) {
+            assertionCandidates.push({
+              target: 'image',
+              assertion: 'toHaveAttribute',
+              selector:
+                childComponents.image.scopedSelector,
+              attribute: 'alt',
+              expectedValue:
+                childComponents.image.alt
+            });
+          }
 
-              const page = await context.newPage();
+          return {
+            componentId: productTestId,
 
-              await page.goto(targetUrl, {
-                waitUntil: 'domcontentloaded',
-                timeout: 60000
-              });
+            type: 'PRODUCT_CARD',
 
-              await page.waitForLoadState('networkidle', {
-                timeout: 30000
-              }).catch(() => {
-                console.log(
-                  'Network did not become idle before timeout. Continuing discovery.'
-                );
-              });
+            name: productName,
 
-              await page.waitForTimeout(3000);
-              
-              await page.screenshot({
-                path: 'homepage.png',
-                fullPage: true
-              });
+            root: {
+              selector: rootSelector,
 
-              const pageData = await page.evaluate(() => {
-                const normalizeText = (value) =>
-                  String(value || '')
-                    .replace(/\s+/g, ' ')
-                    .trim();
+              selectorStrategy: 'test-id',
 
-                const isVisible = (element) => {
-                  const style = window.getComputedStyle(element);
-                  const rect = element.getBoundingClientRect();
+              testIdAttribute: 'data-test',
 
-                  return (
-                    style.display !== 'none' &&
-                    style.visibility !== 'hidden' &&
-                    Number(style.opacity) !== 0 &&
-                    rect.width > 0 &&
-                    rect.height > 0
-                  );
-                };
+              testIdValue: productTestId,
 
-                const getAttributes = (element) => {
-                  const attributes = {};
+              tagName:
+                element.tagName.toLowerCase(),
 
-                  for (const attribute of element.attributes || []) {
-                    attributes[attribute.name] = attribute.value;
-                  }
+              visible: isVisible(element),
 
-                  return attributes;
-                };
+              clickable: element.matches(
+                'a[href], button, [role="button"]'
+              ),
 
-                const getElementSummary = (element) => ({
-                  tagName: element.tagName.toLowerCase(),
-                  text: normalizeText(
-                    element.innerText ||
-                    element.textContent ||
-                    ''
-                  ),
-                  id: element.id || null,
-                  className:
-                    typeof element.className === 'string'
-                      ? element.className
-                      : null,
-                  role: element.getAttribute('role'),
-                  ariaLabel: element.getAttribute('aria-label'),
-                  ariaLabelledBy:
-                    element.getAttribute('aria-labelledby'),
-                  dataTestId:
-                    element.getAttribute('data-testid') ||
-                    element.getAttribute('data-test') ||
-                    element.getAttribute('data-cy'),
-                  name: element.getAttribute('name'),
-                  type: element.getAttribute('type'),
-                  placeholder:
-                    element.getAttribute('placeholder'),
-                  href: element.getAttribute('href'),
-                  title: element.getAttribute('title'),
-                  visible: isVisible(element),
-                  attributes: getAttributes(element)
-                });
+              href:
+                element.getAttribute('href')
+            },
 
-                const selectVisible = (selector) =>
-                  [...document.querySelectorAll(selector)]
-                    .filter(isVisible)
-                    .map(getElementSummary);
+            children: childComponents,
 
-                const allElements = [
-                  ...document.querySelectorAll('*')
-                ];
+            relationships: Object.keys(
+              childComponents
+            ).map((childName) => ({
+              parentComponentId: productTestId,
+              childName,
+              relationship: 'CONTAINS'
+            })),
 
-                const testIdElements = allElements
-                  .filter((element) =>
-                    element.hasAttribute('data-testid') ||
-                    element.hasAttribute('data-test') ||
-                    element.hasAttribute('data-cy')
-                  )
-                  .map(getElementSummary);
+            assertionCandidates
+          };
+        });
 
-                const roleElements = allElements
-                  .filter((element) =>
-                    element.hasAttribute('role')
-                  )
-                  .map(getElementSummary);
+      return {
+        document: {
+          title: document.title,
 
-                const forms = [
-                  ...document.querySelectorAll('form')
-                ].map((form) => ({
-                  ...getElementSummary(form),
-                  action: form.getAttribute('action'),
-                  method: form.getAttribute('method'),
-                  controls: [
-                    ...form.querySelectorAll(
-                      'input, select, textarea, button'
-                    )
-                  ].map(getElementSummary)
-                }));
+          url: window.location.href,
 
-                return {
-                  document: {
-                    title: document.title,
-                    url: window.location.href,
-                    origin: window.location.origin,
-                    pathname: window.location.pathname,
-                    hash: window.location.hash,
-                    language:
-                      document.documentElement.lang || null
-                  },
+          origin: window.location.origin,
 
-                  headings: selectVisible(
-                    'h1, h2, h3, h4, h5, h6'
-                  ),
+          pathname: window.location.pathname,
 
-                  links: selectVisible('a[href]'),
+          hash: window.location.hash,
 
-                  buttons: selectVisible(
-                    'button, input[type="button"], input[type="submit"], [role="button"]'
-                  ),
+          language:
+            document.documentElement.lang || null
+        },
 
-                  inputs: selectVisible(
-                    'input, textarea, select'
-                  ),
+        headings: selectVisible(
+          'h1, h2, h3, h4, h5, h6'
+        ),
 
-                  forms,
+        links: selectVisible('a[href]'),
 
-                  landmarks: selectVisible(
-                    'header, nav, main, aside, footer, [role="banner"], [role="navigation"], [role="main"], [role="complementary"], [role="contentinfo"]'
-                  ),
+        buttons: selectVisible(
+          'button, input[type="button"], input[type="submit"], [role="button"]'
+        ),
 
-                  images: selectVisible('img'),
+        inputs: selectVisible(
+          'input, textarea, select'
+        ),
 
-                  tables: selectVisible(
-                    'table, [role="table"], [role="grid"]'
-                  ),
+        forms,
 
-                  lists: selectVisible(
-                    'ul, ol, [role="list"]'
-                  ),
+        landmarks: selectVisible(
+          'header, nav, main, aside, footer, [role="banner"], [role="navigation"], [role="main"], [role="complementary"], [role="contentinfo"]'
+        ),
 
-                  dialogs: selectVisible(
-                    'dialog, [role="dialog"], [role="alertdialog"]'
-                  ),
+        images: selectVisible('img'),
 
-                  testIdElements,
+        tables: selectVisible(
+          'table, [role="table"], [role="grid"]'
+        ),
 
-                  explicitRoleElements: roleElements
-                };
-              });
+        lists: selectVisible(
+          'ul, ol, [role="list"]'
+        ),
 
-              let accessibilitySnapshot = null;
+        dialogs: selectVisible(
+          'dialog, [role="dialog"], [role="alertdialog"]'
+        ),
 
-                try {
-                  accessibilitySnapshot =
-                    await page.locator('body').ariaSnapshot();
-                } catch (error) {
-                  console.log(
-                    `Accessibility snapshot unavailable: ${error.message}`
-                  );
-                }
+        testIdElements,
 
-              const dataTestIds = uniqueStrings(
-                pageData.testIdElements.map(
-                  (element) => element.dataTestId
+        explicitRoleElements: roleElements,
+
+        productComponents
+      };
+    });
+
+    let accessibilitySnapshot = null;
+
+    try {
+      accessibilitySnapshot =
+        await page.locator('body').ariaSnapshot();
+    } catch (error) {
+      console.log(
+        `Accessibility snapshot unavailable: ${error.message}`
+      );
+    }
+
+    const dataTestIds = uniqueStrings(
+      pageData.testIdElements.map(
+        (element) => element.dataTestId
+      )
+    );
+
+    const explicitRoles = uniqueStrings(
+      pageData.explicitRoleElements.map(
+        (element) => element.role
+      )
+    );
+
+    const candidateSelectors = [];
+
+    for (const element of pageData.testIdElements) {
+      if (
+        !element.dataTestId ||
+        !element.dataTestAttribute
+      ) {
+        continue;
+      }
+
+      candidateSelectors.push({
+        strategy: 'test-id',
+
+        selector:
+          `[${element.dataTestAttribute}="${escapeSelectorValue(
+            element.dataTestId
+          )}"]`,
+
+        value: element.dataTestId,
+
+        attribute:
+          element.dataTestAttribute,
+
+        tagName: element.tagName,
+
+        text: element.text,
+
+        confidence: 1
+      });
+    }
+
+    for (const button of pageData.buttons) {
+      if (button.dataTestId) {
+        continue;
+      }
+
+      if (button.role && button.ariaLabel) {
+        candidateSelectors.push({
+          strategy: 'accessible-role',
+
+          selector:
+            `getByRole('${button.role}', { name: '${cleanText(
+              button.ariaLabel
+            )}' })`,
+
+          role: button.role,
+
+          accessibleName:
+            button.ariaLabel,
+
+          tagName: button.tagName,
+
+          confidence: 0.95
+        });
+
+        continue;
+      }
+
+      if (button.text) {
+        candidateSelectors.push({
+          strategy: 'button-name',
+
+          selector:
+            `getByRole('button', { name: '${cleanText(
+              button.text
+            )}' })`,
+
+          role: 'button',
+
+          accessibleName:
+            cleanText(button.text),
+
+          tagName: button.tagName,
+
+          confidence: 0.9
+        });
+      }
+    }
+
+    for (const input of pageData.inputs) {
+      if (input.dataTestId) {
+        continue;
+      }
+
+      if (input.ariaLabel) {
+        candidateSelectors.push({
+          strategy: 'label',
+
+          selector:
+            `getByLabel('${cleanText(
+              input.ariaLabel
+            )}')`,
+
+          accessibleName:
+            cleanText(input.ariaLabel),
+
+          tagName: input.tagName,
+
+          confidence: 0.95
+        });
+
+        continue;
+      }
+
+      if (input.placeholder) {
+        candidateSelectors.push({
+          strategy: 'placeholder',
+
+          selector:
+            `getByPlaceholder('${cleanText(
+              input.placeholder
+            )}')`,
+
+          placeholder:
+            cleanText(input.placeholder),
+
+          tagName: input.tagName,
+
+          confidence: 0.85
+        });
+      }
+    }
+
+    const completedAt = new Date().toISOString();
+
+    const acceptedCandidateSelectors =
+      candidateSelectors.filter(
+        (candidate) =>
+          candidate.confidence >= 0.85
+      );
+
+    const productComponents =
+      Array.isArray(pageData.productComponents)
+        ? pageData.productComponents
+        : [];
+
+    const selectorLibrary = {
+      schemaVersion: '1.1',
+
+      storyKey,
+      executionId,
+      discoveryId,
+
+      application: {
+        name: applicationName,
+
+        pageTitle:
+          pageData.document.title,
+
+        pageUrl:
+          pageData.document.url
+      },
+
+      generatedAt: completedAt,
+
+      selectors: acceptedCandidateSelectors.map(
+        (candidate) => ({
+          name:
+            candidate.value ||
+            candidate.accessibleName ||
+            candidate.placeholder ||
+            candidate.selector,
+
+          strategy:
+            candidate.strategy,
+
+          selector:
+            candidate.selector,
+
+          attribute:
+            candidate.attribute || null,
+
+          tagName:
+            candidate.tagName || null,
+
+          text:
+            candidate.text || null,
+
+          accessibleName:
+            candidate.accessibleName || null,
+
+          confidence:
+            candidate.confidence
+        })
+      ),
+
+      testIds: pageData.testIdElements
+        .filter(
+          (element) =>
+            element.dataTestId &&
+            element.dataTestAttribute
+        )
+        .map((element) => ({
+          name:
+            element.dataTestId,
+
+          attribute:
+            element.dataTestAttribute,
+
+          selector:
+            `[${element.dataTestAttribute}="${escapeSelectorValue(
+              element.dataTestId
+            )}"]`,
+
+          tagName:
+            element.tagName,
+
+          text:
+            element.text || null,
+
+          role:
+            element.role || null,
+
+          visible:
+            element.visible
+        })),
+
+      components: productComponents,
+
+      componentTypes: {
+        PRODUCT_CARD: {
+          count:
+            productComponents.length,
+
+          relationshipModel:
+            'ROOT_WITH_SCOPED_CHILDREN',
+
+          availableChildren: uniqueStrings(
+            productComponents.flatMap(
+              (component) =>
+                Object.keys(
+                  component.children || {}
                 )
-              );
+            )
+          )
+        }
+      },
 
-              const explicitRoles = uniqueStrings(
-                pageData.explicitRoleElements.map(
-                  (element) => element.role
-                )
-              );
+      summary: {
+        selectorCount:
+          acceptedCandidateSelectors.length,
 
-              const candidateSelectors = [];
+        testIdSelectorCount:
+          pageData.testIdElements.filter(
+            (element) =>
+              element.dataTestId &&
+              element.dataTestAttribute
+          ).length,
 
-              for (const element of pageData.testIdElements) {
-                if (!element.dataTestId) {
-                  continue;
-                }
+        componentCount:
+          productComponents.length,
 
-                candidateSelectors.push({
-                  strategy: 'test-id',
-                  selector: `[data-testid="${element.dataTestId}"]`,
-                  value: element.dataTestId,
-                  tagName: element.tagName,
-                  text: element.text,
-                  confidence: 1
-                });
-              }
+        productCardCount:
+          productComponents.length
+      }
+    };
 
-              for (const button of pageData.buttons) {
-                if (button.dataTestId) {
-                  continue;
-                }
+    fs.writeFileSync(
+      'selector-library.json',
+      JSON.stringify(
+        selectorLibrary,
+        null,
+        2
+      )
+    );
 
-                if (button.role && button.ariaLabel) {
-                  candidateSelectors.push({
-                    strategy: 'accessible-role',
-                    selector:
-                      `getByRole('${button.role}', { name: '${button.ariaLabel}' })`,
-                    role: button.role,
-                    accessibleName: button.ariaLabel,
-                    tagName: button.tagName,
-                    confidence: 0.95
-                  });
+    const discoveryResult = {
+      schemaVersion: '1.1',
 
-                  continue;
-                }
+      storyKey,
+      executionId,
+      discoveryId,
 
-                if (button.text) {
-                  candidateSelectors.push({
-                    strategy: 'button-name',
-                    selector:
-                      `getByRole('button', { name: '${cleanText(button.text)}' })`,
-                    role: 'button',
-                    accessibleName: cleanText(button.text),
-                    tagName: button.tagName,
-                    confidence: 0.9
-                  });
-                }
-              }
+      application: {
+        name: applicationName,
 
-              for (const input of pageData.inputs) {
-                if (input.dataTestId) {
-                  continue;
-                }
+        requestedUrl:
+          targetUrl,
 
-                if (input.ariaLabel) {
-                  candidateSelectors.push({
-                    strategy: 'label',
-                    selector:
-                      `getByLabel('${cleanText(input.ariaLabel)}')`,
-                    accessibleName:
-                      cleanText(input.ariaLabel),
-                    tagName: input.tagName,
-                    confidence: 0.95
-                  });
+        discoveredUrl:
+          pageData.document.url
+      },
 
-                  continue;
-                }
+      discovery: {
+        scope:
+          discoveryScope,
 
-                if (input.placeholder) {
-                  candidateSelectors.push({
-                    strategy: 'placeholder',
-                    selector:
-                      `getByPlaceholder('${cleanText(input.placeholder)}')`,
-                    placeholder:
-                      cleanText(input.placeholder),
-                    tagName: input.tagName,
-                    confidence: 0.85
-                  });
-                }
-              }
+        status:
+          'COMPLETED',
 
-              const completedAt = new Date().toISOString();
+        startedAt,
 
-              const selectorLibrary = {
-                schemaVersion: '1.0',
-              
-                storyKey,
-                executionId,
-                discoveryId,
-              
-                application: {
-                  name: applicationName,
-                  pageTitle: pageData.document.title,
-                  pageUrl: pageData.document.url
-                },
-              
-                generatedAt: completedAt,
-              
-                selectors: candidateSelectors
-                  .filter((candidate) => candidate.confidence >= 0.85)
-                  .map((candidate) => ({
-                    name:
-                      candidate.value ||
-                      candidate.accessibleName ||
-                      candidate.placeholder ||
-                      candidate.selector,
-              
-                    strategy: candidate.strategy,
-                    selector: candidate.selector,
-                    tagName: candidate.tagName || null,
-                    text: candidate.text || null,
-                    accessibleName:
-                      candidate.accessibleName || null,
-                    confidence: candidate.confidence
-                  })),
-              
-                testIds: pageData.testIdElements
-                  .filter((element) => element.dataTestId)
-                  .map((element) => ({
-                    name: element.dataTestId,
-                    selector:
-                      `[data-testid="${element.dataTestId}"]`,
-                    tagName: element.tagName,
-                    text: element.text || null,
-                    role: element.role || null,
-                    visible: element.visible
-                  })),
-              
-                summary: {
-                  selectorCount: candidateSelectors.filter(
-                    (candidate) => candidate.confidence >= 0.85
-                  ).length,
-              
-                  testIdSelectorCount:
-                    pageData.testIdElements.filter(
-                      (element) => element.dataTestId
-                    ).length
-                }
-              };
-              
-              fs.writeFileSync(
-                'selector-library.json',
-                JSON.stringify(selectorLibrary, null, 2)
-              );
+        completedAt
+      },
 
-              const discoveryResult = {
-                schemaVersion: '1.0',
+      page: pageData.document,
 
-                storyKey,
-                executionId,
-                discoveryId,
+      summary: {
+        headingCount:
+          pageData.headings.length,
 
-                application: {
-                  name: applicationName,
-                  requestedUrl: targetUrl,
-                  discoveredUrl: pageData.document.url
-                },
+        linkCount:
+          pageData.links.length,
 
-                discovery: {
-                  scope: discoveryScope,
-                  status: 'COMPLETED',
-                  startedAt,
-                  completedAt
-                },
+        buttonCount:
+          pageData.buttons.length,
 
-                page: pageData.document,
+        inputCount:
+          pageData.inputs.length,
 
-                summary: {
-                  headingCount: pageData.headings.length,
-                  linkCount: pageData.links.length,
-                  buttonCount: pageData.buttons.length,
-                  inputCount: pageData.inputs.length,
-                  formCount: pageData.forms.length,
-                  landmarkCount: pageData.landmarks.length,
-                  imageCount: pageData.images.length,
-                  tableCount: pageData.tables.length,
-                  listCount: pageData.lists.length,
-                  dialogCount: pageData.dialogs.length,
-                  dataTestIdCount: dataTestIds.length,
-                  explicitRoleCount: explicitRoles.length,
-                  candidateSelectorCount:
-                    candidateSelectors.length
-                },
+        formCount:
+          pageData.forms.length,
 
-                elements: {
-                  headings: pageData.headings,
-                  links: pageData.links,
-                  buttons: pageData.buttons,
-                  inputs: pageData.inputs,
-                  forms: pageData.forms,
-                  landmarks: pageData.landmarks,
-                  images: pageData.images,
-                  tables: pageData.tables,
-                  lists: pageData.lists,
-                  dialogs: pageData.dialogs
-                },
+        landmarkCount:
+          pageData.landmarks.length,
 
-                selectorDiscovery: {
-                  dataTestIds,
-                  explicitRoles,
-                  candidates: candidateSelectors
-                },
+        imageCount:
+          pageData.images.length,
 
-                accessibility: {
-                  snapshot: accessibilitySnapshot
-                },
+        tableCount:
+          pageData.tables.length,
 
-                artifacts: {
-                  screenshot: 'homepage.png',
-                  discoveryJson:
-                    'application-discovery.json'
-                },
+        listCount:
+          pageData.lists.length,
 
-                github: {
-                  workflowRunId,
-                  workflowRunAttempt,
-                  commitSha
-                }
-              };
+        dialogCount:
+          pageData.dialogs.length,
 
-              fs.writeFileSync(
-                'application-discovery.json',
-                JSON.stringify(discoveryResult, null, 2)
-              );
+        dataTestIdCount:
+          dataTestIds.length,
 
-              console.log(
-                JSON.stringify(discoveryResult.summary, null, 2)
-              );
+        explicitRoleCount:
+          explicitRoles.length,
 
-              await context.close();
-            } catch (error) {
-              const failedAt = new Date().toISOString();
+        candidateSelectorCount:
+          candidateSelectors.length,
 
-              const failureResult = {
-                schemaVersion: '1.0',
+        acceptedSelectorCount:
+          acceptedCandidateSelectors.length,
 
-                storyKey,
-                executionId,
-                discoveryId,
+        componentCount:
+          productComponents.length,
 
-                application: {
-                  name: applicationName,
-                  requestedUrl: targetUrl
-                },
+        productCardCount:
+          productComponents.length
+      },
 
-                discovery: {
-                  scope: discoveryScope,
-                  status: 'FAILED',
-                  startedAt,
-                  completedAt: failedAt
-                },
+      elements: {
+        headings:
+          pageData.headings,
 
-                error: {
-                  name: error.name,
-                  message: error.message,
-                  stack: error.stack
-                },
+        links:
+          pageData.links,
 
-                github: {
-                  workflowRunId,
-                  workflowRunAttempt,
-                  commitSha
-                }
-              };
+        buttons:
+          pageData.buttons,
 
-              fs.writeFileSync(
-                'application-discovery.json',
-                JSON.stringify(failureResult, null, 2)
-              );
+        inputs:
+          pageData.inputs,
 
-              console.error(error);
-              process.exitCode = 1;
-            } finally {
-              if (browser) {
-                await browser.close();
-              }
-            }
-          }
+        forms:
+          pageData.forms,
 
-          runDiscovery();
-          EOF
+        landmarks:
+          pageData.landmarks,
 
-      - name: Install discovery dependencies
-        working-directory: application-discovery
-        shell: bash
-        run: |
-          npm install
+        images:
+          pageData.images,
 
-      - name: Install Chromium
-        working-directory: application-discovery
-        shell: bash
-        run: |
-          npx playwright install --with-deps chromium
+        tables:
+          pageData.tables,
 
-      - name: Execute application discovery
-        id: discovery
-        working-directory: application-discovery
-        continue-on-error: true
-        shell: bash
-        env:
-          STORY_KEY: ${{ inputs.storyKey }}
-          EXECUTION_ID: ${{ inputs.executionId }}
-          DISCOVERY_ID: ${{ inputs.discoveryId }}
-          APPLICATION_NAME: ${{ inputs.applicationName }}
-          TARGET_URL: ${{ inputs.targetUrl }}
-          DISCOVERY_SCOPE: ${{ inputs.discoveryScope }}
-          WORKFLOW_RUN_ID: ${{ github.run_id }}
-          WORKFLOW_RUN_ATTEMPT: ${{ github.run_attempt }}
-          COMMIT_SHA: ${{ github.sha }}
-        run: |
-          set +e
+        lists:
+          pageData.lists,
 
-          npm run discover
+        dialogs:
+          pageData.dialogs
+      },
 
-          exit_code=$?
+      components: {
+        productCards:
+          productComponents
+      },
 
-          echo "exitCode=$exit_code" >> "$GITHUB_OUTPUT"
+      selectorDiscovery: {
+        dataTestIds,
 
-          exit 0
+        explicitRoles,
 
-      - name: Ensure discovery result exists
-        if: always()
-        working-directory: application-discovery
-        shell: bash
-        run: |
-          if [ ! -f application-discovery.json ]; then
-            cat > application-discovery.json <<EOF
-          {
-            "schemaVersion": "1.0",
-            "storyKey": "${{ inputs.storyKey }}",
-            "executionId": "${{ inputs.executionId }}",
-            "discoveryId": "${{ inputs.discoveryId }}",
-            "application": {
-              "name": "${{ inputs.applicationName }}",
-              "requestedUrl": "${{ inputs.targetUrl }}"
-            },
-            "discovery": {
-              "scope": "${{ inputs.discoveryScope }}",
-              "status": "FAILED",
-              "completedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-            },
-            "error": {
-              "message": "Application discovery did not create a result file."
-            }
-          }
-          EOF
-          fi
+        candidates:
+          candidateSelectors,
 
-           - name: Create discovery metadata
-        if: always()
-        working-directory: application-discovery
-        shell: bash
-        run: |
-          cat > discovery-metadata.json <<EOF
-          {
-            "storyKey": "${{ inputs.storyKey }}",
-            "executionId": "${{ inputs.executionId }}",
-            "discoveryId": "${{ inputs.discoveryId }}",
-            "applicationName": "${{ inputs.applicationName }}",
-            "targetUrl": "${{ inputs.targetUrl }}",
-            "discoveryScope": "${{ inputs.discoveryScope }}",
-            "branch": "${{ inputs.branch }}",
-            "workflowRunId": "${{ github.run_id }}",
-            "workflowRunAttempt": "${{ github.run_attempt }}",
-            "commitSha": "${{ github.sha }}",
-            "discoveryExitCode": "${{ steps.discovery.outputs.exitCode }}",
-            "completedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          }
-          EOF
+        acceptedCandidates:
+          acceptedCandidateSelectors
+      },
 
-      - name: Prepare discovery knowledge for repository
-        if: steps.discovery.outputs.exitCode == '0'
-        shell: bash
-        run: |
-          TARGET_DIR="executions/${{ inputs.storyKey }}/discovery/${{ inputs.discoveryId }}"
+      accessibility: {
+        snapshot:
+          accessibilitySnapshot
+      },
 
-          mkdir -p "$TARGET_DIR"
+      artifacts: {
+        screenshot:
+          'homepage.png',
 
-          cp application-discovery/application-discovery.json \
-            "$TARGET_DIR/application-discovery.json"
+        discoveryJson:
+          'application-discovery.json',
 
-          cp application-discovery/selector-library.json \
-            "$TARGET_DIR/selector-library.json"
+        selectorLibrary:
+          'selector-library.json'
+      },
 
-          cp application-discovery/discovery-metadata.json \
-            "$TARGET_DIR/discovery-metadata.json"
+      github: {
+        workflowRunId,
+        workflowRunAttempt,
+        commitSha
+      }
+    };
 
-          echo "Prepared repository knowledge files:"
-          find "$TARGET_DIR" -maxdepth 1 -type f -print
+    fs.writeFileSync(
+      'application-discovery.json',
+      JSON.stringify(
+        discoveryResult,
+        null,
+        2
+      )
+    );
 
-      - name: Commit discovery knowledge
-        if: steps.discovery.outputs.exitCode == '0'
-        uses: stefanzweifel/git-auto-commit-action@v6
-        with:
-          commit_message: Add application discovery knowledge for ${{ inputs.storyKey }} - ${{ inputs.discoveryId }}
-          file_pattern: executions/${{ inputs.storyKey }}/discovery/${{ inputs.discoveryId }}/*.json
-          branch: ${{ inputs.branch }}
+    console.log(
+      JSON.stringify(
+        discoveryResult.summary,
+        null,
+        2
+      )
+    );
 
-      - name: Show discovery summary
-        if: always()
-        working-directory: application-discovery
-        shell: bash
-        run: |
-          echo "Application discovery result:"
-          cat application-discovery.json
+    await context.close();
+  } catch (error) {
+    const failedAt =
+      new Date().toISOString();
 
-      - name: Upload discovery artifacts
-        if: always()
-        uses: actions/upload-artifact@v6
-        with:
-          name: application-discovery-${{ inputs.storyKey }}-${{ inputs.discoveryId }}
-          path: |
-            application-discovery/application-discovery.json
-            application-discovery/selector-library.json
-            application-discovery/discovery-metadata.json
-            application-discovery/homepage.png
-          if-no-files-found: warn
-          retention-days: 14
+    const failureResult = {
+      schemaVersion: '1.1',
 
-      - name: Show Docker logs when discovery fails
-        if: steps.discovery.outputs.exitCode != '0'
-        shell: bash
-        run: |
-          docker compose \
-            -f practice-software-testing/docker-compose.prod.yml \
-            ps || true
+      storyKey,
+      executionId,
+      discoveryId,
 
-          docker compose \
-            -f practice-software-testing/docker-compose.prod.yml \
-            logs --tail=200 || true
+      application: {
+        name:
+          applicationName,
 
-      - name: Stop Practice Software Testing
-        if: always()
-        shell: bash
-        run: |
-          docker compose \
-            -f practice-software-testing/docker-compose.prod.yml \
-            down --volumes || true
+        requestedUrl:
+          targetUrl
+      },
+
+      discovery: {
+        scope:
+          discoveryScope,
+
+        status:
+          'FAILED',
+
+        startedAt,
+
+        completedAt:
+          failedAt
+      },
+
+      error: {
+        name:
+          error.name,
+
+        message:
+          error.message,
+
+        stack:
+          error.stack
+      },
+
+      github: {
+        workflowRunId,
+        workflowRunAttempt,
+        commitSha
+      }
+    };
+
+    fs.writeFileSync(
+      'application-discovery.json',
+      JSON.stringify(
+        failureResult,
+        null,
+        2
+      )
+    );
+
+    console.error(error);
+    process.exitCode = 1;
+  } finally {
+    if (browser) {
+      await browser.close();
+    }
+  }
+}
+
+runDiscovery();
