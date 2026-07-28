@@ -5,14 +5,14 @@
   "repaired": false,
   "repairAttempt": 0,
   "reviewStatus": "WARNING",
-  "qualityScore": 65,
+  "qualityScore": 7,
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 65,
-    "reason": "The Playwright tests are syntactically correct and should compile successfully. However, there are warnings related to selector quality and assertion strength. The use of ARIA roles such as 'grid' and 'griditem' is assumed without evidence, which may result in flaky tests. Assertions verifying product name and price use 'text=name' and 'text=price' which appear to be placeholders rather than concrete selectors. The navigation URL check is weak, using only a regex to check for '/product-detail' without ensuring the specific product detail page was loaded. No asynchronous assertions lack 'await', and Locator usage respects Playwright patterns."
+    "qualityScore": 7,
+    "reason": "The code is mostly correct and would compile, using Playwright APIs appropriately with correct awaits. The testCaseIds are preserved in titles and all GENERATED tests are present. However, selectors rely on assumed roles and generic elements without solid evidence. Navigation validation is weak and could cause false positives. Assertions and locator usage are proper. No hard-coded waits or placeholder URLs are present."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-28T09:52:00.795Z"
+  "createdAt": "2026-07-28T09:55:49.534Z"
 }
