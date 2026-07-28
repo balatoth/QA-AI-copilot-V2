@@ -25,26 +25,25 @@
   "scope": "PLAYWRIGHT_GENERATION",
   "repaired": false,
   "repairAttempt": 0,
-  "generatedTestCount": 3,
-  "skippedTestCount": 0,
+  "generatedTestCount": 1,
+  "skippedTestCount": 2,
   "generatedTestCases": [
     {
       "testCaseId": "TC-001",
       "status": "GENERATED",
       "filePath": "playwright/product-overview.spec.ts"
-    },
+    }
+  ],
+  "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "status": "GENERATED",
-      "filePath": "playwright/product-overview.spec.ts"
+      "reason": "Missing verified evidence for product image, name, or price."
     },
     {
       "testCaseId": "TC-003",
-      "status": "GENERATED",
-      "filePath": "playwright/product-overview.spec.ts"
+      "reason": "Navigation behavior to product detail page not verified."
     }
   ],
-  "skippedTestCases": [],
   "generatedFiles": [
     "playwright/product-overview.spec.ts"
   ],
@@ -54,10 +53,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "PASS",
+    "status": "WARNING",
     "passed": true,
-    "qualityScore": 9,
-    "reason": "The Playwright tests compile and use Playwright APIs correctly. All generated test cases are present and include proper asynchronous awaits for assertions. Selectors are specific and consistent, using data-test attributes which is a good practice. The navigation check uses a regex to verify URL change which is acceptable, though it could be more precise. Test titles preserve testCaseIds. There are no hard-coded waits or unnecessary objects. Overall, the tests are executable and maintainable with strong selectors and assertions."
+    "qualityScore": 70,
+    "reason": "The test compiles and uses Playwright APIs correctly but lacks await on the assertion, and the selector is very specific, possibly brittle. The test title does not preserve the testCaseId as required. The test assertion uses a numeric count, which is assertive but could be improved with more meaningful assertions. No navigation or detailed element verification is performed."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -70,5 +69,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-07-28T15:09:34.436Z"
+  "createdAt": "2026-07-28T19:45:36.500Z"
 }
