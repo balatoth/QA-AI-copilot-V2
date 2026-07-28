@@ -1,7 +1,24 @@
 {
   "storyKey": "MP-1",
-  "storyTitle": "Product Overview",
-  "application": "Practice Software Testing",
+  "application": {
+    "applicationId": "practice-software-testing",
+    "applicationName": "Practice Software Testing",
+    "environmentId": "hosted-sprint-1",
+    "environmentName": "Hosted Sprint 1",
+    "environmentType": "TEST",
+    "deploymentType": "HOSTED",
+    "ui": {
+      "baseUrl": "https://v1.practicesoftwaretesting.com"
+    },
+    "api": {
+      "baseUrl": "https://api-v1.practicesoftwaretesting.com",
+      "openApiSpec": "https://api-v1.practicesoftwaretesting.com/docs?api-docs",
+      "type": "REST"
+    },
+    "authentication": {
+      "type": "NONE"
+    }
+  },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
@@ -39,15 +56,19 @@
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 7,
-    "reason": "The code is mostly correct and would compile, using Playwright APIs appropriately with correct awaits. The testCaseIds are preserved in titles and all GENERATED tests are present. However, selectors rely on assumed roles and generic elements without solid evidence. Navigation validation is weak and could cause false positives. Assertions and locator usage are proper. No hard-coded waits or placeholder URLs are present."
+    "qualityScore": 75,
+    "reason": "The Playwright tests are mostly correct and executable with proper async handling and valid TypeScript syntax. The selectors used to identify product cards appear fragile or guessed, dependent on data-test attributes like 'product-1' and 'product-<index>', which might not be stable. The navigation verification in TC-003 assumes a URL pattern without additional checks. Test case IDs are preserved in titles, and all GENERATED test cases are covered. Some improvements to selector robustness and navigation validation are recommended."
   },
   "sourceContext": {
-    "manualTestCasesPath": "testcases/MP-1/manual/manual-testcases.json",
-    "manualTestCasesSha": "8df65abce3d0853b0a533ab119214e25d4e662e2",
-    "analysisPath": "testcases/MP-1/test-analysis.json",
-    "analysisSha": "3203407844b2857ce036970a80368f62e533b576",
-    "manualTestCaseCount": 3
+    "manualTestCasesPath": null,
+    "manualTestCasesSha": null,
+    "analysisPath": "testcases/MP-1/analysis/story-metadata.json",
+    "analysisSha": null,
+    "selectorLibraryPath": null,
+    "selectorLibrarySha": null,
+    "manualTestCaseCount": 3,
+    "selectorCount": 33,
+    "testIdCount": 83
   },
-  "createdAt": "2026-07-28T09:55:49.534Z"
+  "createdAt": "2026-07-28T10:02:56.365Z"
 }
