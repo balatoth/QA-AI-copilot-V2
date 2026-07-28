@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-1",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-07-27T17:08:26.596Z",
+  "generatedAt": "2026-07-28T08:52:22.274Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -12,9 +12,9 @@
   "warnings": [],
   "testCases": [
     {
-      "testCaseId": "TC-MP1-SC001-Positive-001",
+      "testCaseId": "TC-MP1-001",
       "scenarioId": "SC-001",
-      "title": "Retrieve all products displays a grid of product cards",
+      "title": "Retrieve all products to verify product grid display",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -25,14 +25,14 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response is an array",
-        "each item contains product image, name, price fields as per ProductResponse schema"
+        "Response body is an array",
+        "Each item in the array conforms to ProductResponse schema"
       ],
       "contractChecks": [
-        "200 response with application/json content type",
-        "Array conforms to ProductResponse schema"
+        "Response content-type is application/json",
+        "Response headers include Cache-Control and ETag"
       ],
-      "notes": "This test confirms that GET /products returns all products suitable to render the product cards grid as per SC-001."
+      "notes": "This test verifies that the GET /products call returns a list of products as required to display the product overview grid with product images, names, and prices."
     }
   ]
 }
