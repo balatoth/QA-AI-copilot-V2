@@ -54,10 +54,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "WARNING",
+    "status": "PASS",
     "passed": true,
-    "qualityScore": 85,
-    "reason": "The tests are valid TypeScript and use Playwright APIs correctly, with proper await on assertions. Each testCaseId is preserved in the test titles, and test cases correspond to those generated. However, some selectors are weak and may be fragile, and the navigation URL check is too generic and does not strongly validate the correct product detail page. There is also repeated direct locator creation without reuse, reducing maintainability and reusability."
+    "qualityScore": 9,
+    "reason": "The Playwright tests compile and use Playwright APIs correctly. All generated test cases are present and include proper asynchronous awaits for assertions. Selectors are specific and consistent, using data-test attributes which is a good practice. The navigation check uses a regex to verify URL change which is acceptable, though it could be more precise. Test titles preserve testCaseIds. There are no hard-coded waits or unnecessary objects. Overall, the tests are executable and maintainable with strong selectors and assertions."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -70,5 +70,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-07-28T10:43:18.786Z"
+  "createdAt": "2026-07-28T15:09:34.436Z"
 }
