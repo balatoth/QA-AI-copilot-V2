@@ -5,14 +5,14 @@
   "repaired": false,
   "repairAttempt": 0,
   "reviewStatus": "WARNING",
-  "qualityScore": 7,
+  "qualityScore": 85,
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 7,
-    "reason": "The Playwright test artifact is syntactically correct and runnable, with preserved test case IDs and appropriate use of Playwright APIs and assertions. However, there are some concerns around selector robustness and navigation verification that reduce the overall score."
+    "qualityScore": 85,
+    "reason": "The tests are valid TypeScript and use Playwright APIs correctly, with proper await on assertions. Each testCaseId is preserved in the test titles, and test cases correspond to those generated. However, some selectors are weak and may be fragile, and the navigation URL check is too generic and does not strongly validate the correct product detail page. There is also repeated direct locator creation without reuse, reducing maintainability and reusability."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-28T10:08:40.346Z"
+  "createdAt": "2026-07-28T10:43:18.786Z"
 }
