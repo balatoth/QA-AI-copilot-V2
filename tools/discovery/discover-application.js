@@ -21,14 +21,15 @@ const cleanText = (value) =>
 const uniqueStrings = (values) =>
   [...new Set(values.filter(Boolean))];
 
+const escapeSelectorValue = (value) =>
+  String(value || '')
+    .replace(/\\/g, '\\\\')
+    .replace(/"/g, '\\"');
+
 async function runDiscovery() {
   let browser;
 
   try {
-    if (!targetUrl) {
-      throw new Error('TARGET_URL is required.');
-    }
-
     browser = await chromium.launch({
       headless: true
     });
@@ -42,92 +43,22 @@ async function runDiscovery() {
 
     const page = await context.newPage();
 
-    page.on('console', (message) => {
-      console.log(
-        `[Browser console ${message.type()}] ${message.text()}`
-      );
-    });
-
-    page.on('pageerror', (error) => {
-      console.log(
-        `[Browser page error] ${error.message}`
-      );
-    });
-
-    page.on('requestfailed', (request) => {
-      console.log(
-        `[Request failed] ${request.method()} ${request.url()} - ` +
-        `${request.failure()?.errorText || 'Unknown error'}`
-      );
-    });
-
-    page.on('response', (response) => {
-      if (response.status() >= 400) {
-        console.log(
-          `[HTTP ${response.status()}] ` +
-          `${response.request().method()} ${response.url()}`
-        );
-      }
-    });
-
-    console.log(`Opening discovery target: ${targetUrl}`);
-
     await page.goto(targetUrl, {
       waitUntil: 'domcontentloaded',
       timeout: 60000
     });
 
-    await page.waitForLoadState('networkidle', {
-      timeout: 30000
-    }).catch(() => {
-      console.log(
-        'Network did not become idle before timeout. Continuing discovery.'
-      );
-    });
-
-    /*
-     * Wait for meaningful visible page content.
-     *
-     * This is deliberately application-agnostic. Product cards are optional:
-     * a sprint may expose only API capability, a form, a dashboard, or another
-     * UI structure.
-     */
-    console.log('Waiting for meaningful page content...');
-
-    await page.waitForFunction(() => {
-      const bodyText = document.body?.innerText?.replace(/\s+/g, ' ').trim() || '';
-
-      const meaningfulElements = [
-        ...document.querySelectorAll(
-          'main, [role="main"], h1, h2, h3, a[href], button, input, ' +
-          'select, textarea, table, [role="grid"], [data-testid], ' +
-          '[data-test], [data-cy], img'
-        )
-      ].filter((element) => {
-        const style = window.getComputedStyle(element);
-        const rect = element.getBoundingClientRect();
-
-        return (
-          style.display !== 'none' &&
-          style.visibility !== 'hidden' &&
-          Number(style.opacity) !== 0 &&
-          rect.width > 0 &&
-          rect.height > 0
+    await page
+      .waitForLoadState('networkidle', {
+        timeout: 30000
+      })
+      .catch(() => {
+        console.log(
+          'Network did not become idle before timeout. Continuing discovery.'
         );
       });
 
-      return bodyText.length > 20 || meaningfulElements.length > 0;
-    }, {
-      timeout: 30000
-    });
-
-    console.log('Meaningful page content detected.');
-
-    /*
-     * Give late-rendering client-side applications a small stability window.
-     * This is not tied to a specific framework or CSS class.
-     */
-    await page.waitForTimeout(1500);
+    await page.waitForTimeout(3000);
 
     await page.screenshot({
       path: 'homepage.png',
@@ -140,8 +71,13 @@ async function runDiscovery() {
           .replace(/\s+/g, ' ')
           .trim();
 
+      const escapeSelectorValue = (value) =>
+        String(value || '')
+          .replace(/\\/g, '\\\\')
+          .replace(/"/g, '\\"');
+
       const isVisible = (element) => {
-        if (!element) {
+        if (!(element instanceof Element)) {
           return false;
         }
 
@@ -167,44 +103,52 @@ async function runDiscovery() {
         return attributes;
       };
 
-      const getTestAttribute = (element) => {
+      const getTestIdentifier = (element) => {
         if (element.hasAttribute('data-testid')) {
           return {
-            name: 'data-testid',
+            attribute: 'data-testid',
             value: element.getAttribute('data-testid')
           };
         }
 
         if (element.hasAttribute('data-test')) {
           return {
-            name: 'data-test',
+            attribute: 'data-test',
             value: element.getAttribute('data-test')
           };
         }
 
         if (element.hasAttribute('data-cy')) {
           return {
-            name: 'data-cy',
+            attribute: 'data-cy',
             value: element.getAttribute('data-cy')
           };
         }
 
         return {
-          name: null,
+          attribute: null,
           value: null
         };
       };
 
+      const buildAttributeSelector = (attribute, value) => {
+        if (!attribute || !value) {
+          return null;
+        }
+
+        return `[${attribute}="${escapeSelectorValue(value)}"]`;
+      };
+
       const getElementSummary = (element) => {
-        const testAttribute = getTestAttribute(element);
+        const testIdentifier = getTestIdentifier(element);
 
         return {
           tagName: element.tagName.toLowerCase(),
 
           text: normalizeText(
             element.innerText ||
-            element.textContent ||
-            ''
+              element.textContent ||
+              ''
           ),
 
           id: element.id || null,
@@ -221,11 +165,15 @@ async function runDiscovery() {
           ariaLabelledBy:
             element.getAttribute('aria-labelledby'),
 
-          testAttributeName:
-            testAttribute.name,
+          dataTestId: testIdentifier.value,
 
-          dataTestId:
-            testAttribute.value,
+          dataTestAttribute:
+            testIdentifier.attribute,
+
+          testIdSelector: buildAttributeSelector(
+            testIdentifier.attribute,
+            testIdentifier.value
+          ),
 
           name: element.getAttribute('name'),
 
@@ -254,10 +202,11 @@ async function runDiscovery() {
       ];
 
       const testIdElements = allElements
-        .filter((element) =>
-          element.hasAttribute('data-testid') ||
-          element.hasAttribute('data-test') ||
-          element.hasAttribute('data-cy')
+        .filter(
+          (element) =>
+            element.hasAttribute('data-testid') ||
+            element.hasAttribute('data-test') ||
+            element.hasAttribute('data-cy')
         )
         .map(getElementSummary);
 
@@ -284,222 +233,311 @@ async function runDiscovery() {
       }));
 
       /*
-       * Discover product-like repeated records without depending on ".card".
+       * Semantic component discovery
        *
-       * Strategy order:
-       * 1. Stable product instance test IDs such as data-test="product-1".
-       * 2. Product-detail links such as #/product/1 or /product/1.
-       * 3. Visible .card containers as a compatibility fallback.
+       * Product cards in Practice Software Testing use root identifiers
+       * such as data-test="product-1", data-test="product-2", etc.
        *
-       * Child fields such as product-name and product-price are excluded as
-       * product roots. Each record is deduplicated by its strongest stable key.
+       * Each root is connected to its discovered child elements so that
+       * downstream Playwright generation does not need to infer DOM
+       * parent/child relationships with first(), nth(), or locator('..').
        */
-      const isProductInstanceTestId = (value) =>
-        /^product-(?:\d+|[a-z0-9][a-z0-9_-]*\d[a-z0-9_-]*)$/i.test(
-          String(value || '')
-        ) &&
-        ![
-          'product-name',
-          'product-price',
-          'product-image',
-          'product-description'
-        ].includes(String(value || '').toLowerCase());
+      const productComponents = [
+        ...document.querySelectorAll('[data-test^="product-"]')
+      ]
+        .filter((element) => {
+          const value =
+            element.getAttribute('data-test') || '';
 
-      const isProductHref = (href) =>
-        /(?:#\/|\/)products?\/[^/?#]+/i.test(String(href || ''));
+          return (
+            /^product-\d+$/.test(value) &&
+            isVisible(element)
+          );
+        })
+        .map((element) => {
+          const productTestId =
+            element.getAttribute('data-test');
 
-      const rootCandidates = [];
+          const rootSelector =
+            `[data-test="${escapeSelectorValue(
+              productTestId
+            )}"]`;
 
-      for (const element of allElements) {
-        if (!isVisible(element)) {
-          continue;
-        }
+          const nameElement =
+            element.querySelector(
+              '[data-test="product-name"]'
+            );
 
-        const testValue =
-          element.getAttribute('data-testid') ||
-          element.getAttribute('data-test') ||
-          element.getAttribute('data-cy');
+          const priceElement =
+            element.querySelector(
+              '[data-test="product-price"]'
+            );
 
-        const href =
-          element.matches('a[href]')
-            ? element.getAttribute('href')
-            : null;
+          const imageElement =
+            element.querySelector('img');
 
-        if (
-          isProductInstanceTestId(testValue) ||
-          isProductHref(href)
-        ) {
-          rootCandidates.push(element);
-        }
-      }
+          const categoryElement =
+            element.querySelector(
+              '[data-test="product-category"]'
+            );
 
-      if (rootCandidates.length === 0) {
-        for (const card of document.querySelectorAll('.card')) {
+          const brandElement =
+            element.querySelector(
+              '[data-test="product-brand"]'
+            );
+
+          const childComponents = {};
+
+          if (nameElement) {
+            childComponents.name = {
+              type: 'PRODUCT_NAME',
+
+              relationship: 'DESCENDANT_OF_ROOT',
+
+              selector:
+                '[data-test="product-name"]',
+
+              scopedSelector:
+                `${rootSelector} [data-test="product-name"]`,
+
+              tagName:
+                nameElement.tagName.toLowerCase(),
+
+              text: normalizeText(
+                nameElement.innerText ||
+                  nameElement.textContent ||
+                  ''
+              ),
+
+              visible: isVisible(nameElement)
+            };
+          }
+
+          if (priceElement) {
+            childComponents.price = {
+              type: 'PRODUCT_PRICE',
+
+              relationship: 'DESCENDANT_OF_ROOT',
+
+              selector:
+                '[data-test="product-price"]',
+
+              scopedSelector:
+                `${rootSelector} [data-test="product-price"]`,
+
+              tagName:
+                priceElement.tagName.toLowerCase(),
+
+              text: normalizeText(
+                priceElement.innerText ||
+                  priceElement.textContent ||
+                  ''
+              ),
+
+              visible: isVisible(priceElement)
+            };
+          }
+
+          if (imageElement) {
+            childComponents.image = {
+              type: 'PRODUCT_IMAGE',
+
+              relationship: 'DESCENDANT_OF_ROOT',
+
+              selector: 'img',
+
+              scopedSelector:
+                `${rootSelector} img`,
+
+              tagName: 'img',
+
+              alt:
+                imageElement.getAttribute('alt'),
+
+              src:
+                imageElement.getAttribute('src'),
+
+              visible: isVisible(imageElement)
+            };
+          }
+
+          if (categoryElement) {
+            childComponents.category = {
+              type: 'PRODUCT_CATEGORY',
+
+              relationship: 'DESCENDANT_OF_ROOT',
+
+              selector:
+                '[data-test="product-category"]',
+
+              scopedSelector:
+                `${rootSelector} [data-test="product-category"]`,
+
+              tagName:
+                categoryElement.tagName.toLowerCase(),
+
+              text: normalizeText(
+                categoryElement.innerText ||
+                  categoryElement.textContent ||
+                  ''
+              ),
+
+              visible: isVisible(categoryElement)
+            };
+          }
+
+          if (brandElement) {
+            childComponents.brand = {
+              type: 'PRODUCT_BRAND',
+
+              relationship: 'DESCENDANT_OF_ROOT',
+
+              selector:
+                '[data-test="product-brand"]',
+
+              scopedSelector:
+                `${rootSelector} [data-test="product-brand"]`,
+
+              tagName:
+                brandElement.tagName.toLowerCase(),
+
+              text: normalizeText(
+                brandElement.innerText ||
+                  brandElement.textContent ||
+                  ''
+              ),
+
+              visible: isVisible(brandElement)
+            };
+          }
+
+          const productName =
+            childComponents.name?.text ||
+            normalizeText(
+              element.innerText ||
+                element.textContent ||
+                ''
+            ) ||
+            productTestId;
+
+          const assertionCandidates = [
+            {
+              target: 'root',
+              assertion: 'toBeVisible',
+              selector: rootSelector
+            }
+          ];
+
+          if (childComponents.name) {
+            assertionCandidates.push({
+              target: 'name',
+              assertion: 'toBeVisible',
+              selector:
+                childComponents.name.scopedSelector
+            });
+
+            if (childComponents.name.text) {
+              assertionCandidates.push({
+                target: 'name',
+                assertion: 'toHaveText',
+                selector:
+                  childComponents.name.scopedSelector,
+                expectedValue:
+                  childComponents.name.text
+              });
+            }
+          }
+
+          if (childComponents.price) {
+            assertionCandidates.push({
+              target: 'price',
+              assertion: 'toBeVisible',
+              selector:
+                childComponents.price.scopedSelector
+            });
+
+            if (childComponents.price.text) {
+              assertionCandidates.push({
+                target: 'price',
+                assertion: 'toHaveText',
+                selector:
+                  childComponents.price.scopedSelector,
+                expectedValue:
+                  childComponents.price.text
+              });
+            }
+          }
+
           if (
-            isVisible(card) &&
-            !card.classList.contains('skeleton') &&
-            !card.closest('.skeleton')
+            childComponents.image &&
+            childComponents.image.alt
           ) {
-            rootCandidates.push(card);
-          }
-        }
-      }
-
-      const findProductContainer = (root) => {
-        let current = root;
-
-        for (let depth = 0; current && depth < 5; depth += 1) {
-          const hasName = Boolean(
-            current.querySelector(
-              '[data-testid*="name"], ' +
-              '[data-test*="name"], ' +
-              '[data-cy*="name"], ' +
-              '.card-title, h2, h3, h4'
-            )
-          );
-
-          const hasPrice = Boolean(
-            current.querySelector(
-              '[data-testid*="price"], ' +
-              '[data-test*="price"], ' +
-              '[data-cy*="price"], ' +
-              '.card-price, .price'
-            )
-          );
-
-          if (hasName && hasPrice) {
-            return current;
+            assertionCandidates.push({
+              target: 'image',
+              assertion: 'toHaveAttribute',
+              selector:
+                childComponents.image.scopedSelector,
+              attribute: 'alt',
+              expectedValue:
+                childComponents.image.alt
+            });
           }
 
-          current = current.parentElement;
-        }
+          return {
+            componentId: productTestId,
 
-        return root;
-      };
+            type: 'PRODUCT_CARD',
 
-      const seenProductKeys = new Set();
-      const productCards = [];
+            name: productName,
 
-      for (const root of rootCandidates) {
-        const container = findProductContainer(root);
+            root: {
+              selector: rootSelector,
 
-        const titleElement =
-          container.querySelector(
-            '[data-testid*="name"], ' +
-            '[data-test*="name"], ' +
-            '[data-cy*="name"], ' +
-            '.card-title, h2, h3, h4'
-          ) ||
-          (
-            root.matches(
-              '[data-testid*="name"], ' +
-              '[data-test*="name"], ' +
-              '[data-cy*="name"], ' +
-              '.card-title, h2, h3, h4'
-            )
-              ? root
-              : null
-          );
+              selectorStrategy: 'test-id',
 
-        const priceElement =
-          container.querySelector(
-            '[data-testid*="price"], ' +
-            '[data-test*="price"], ' +
-            '[data-cy*="price"], ' +
-            '.card-price, .price'
-          );
+              testIdAttribute: 'data-test',
 
-        const linkElement =
-          root.matches('a[href]')
-            ? root
-            : (
-                container.matches('a[href]')
-                  ? container
-                  : container.querySelector(
-                      'a[href*="/product/"], ' +
-                      'a[href*="/products/"], ' +
-                      'a[href*="#/product/"], ' +
-                      'a[href*="#/products/"]'
-                    )
-              );
+              testIdValue: productTestId,
 
-        const imageElement =
-          container.querySelector('img');
+              tagName:
+                element.tagName.toLowerCase(),
 
-        const rootTestAttribute = getTestAttribute(root);
-        const linkHref = linkElement?.getAttribute('href') || null;
-        const titleText = normalizeText(
-          titleElement?.innerText ||
-          titleElement?.textContent ||
-          root.innerText ||
-          root.textContent ||
-          ''
-        );
+              visible: isVisible(element),
 
-        const dedupeKey =
-          rootTestAttribute.value ||
-          linkHref ||
-          `${titleText}|${normalizeText(priceElement?.textContent || '')}`;
+              clickable: element.matches(
+                'a[href], button, [role="button"]'
+              ),
 
-        if (!dedupeKey || seenProductKeys.has(dedupeKey)) {
-          continue;
-        }
+              href:
+                element.getAttribute('href')
+            },
 
-        seenProductKeys.add(dedupeKey);
+            children: childComponents,
 
-        productCards.push({
-          index: productCards.length,
+            relationships: Object.keys(
+              childComponents
+            ).map((childName) => ({
+              parentComponentId: productTestId,
+              childName,
+              relationship: 'CONTAINS'
+            })),
 
-          discoveryStrategy:
-            isProductInstanceTestId(rootTestAttribute.value)
-              ? 'product-instance-test-id'
-              : (
-                  isProductHref(linkHref)
-                    ? 'product-link'
-                    : 'visible-card-fallback'
-                ),
-
-          container:
-            getElementSummary(container),
-
-          root:
-            getElementSummary(root),
-
-          title:
-            titleElement
-              ? getElementSummary(titleElement)
-              : null,
-
-          price:
-            priceElement
-              ? getElementSummary(priceElement)
-              : null,
-
-          link:
-            linkElement
-              ? getElementSummary(linkElement)
-              : null,
-
-          image:
-            imageElement
-              ? {
-                  ...getElementSummary(imageElement),
-                  alt:
-                    imageElement.getAttribute('alt'),
-                  src:
-                    imageElement.getAttribute('src')
-                }
-              : null
+            assertionCandidates
+          };
         });
-      }
 
       return {
         document: {
           title: document.title,
+
           url: window.location.href,
+
           origin: window.location.origin,
+
           pathname: window.location.pathname,
+
           hash: window.location.hash,
+
           language:
             document.documentElement.lang || null
         },
@@ -521,12 +559,7 @@ async function runDiscovery() {
         forms,
 
         landmarks: selectVisible(
-          'header, nav, main, aside, footer, ' +
-          '[role="banner"], ' +
-          '[role="navigation"], ' +
-          '[role="main"], ' +
-          '[role="complementary"], ' +
-          '[role="contentinfo"]'
+          'header, nav, main, aside, footer, [role="banner"], [role="navigation"], [role="main"], [role="complementary"], [role="contentinfo"]'
         ),
 
         images: selectVisible('img'),
@@ -543,28 +576,13 @@ async function runDiscovery() {
           'dialog, [role="dialog"], [role="alertdialog"]'
         ),
 
-        productCards,
-
         testIdElements,
 
-        explicitRoleElements: roleElements
+        explicitRoleElements: roleElements,
+
+        productComponents
       };
     });
-
-    console.log(
-      `Discovered product records: ${pageData.productCards.length}`
-    );
-
-    if (pageData.productCards.length > 0) {
-      console.log(
-        'First discovered product record:',
-        JSON.stringify(pageData.productCards[0], null, 2)
-      );
-    } else {
-      console.log(
-        'No product records were discovered. General page discovery will still be persisted.'
-      );
-    }
 
     let accessibilitySnapshot = null;
 
@@ -594,7 +612,7 @@ async function runDiscovery() {
     for (const element of pageData.testIdElements) {
       if (
         !element.dataTestId ||
-        !element.testAttributeName
+        !element.dataTestAttribute
       ) {
         continue;
       }
@@ -603,12 +621,14 @@ async function runDiscovery() {
         strategy: 'test-id',
 
         selector:
-          `[${element.testAttributeName}="${element.dataTestId}"]`,
+          `[${element.dataTestAttribute}="${escapeSelectorValue(
+            element.dataTestId
+          )}"]`,
 
         value: element.dataTestId,
 
-        testAttributeName:
-          element.testAttributeName,
+        attribute:
+          element.dataTestAttribute,
 
         tagName: element.tagName,
 
@@ -628,15 +648,16 @@ async function runDiscovery() {
           strategy: 'accessible-role',
 
           selector:
-            `getByRole('${button.role}', { name: '${cleanText(button.ariaLabel)}' })`,
+            `getByRole('${button.role}', { name: '${cleanText(
+              button.ariaLabel
+            )}' })`,
 
           role: button.role,
 
           accessibleName:
-            cleanText(button.ariaLabel),
+            button.ariaLabel,
 
-          tagName:
-            button.tagName,
+          tagName: button.tagName,
 
           confidence: 0.95
         });
@@ -649,15 +670,16 @@ async function runDiscovery() {
           strategy: 'button-name',
 
           selector:
-            `getByRole('button', { name: '${cleanText(button.text)}' })`,
+            `getByRole('button', { name: '${cleanText(
+              button.text
+            )}' })`,
 
           role: 'button',
 
           accessibleName:
             cleanText(button.text),
 
-          tagName:
-            button.tagName,
+          tagName: button.tagName,
 
           confidence: 0.9
         });
@@ -674,13 +696,14 @@ async function runDiscovery() {
           strategy: 'label',
 
           selector:
-            `getByLabel('${cleanText(input.ariaLabel)}')`,
+            `getByLabel('${cleanText(
+              input.ariaLabel
+            )}')`,
 
           accessibleName:
             cleanText(input.ariaLabel),
 
-          tagName:
-            input.tagName,
+          tagName: input.tagName,
 
           confidence: 0.95
         });
@@ -693,94 +716,32 @@ async function runDiscovery() {
           strategy: 'placeholder',
 
           selector:
-            `getByPlaceholder('${cleanText(input.placeholder)}')`,
+            `getByPlaceholder('${cleanText(
+              input.placeholder
+            )}')`,
 
           placeholder:
             cleanText(input.placeholder),
 
-          tagName:
-            input.tagName,
+          tagName: input.tagName,
 
           confidence: 0.85
         });
       }
     }
 
-    /*
-     * Add grounded product selectors derived from the discovered DOM.
-     */
-    for (const product of pageData.productCards) {
-      const root = product.root || product.container;
-
-      if (
-        root?.dataTestId &&
-        root?.testAttributeName
-      ) {
-        candidateSelectors.push({
-          strategy: 'product-root-test-id',
-
-          selector:
-            `[${root.testAttributeName}="${root.dataTestId}"]`,
-
-          value:
-            root.dataTestId,
-
-          tagName:
-            root.tagName,
-
-          text:
-            product.title?.text || root.text || null,
-
-          confidence: 1
-        });
-      } else if (product.link?.href) {
-        candidateSelectors.push({
-          strategy: 'product-link',
-
-          selector:
-            `a[href="${product.link.href}"]`,
-
-          value:
-            product.link.href,
-
-          tagName:
-            product.link.tagName,
-
-          text:
-            product.title?.text || product.link.text || null,
-
-          confidence: 0.95
-        });
-      }
-    }
-
-    /*
-     * Deduplicate selectors while preserving the highest-confidence record.
-     */
-    const selectorMap = new Map();
-
-    for (const candidate of candidateSelectors) {
-      const existing = selectorMap.get(candidate.selector);
-
-      if (
-        !existing ||
-        candidate.confidence > existing.confidence
-      ) {
-        selectorMap.set(candidate.selector, candidate);
-      }
-    }
-
-    const uniqueCandidateSelectors = [
-      ...selectorMap.values()
-    ];
-
     const completedAt = new Date().toISOString();
 
-    const highConfidenceSelectors =
-      uniqueCandidateSelectors.filter(
+    const acceptedCandidateSelectors =
+      candidateSelectors.filter(
         (candidate) =>
           candidate.confidence >= 0.85
       );
+
+    const productComponents =
+      Array.isArray(pageData.productComponents)
+        ? pageData.productComponents
+        : [];
 
     const selectorLibrary = {
       schemaVersion: '1.1',
@@ -791,53 +752,64 @@ async function runDiscovery() {
 
       application: {
         name: applicationName,
-        pageTitle: pageData.document.title,
-        pageUrl: pageData.document.url
+
+        pageTitle:
+          pageData.document.title,
+
+        pageUrl:
+          pageData.document.url
       },
 
       generatedAt: completedAt,
 
-      selectors: highConfidenceSelectors.map((candidate) => ({
-        name:
-          candidate.value ||
-          candidate.accessibleName ||
-          candidate.placeholder ||
-          candidate.selector,
+      selectors: acceptedCandidateSelectors.map(
+        (candidate) => ({
+          name:
+            candidate.value ||
+            candidate.accessibleName ||
+            candidate.placeholder ||
+            candidate.selector,
 
-        strategy:
-          candidate.strategy,
+          strategy:
+            candidate.strategy,
 
-        selector:
-          candidate.selector,
+          selector:
+            candidate.selector,
 
-        tagName:
-          candidate.tagName || null,
+          attribute:
+            candidate.attribute || null,
 
-        text:
-          candidate.text || null,
+          tagName:
+            candidate.tagName || null,
 
-        accessibleName:
-          candidate.accessibleName || null,
+          text:
+            candidate.text || null,
 
-        confidence:
-          candidate.confidence
-      })),
+          accessibleName:
+            candidate.accessibleName || null,
+
+          confidence:
+            candidate.confidence
+        })
+      ),
 
       testIds: pageData.testIdElements
         .filter(
           (element) =>
             element.dataTestId &&
-            element.testAttributeName
+            element.dataTestAttribute
         )
         .map((element) => ({
           name:
             element.dataTestId,
 
           attribute:
-            element.testAttributeName,
+            element.dataTestAttribute,
 
           selector:
-            `[${element.testAttributeName}="${element.dataTestId}"]`,
+            `[${element.dataTestAttribute}="${escapeSelectorValue(
+              element.dataTestId
+            )}"]`,
 
           tagName:
             element.tagName,
@@ -852,59 +824,53 @@ async function runDiscovery() {
             element.visible
         })),
 
-      products: pageData.productCards.map((product) => ({
-        index:
-          product.index,
+      components: productComponents,
 
-        discoveryStrategy:
-          product.discoveryStrategy,
+      componentTypes: {
+        PRODUCT_CARD: {
+          count:
+            productComponents.length,
 
-        name:
-          product.title?.text ||
-          product.root?.text ||
-          null,
+          relationshipModel:
+            'ROOT_WITH_SCOPED_CHILDREN',
 
-        price:
-          product.price?.text || null,
-
-        href:
-          product.link?.href || null,
-
-        imageAlt:
-          product.image?.alt || null,
-
-        rootSelector:
-          (
-            product.root?.dataTestId &&
-            product.root?.testAttributeName
+          availableChildren: uniqueStrings(
+            productComponents.flatMap(
+              (component) =>
+                Object.keys(
+                  component.children || {}
+                )
+            )
           )
-            ? `[${product.root.testAttributeName}="${product.root.dataTestId}"]`
-            : (
-                product.link?.href
-                  ? `a[href="${product.link.href}"]`
-                  : null
-              )
-      })),
+        }
+      },
 
       summary: {
         selectorCount:
-          highConfidenceSelectors.length,
+          acceptedCandidateSelectors.length,
 
         testIdSelectorCount:
           pageData.testIdElements.filter(
             (element) =>
               element.dataTestId &&
-              element.testAttributeName
+              element.dataTestAttribute
           ).length,
 
-        productSelectorCount:
-          pageData.productCards.length
+        componentCount:
+          productComponents.length,
+
+        productCardCount:
+          productComponents.length
       }
     };
 
     fs.writeFileSync(
       'selector-library.json',
-      JSON.stringify(selectorLibrary, null, 2)
+      JSON.stringify(
+        selectorLibrary,
+        null,
+        2
+      )
     );
 
     const discoveryResult = {
@@ -916,20 +882,27 @@ async function runDiscovery() {
 
       application: {
         name: applicationName,
-        requestedUrl: targetUrl,
+
+        requestedUrl:
+          targetUrl,
+
         discoveredUrl:
           pageData.document.url
       },
 
       discovery: {
-        scope: discoveryScope,
-        status: 'COMPLETED',
+        scope:
+          discoveryScope,
+
+        status:
+          'COMPLETED',
+
         startedAt,
+
         completedAt
       },
 
-      page:
-        pageData.document,
+      page: pageData.document,
 
       summary: {
         headingCount:
@@ -962,9 +935,6 @@ async function runDiscovery() {
         dialogCount:
           pageData.dialogs.length,
 
-        productCardCount:
-          pageData.productCards.length,
-
         dataTestIdCount:
           dataTestIds.length,
 
@@ -972,7 +942,16 @@ async function runDiscovery() {
           explicitRoles.length,
 
         candidateSelectorCount:
-          uniqueCandidateSelectors.length
+          candidateSelectors.length,
+
+        acceptedSelectorCount:
+          acceptedCandidateSelectors.length,
+
+        componentCount:
+          productComponents.length,
+
+        productCardCount:
+          productComponents.length
       },
 
       elements: {
@@ -1004,17 +983,24 @@ async function runDiscovery() {
           pageData.lists,
 
         dialogs:
-          pageData.dialogs,
+          pageData.dialogs
+      },
 
+      components: {
         productCards:
-          pageData.productCards
+          productComponents
       },
 
       selectorDiscovery: {
         dataTestIds,
+
         explicitRoles,
+
         candidates:
-          uniqueCandidateSelectors
+          candidateSelectors,
+
+        acceptedCandidates:
+          acceptedCandidateSelectors
       },
 
       accessibility: {
@@ -1042,7 +1028,11 @@ async function runDiscovery() {
 
     fs.writeFileSync(
       'application-discovery.json',
-      JSON.stringify(discoveryResult, null, 2)
+      JSON.stringify(
+        discoveryResult,
+        null,
+        2
+      )
     );
 
     console.log(
@@ -1055,7 +1045,8 @@ async function runDiscovery() {
 
     await context.close();
   } catch (error) {
-    const failedAt = new Date().toISOString();
+    const failedAt =
+      new Date().toISOString();
 
     const failureResult = {
       schemaVersion: '1.1',
@@ -1065,21 +1056,35 @@ async function runDiscovery() {
       discoveryId,
 
       application: {
-        name: applicationName,
-        requestedUrl: targetUrl
+        name:
+          applicationName,
+
+        requestedUrl:
+          targetUrl
       },
 
       discovery: {
-        scope: discoveryScope,
-        status: 'FAILED',
+        scope:
+          discoveryScope,
+
+        status:
+          'FAILED',
+
         startedAt,
-        completedAt: failedAt
+
+        completedAt:
+          failedAt
       },
 
       error: {
-        name: error.name,
-        message: error.message,
-        stack: error.stack
+        name:
+          error.name,
+
+        message:
+          error.message,
+
+        stack:
+          error.stack
       },
 
       github: {
@@ -1091,7 +1096,11 @@ async function runDiscovery() {
 
     fs.writeFileSync(
       'application-discovery.json',
-      JSON.stringify(failureResult, null, 2)
+      JSON.stringify(
+        failureResult,
+        null,
+        2
+      )
     );
 
     console.error(error);
