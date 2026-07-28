@@ -56,8 +56,8 @@
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 75,
-    "reason": "The Playwright tests are mostly correct and executable with proper async handling and valid TypeScript syntax. The selectors used to identify product cards appear fragile or guessed, dependent on data-test attributes like 'product-1' and 'product-<index>', which might not be stable. The navigation verification in TC-003 assumes a URL pattern without additional checks. Test case IDs are preserved in titles, and all GENERATED test cases are covered. Some improvements to selector robustness and navigation validation are recommended."
+    "qualityScore": 7,
+    "reason": "The Playwright test artifact is syntactically correct and runnable, with preserved test case IDs and appropriate use of Playwright APIs and assertions. However, there are some concerns around selector robustness and navigation verification that reduce the overall score."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -70,5 +70,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-07-28T10:02:56.365Z"
+  "createdAt": "2026-07-28T10:08:40.346Z"
 }
