@@ -2,17 +2,17 @@
   "storyKey": "MP-1",
   "artifactType": "playwright",
   "generatorVersion": "v0.4.7.1",
-  "repaired": true,
-  "repairAttempt": 1,
-  "reviewStatus": "PASS",
-  "qualityScore": 90,
+  "repaired": false,
+  "repairAttempt": 0,
+  "reviewStatus": "WARNING",
+  "qualityScore": 65,
   "qualityGate": {
-    "status": "PASS",
+    "status": "WARNING",
     "passed": true,
-    "qualityScore": 90,
-    "reason": "The repaired Playwright TypeScript test file compiles and uses Playwright APIs correctly. All test cases with their IDs are present and correctly named. Locators are used properly without direct iteration. Await is used correctly with asynchronous assertions. Selectors use data-testid attributes which are stable and specific. Minor improvements could be made in reusability and maintainability by extracting common locators or URLs, but overall the code is clean and functional."
+    "qualityScore": 65,
+    "reason": "The Playwright tests are syntactically correct and should compile successfully. However, there are warnings related to selector quality and assertion strength. The use of ARIA roles such as 'grid' and 'griditem' is assumed without evidence, which may result in flaky tests. Assertions verifying product name and price use 'text=name' and 'text=price' which appear to be placeholders rather than concrete selectors. The navigation URL check is weak, using only a regex to check for '/product-detail' without ensuring the specific product detail page was loaded. No asynchronous assertions lack 'await', and Locator usage respects Playwright patterns."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-17T15:13:06.912Z"
+  "createdAt": "2026-07-28T09:52:00.795Z"
 }
