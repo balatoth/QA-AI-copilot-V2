@@ -19,17 +19,22 @@
       "type": "NONE"
     }
   },
-  "manualReviewRequired": true,
-  "finalStatus": "MANUAL_REVIEW_REQUIRED",
-  "status": "MANUAL_REVIEW_REQUIRED",
+  "manualReviewRequired": false,
+  "finalStatus": "COMPLETED",
+  "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": true,
-  "repairAttempt": 1,
-  "generatedTestCount": 1,
-  "skippedTestCount": 2,
+  "repaired": false,
+  "repairAttempt": 0,
+  "generatedTestCount": 2,
+  "skippedTestCount": 1,
   "generatedTestCases": [
     {
       "testCaseId": "TC-001",
+      "status": "GENERATED",
+      "filePath": "playwright/product-overview.spec.ts"
+    },
+    {
+      "testCaseId": "TC-003",
       "status": "GENERATED",
       "filePath": "playwright/product-overview.spec.ts"
     }
@@ -37,26 +42,22 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing verified evidence required for safe automation"
-    },
-    {
-      "testCaseId": "TC-003",
-      "reason": "Missing verified evidence required for safe automation"
+      "reason": "Missing verified evidence for checking product image visibility and confirmation of price display."
     }
   ],
   "generatedFiles": [
     "playwright/product-overview.spec.ts"
   ],
-  "persistedGeneratedFiles": [],
-  "blockedGeneratedFiles": [
+  "persistedGeneratedFiles": [
     "playwright/product-overview.spec.ts"
   ],
+  "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "FAIL",
-    "passed": false,
-    "qualityScore": 40,
-    "reason": "The test contains a syntax error in the locator selector string and incorrectly treats Locator as an array for iteration, which will cause runtime errors and test failure."
+    "status": "WARNING",
+    "passed": true,
+    "qualityScore": 80,
+    "reason": "The TypeScript compiles and Playwright APIs are used correctly. However, the selector '[data-test=\"product-1\"]' appears hardcoded for a single product, limiting test scalability. The navigation URL assertion is a regex match for '/product/' but does not confirm a specific product detail page. The test titles do not include the corresponding test case IDs, which reduces traceability. Overall, tests are functional but would benefit from stronger navigation validation and improved test title naming. No critical failures found."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +70,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-07-29T06:14:00.244Z"
+  "createdAt": "2026-07-29T15:51:29.182Z"
 }
