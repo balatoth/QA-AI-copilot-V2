@@ -4,15 +4,15 @@
   "generatorVersion": "v0.4.7.1",
   "repaired": true,
   "repairAttempt": 1,
-  "reviewStatus": "PASS",
-  "qualityScore": 90,
+  "reviewStatus": "FAIL",
+  "qualityScore": 40,
   "qualityGate": {
-    "status": "PASS",
-    "passed": true,
-    "qualityScore": 90,
-    "reason": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes awaited asynchronous assertions. The selectors are specific data-test attributes, which are robust and maintainable. The test case ID TC-001 is present in the test title. The repair addressed critical defects and the code is executable and maintainable."
+    "status": "FAIL",
+    "passed": false,
+    "qualityScore": 40,
+    "reason": "The test file contains a syntax error due to a missing closing parenthesis and semicolon, causing TypeScript compilation failure."
   },
-  "manualReviewRequired": false,
-  "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-29T15:55:54.908Z"
+  "manualReviewRequired": true,
+  "finalStatus": "MANUAL_REVIEW_REQUIRED",
+  "createdAt": "2026-07-29T19:17:11.166Z"
 }
