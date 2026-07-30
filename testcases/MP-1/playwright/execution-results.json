@@ -2,9 +2,9 @@
   "schemaVersion": "0.1.0",
   "artifactType": "PLAYWRIGHT_EXECUTION_RESULTS",
   "storyKey": "MP-1",
-  "executionId": "MP-SPRINT-20260730195508",
+  "executionId": "MP-SPRINT-20260730201025",
   "executionType": "PLAYWRIGHT",
-  "status": "FAILED",
+  "status": "COMPLETED",
   "repository": {
     "owner": "balatoth",
     "name": "QA-AI-copilot-V2",
@@ -16,18 +16,18 @@
     "metadataPath": "playwright-execution/execution-metadata.json"
   },
   "githubActions": {
-    "workflowRunId": "30576938719",
+    "workflowRunId": "30578048287",
     "workflowRunAttempt": "1",
-    "commitSha": "be5cc86c613d3bfab0a957efb310f3ed556b776b",
-    "playwrightExitCode": 1
+    "commitSha": "779b32e0f186623f0542ba26f2d7d04fe66faaae",
+    "playwrightExitCode": 0
   },
   "summary": {
-    "expected": 0,
-    "passed": 0,
-    "failed": 1,
+    "expected": 1,
+    "passed": 1,
+    "failed": 0,
     "skipped": 0,
     "flaky": 0,
-    "durationMs": 9472.188
+    "durationMs": 4212.111
   },
   "errors": [],
   "rawResults": {
@@ -51,24 +51,24 @@
       "maxFailures": 0,
       "metadata": {
         "ci": {
-          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/be5cc86c613d3bfab0a957efb310f3ed556b776b",
-          "commitHash": "be5cc86c613d3bfab0a957efb310f3ed556b776b",
-          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30576938719"
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/779b32e0f186623f0542ba26f2d7d04fe66faaae",
+          "commitHash": "779b32e0f186623f0542ba26f2d7d04fe66faaae",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30578048287"
         },
         "gitCommit": {
-          "shortHash": "be5cc86",
-          "hash": "be5cc86c613d3bfab0a957efb310f3ed556b776b",
+          "shortHash": "779b32e",
+          "hash": "779b32e0f186623f0542ba26f2d7d04fe66faaae",
           "subject": "Update execution-results.json for MP-1",
           "body": "Update execution-results.json for MP-1",
           "author": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785441343000
+            "time": 1785442257000
           },
           "committer": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785441343000
+            "time": 1785442257000
           },
           "branch": "main"
         },
@@ -82,24 +82,24 @@
           "retries": 0,
           "metadata": {
             "ci": {
-              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/be5cc86c613d3bfab0a957efb310f3ed556b776b",
-              "commitHash": "be5cc86c613d3bfab0a957efb310f3ed556b776b",
-              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30576938719"
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/779b32e0f186623f0542ba26f2d7d04fe66faaae",
+              "commitHash": "779b32e0f186623f0542ba26f2d7d04fe66faaae",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30578048287"
             },
             "gitCommit": {
-              "shortHash": "be5cc86",
-              "hash": "be5cc86c613d3bfab0a957efb310f3ed556b776b",
+              "shortHash": "779b32e",
+              "hash": "779b32e0f186623f0542ba26f2d7d04fe66faaae",
               "subject": "Update execution-results.json for MP-1",
               "body": "Update execution-results.json for MP-1",
               "author": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785441343000
+                "time": 1785442257000
               },
               "committer": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785441343000
+                "time": 1785442257000
               },
               "branch": "main"
             },
@@ -149,7 +149,7 @@
         "specs": [
           {
             "title": "Display of Product Cards on Home Page",
-            "ok": false,
+            "ok": true,
             "tags": [],
             "tests": [
               {
@@ -162,58 +162,18 @@
                   {
                     "workerIndex": 0,
                     "parallelIndex": 0,
-                    "status": "failed",
-                    "duration": 7308,
-                    "error": {
-                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test=\"product-card\"]').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"product-card\"]').first()\u001b[22m\n",
-                      "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test=\"product-card\"]').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"product-card\"]').first()\u001b[22m\n\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:7:37",
-                      "location": {
-                        "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
-                        "column": 37,
-                        "line": 7
-                      },
-                      "snippet": "\u001b[0m \u001b[90m 5 |\u001b[39m   \u001b[90m// Use a stable and verified selector for product cards container\u001b[39m\n \u001b[90m 6 |\u001b[39m   \u001b[36mconst\u001b[39m productGrid \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-test=\"product-card\"]'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 7 |\u001b[39m   \u001b[36mawait\u001b[39m expect(productGrid\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 8 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                    },
-                    "errors": [
-                      {
-                        "location": {
-                          "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
-                          "column": 37,
-                          "line": 7
-                        },
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test=\"product-card\"]').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"product-card\"]').first()\u001b[22m\n\n\n  5 |   // Use a stable and verified selector for product cards container\n  6 |   const productGrid = page.locator('[data-test=\"product-card\"]');\n> 7 |   await expect(productGrid.first()).toBeVisible();\n    |                                     ^\n  8 | });\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:7:37"
-                      }
-                    ],
+                    "status": "passed",
+                    "duration": 2515,
+                    "errors": [],
                     "stdout": [],
                     "stderr": [],
                     "retry": 0,
-                    "startTime": "2026-07-30T19:57:26.379Z",
+                    "startTime": "2026-07-30T20:12:32.907Z",
                     "annotations": [],
-                    "attachments": [
-                      {
-                        "name": "screenshot",
-                        "contentType": "image/png",
-                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Display-of-Product-Cards-on-Home-Page/test-failed-1.png"
-                      },
-                      {
-                        "name": "error-context",
-                        "contentType": "text/markdown",
-                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Display-of-Product-Cards-on-Home-Page/error-context.md"
-                      },
-                      {
-                        "name": "trace",
-                        "contentType": "application/zip",
-                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Display-of-Product-Cards-on-Home-Page/trace.zip"
-                      }
-                    ],
-                    "errorLocation": {
-                      "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
-                      "column": 37,
-                      "line": 7
-                    }
+                    "attachments": []
                   }
                 ],
-                "status": "unexpected"
+                "status": "expected"
               }
             ],
             "id": "92a6e7f2d2460e449614-209f1d150627f7f10ea5",
@@ -226,13 +186,13 @@
     ],
     "errors": [],
     "stats": {
-      "startTime": "2026-07-30T19:57:25.848Z",
-      "duration": 9472.188,
-      "expected": 0,
+      "startTime": "2026-07-30T20:12:32.313Z",
+      "duration": 4212.111,
+      "expected": 1,
       "skipped": 0,
-      "unexpected": 1,
+      "unexpected": 0,
       "flaky": 0
     }
   },
-  "completedAt": "2026-07-30T19:57:35.422Z"
+  "completedAt": "2026-07-30T20:12:36.624Z"
 }
