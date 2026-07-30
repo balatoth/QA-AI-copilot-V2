@@ -10,9 +10,9 @@
     "status": "WARNING",
     "passed": true,
     "qualityScore": 70,
-    "reason": "The test is syntactically correct and will compile and run with Playwright APIs correctly used. However, the data-test selector 'product-1' is very narrow and does not scale well. The assertion on count is acceptable, but the test lacks deeper assertion strength on product information and does not preserve the testCaseId in the test title. Also, the test name does not follow the recommended pattern including testCaseId."
+    "reason": "The generated Playwright tests compile and run without errors but have some weaknesses in selector robustness and assertion strength. The test titles do not reference their testCaseIds, and the selector '[data-test=\"product-1\"]' appears hardcoded and static, limiting reusability. The navigation validation uses a regex but does not confirm page content. No asynchronous assertion lacks await. All generated test cases are covered except for the skipped TC-002, which is documented. The code is straightforward and maintainable but could be improved by parameterizing selectors and linking testCaseIds in the test titles."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-30T12:50:46.975Z"
+  "createdAt": "2026-07-30T19:24:53.067Z"
 }
