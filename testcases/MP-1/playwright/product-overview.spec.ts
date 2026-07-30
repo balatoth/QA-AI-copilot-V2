@@ -2,14 +2,16 @@ import { test, expect } from '@playwright/test';
 
 const baseURL = 'https://v1.practicesoftwaretesting.com';
 
-test('Display of Product Cards on Home Page', async ({ page }) => {
-  await page.goto(baseURL);
-  const productGrid = await page.locator('[data-test="product-1"]').count();
-  expect(productGrid).toBeGreaterThan(0);
+test('TC-001: Display of Product Cards on Home Page', async ({ page }) => {
+    await page.goto(baseURL);
+    const productCards = page.locator('[data-test="product-1"]').locator('a');
+    await expect(productCards).toHaveCount(26);
 });
 
-test('Navigation to Product Detail Page', async ({ page }) => {
-  await page.goto(baseURL);
-  await page.click('[data-test="product-1"]');
-  await expect(page).toHaveURL(/\/product\/1/);
+
+test('TC-003: Navigation to Product Detail Page', async ({ page }) => {
+    await page.goto(baseURL);
+    const productCard = page.locator('[data-test="product-1"]');
+    await productCard.click();
+    await expect(page).toHaveURL(/\/product\/1/);
 });
