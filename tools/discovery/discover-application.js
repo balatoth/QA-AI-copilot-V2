@@ -379,44 +379,74 @@ async function runDiscovery() {
       let selectedProductConfidence = 0;
       let validatedProductCandidates = [];
 
-      for (const strategy of productDiscoveryStrategies) {
+           for (const strategy of productDiscoveryStrategies) {
         const candidates = [
           ...document.querySelectorAll(strategy.selector)
         ]
-          .filter(isVisible)
-          .map((element) => ({
-            element,
-            parts: findProductParts(element)
-          }))
-          .filter(({ parts }) => {
+          .map((matchedElement) => {
             /*
-             * Require a name and at least two more product signals. This
-             * prevents generic layout cards from becoming PRODUCT_CARDs.
+             * In the hosted v1 application, data-test="product-N"
+             * belongs to the product link, while the price is a sibling
+             * inside the containing list row. Treat that row as the card.
              */
+            const productRow =
+              strategy.selector ===
+                '[data-test^="product-"]'
+                ? matchedElement.closest(
+                    'li.list-group-item'
+                  )
+                : null;
+
+            const element =
+              productRow || matchedElement;
+
+            return {
+              element,
+              rootStrategySelector:
+                productRow
+                  ? 'li.list-group-item'
+                  : strategy.selector,
+              parts: findProductParts(element)
+            };
+          })
+          .filter(({ element }) =>
+            isVisible(element)
+          )
+          .filter(({ parts }) => {
             return (
               parts.nameElement &&
               parts.evidenceCount >= 3
             );
           })
-          .map(({ element, parts }) => ({
-            element,
-            parts,
-            rootSelector: buildUniqueRootSelector(
+          .map(
+            ({
               element,
-              strategy.selector,
-              parts.linkElement
-            )
-          }))
-          .filter(({ rootSelector }) => rootSelector);
+              rootStrategySelector,
+              parts
+            }) => ({
+              element,
+              parts,
+              rootSelector: buildUniqueRootSelector(
+                element,
+                rootStrategySelector,
+                parts.linkElement
+              )
+            })
+          )
+          .filter(({ rootSelector }) =>
+            rootSelector
+          );
 
         if (candidates.length > 0) {
-          selectedProductStrategy = strategy.selector;
-          selectedProductConfidence = strategy.confidence;
-          validatedProductCandidates = candidates;
+          selectedProductStrategy =
+            strategy.selector;
+          selectedProductConfidence =
+            strategy.confidence;
+          validatedProductCandidates =
+            candidates;
           break;
         }
       }
-
       const productComponents = validatedProductCandidates
         .map((element) => {
           const candidate = element;
