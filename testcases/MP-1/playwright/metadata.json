@@ -5,14 +5,14 @@
   "repaired": false,
   "repairAttempt": 0,
   "reviewStatus": "WARNING",
-  "qualityScore": 70,
+  "qualityScore": 75,
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 70,
-    "reason": "The generated Playwright tests compile and run without errors but have some weaknesses in selector robustness and assertion strength. The test titles do not reference their testCaseIds, and the selector '[data-test=\"product-1\"]' appears hardcoded and static, limiting reusability. The navigation validation uses a regex but does not confirm page content. No asynchronous assertion lacks await. All generated test cases are covered except for the skipped TC-002, which is documented. The code is straightforward and maintainable but could be improved by parameterizing selectors and linking testCaseIds in the test titles."
+    "qualityScore": 75,
+    "reason": "The Playwright tests compile and use Playwright APIs mostly correctly. Await is present on all asynchronous assertions. There are no direct iterations over Locator. Test titles preserve the testCaseId. However, the selectors appear to be weak and potentially brittle since they use a static data-test attribute for product listing and navigation, with the first test expecting exactly 26 elements which could be unstable. Also, the URL validation after click in TC-003 is weak as it expects any URL containing '/product/1', which might pass if redirected unexpectedly. No hard-coded waits or placeholder URLs are found. There are no test cases missing for generated test cases. The code is straightforward but could improve on selector strategy and navigation assertion strength."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-30T19:24:53.067Z"
+  "createdAt": "2026-07-30T19:35:10.507Z"
 }
