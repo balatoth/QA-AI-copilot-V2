@@ -25,11 +25,16 @@
   "scope": "PLAYWRIGHT_GENERATION",
   "repaired": false,
   "repairAttempt": 0,
-  "generatedTestCount": 1,
-  "skippedTestCount": 2,
+  "generatedTestCount": 2,
+  "skippedTestCount": 1,
   "generatedTestCases": [
     {
       "testCaseId": "TC-001",
+      "status": "GENERATED",
+      "filePath": "playwright/product-overview.spec.ts"
+    },
+    {
+      "testCaseId": "TC-003",
       "status": "GENERATED",
       "filePath": "playwright/product-overview.spec.ts"
     }
@@ -37,11 +42,7 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing evidence for verifying product images, names, or prices."
-    },
-    {
-      "testCaseId": "TC-003",
-      "reason": "Lack of navigation URL evidence for the product detail page."
+      "reason": "Missing verified evidence required for safe automation"
     }
   ],
   "generatedFiles": [
@@ -56,7 +57,7 @@
     "status": "WARNING",
     "passed": true,
     "qualityScore": 70,
-    "reason": "The test is syntactically correct and will compile and run with Playwright APIs correctly used. However, the data-test selector 'product-1' is very narrow and does not scale well. The assertion on count is acceptable, but the test lacks deeper assertion strength on product information and does not preserve the testCaseId in the test title. Also, the test name does not follow the recommended pattern including testCaseId."
+    "reason": "The generated Playwright tests compile and run without errors but have some weaknesses in selector robustness and assertion strength. The test titles do not reference their testCaseIds, and the selector '[data-test=\"product-1\"]' appears hardcoded and static, limiting reusability. The navigation validation uses a regex but does not confirm page content. No asynchronous assertion lacks await. All generated test cases are covered except for the skipped TC-002, which is documented. The code is straightforward and maintainable but could be improved by parameterizing selectors and linking testCaseIds in the test titles."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +70,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-07-30T12:50:46.975Z"
+  "createdAt": "2026-07-30T19:24:53.067Z"
 }
