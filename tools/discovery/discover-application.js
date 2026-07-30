@@ -233,48 +233,214 @@ async function runDiscovery() {
       }));
 
       /*
-       * Semantic component discovery
-       *
-       * Product cards in Practice Software Testing use root identifiers
-       * such as data-test="product-1", data-test="product-2", etc.
-       *
-       * Each root is connected to its discovered child elements so that
-       * downstream Playwright generation does not need to infer DOM
-       * parent/child relationships with first(), nth(), or locator('..').
+       * Minimal multi-strategy product discovery. Strategies are tried in
+       * order and discovery stops at the first one that yields validated,
+       * uniquely addressable product cards.
        */
-      const productComponents = [
-        ...document.querySelectorAll('[data-test^="product-"]')
-      ]
-        .filter((element) => {
-          const value =
-            element.getAttribute('data-test') || '';
+      const productDiscoveryStrategies = [
+        {
+          selector: '[data-test^="product-"]',
+          confidence: 1
+        },
+        {
+          selector: '[data-testid^="product"]',
+          confidence: 0.98
+        },
+        {
+          selector: '[data-test*="product-card"]',
+          confidence: 0.95
+        },
+        {
+          selector: '.product-card',
+          confidence: 0.9
+        },
+        {
+          selector: '.card',
+          confidence: 0.85
+        }
+      ];
 
-          return (
-            /^product-\d+$/.test(value) &&
-            isVisible(element)
-          );
-        })
+      const findProductParts = (element) => {
+        const nameSelectors = [
+          '[data-test="product-name"]',
+          '[data-testid="product-name"]',
+          '.product-name',
+          '.card-title',
+          'h2',
+          'h3',
+          'h4'
+        ];
+        const priceSelectors = [
+          '[data-test="product-price"]',
+          '[data-testid="product-price"]',
+          '.product-price',
+          '.price'
+        ];
+        const nameSelector = nameSelectors.find(
+          (selector) => element.querySelector(selector)
+        );
+        const priceSelector = priceSelectors.find(
+          (selector) => element.querySelector(selector)
+        );
+        const nameElement = nameSelector
+          ? element.querySelector(nameSelector)
+          : null;
+        const priceElement = priceSelector
+          ? element.querySelector(priceSelector)
+          : null;
+        const imageElement = element.querySelector('img');
+        const linkElement = element.matches('a[href]')
+          ? element
+          : element.querySelector('a[href]');
+
+        const evidenceCount = [
+          imageElement,
+          nameElement,
+          priceElement,
+          linkElement
+        ].filter(Boolean).length;
+
+        return {
+          nameElement,
+          nameSelector,
+          priceElement,
+          priceSelector,
+          imageElement,
+          linkElement,
+          evidenceCount
+        };
+      };
+
+      const buildUniqueRootSelector = (
+        element,
+        strategySelector,
+        linkElement
+      ) => {
+        const testIdentifier = getTestIdentifier(element);
+        const testIdSelector = buildAttributeSelector(
+          testIdentifier.attribute,
+          testIdentifier.value
+        );
+
+        if (
+          testIdSelector &&
+          document.querySelectorAll(testIdSelector).length === 1
+        ) {
+          return {
+            selector: testIdSelector,
+            strategy: 'test-id',
+            testIdAttribute: testIdentifier.attribute,
+            testIdValue: testIdentifier.value
+          };
+        }
+
+        if (element.id) {
+          const idSelector =
+            `#${CSS.escape(element.id)}`;
+
+          if (document.querySelectorAll(idSelector).length === 1) {
+            return {
+              selector: idSelector,
+              strategy: 'id',
+              testIdAttribute: null,
+              testIdValue: null
+            };
+          }
+        }
+
+        const href =
+          linkElement?.getAttribute('href');
+
+        if (href) {
+          const escapedHref =
+            escapeSelectorValue(href);
+          const linkSelector =
+            `a[href="${escapedHref}"]`;
+          const rootSelector = element.matches('a[href]')
+            ? linkSelector
+            : `${strategySelector}:has(${linkSelector})`;
+
+          if (
+            document.querySelectorAll(rootSelector).length === 1
+          ) {
+            return {
+              selector: rootSelector,
+              strategy: 'product-link',
+              testIdAttribute: null,
+              testIdValue: null
+            };
+          }
+        }
+
+        return null;
+      };
+
+      let selectedProductStrategy = null;
+      let selectedProductConfidence = 0;
+      let validatedProductCandidates = [];
+
+      for (const strategy of productDiscoveryStrategies) {
+        const candidates = [
+          ...document.querySelectorAll(strategy.selector)
+        ]
+          .filter(isVisible)
+          .map((element) => ({
+            element,
+            parts: findProductParts(element)
+          }))
+          .filter(({ parts }) => {
+            /*
+             * Require a name and at least two more product signals. This
+             * prevents generic layout cards from becoming PRODUCT_CARDs.
+             */
+            return (
+              parts.nameElement &&
+              parts.evidenceCount >= 3
+            );
+          })
+          .map(({ element, parts }) => ({
+            element,
+            parts,
+            rootSelector: buildUniqueRootSelector(
+              element,
+              strategy.selector,
+              parts.linkElement
+            )
+          }))
+          .filter(({ rootSelector }) => rootSelector);
+
+        if (candidates.length > 0) {
+          selectedProductStrategy = strategy.selector;
+          selectedProductConfidence = strategy.confidence;
+          validatedProductCandidates = candidates;
+          break;
+        }
+      }
+
+      const productComponents = validatedProductCandidates
         .map((element) => {
-          const productTestId =
-            element.getAttribute('data-test');
+          const candidate = element;
+          element = candidate.element;
+
+          const {
+            nameElement,
+            nameSelector,
+            priceElement,
+            priceSelector,
+            imageElement,
+            linkElement
+          } = candidate.parts;
 
           const rootSelector =
-            `[data-test="${escapeSelectorValue(
-              productTestId
-            )}"]`;
+            candidate.rootSelector.selector;
 
-          const nameElement =
-            element.querySelector(
-              '[data-test="product-name"]'
-            );
+          const productTestId =
+            candidate.rootSelector.testIdValue;
 
-          const priceElement =
-            element.querySelector(
-              '[data-test="product-price"]'
-            );
-
-          const imageElement =
-            element.querySelector('img');
+          const componentId =
+            productTestId ||
+            linkElement?.getAttribute('href') ||
+            rootSelector;
 
           const categoryElement =
             element.querySelector(
@@ -294,11 +460,10 @@ async function runDiscovery() {
 
               relationship: 'DESCENDANT_OF_ROOT',
 
-              selector:
-                '[data-test="product-name"]',
+              selector: nameSelector,
 
               scopedSelector:
-                `${rootSelector} [data-test="product-name"]`,
+                `${rootSelector} ${nameSelector}`,
 
               tagName:
                 nameElement.tagName.toLowerCase(),
@@ -319,11 +484,10 @@ async function runDiscovery() {
 
               relationship: 'DESCENDANT_OF_ROOT',
 
-              selector:
-                '[data-test="product-price"]',
+              selector: priceSelector,
 
               scopedSelector:
-                `${rootSelector} [data-test="product-price"]`,
+                `${rootSelector} ${priceSelector}`,
 
               tagName:
                 priceElement.tagName.toLowerCase(),
@@ -418,7 +582,7 @@ async function runDiscovery() {
                 element.textContent ||
                 ''
             ) ||
-            productTestId;
+            componentId;
 
           const assertionCandidates = [
             {
@@ -484,7 +648,7 @@ async function runDiscovery() {
           }
 
           return {
-            componentId: productTestId,
+            componentId,
 
             type: 'PRODUCT_CARD',
 
@@ -493,9 +657,11 @@ async function runDiscovery() {
             root: {
               selector: rootSelector,
 
-              selectorStrategy: 'test-id',
+              selectorStrategy:
+                candidate.rootSelector.strategy,
 
-              testIdAttribute: 'data-test',
+              testIdAttribute:
+                candidate.rootSelector.testIdAttribute,
 
               testIdValue: productTestId,
 
@@ -517,7 +683,7 @@ async function runDiscovery() {
             relationships: Object.keys(
               childComponents
             ).map((childName) => ({
-              parentComponentId: productTestId,
+              parentComponentId: componentId,
               childName,
               relationship: 'CONTAINS'
             })),
@@ -580,7 +746,23 @@ async function runDiscovery() {
 
         explicitRoleElements: roleElements,
 
-        productComponents
+        productComponents,
+
+        productDiscovery: {
+          selectedStrategy:
+            selectedProductStrategy,
+
+          confidence:
+            selectedProductConfidence,
+
+          productCardCount:
+            productComponents.length,
+
+          warning:
+            productComponents.length === 0
+              ? 'No product cards discovered: no supported discovery strategy matched validated, uniquely addressable product cards.'
+              : null
+        }
       };
     });
 
@@ -762,6 +944,20 @@ async function runDiscovery() {
 
       generatedAt: completedAt,
 
+      productDiscovery: {
+        selectedStrategy:
+          pageData.productDiscovery.selectedStrategy,
+
+        confidence:
+          pageData.productDiscovery.confidence,
+
+        productCardCount:
+          pageData.productDiscovery.productCardCount,
+
+        warning:
+          pageData.productDiscovery.warning
+      },
+
       selectors: acceptedCandidateSelectors.map(
         (candidate) => ({
           name:
@@ -902,6 +1098,20 @@ async function runDiscovery() {
         completedAt
       },
 
+      productDiscovery: {
+        selectedStrategy:
+          pageData.productDiscovery.selectedStrategy,
+
+        confidence:
+          pageData.productDiscovery.confidence,
+
+        productCardCount:
+          pageData.productDiscovery.productCardCount,
+
+        warning:
+          pageData.productDiscovery.warning
+      },
+
       page: pageData.document,
 
       summary: {
@@ -1034,6 +1244,12 @@ async function runDiscovery() {
         2
       )
     );
+
+    if (pageData.productDiscovery.warning) {
+      console.warn(
+        pageData.productDiscovery.warning
+      );
+    }
 
     console.log(
       JSON.stringify(
