@@ -16,9 +16,9 @@
     "metadataPath": "playwright-execution/execution-metadata.json"
   },
   "githubActions": {
-    "workflowRunId": "30544281925",
+    "workflowRunId": "30544851131",
     "workflowRunAttempt": "1",
-    "commitSha": "1a2ad324d909f78c1d9d90e553d376ebbb58911b",
+    "commitSha": "c36c7ec975590e932e316334e185c17798535055",
     "playwrightExitCode": 1
   },
   "summary": {
@@ -27,7 +27,7 @@
     "failed": 1,
     "skipped": 0,
     "flaky": 0,
-    "durationMs": 4607.282
+    "durationMs": 4385.669
   },
   "errors": [],
   "rawResults": {
@@ -51,24 +51,24 @@
       "maxFailures": 0,
       "metadata": {
         "ci": {
-          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/1a2ad324d909f78c1d9d90e553d376ebbb58911b",
-          "commitHash": "1a2ad324d909f78c1d9d90e553d376ebbb58911b",
-          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30544281925"
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/c36c7ec975590e932e316334e185c17798535055",
+          "commitHash": "c36c7ec975590e932e316334e185c17798535055",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30544851131"
         },
         "gitCommit": {
-          "shortHash": "1a2ad32",
-          "hash": "1a2ad324d909f78c1d9d90e553d376ebbb58911b",
-          "subject": "Update execution-results.json for MP-1",
-          "body": "Update execution-results.json for MP-1",
+          "shortHash": "c36c7ec",
+          "hash": "c36c7ec975590e932e316334e185c17798535055",
+          "subject": "Update Playwright execution results for MP-1",
+          "body": "Update Playwright execution results for MP-1\n",
           "author": {
-            "name": "balatoth",
-            "email": "balazs.toth@yahoo.com",
-            "time": 1785415853000
+            "name": "github-actions[bot]",
+            "email": "41898282+github-actions[bot]@users.noreply.github.com",
+            "time": 1785415951000
           },
           "committer": {
-            "name": "balatoth",
-            "email": "balazs.toth@yahoo.com",
-            "time": 1785415853000
+            "name": "github-actions[bot]",
+            "email": "41898282+github-actions[bot]@users.noreply.github.com",
+            "time": 1785415951000
           },
           "branch": "main"
         },
@@ -82,24 +82,24 @@
           "retries": 0,
           "metadata": {
             "ci": {
-              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/1a2ad324d909f78c1d9d90e553d376ebbb58911b",
-              "commitHash": "1a2ad324d909f78c1d9d90e553d376ebbb58911b",
-              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30544281925"
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/c36c7ec975590e932e316334e185c17798535055",
+              "commitHash": "c36c7ec975590e932e316334e185c17798535055",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30544851131"
             },
             "gitCommit": {
-              "shortHash": "1a2ad32",
-              "hash": "1a2ad324d909f78c1d9d90e553d376ebbb58911b",
-              "subject": "Update execution-results.json for MP-1",
-              "body": "Update execution-results.json for MP-1",
+              "shortHash": "c36c7ec",
+              "hash": "c36c7ec975590e932e316334e185c17798535055",
+              "subject": "Update Playwright execution results for MP-1",
+              "body": "Update Playwright execution results for MP-1\n",
               "author": {
-                "name": "balatoth",
-                "email": "balazs.toth@yahoo.com",
-                "time": 1785415853000
+                "name": "github-actions[bot]",
+                "email": "41898282+github-actions[bot]@users.noreply.github.com",
+                "time": 1785415951000
               },
               "committer": {
-                "name": "balatoth",
-                "email": "balazs.toth@yahoo.com",
-                "time": 1785415853000
+                "name": "github-actions[bot]",
+                "email": "41898282+github-actions[bot]@users.noreply.github.com",
+                "time": 1785415951000
               },
               "branch": "main"
             },
@@ -163,7 +163,7 @@
                     "workerIndex": 0,
                     "parallelIndex": 0,
                     "status": "failed",
-                    "duration": 2760,
+                    "duration": 1823,
                     "error": {
                       "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m",
                       "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:8:26",
@@ -187,7 +187,7 @@
                     "stdout": [],
                     "stderr": [],
                     "retry": 0,
-                    "startTime": "2026-07-30T12:52:26.930Z",
+                    "startTime": "2026-07-30T13:00:26.252Z",
                     "annotations": [],
                     "attachments": [
                       {
@@ -226,13 +226,13 @@
     ],
     "errors": [],
     "stats": {
-      "startTime": "2026-07-30T12:52:26.404Z",
-      "duration": 4607.282,
+      "startTime": "2026-07-30T13:00:25.897Z",
+      "duration": 4385.669,
       "expected": 0,
       "skipped": 0,
       "unexpected": 1,
       "flaky": 0
     }
   },
-  "completedAt": "2026-07-30T12:52:31.115Z"
+  "completedAt": "2026-07-30T13:00:30.358Z"
 }
