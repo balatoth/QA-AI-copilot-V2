@@ -379,7 +379,9 @@ async function runDiscovery() {
       let selectedProductConfidence = 0;
       let validatedProductCandidates = [];
 
-           for (const strategy of productDiscoveryStrategies) {
+      for (const strategy of productDiscoveryStrategies) {
+        const seenProductRoots = new Set();
+
         const candidates = [
           ...document.querySelectorAll(strategy.selector)
         ]
@@ -408,6 +410,14 @@ async function runDiscovery() {
                   : strategy.selector,
               parts: findProductParts(element)
             };
+          })
+          .filter(({ element }) => {
+            if (seenProductRoots.has(element)) {
+              return false;
+            }
+
+            seenProductRoots.add(element);
+            return true;
           })
           .filter(({ element }) =>
             isVisible(element)
@@ -447,6 +457,7 @@ async function runDiscovery() {
           break;
         }
       }
+
       const productComponents = validatedProductCandidates
         .map((element) => {
           const candidate = element;
