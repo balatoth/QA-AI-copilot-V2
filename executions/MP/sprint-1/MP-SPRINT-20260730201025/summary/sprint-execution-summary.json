@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "0.1.0",
+  "artifactType": "SPRINT_EXECUTION_SUMMARY",
+  "executionId": "MP-SPRINT-20260730201025",
+  "status": "COMPLETED",
+  "executionStatus": "PASSED",
+  "scope": "SPRINT_EXECUTION",
+  "summary": {
+    "totalStories": 1,
+    "completedStories": 1,
+    "notExecutableStories": 0,
+    "technicalFailedStories": 0,
+    "testFailedStories": 0
+  },
+  "stories": [
+    {
+      "storyKey": "MP-1",
+      "executionId": "MP-SPRINT-20260730201025",
+      "status": "COMPLETED",
+      "executionStatus": "PASSED",
+      "scope": "STORY_EXECUTION",
+      "apiExecution": {
+        "executionId": "MP-SPRINT-20260730201025",
+        "storyKey": "MP-1",
+        "executionType": "API",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-1/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-1/api/execution-analysis.json",
+        "artifactVersion": null,
+        "repository": {
+          "owner": "balatoth",
+          "name": "QA-AI-copilot-V2",
+          "branch": "main"
+        },
+        "completedAt": "2026-07-30T20:10:58.377Z"
+      },
+      "playwrightExecution": {
+        "storyKey": "MP-1",
+        "executionId": "MP-SPRINT-20260730201025",
+        "executionType": "PLAYWRIGHT",
+        "scope": "PLAYWRIGHT_EXECUTION",
+        "status": "COMPLETED",
+        "executionStatus": "COMPLETED",
+        "summary": {
+          "expected": 1,
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "flaky": 0,
+          "durationMs": 4212.111
+        },
+        "rootCauseCategory": "UNKNOWN",
+        "releaseImpact": "No impact on release as all tests passed successfully.",
+        "failedTestCount": 0,
+        "executionResultsPath": "testcases/MP-1/playwright/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-1/playwright/execution-analysis.json",
+        "executionResultsSha": "8b87c45c5a15efecaba5596d60af339ee5be54de",
+        "executionAnalysisSha": "744e94bc0a72d40647ee9a84563c91099c26dd41",
+        "analysisCommitSha": "da6cb864a2c7d5d074016d4ebff35339972cb00e",
+        "completedAt": "2026-07-30T20:13:08.867Z"
+      }
+    }
+  ],
+  "completedAt": "2026-07-30T20:13:08.928Z"
+}
