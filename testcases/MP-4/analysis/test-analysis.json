@@ -2,37 +2,49 @@
   "storyKey": "MP-4",
   "storyTitle": "Contact Form",
   "application": "Practice Software Testing",
-  "functionalArea": "Contact Form Management",
-  "businessGoal": "Enable visitors to send messages for support or inquiries",
+  "functionalArea": "Contact Management",
+  "businessGoal": "Enable visitors to reach out for support or inquiries through a contact form.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that the contact form is accessible on the contact page."
+      "goal": "Verify that the contact form is accessible when navigating to the contact page."
     },
     {
       "scenarioId": "SC-002",
-      "category": "Positive",
-      "goal": "Verify that all required fields are displayed in the contact form."
+      "category": "Validation",
+      "goal": "Ensure that all required fields are displayed in the contact form."
     },
     {
       "scenarioId": "SC-003",
-      "category": "Positive",
-      "goal": "Verify that the subject dropdown contains all the specified options."
+      "category": "Validation",
+      "goal": "Validate that the subject dropdown contains the specified options."
     },
     {
       "scenarioId": "SC-004",
-      "category": "Validation",
-      "goal": "Verify that a validation error is shown when the message is less than 50 characters."
+      "category": "Negative",
+      "goal": "Check that entering a message with fewer than 50 characters shows a validation error."
     },
     {
       "scenarioId": "SC-005",
       "category": "Positive",
-      "goal": "Verify that a confirmation message is displayed upon successful form submission."
+      "goal": "Verify that a confirmation message is displayed upon successful submission of the contact form."
     }
   ],
   "outOfScope": [],
-  "clarifications": [
-    "No scenarios for empty fields or invalid email formats are provided in the acceptance criteria."
-  ]
+  "clarifications": [],
+  "testApplicability": {
+    "manual": {
+      "applicable": true,
+      "reason": "The story involves direct user interaction with the contact form."
+    },
+    "api": {
+      "applicable": false,
+      "reason": "The story does not specify any backend validations or data operations that can be tested via an API."
+    },
+    "ui": {
+      "applicable": true,
+      "reason": "The acceptance criteria describe UI elements and behavior of the contact form."
+    }
+  }
 }
