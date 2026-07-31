@@ -5,25 +5,25 @@
   "executionId": "MP-SPRINT-20260731110917",
   "executionType": "PLAYWRIGHT",
   "status": "FAILED",
-  "summary": "One test failed due to inability to locate the form element with role 'form' and name 'Contact Form'. The test expected the form to be visible but it was not found, causing the failure.",
+  "summary": "One test failed due to a locator not finding the expected element on the contact form page.",
   "rootCauseCategory": "SELECTOR_MISMATCH",
-  "rootCause": "The test failed because the locator getByRole('form', { name: 'Contact Form' }) did not find any matching element. This indicates a mismatch between the selector used in the test and the actual application markup or accessible name of the form element.",
+  "rootCause": "The test failed because the locator '[data-test=\"nav-contact\"]' did not find any visible element within the 5000ms timeout, indicating a possible mismatch between the selector used in the test and the actual application DOM.",
   "failedTests": [
     {
-      "testName": "TC-001 - Verify Accessibility of Contact Form",
+      "testName": "TC-001 - Verify accessibility of the contact form",
       "status": "failed",
-      "errorMessage": "expect(locator).toBeVisible() failed: Locator getByRole('form', { name: 'Contact Form' }) did not find any element. Protocol error (Runtime.callFunctionOn): Internal server error, session closed.",
-      "likelyCause": "Selector mismatch due to incorrect or missing accessible name 'Contact Form' on the form element in the application under test.",
-      "recommendation": "Verify that the form element in the application has the correct accessible role 'form' and accessible name 'Contact Form'. Update the selector if the accessible name or role has changed. Also, check for any application rendering issues that might prevent the form from appearing."
+      "errorMessage": "expect(locator('[data-test=\"nav-contact\"]')).toBeVisible() failed: element(s) not found within 5000ms timeout.",
+      "likelyCause": "Selector '[data-test=\"nav-contact\"]' does not match any visible element on the page, possibly due to changes in the application UI or incorrect selector in the test.",
+      "recommendation": "Verify that the selector '[data-test=\"nav-contact\"]' is correct and exists on the contact form page. Update the selector if the application UI has changed or fix the test if the selector is incorrect."
     }
   ],
   "recommendations": [
-    "Review the application markup to confirm the form has role='form' and accessible name 'Contact Form'.",
-    "If the accessible name differs, update the test selector accordingly.",
-    "Check application logs or UI to ensure the form is rendered and visible at the time of test execution.",
-    "Investigate the protocol error 'Internal server error, session closed' for potential environment or browser instability, though it appears secondary to the selector issue.",
-    "Rerun the test after fixing the selector or application accessibility attributes."
+    "Review the application UI to confirm the presence and correctness of the '[data-test=\"nav-contact\"]' attribute on the expected element.",
+    "Update the test selector if the application markup has changed.",
+    "If the selector is correct, investigate if the element is conditionally rendered or delayed in loading, and adjust the test accordingly (e.g., increase timeout or wait for navigation).",
+    "Check for any recent application changes that might have removed or renamed the element.",
+    "Rerun the test after fixes to confirm resolution."
   ],
-  "releaseImpact": "High - The failing test verifies accessibility of a critical contact form. The issue must be resolved before release to ensure accessibility compliance and functionality.",
-  "analyzedAt": "2026-07-31T11:17:24.370Z"
+  "releaseImpact": "High - The failure indicates a broken test that verifies accessibility of a critical contact form, potentially blocking release until resolved.",
+  "analyzedAt": "2026-07-31T13:55:47.348Z"
 }
