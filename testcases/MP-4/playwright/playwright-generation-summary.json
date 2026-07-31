@@ -1,43 +1,57 @@
 {
   "storyKey": "MP-4",
-  "storyTitle": "Contact Form",
-  "application": "Practice Software Testing",
+  "application": {
+    "applicationId": "practice-software-testing",
+    "applicationName": "Practice Software Testing",
+    "environmentId": "hosted-sprint-1",
+    "environmentName": "Hosted Sprint 1",
+    "environmentType": "TEST",
+    "deploymentType": "HOSTED",
+    "ui": {
+      "baseUrl": "https://v1.practicesoftwaretesting.com"
+    },
+    "api": {
+      "baseUrl": "https://api-v1.practicesoftwaretesting.com",
+      "openApiSpec": "https://api-v1.practicesoftwaretesting.com/docs?api-docs",
+      "type": "REST"
+    },
+    "authentication": {
+      "type": "NONE"
+    }
+  },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": false,
-  "repairAttempt": 0,
-  "generatedTestCount": 5,
-  "skippedTestCount": 0,
+  "repaired": true,
+  "repairAttempt": 1,
+  "generatedTestCount": 1,
+  "skippedTestCount": 4,
   "generatedTestCases": [
     {
       "testCaseId": "TC-001",
       "status": "GENERATED",
       "filePath": "playwright/contact-form.spec.ts"
-    },
+    }
+  ],
+  "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "status": "GENERATED",
-      "filePath": "playwright/contact-form.spec.ts"
+      "reason": "Missing verified evidence required for safe automation"
     },
     {
       "testCaseId": "TC-003",
-      "status": "GENERATED",
-      "filePath": "playwright/contact-form.spec.ts"
+      "reason": "Missing verified evidence required for safe automation"
     },
     {
       "testCaseId": "TC-004",
-      "status": "GENERATED",
-      "filePath": "playwright/contact-form.spec.ts"
+      "reason": "Missing verified evidence required for safe automation"
     },
     {
       "testCaseId": "TC-005",
-      "status": "GENERATED",
-      "filePath": "playwright/contact-form.spec.ts"
+      "reason": "Missing verified evidence required for safe automation"
     }
   ],
-  "skippedTestCases": [],
   "generatedFiles": [
     "playwright/contact-form.spec.ts"
   ],
@@ -47,17 +61,21 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "WARNING",
+    "status": "PASS",
     "passed": true,
-    "qualityScore": 85,
-    "reason": "The code is mostly correct, compilable, and uses Playwright APIs properly with awaited assertions. All testCaseIds are preserved in test titles and the tests cover the stated scenarios. However, some selectors rely on guessed text selectors and assumptions about page structure which could be brittle if UI changes. The checks for dropdown options and message validation are good but could be more robust with better selectors and possibly explicit navigation validation for the contact page. No major API misuse or asynchronous issues found."
+    "qualityScore": 90,
+    "reason": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, includes awaited asynchronous assertions, and maintains the test case ID in the title. The selectors are specific and appropriate for the test scenario. The test is executable and maintainable."
   },
   "sourceContext": {
-    "manualTestCasesPath": "testcases/MP-4/manual/manual-testcases.json",
-    "manualTestCasesSha": "839cbd8b1318ce036e062748a14951f0c110ed60",
-    "analysisPath": "testcases/MP-4/test-analysis.json",
-    "analysisSha": "df7ca19b23d8de2a82fc9fe80e37c8aee1badada",
-    "manualTestCaseCount": 5
+    "manualTestCasesPath": null,
+    "manualTestCasesSha": null,
+    "analysisPath": "testcases/MP-4/analysis/story-metadata.json",
+    "analysisSha": null,
+    "selectorLibraryPath": null,
+    "selectorLibrarySha": null,
+    "manualTestCaseCount": 5,
+    "selectorCount": 33,
+    "testIdCount": 83
   },
-  "createdAt": "2026-07-16T12:24:13.900Z"
+  "createdAt": "2026-07-31T09:26:08.030Z"
 }
