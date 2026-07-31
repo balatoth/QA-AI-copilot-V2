@@ -3,14 +3,14 @@
   "storyKey": "MP-1",
   "reviewStatus": "PASS",
   "qualityScore": 90,
-  "summary": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes proper asynchronous assertions with await. Selectors use data-test attributes which are stable and specific. The test case ID TC-001 is present in the test title. The test verifies visibility of key UI elements and product cards as intended.",
+  "summary": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, includes awaited asynchronous assertions, and retains the test case ID in the test title. Selectors use data-test attributes which are robust and maintainable. The test is straightforward and maintainable.",
   "scores": {
     "correctness": 10,
-    "selectorQuality": 8,
-    "assertionStrength": 9,
+    "selectorQuality": 9,
+    "assertionStrength": 10,
     "reusability": 8,
     "maintainability": 9,
-    "testDataHandling": 9,
+    "testDataHandling": 8,
     "playwrightBestPractices": 9
   },
   "issues": [],
