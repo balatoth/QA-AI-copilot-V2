@@ -1,9 +1,14 @@
 {
+  "schemaVersion": "1.0.0",
+  "artifactType": "STORY_METADATA",
   "storyKey": "MP-4",
   "storyTitle": "Contact Form",
-  "source": "Jira",
-  "storyHash": "059516e5623eeb03851298aee907965914613d9af9a44746ac1df0abd15a9bae",
-  "priority": "Medium",
-  "status": "To Do",
-  "lastGeneratedAt": "2026-07-14T13:57:08.818Z"
+  "source": "JIRA",
+  "storyHash": "f7f28fb8e3037a1e193e41ea84f5d983cbb63fbc675766db20768a1a5db3c916",
+  "priority": "MEDIUM",
+  "status": "TO_DO",
+  "applicationId": "practice-software-testing",
+  "environmentId": "hosted-sprint-1",
+  "generatedByExecutionId": "MP-SPRINT-20260731092336",
+  "lastGeneratedAt": "2026-07-31T09:25:27.546Z"
 }
