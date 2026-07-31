@@ -1,53 +1,73 @@
 {
   "storyKey": "MP-3",
-  "storyTitle": "Browse Products by Category",
-  "application": "Practice Software Testing",
+  "application": {
+    "applicationId": "practice-software-testing",
+    "applicationName": "Practice Software Testing",
+    "environmentId": "hosted-sprint-1",
+    "environmentName": "Hosted Sprint 1",
+    "environmentType": "TEST",
+    "deploymentType": "HOSTED",
+    "ui": {
+      "baseUrl": "https://v1.practicesoftwaretesting.com"
+    },
+    "api": {
+      "baseUrl": "https://api-v1.practicesoftwaretesting.com",
+      "openApiSpec": "https://api-v1.practicesoftwaretesting.com/docs?api-docs",
+      "type": "REST"
+    },
+    "authentication": {
+      "type": "NONE"
+    }
+  },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
   "repaired": false,
   "repairAttempt": 0,
-  "generatedTestCount": 3,
-  "skippedTestCount": 0,
+  "generatedTestCount": 1,
+  "skippedTestCount": 2,
   "generatedTestCases": [
     {
       "testCaseId": "TC-001",
       "status": "GENERATED",
-      "filePath": "playwright/product-overview.spec.ts"
-    },
+      "filePath": "playwright/browse-products-by-category.spec.ts"
+    }
+  ],
+  "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "status": "GENERATED",
-      "filePath": "playwright/product-overview.spec.ts"
+      "reason": "Missing verified evidence required for safe automation"
     },
     {
       "testCaseId": "TC-003",
-      "status": "GENERATED",
-      "filePath": "playwright/product-overview.spec.ts"
+      "reason": "Missing verified evidence required for safe automation"
     }
   ],
-  "skippedTestCases": [],
   "generatedFiles": [
-    "playwright/product-overview.spec.ts"
+    "playwright/browse-products-by-category.spec.ts"
   ],
   "persistedGeneratedFiles": [
-    "playwright/product-overview.spec.ts"
+    "playwright/browse-products-by-category.spec.ts"
   ],
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 75,
-    "reason": "The test file is syntactically correct and uses Playwright APIs properly without compilation or runtime errors. The testCaseIds are preserved in the test titles and each generated test case exists. However, selectors such as 'link' and 'heading' with ambiguous names like 'Category Name' appear guessed and may lead to fragile tests. The reliance on generic roles and text contents without more precise selectors or data-driven parameters results in moderate selector quality and assertion strength. Assertions on page.title() and innerText() are appropriate but could be enhanced with additional checks for better validation. No asynchronous assertion misuse or iterator misuse is found. Overall, the tests are executable but not robust or fully maintainable without improvement in selector strategy and test data handling."
+    "qualityScore": 7,
+    "reason": "The generated Playwright test compiles and uses Playwright APIs correctly with proper async assertions. However, the selector used appears to be a guessed attribute selector without context, which may be fragile. The test does not include the testCaseId in the test title and there is no advanced validation beyond URL pattern matching, which is weak to prove correct navigation."
   },
   "sourceContext": {
-    "manualTestCasesPath": "testcases/MP-3/manual/manual-testcases.json",
-    "manualTestCasesSha": "1c92580afb4a0eb5224d2f527151a5895360dc0f",
-    "analysisPath": "testcases/MP-3/test-analysis.json",
-    "analysisSha": "b62632b449d6f00fd060b3fa822afa48314dfb27",
-    "manualTestCaseCount": 3
+    "manualTestCasesPath": null,
+    "manualTestCasesSha": null,
+    "analysisPath": "testcases/MP-3/analysis/story-metadata.json",
+    "analysisSha": null,
+    "selectorLibraryPath": null,
+    "selectorLibrarySha": null,
+    "manualTestCaseCount": 3,
+    "selectorCount": 33,
+    "testIdCount": 83
   },
-  "createdAt": "2026-07-16T12:23:49.783Z"
+  "createdAt": "2026-07-31T09:49:13.168Z"
 }
