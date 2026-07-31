@@ -2,32 +2,32 @@
   "schemaVersion": "0.1.0",
   "artifactType": "PLAYWRIGHT_EXECUTION_RESULTS",
   "storyKey": "MP-3",
-  "executionId": "MP-SPRINT-20260731102514",
+  "executionId": "MP-SPRINT-20260731145748",
   "executionType": "PLAYWRIGHT",
-  "status": "COMPLETED",
+  "status": "FAILED",
   "repository": {
     "owner": "balatoth",
     "name": "QA-AI-copilot-V2",
     "branch": "main"
   },
   "source": {
-    "specPath": "testcases/MP-3/playwright/browse-products-by-category.spec.ts",
+    "specPath": "testcases/MP-3/playwright/product-overview.spec.ts",
     "rawResultsPath": "playwright-execution/playwright-results.json",
     "metadataPath": "playwright-execution/execution-metadata.json"
   },
   "githubActions": {
-    "workflowRunId": "30623791535",
+    "workflowRunId": "30641311523",
     "workflowRunAttempt": "1",
-    "commitSha": "9e7b0d674ba36e45bbf6704113102e1130b31a13",
-    "playwrightExitCode": 0
+    "commitSha": "83748852b530a16e061a4cbe59c714e13fb377fc",
+    "playwrightExitCode": 1
   },
   "summary": {
-    "expected": 1,
-    "passed": 1,
-    "failed": 0,
+    "expected": 0,
+    "passed": 0,
+    "failed": 3,
     "skipped": 0,
     "flaky": 0,
-    "durationMs": 2725.371
+    "durationMs": 97270.117
   },
   "errors": [],
   "rawResults": {
@@ -51,24 +51,24 @@
       "maxFailures": 0,
       "metadata": {
         "ci": {
-          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/9e7b0d674ba36e45bbf6704113102e1130b31a13",
-          "commitHash": "9e7b0d674ba36e45bbf6704113102e1130b31a13",
-          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30623791535"
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/83748852b530a16e061a4cbe59c714e13fb377fc",
+          "commitHash": "83748852b530a16e061a4cbe59c714e13fb377fc",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30641311523"
         },
         "gitCommit": {
-          "shortHash": "9e7b0d6",
-          "hash": "9e7b0d674ba36e45bbf6704113102e1130b31a13",
-          "subject": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260731102514",
-          "body": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260731102514",
+          "shortHash": "8374885",
+          "hash": "83748852b530a16e061a4cbe59c714e13fb377fc",
+          "subject": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260731145748",
+          "body": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260731145748",
           "author": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785493835000
+            "time": 1785510254000
           },
           "committer": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785493835000
+            "time": 1785510254000
           },
           "branch": "main"
         },
@@ -82,24 +82,24 @@
           "retries": 0,
           "metadata": {
             "ci": {
-              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/9e7b0d674ba36e45bbf6704113102e1130b31a13",
-              "commitHash": "9e7b0d674ba36e45bbf6704113102e1130b31a13",
-              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30623791535"
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/83748852b530a16e061a4cbe59c714e13fb377fc",
+              "commitHash": "83748852b530a16e061a4cbe59c714e13fb377fc",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30641311523"
             },
             "gitCommit": {
-              "shortHash": "9e7b0d6",
-              "hash": "9e7b0d674ba36e45bbf6704113102e1130b31a13",
-              "subject": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260731102514",
-              "body": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260731102514",
+              "shortHash": "8374885",
+              "hash": "83748852b530a16e061a4cbe59c714e13fb377fc",
+              "subject": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260731145748",
+              "body": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260731145748",
               "author": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785493835000
+                "time": 1785510254000
               },
               "committer": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785493835000
+                "time": 1785510254000
               },
               "branch": "main"
             },
@@ -149,14 +149,14 @@
         "specs": [],
         "suites": [
           {
-            "title": "Browse Products by Category",
+            "title": "Product Browsing - Category Tests",
             "file": "story.spec.ts",
             "line": 5,
             "column": 6,
             "specs": [
               {
-                "title": "Display Category Page on Category Click",
-                "ok": true,
+                "title": "TC-001 - Display Category Page on Click",
+                "ok": false,
                 "tags": [],
                 "tests": [
                   {
@@ -169,23 +169,187 @@
                       {
                         "workerIndex": 0,
                         "parallelIndex": 0,
-                        "status": "passed",
-                        "duration": 1879,
-                        "errors": [],
+                        "status": "timedOut",
+                        "duration": 30719,
+                        "error": {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                          "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        "errors": [
+                          {
+                            "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                          },
+                          {
+                            "location": {
+                              "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
+                              "column": 61,
+                              "line": 10
+                            },
+                            "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Category Name' })\u001b[22m\n\n\n   8 |     await page.goto(baseURL);\n   9 |     // Assuming categories are listed with role 'link'\n> 10 |     await page.getByRole('link', { name: 'Category Name' }).click();\n     |                                                             ^\n  11 |     // Assuming the category page displays a header with role 'heading'\n  12 |     expect(await page.getByRole('heading').innerText()).toContain('Category Name');\n  13 |   });\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:10:61"
+                          }
+                        ],
                         "stdout": [],
                         "stderr": [],
                         "retry": 0,
-                        "startTime": "2026-07-31T10:32:06.409Z",
+                        "startTime": "2026-07-31T15:05:54.483Z",
                         "annotations": [],
-                        "attachments": []
+                        "attachments": [
+                          {
+                            "name": "screenshot",
+                            "contentType": "image/png",
+                            "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Product-Browsing---C-ca920-play-Category-Page-on-Click/test-failed-1.png"
+                          },
+                          {
+                            "name": "error-context",
+                            "contentType": "text/markdown",
+                            "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Product-Browsing---C-ca920-play-Category-Page-on-Click/error-context.md"
+                          },
+                          {
+                            "name": "trace",
+                            "contentType": "application/zip",
+                            "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Product-Browsing---C-ca920-play-Category-Page-on-Click/trace.zip"
+                          }
+                        ]
                       }
                     ],
-                    "status": "expected"
+                    "status": "unexpected"
                   }
                 ],
-                "id": "92a6e7f2d2460e449614-99a39766f9a75562f82a",
+                "id": "92a6e7f2d2460e449614-df28facb51777f3a3820",
                 "file": "story.spec.ts",
-                "line": 6,
+                "line": 7,
+                "column": 7
+              },
+              {
+                "title": "TC-002 - Display Category Name as Page Title",
+                "ok": false,
+                "tags": [],
+                "tests": [
+                  {
+                    "timeout": 30000,
+                    "annotations": [],
+                    "expectedStatus": "passed",
+                    "projectId": "",
+                    "projectName": "",
+                    "results": [
+                      {
+                        "workerIndex": 1,
+                        "parallelIndex": 0,
+                        "status": "timedOut",
+                        "duration": 30697,
+                        "error": {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                          "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        "errors": [
+                          {
+                            "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                          },
+                          {
+                            "location": {
+                              "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
+                              "column": 61,
+                              "line": 17
+                            },
+                            "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Category Name' })\u001b[22m\n\n\n  15 |   test('TC-002 - Display Category Name as Page Title', async ({ page }) => {\n  16 |     await page.goto(baseURL);\n> 17 |     await page.getByRole('link', { name: 'Category Name' }).click();\n     |                                                             ^\n  18 |     // Assuming the title of the page is displayed within a <title> tag\n  19 |     const title = await page.title();\n  20 |     expect(title).toBe('Category Name');\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:17:61"
+                          }
+                        ],
+                        "stdout": [],
+                        "stderr": [],
+                        "retry": 0,
+                        "startTime": "2026-07-31T15:06:27.732Z",
+                        "annotations": [],
+                        "attachments": [
+                          {
+                            "name": "screenshot",
+                            "contentType": "image/png",
+                            "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Product-Browsing---C-1d895-Category-Name-as-Page-Title/test-failed-1.png"
+                          },
+                          {
+                            "name": "error-context",
+                            "contentType": "text/markdown",
+                            "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Product-Browsing---C-1d895-Category-Name-as-Page-Title/error-context.md"
+                          },
+                          {
+                            "name": "trace",
+                            "contentType": "application/zip",
+                            "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Product-Browsing---C-1d895-Category-Name-as-Page-Title/trace.zip"
+                          }
+                        ]
+                      }
+                    ],
+                    "status": "unexpected"
+                  }
+                ],
+                "id": "92a6e7f2d2460e449614-649e1959b520c6a035db",
+                "file": "story.spec.ts",
+                "line": 15,
+                "column": 7
+              },
+              {
+                "title": "TC-003 - Show Only Relevant Products on Category Page",
+                "ok": false,
+                "tags": [],
+                "tests": [
+                  {
+                    "timeout": 30000,
+                    "annotations": [],
+                    "expectedStatus": "passed",
+                    "projectId": "",
+                    "projectName": "",
+                    "results": [
+                      {
+                        "workerIndex": 2,
+                        "parallelIndex": 0,
+                        "status": "timedOut",
+                        "duration": 30834,
+                        "error": {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                          "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        "errors": [
+                          {
+                            "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                          },
+                          {
+                            "location": {
+                              "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
+                              "column": 61,
+                              "line": 25
+                            },
+                            "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Category Name' })\u001b[22m\n\n\n  23 |   test('TC-003 - Show Only Relevant Products on Category Page', async ({ page }) => {\n  24 |     await page.goto(baseURL);\n> 25 |     await page.getByRole('link', { name: 'Category Name' }).click();\n     |                                                             ^\n  26 |     // Assuming products belong to category and are displayed under 'product' role\n  27 |     const products = await page.locator('[data-testid=\"product\"]').allTextContents();\n  28 |     // Assuming 'Product A' and 'Product B' belong to the category\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:25:61"
+                          }
+                        ],
+                        "stdout": [],
+                        "stderr": [],
+                        "retry": 0,
+                        "startTime": "2026-07-31T15:06:59.607Z",
+                        "annotations": [],
+                        "attachments": [
+                          {
+                            "name": "screenshot",
+                            "contentType": "image/png",
+                            "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Product-Browsing---C-14b1a-t-Products-on-Category-Page/test-failed-1.png"
+                          },
+                          {
+                            "name": "error-context",
+                            "contentType": "text/markdown",
+                            "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Product-Browsing---C-14b1a-t-Products-on-Category-Page/error-context.md"
+                          },
+                          {
+                            "name": "trace",
+                            "contentType": "application/zip",
+                            "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Product-Browsing---C-14b1a-t-Products-on-Category-Page/trace.zip"
+                          }
+                        ]
+                      }
+                    ],
+                    "status": "unexpected"
+                  }
+                ],
+                "id": "92a6e7f2d2460e449614-f40511feaa22c2e50808",
+                "file": "story.spec.ts",
+                "line": 23,
                 "column": 7
               }
             ]
@@ -195,13 +359,13 @@
     ],
     "errors": [],
     "stats": {
-      "startTime": "2026-07-31T10:32:05.877Z",
-      "duration": 2725.371,
-      "expected": 1,
+      "startTime": "2026-07-31T15:05:53.945Z",
+      "duration": 97270.117,
+      "expected": 0,
       "skipped": 0,
-      "unexpected": 0,
+      "unexpected": 3,
       "flaky": 0
     }
   },
-  "completedAt": "2026-07-31T10:32:08.700Z"
+  "completedAt": "2026-07-31T15:07:31.318Z"
 }
