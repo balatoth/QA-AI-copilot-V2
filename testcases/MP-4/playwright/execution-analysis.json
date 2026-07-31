@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "0.1.0",
+  "artifactType": "PLAYWRIGHT_EXECUTION_ANALYSIS",
+  "storyKey": "MP-4",
+  "executionId": "MP-SPRINT-20260731092336",
+  "executionType": "PLAYWRIGHT",
+  "status": "FAILED",
+  "summary": "One test executed and failed due to inability to locate the form element with role 'form' and name 'Contact Form'. The failure was caused by element not found and a protocol error indicating the session closed unexpectedly.",
+  "rootCauseCategory": "ENVIRONMENT_ISSUE",
+  "rootCause": "The test failed because the Playwright session was closed unexpectedly during the locator wait, causing a protocol error and element not found. This suggests an instability or crash in the test environment or browser session rather than a selector or application defect.",
+  "failedTests": [
+    {
+      "testName": "TC-001 - Verify Accessibility of Contact Form",
+      "status": "failed",
+      "errorMessage": "expect(locator).toBeVisible() failed: Locator getByRole('form', { name: 'Contact Form' }) not found. Protocol error (Runtime.callFunctionOn): Internal server error, session closed.",
+      "likelyCause": "Environment instability or browser session crash causing the test to lose connection and fail to find the element.",
+      "recommendation": "Investigate environment stability and browser session logs. Retry the test in a stable environment. Check for resource constraints or crashes in the CI environment. If issue persists, consider adding retries or isolating environment issues."
+    }
+  ],
+  "recommendations": [
+    "Review CI environment and browser logs for crashes or resource issues.",
+    "Rerun the test to verify if failure is reproducible or intermittent.",
+    "Consider adding retries for transient environment failures.",
+    "Verify that the application is fully up and accessible at 'http://localhost:4200/' before test execution.",
+    "Check if any recent environment changes could cause session instability."
+  ],
+  "releaseImpact": "High - The failure prevents verification of critical accessibility feature and blocks test suite completion.",
+  "analyzedAt": "2026-07-31T09:32:18.661Z"
+}
