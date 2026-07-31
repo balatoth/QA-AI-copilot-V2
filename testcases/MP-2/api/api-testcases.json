@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-2",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-07-14T13:10:56.501Z",
+  "generatedAt": "2026-07-31T06:09:29.724Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -12,9 +12,9 @@
   "warnings": [],
   "testCases": [
     {
-      "testCaseId": "MP-2_SC-001_TC-001",
+      "testCaseId": "TC-MP-2-001",
       "scenarioId": "SC-001",
-      "title": "Verify product detail page retrieval for valid product ID",
+      "title": "Verify retrieval of specific product details with valid product id",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -25,19 +25,21 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response body contains product image",
-        "response body contains product name",
-        "response body contains product description",
-        "response body contains product price",
-        "response body contains category badge",
-        "response body contains brand badge"
+        {
+          "check": "responseBodyConformsToSchema",
+          "schemaRef": "#/components/schemas/ProductResponse"
+        }
       ],
       "contractChecks": [
-        "response Content-Type is application/json",
-        "response headers include Cache-Control and ETag",
-        "response body matches ProductResponse schema"
+        {
+          "check": "responseHeadersPresent",
+          "headers": [
+            "Cache-Control",
+            "ETag"
+          ]
+        }
       ],
-      "notes": ""
+      "notes": "Uses example product id 1 as defined in contract"
     }
   ]
 }
