@@ -1,52 +1,23 @@
 {
   "storyKey": "MP-3",
   "artifactType": "execution-results",
-  "generatedAt": "2026-07-16T12:21:40.320Z",
+  "generatedAt": "2026-07-31T09:49:48.719Z",
   "summary": {
     "total": 1,
-    "passed": 1,
+    "passed": 0,
     "failed": 0,
-    "passRate": 100
+    "passRate": 0
   },
   "executionResults": [
     {
+      "schemaVersion": "1.0.0",
+      "resultType": "API_EXECUTION_RESULT",
+      "executionId": "MP-SPRINT-20260731094753",
       "storyKey": "MP-3",
-      "testCaseId": "TC_MP3_01",
-      "scenarioId": "SC-003",
-      "title": "Verify that products returned belong only to the selected category by category slug.",
-      "method": "GET",
-      "url": "https://api.practicesoftwaretesting.com/products?by_category_slug=electronics",
-      "expectedStatus": 200,
-      "actualStatus": 200,
-      "status": "PASS",
-      "executedAt": "2026-07-16T12:21:40.313Z",
-      "responsePreview": "{\"current_page\":1,\"data\":[],\"from\":null,\"last_page\":1,\"per_page\":9,\"to\":null,\"total\":0}",
-      "originalTestCase": {
-        "testCaseId": "TC_MP3_01",
-        "scenarioId": "SC-003",
-        "title": "Verify that products returned belong only to the selected category by category slug.",
-        "testType": "Positive",
-        "priority": "High",
-        "preconditions": [],
-        "method": "GET",
-        "path": "/products",
-        "requestHeaders": {},
-        "queryParams": {
-          "by_category_slug": "electronics"
-        },
-        "requestBody": null,
-        "expectedStatus": 200,
-        "expectedResponseChecks": [
-          "Response should be an array of products",
-          "Each product's category or categories should include 'electronics' slug or descendant category"
-        ],
-        "contractChecks": [
-          "Response Content-Type is application/json",
-          "Response code is 200",
-          "Response body matches array of ProductResponse schema"
-        ],
-        "notes": "This test uses 'electronics' as a sample category slug for deterministic filtering."
-      }
+      "executionType": "API",
+      "status": "COMPLETED",
+      "executionResultsPath": "testcases/MP-3/api/execution-results.json",
+      "executionAnalysisPath": "testcases/MP-3/api/execution-analysis.json"
     }
   ]
 }
