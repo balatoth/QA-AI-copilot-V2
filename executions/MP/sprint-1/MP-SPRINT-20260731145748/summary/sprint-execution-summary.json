@@ -3,14 +3,14 @@
   "artifactType": "SPRINT_EXECUTION_SUMMARY",
   "executionId": "MP-SPRINT-20260731145748",
   "status": "COMPLETED",
-  "executionStatus": "PASSED",
+  "executionStatus": "FAILED",
   "scope": "SPRINT_EXECUTION",
   "summary": {
-    "totalStories": 3,
-    "completedStories": 3,
+    "totalStories": 4,
+    "completedStories": 4,
     "notExecutableStories": 0,
     "technicalFailedStories": 0,
-    "testFailedStories": 0
+    "testFailedStories": 2
   },
   "stories": [
     {
@@ -32,7 +32,7 @@
           "name": "QA-AI-copilot-V2",
           "branch": "main"
         },
-        "completedAt": "2026-07-31T15:00:27.105Z"
+        "completedAt": "2026-07-31T19:22:29.446Z"
       },
       "playwrightExecution": {
         "storyKey": "MP-1",
@@ -47,17 +47,17 @@
           "failed": 0,
           "skipped": 0,
           "flaky": 0,
-          "durationMs": 4100.254999999999
+          "durationMs": 3438.632
         },
         "rootCauseCategory": "N/A",
-        "releaseImpact": "No impact on release as all tests passed.",
+        "releaseImpact": "No impact on release as all tests passed successfully.",
         "failedTestCount": 0,
         "executionResultsPath": "testcases/MP-1/playwright/execution-results.json",
         "executionAnalysisPath": "testcases/MP-1/playwright/execution-analysis.json",
-        "executionResultsSha": "1b019a4f1917b09b5c5c7f487ccf7a7a96ff80aa",
-        "executionAnalysisSha": "e30738b16cf89fb196cce17ffa21f28b64faf4a6",
-        "analysisCommitSha": "bfa58aa43aad2e9bd5599aefd58d6cd9c5d85aa5",
-        "completedAt": "2026-07-31T15:02:20.518Z"
+        "executionResultsSha": "a8c122e7ffd7808b9139524cd013170e9566cc28",
+        "executionAnalysisSha": "4b783ec86089cc9939ae85881a766e11708e8dcd",
+        "analysisCommitSha": "f8ee35086c1c73efceaeb03c33590a5689dfec72",
+        "completedAt": "2026-07-31T19:24:27.805Z"
       }
     },
     {
@@ -79,15 +79,39 @@
           "name": "QA-AI-copilot-V2",
           "branch": "main"
         },
-        "completedAt": "2026-07-31T15:00:27.105Z"
+        "completedAt": "2026-07-31T19:22:29.446Z"
       },
-      "playwrightExecution": null
+      "playwrightExecution": {
+        "storyKey": "MP-2",
+        "executionId": "MP-SPRINT-20260731145748",
+        "executionType": "PLAYWRIGHT",
+        "scope": "PLAYWRIGHT_EXECUTION",
+        "status": "COMPLETED",
+        "executionStatus": "COMPLETED",
+        "summary": {
+          "expected": 1,
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "flaky": 0,
+          "durationMs": 3461.6259999999997
+        },
+        "rootCauseCategory": "N/A",
+        "releaseImpact": "No impact on release as all tests passed successfully.",
+        "failedTestCount": 0,
+        "executionResultsPath": "testcases/MP-2/playwright/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-2/playwright/execution-analysis.json",
+        "executionResultsSha": "d0ccb4365159012276f5f53366e2e855a960539a",
+        "executionAnalysisSha": "4ff03a9fc37c3ca2fb56c6e94c30af9070b3089e",
+        "analysisCommitSha": "f0f0d6a88d9e8cba957b77d5b3991a2b3d78e29b",
+        "completedAt": "2026-07-31T19:26:32.347Z"
+      }
     },
     {
       "storyKey": "MP-3",
       "executionId": "MP-SPRINT-20260731145748",
       "status": "COMPLETED",
-      "executionStatus": "PASSED",
+      "executionStatus": "FAILED",
       "scope": "STORY_EXECUTION",
       "apiExecution": {
         "executionId": "MP-SPRINT-20260731145748",
@@ -102,10 +126,67 @@
           "name": "QA-AI-copilot-V2",
           "branch": "main"
         },
-        "completedAt": "2026-07-31T15:00:27.106Z"
+        "completedAt": "2026-07-31T19:22:29.447Z"
       },
-      "playwrightExecution": null
+      "playwrightExecution": {
+        "storyKey": "MP-3",
+        "executionId": "MP-SPRINT-20260731145748",
+        "executionType": "PLAYWRIGHT",
+        "scope": "PLAYWRIGHT_EXECUTION",
+        "status": "COMPLETED",
+        "executionStatus": "FAILED",
+        "summary": {
+          "expected": 0,
+          "passed": 0,
+          "failed": 3,
+          "skipped": 0,
+          "flaky": 0,
+          "durationMs": 94753.393
+        },
+        "rootCauseCategory": "SELECTOR_MISMATCH",
+        "releaseImpact": "High - All tests related to category page navigation are failing, blocking validation of critical product browsing functionality.",
+        "failedTestCount": 3,
+        "executionResultsPath": "testcases/MP-3/playwright/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-3/playwright/execution-analysis.json",
+        "executionResultsSha": "f10b6a54413244cdcd1f813da2af297ffeda6727",
+        "executionAnalysisSha": "1ace8a0d4f439583f7630092a90b1979a7273eb9",
+        "analysisCommitSha": "110a42bfe9d355b15fbcd2a0b6f2138f012a5cfa",
+        "completedAt": "2026-07-31T19:30:15.472Z"
+      }
+    },
+    {
+      "storyKey": "MP-4",
+      "executionId": "MP-SPRINT-20260731145748",
+      "status": "COMPLETED",
+      "executionStatus": "FAILED",
+      "scope": "STORY_EXECUTION",
+      "apiExecution": null,
+      "playwrightExecution": {
+        "storyKey": "MP-4",
+        "executionId": "MP-SPRINT-20260731145748",
+        "executionType": "PLAYWRIGHT",
+        "scope": "PLAYWRIGHT_EXECUTION",
+        "status": "COMPLETED",
+        "executionStatus": "FAILED",
+        "summary": {
+          "expected": 0,
+          "passed": 0,
+          "failed": 1,
+          "skipped": 0,
+          "flaky": 0,
+          "durationMs": 9556.778999999999
+        },
+        "rootCauseCategory": "SELECTOR_MISMATCH",
+        "releaseImpact": "High - The failure indicates a broken test that verifies a critical UI element's visibility on the contact form page, potentially blocking release if not resolved.",
+        "failedTestCount": 1,
+        "executionResultsPath": "testcases/MP-4/playwright/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-4/playwright/execution-analysis.json",
+        "executionResultsSha": "d9f130da6fdd8a2fff0e7f7228adfff8f0257f95",
+        "executionAnalysisSha": "10eb0db279ceed20d13271643ef9df373ddfd23a",
+        "analysisCommitSha": "35e9c1b868946b52a7747d3ec4a3b64750fa0f01",
+        "completedAt": "2026-07-31T19:32:33.774Z"
+      }
     }
   ],
-  "completedAt": "2026-07-31T15:09:56.681Z"
+  "completedAt": "2026-07-31T19:32:33.839Z"
 }
