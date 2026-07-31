@@ -37,11 +37,11 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing evidence for verifying product images and prices in the product cards."
+      "reason": "Missing verified evidence required for safe automation"
     },
     {
       "testCaseId": "TC-003",
-      "reason": "Missing verified evidence to confirm navigation to the product detail page."
+      "reason": "Missing verified evidence required for safe automation"
     }
   ],
   "generatedFiles": [
@@ -55,8 +55,8 @@
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 55,
-    "reason": "Test compiles and uses Playwright APIs correctly with awaited assertions; however, the selector used seems weak or generic and does not clearly verify product cards visibility on the home page. The test title preserves the testCaseId. No issues with asynchronous usage or Locator handling found."
+    "qualityScore": 70,
+    "reason": "The Playwright test compiles and uses Playwright APIs correctly with proper awaits on assertions. The test case ID is preserved in the test title. However, the test contains a weak assertion regarding the display of product cards, relying on a comment for future selector verification without actually verifying product cards. The selector used for navigation home is likely stable but no strong assertions are included for product cards. The test is minimal and may not fully validate the story requirements."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +69,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-07-31T09:24:12.030Z"
+  "createdAt": "2026-07-31T09:48:14.562Z"
 }
