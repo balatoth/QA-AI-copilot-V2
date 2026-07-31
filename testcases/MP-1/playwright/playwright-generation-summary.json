@@ -23,13 +23,18 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": true,
-  "repairAttempt": 1,
-  "generatedTestCount": 1,
-  "skippedTestCount": 2,
+  "repaired": false,
+  "repairAttempt": 0,
+  "generatedTestCount": 2,
+  "skippedTestCount": 1,
   "generatedTestCases": [
     {
       "testCaseId": "TC-001",
+      "status": "GENERATED",
+      "filePath": "playwright/product-overview.spec.ts"
+    },
+    {
+      "testCaseId": "TC-003",
       "status": "GENERATED",
       "filePath": "playwright/product-overview.spec.ts"
     }
@@ -37,11 +42,7 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing verified evidence required for safe automation"
-    },
-    {
-      "testCaseId": "TC-003",
-      "reason": "Missing verified evidence required for safe automation"
+      "reason": "Missing verification of product card content attributes such as images, names, and prices."
     }
   ],
   "generatedFiles": [
@@ -53,10 +54,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "PASS",
+    "status": "WARNING",
     "passed": true,
-    "qualityScore": 90,
-    "reason": "The repaired Playwright test file is syntactically correct, uses Playwright APIs properly, and includes appropriate asynchronous assertions with await. The selectors use data-test attributes which are stable and specific. The test case ID TC-001 is present in the test title. The test verifies visibility and count of product cards effectively. No critical defects remain."
+    "qualityScore": 7,
+    "reason": "The Playwright test code compiles and uses correct API calls with awaits on asynchronous assertions. All GENERATED testCaseIds have corresponding tests in code. However, the selectors are heavily reliant on data-test attributes for each product index, which while reliable, results in verbose code and may reduce maintainability. The navigation verification in TC-003 is weak: using a loose regex '/product/' does not guarantee navigation to the correct product detail page. Missing verification for content like images, names, prices is noted but was flagged as skipped. There is no test data handling abstraction and reusability is limited by repeated similar locators. No blocking issues found, but selector strategy and assertiveness in navigation validation can improve."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +70,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-07-31T11:09:41.386Z"
+  "createdAt": "2026-07-31T13:18:45.101Z"
 }
