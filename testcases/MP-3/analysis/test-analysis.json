@@ -3,12 +3,12 @@
   "storyTitle": "Browse Products by Category",
   "application": "Practice Software Testing",
   "functionalArea": "Product Browsing",
-  "businessGoal": "Enable users to find products by category.",
+  "businessGoal": "Allow visitors to find products within specific categories.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that the category page is displayed when a category name is clicked."
+      "goal": "Verify that clicking on a category name displays the category page."
     },
     {
       "scenarioId": "SC-002",
@@ -18,11 +18,23 @@
     {
       "scenarioId": "SC-003",
       "category": "Positive",
-      "goal": "Verify that only products belonging to the selected category are shown on the category page."
+      "goal": "Verify that only products from the selected category are displayed on the category page."
     }
   ],
   "outOfScope": [],
-  "clarifications": [
-    "No information on what happens if a category has no products."
-  ]
+  "clarifications": [],
+  "testApplicability": {
+    "manual": {
+      "applicable": true,
+      "reason": "The story involves visible browser behaviors and product display."
+    },
+    "api": {
+      "applicable": false,
+      "reason": "The story does not mention any API interactions or capabilities."
+    },
+    "ui": {
+      "applicable": true,
+      "reason": "The acceptance criteria describe visible content and interactions on the UI."
+    }
+  }
 }
