@@ -23,8 +23,8 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": true,
-  "repairAttempt": 1,
+  "repaired": false,
+  "repairAttempt": 0,
   "generatedTestCount": 1,
   "skippedTestCount": 4,
   "generatedTestCases": [
@@ -63,8 +63,8 @@
   "qualityGate": {
     "status": "PASS",
     "passed": true,
-    "qualityScore": 90,
-    "reason": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, includes awaited asynchronous assertions, and maintains the test case ID in the title. The selectors are specific and appropriate for the test scenario. The test is executable and maintainable."
+    "qualityScore": 8,
+    "reason": "The Playwright test artifact is syntactically correct, uses valid API calls, and properly awaits asynchronous assertions. The test title preserves the testCaseId. The selector used is stable, employing a data-test attribute. The test is simple but effectively asserts visibility of a key UI element to verify accessibility of the contact form page."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -77,5 +77,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-07-31T09:26:08.030Z"
+  "createdAt": "2026-07-31T09:49:39.959Z"
 }
