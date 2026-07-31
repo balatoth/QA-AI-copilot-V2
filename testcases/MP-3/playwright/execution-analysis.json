@@ -2,18 +2,42 @@
   "schemaVersion": "0.1.0",
   "artifactType": "PLAYWRIGHT_EXECUTION_ANALYSIS",
   "storyKey": "MP-3",
-  "executionId": "MP-SPRINT-20260731102514",
+  "executionId": "MP-SPRINT-20260731145748",
   "executionType": "PLAYWRIGHT",
-  "status": "PASSED",
-  "summary": "All tests executed successfully with no failures or errors. One test was expected and passed within the allocated time.",
-  "rootCauseCategory": "N/A",
-  "rootCause": "No failures detected in this execution.",
-  "failedTests": [],
-  "recommendations": [
-    "Continue monitoring test executions to ensure stability.",
-    "Maintain current test and environment configurations as no issues were detected.",
-    "Review test coverage periodically to ensure all critical paths are tested."
+  "status": "FAILED",
+  "summary": "All 3 tests failed due to timeouts while attempting to click a link with role 'link' and name 'Category Name'. The locator did not resolve within the 30s timeout, causing each test to fail.",
+  "rootCauseCategory": "SELECTOR_MISMATCH",
+  "rootCause": "The tests failed because the locator getByRole('link', { name: 'Category Name' }) could not find the element within the timeout period. This indicates that the selector does not match any element on the page, possibly due to changes in the UI or incorrect test selectors.",
+  "failedTests": [
+    {
+      "testName": "TC-001 - Display Category Page on Click",
+      "status": "timedOut",
+      "errorMessage": "Test timeout of 30000ms exceeded while waiting for getByRole('link', { name: 'Category Name' }) to be clickable.",
+      "likelyCause": "Selector mismatch - the element with role 'link' and name 'Category Name' was not found on the page.",
+      "recommendation": "Verify that the UI contains a link with the exact accessible name 'Category Name'. Update the selector if the UI has changed or the name is different."
+    },
+    {
+      "testName": "TC-002 - Display Category Name as Page Title",
+      "status": "timedOut",
+      "errorMessage": "Test timeout of 30000ms exceeded while waiting for getByRole('link', { name: 'Category Name' }) to be clickable.",
+      "likelyCause": "Selector mismatch - the element with role 'link' and name 'Category Name' was not found on the page.",
+      "recommendation": "Verify that the UI contains a link with the exact accessible name 'Category Name'. Update the selector if the UI has changed or the name is different."
+    },
+    {
+      "testName": "TC-003 - Show Only Relevant Products on Category Page",
+      "status": "timedOut",
+      "errorMessage": "Test timeout of 30000ms exceeded while waiting for getByRole('link', { name: 'Category Name' }) to be clickable.",
+      "likelyCause": "Selector mismatch - the element with role 'link' and name 'Category Name' was not found on the page.",
+      "recommendation": "Verify that the UI contains a link with the exact accessible name 'Category Name'. Update the selector if the UI has changed or the name is different."
+    }
   ],
-  "releaseImpact": "No impact on release as all tests passed successfully.",
-  "analyzedAt": "2026-07-31T10:32:28.131Z"
+  "recommendations": [
+    "Check the application UI to confirm the presence and exact accessible name of the link targeted by getByRole('link', { name: 'Category Name' }).",
+    "If the UI has changed, update the test selectors accordingly to match the current application.",
+    "Consider adding debug logs or screenshots to verify the page state before the click action.",
+    "If the element is dynamically loaded, ensure appropriate waits or retries are implemented before clicking.",
+    "Review recent application changes that might have affected the category link accessibility or naming."
+  ],
+  "releaseImpact": "High - All tests related to category page navigation are failing, blocking validation of critical product browsing functionality.",
+  "analyzedAt": "2026-07-31T15:07:57.524Z"
 }
