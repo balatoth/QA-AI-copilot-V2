@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "0.1.0",
+  "artifactType": "SPRINT_EXECUTION_SUMMARY",
+  "executionId": "MP-SPRINT-20260731092336",
+  "status": "COMPLETED",
+  "executionStatus": "PASSED",
+  "scope": "SPRINT_EXECUTION",
+  "summary": {
+    "totalStories": 1,
+    "completedStories": 1,
+    "notExecutableStories": 0,
+    "technicalFailedStories": 0,
+    "testFailedStories": 0
+  },
+  "stories": [
+    {
+      "storyKey": "MP-1",
+      "executionId": "MP-SPRINT-20260731092336",
+      "status": "COMPLETED",
+      "executionStatus": "PASSED",
+      "scope": "STORY_EXECUTION",
+      "apiExecution": {
+        "executionId": "MP-SPRINT-20260731092336",
+        "storyKey": "MP-1",
+        "executionType": "API",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-1/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-1/api/execution-analysis.json",
+        "artifactVersion": null,
+        "repository": {
+          "owner": "balatoth",
+          "name": "QA-AI-copilot-V2",
+          "branch": "main"
+        },
+        "completedAt": "2026-07-31T09:26:16.313Z"
+      },
+      "playwrightExecution": {
+        "storyKey": "MP-1",
+        "executionId": "MP-SPRINT-20260731092336",
+        "executionType": "PLAYWRIGHT",
+        "scope": "PLAYWRIGHT_EXECUTION",
+        "status": "COMPLETED",
+        "executionStatus": "COMPLETED",
+        "summary": {
+          "expected": 1,
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "flaky": 0,
+          "durationMs": 2533.204
+        },
+        "rootCauseCategory": "N/A",
+        "releaseImpact": "No impact on release as all tests passed.",
+        "failedTestCount": 0,
+        "executionResultsPath": "testcases/MP-1/playwright/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-1/playwright/execution-analysis.json",
+        "executionResultsSha": "00c7ad81731fa17a652368d954c0d99be81509d1",
+        "executionAnalysisSha": "d7bbe4dc27ec7cd425ecfdd2530ca32519e0a1b9",
+        "analysisCommitSha": "084c32af455d6678232de7da4ec2439a61d8843e",
+        "completedAt": "2026-07-31T09:28:09.612Z"
+      }
+    }
+  ],
+  "completedAt": "2026-07-31T09:32:19.722Z"
+}
