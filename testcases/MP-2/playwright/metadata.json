@@ -2,17 +2,17 @@
   "storyKey": "MP-2",
   "artifactType": "playwright",
   "generatorVersion": "v0.4.7.1",
-  "repaired": true,
-  "repairAttempt": 1,
-  "reviewStatus": "PASS",
-  "qualityScore": 90,
+  "repaired": false,
+  "repairAttempt": 0,
+  "reviewStatus": "WARNING",
+  "qualityScore": 70,
   "qualityGate": {
-    "status": "PASS",
+    "status": "WARNING",
     "passed": true,
-    "qualityScore": 90,
-    "reason": "The repaired Playwright TypeScript tests are syntactically correct, use Playwright APIs properly, and include awaited asynchronous assertions. Selectors are mostly specific and reusable with a helper function. Test case IDs are preserved in test titles. Minor warnings on selector specificity but overall maintainable and robust."
+    "qualityScore": 70,
+    "reason": "The test is correctly written and should compile and run. Playwright APIs are used properly, awaiting asynchronous operations and assertions. However, the selector '[data-test=\"product-1\"]' might be too specific to a single product and not scalable. The navigation assertion using toHaveURL(/product/) is rather weak as it only verifies the URL contains 'product' without confirming that this is the correct product detail page. The test case title does not preserve the testCaseId 'TC-001' which affects traceability. No test data management or reusability practices are implemented. The code is simple and maintainable but could benefit from stronger selectors and assertions."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-07-16T12:23:27.240Z"
+  "createdAt": "2026-07-31T09:24:41.348Z"
 }
