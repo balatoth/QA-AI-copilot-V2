@@ -2,16 +2,16 @@
   "artifactType": "playwright",
   "storyKey": "MP-4",
   "reviewStatus": "PASS",
-  "qualityScore": 90,
-  "summary": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, includes awaited asynchronous assertions, and maintains the test case ID in the title. The selectors are specific and appropriate for the test scenario. The test is executable and maintainable.",
+  "qualityScore": 8,
+  "summary": "The Playwright test artifact is syntactically correct, uses valid API calls, and properly awaits asynchronous assertions. The test title preserves the testCaseId. The selector used is stable, employing a data-test attribute. The test is simple but effectively asserts visibility of a key UI element to verify accessibility of the contact form page.",
   "scores": {
     "correctness": 10,
     "selectorQuality": 8,
-    "assertionStrength": 9,
-    "reusability": 8,
-    "maintainability": 9,
-    "testDataHandling": 9,
-    "playwrightBestPractices": 9
+    "assertionStrength": 8,
+    "reusability": 6,
+    "maintainability": 7,
+    "testDataHandling": 7,
+    "playwrightBestPractices": 8
   },
   "issues": [],
   "recommendations": []
