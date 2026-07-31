@@ -37,11 +37,11 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing verified evidence for accessing the product detail page."
+      "reason": "Missing verified evidence for the specific product information displayed on the product detail page."
     },
     {
       "testCaseId": "TC-003",
-      "reason": "Missing verified evidence for the related products section."
+      "reason": "Missing verified evidence for the related products section visibility."
     }
   ],
   "generatedFiles": [
@@ -55,8 +55,8 @@
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 7,
-    "reason": "The Playwright test compiles and uses correct APIs, including awaited assertions. The test case ID is preserved in the title. However, the selector '[data-test=\"product-1\"]' appears hardcoded and may be too specific or brittle if product IDs change. The assertion using URL matching is weak to fully verify that the correct product detail page is displayed. Overall, the test is executable but could be improved for maintainability and assertion strength."
+    "qualityScore": 70,
+    "reason": "The test compiles and uses Playwright APIs correctly but the test title does not preserve the testCaseId (TC-001). The selector is somewhat specific but could be more robust. The URL assertion uses a weak regex that may pass for unrelated URLs containing 'product'. The test is functional but lacks strong assertions to confirm the correct product detail page is displayed."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +69,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-07-31T13:19:12.313Z"
+  "createdAt": "2026-07-31T14:59:15.262Z"
 }
