@@ -16,9 +16,9 @@
     "metadataPath": "playwright-execution/execution-metadata.json"
   },
   "githubActions": {
-    "workflowRunId": "30641568932",
+    "workflowRunId": "30658502904",
     "workflowRunAttempt": "1",
-    "commitSha": "a97517492a697a0fd9ff2647d7ed8072db69a028",
+    "commitSha": "575acc41f75867fac12f690b04a8b9af10a71105",
     "playwrightExitCode": 1
   },
   "summary": {
@@ -27,7 +27,7 @@
     "failed": 1,
     "skipped": 0,
     "flaky": 0,
-    "durationMs": 7960.593
+    "durationMs": 9556.778999999999
   },
   "errors": [],
   "rawResults": {
@@ -51,24 +51,24 @@
       "maxFailures": 0,
       "metadata": {
         "ci": {
-          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/a97517492a697a0fd9ff2647d7ed8072db69a028",
-          "commitHash": "a97517492a697a0fd9ff2647d7ed8072db69a028",
-          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30641568932"
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/575acc41f75867fac12f690b04a8b9af10a71105",
+          "commitHash": "575acc41f75867fac12f690b04a8b9af10a71105",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30658502904"
         },
         "gitCommit": {
-          "shortHash": "a975174",
-          "hash": "a97517492a697a0fd9ff2647d7ed8072db69a028",
+          "shortHash": "575acc4",
+          "hash": "575acc41f75867fac12f690b04a8b9af10a71105",
           "subject": "Update Playwright execution analysis for MP-3 - MP-SPRINT-20260731145748",
           "body": "Update Playwright execution analysis for MP-3 - MP-SPRINT-20260731145748",
           "author": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785510478000
+            "time": 1785525423000
           },
           "committer": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785510478000
+            "time": 1785525423000
           },
           "branch": "main"
         },
@@ -82,24 +82,24 @@
           "retries": 0,
           "metadata": {
             "ci": {
-              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/a97517492a697a0fd9ff2647d7ed8072db69a028",
-              "commitHash": "a97517492a697a0fd9ff2647d7ed8072db69a028",
-              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30641568932"
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/575acc41f75867fac12f690b04a8b9af10a71105",
+              "commitHash": "575acc41f75867fac12f690b04a8b9af10a71105",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30658502904"
             },
             "gitCommit": {
-              "shortHash": "a975174",
-              "hash": "a97517492a697a0fd9ff2647d7ed8072db69a028",
+              "shortHash": "575acc4",
+              "hash": "575acc41f75867fac12f690b04a8b9af10a71105",
               "subject": "Update Playwright execution analysis for MP-3 - MP-SPRINT-20260731145748",
               "body": "Update Playwright execution analysis for MP-3 - MP-SPRINT-20260731145748",
               "author": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785510478000
+                "time": 1785525423000
               },
               "committer": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785510478000
+                "time": 1785525423000
               },
               "branch": "main"
             },
@@ -163,7 +163,7 @@
                     "workerIndex": 0,
                     "parallelIndex": 0,
                     "status": "failed",
-                    "duration": 5495,
+                    "duration": 7165,
                     "error": {
                       "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test=\"nav-contact\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"nav-contact\"]')\u001b[22m\n",
                       "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test=\"nav-contact\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"nav-contact\"]')\u001b[22m\n\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:8:29",
@@ -187,7 +187,7 @@
                     "stdout": [],
                     "stderr": [],
                     "retry": 0,
-                    "startTime": "2026-07-31T15:09:27.744Z",
+                    "startTime": "2026-07-31T19:19:04.759Z",
                     "annotations": [],
                     "attachments": [
                       {
@@ -226,13 +226,13 @@
     ],
     "errors": [],
     "stats": {
-      "startTime": "2026-07-31T15:09:27.229Z",
-      "duration": 7960.593,
+      "startTime": "2026-07-31T19:19:04.265Z",
+      "duration": 9556.778999999999,
       "expected": 0,
       "skipped": 0,
       "unexpected": 1,
       "flaky": 0
     }
   },
-  "completedAt": "2026-07-31T15:09:35.288Z"
+  "completedAt": "2026-07-31T19:19:13.908Z"
 }
