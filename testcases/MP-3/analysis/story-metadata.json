@@ -1,9 +1,14 @@
 {
+  "schemaVersion": "1.0.0",
+  "artifactType": "STORY_METADATA",
   "storyKey": "MP-3",
   "storyTitle": "Browse Products by Category",
-  "source": "Jira",
-  "storyHash": "03f3f0c0d664ad8fa72aa0ef3322910b39172ab0ade3360ca8d56cbe87743e1e",
-  "priority": "Medium",
-  "status": "To Do",
-  "lastGeneratedAt": "2026-07-14T13:11:03.652Z"
+  "source": "JIRA",
+  "storyHash": "77f2b4b71aebc456c68bacf0d2b576c2448981a939e7bba9830a8b967aa09ae1",
+  "priority": "MEDIUM",
+  "status": "TO_DO",
+  "applicationId": "practice-software-testing",
+  "environmentId": "hosted-sprint-1",
+  "generatedByExecutionId": "MP-SPRINT-20260731092336",
+  "lastGeneratedAt": "2026-07-31T09:24:53.048Z"
 }
