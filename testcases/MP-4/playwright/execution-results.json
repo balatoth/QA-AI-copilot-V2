@@ -16,9 +16,9 @@
     "metadataPath": "playwright-execution/execution-metadata.json"
   },
   "githubActions": {
-    "workflowRunId": "30626375680",
+    "workflowRunId": "30633673340",
     "workflowRunAttempt": "1",
-    "commitSha": "7b467a8a423c804d4418bf5f98c3aab6c92f985f",
+    "commitSha": "ea7ca3b9266bb6a570fb5355cf0da97f823793af",
     "playwrightExitCode": 1
   },
   "summary": {
@@ -27,7 +27,7 @@
     "failed": 1,
     "skipped": 0,
     "flaky": 0,
-    "durationMs": 1823.579
+    "durationMs": 1924.659
   },
   "errors": [],
   "rawResults": {
@@ -51,24 +51,24 @@
       "maxFailures": 0,
       "metadata": {
         "ci": {
-          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/7b467a8a423c804d4418bf5f98c3aab6c92f985f",
-          "commitHash": "7b467a8a423c804d4418bf5f98c3aab6c92f985f",
-          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30626375680"
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/ea7ca3b9266bb6a570fb5355cf0da97f823793af",
+          "commitHash": "ea7ca3b9266bb6a570fb5355cf0da97f823793af",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30633673340"
         },
         "gitCommit": {
-          "shortHash": "7b467a8",
-          "hash": "7b467a8a423c804d4418bf5f98c3aab6c92f985f",
-          "subject": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260731110917",
-          "body": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260731110917",
+          "shortHash": "ea7ca3b",
+          "hash": "ea7ca3b9266bb6a570fb5355cf0da97f823793af",
+          "subject": "Update HTML manager execution report",
+          "body": "Update HTML manager execution report",
           "author": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785496509000
+            "time": 1785498927000
           },
           "committer": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785496509000
+            "time": 1785498927000
           },
           "branch": "main"
         },
@@ -82,24 +82,24 @@
           "retries": 0,
           "metadata": {
             "ci": {
-              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/7b467a8a423c804d4418bf5f98c3aab6c92f985f",
-              "commitHash": "7b467a8a423c804d4418bf5f98c3aab6c92f985f",
-              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30626375680"
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/ea7ca3b9266bb6a570fb5355cf0da97f823793af",
+              "commitHash": "ea7ca3b9266bb6a570fb5355cf0da97f823793af",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30633673340"
             },
             "gitCommit": {
-              "shortHash": "7b467a8",
-              "hash": "7b467a8a423c804d4418bf5f98c3aab6c92f985f",
-              "subject": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260731110917",
-              "body": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260731110917",
+              "shortHash": "ea7ca3b",
+              "hash": "ea7ca3b9266bb6a570fb5355cf0da97f823793af",
+              "subject": "Update HTML manager execution report",
+              "body": "Update HTML manager execution report",
               "author": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785496509000
+                "time": 1785498927000
               },
               "committer": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785496509000
+                "time": 1785498927000
               },
               "branch": "main"
             },
@@ -163,10 +163,10 @@
                     "workerIndex": 0,
                     "parallelIndex": 0,
                     "status": "failed",
-                    "duration": 919,
+                    "duration": 958,
                     "error": {
-                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('form', { name: 'Contact Form' })\nExpected: visible\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('form', { name: 'Contact Form' })\u001b[22m\n\u001b[2m  - Protocol error (Runtime.callFunctionOn): Internal server error, session closed.\u001b[22m\n",
-                      "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('form', { name: 'Contact Form' })\nExpected: visible\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('form', { name: 'Contact Form' })\u001b[22m\n\u001b[2m  - Protocol error (Runtime.callFunctionOn): Internal server error, session closed.\u001b[22m\n\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:6:25",
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('form', { name: 'Contact Form' })\nExpected: visible\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('form', { name: 'Contact Form' })\u001b[22m\n\u001b[2m  - Test ended.\u001b[22m\n",
+                      "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('form', { name: 'Contact Form' })\nExpected: visible\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('form', { name: 'Contact Form' })\u001b[22m\n\u001b[2m  - Test ended.\u001b[22m\n\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:6:25",
                       "location": {
                         "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
                         "column": 25,
@@ -181,13 +181,13 @@
                           "column": 25,
                           "line": 6
                         },
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('form', { name: 'Contact Form' })\nExpected: visible\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('form', { name: 'Contact Form' })\u001b[22m\n\u001b[2m  - Protocol error (Runtime.callFunctionOn): Internal server error, session closed.\u001b[22m\n\n\n  4 |     await page.goto('http://localhost:4200/');\n  5 |     const contactForm = await page.getByRole('form', { name: 'Contact Form' }); // Assuming the form has an accessible name\n> 6 |     expect(contactForm).toBeVisible();\n    |                         ^\n  7 | });\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:6:25"
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('form', { name: 'Contact Form' })\nExpected: visible\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('form', { name: 'Contact Form' })\u001b[22m\n\u001b[2m  - Test ended.\u001b[22m\n\n\n  4 |     await page.goto('http://localhost:4200/');\n  5 |     const contactForm = await page.getByRole('form', { name: 'Contact Form' }); // Assuming the form has an accessible name\n> 6 |     expect(contactForm).toBeVisible();\n    |                         ^\n  7 | });\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:6:25"
                       }
                     ],
                     "stdout": [],
                     "stderr": [],
                     "retry": 0,
-                    "startTime": "2026-07-31T11:16:49.649Z",
+                    "startTime": "2026-07-31T13:16:09.060Z",
                     "annotations": [],
                     "attachments": [
                       {
@@ -226,13 +226,13 @@
     ],
     "errors": [],
     "stats": {
-      "startTime": "2026-07-31T11:16:49.113Z",
-      "duration": 1823.579,
+      "startTime": "2026-07-31T13:16:08.472Z",
+      "duration": 1924.659,
       "expected": 0,
       "skipped": 0,
       "unexpected": 1,
       "flaky": 0
     }
   },
-  "completedAt": "2026-07-31T11:16:51.042Z"
+  "completedAt": "2026-07-31T13:16:10.495Z"
 }
