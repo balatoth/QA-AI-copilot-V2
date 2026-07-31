@@ -23,8 +23,8 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": false,
-  "repairAttempt": 0,
+  "repaired": true,
+  "repairAttempt": 1,
   "generatedTestCount": 1,
   "skippedTestCount": 2,
   "generatedTestCases": [
@@ -37,11 +37,11 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing verified evidence for product images and prices in product cards."
+      "reason": "Missing verified evidence required for safe automation"
     },
     {
       "testCaseId": "TC-003",
-      "reason": "Navigation behavior and destination page verification are not supported by verified evidence."
+      "reason": "Missing verified evidence required for safe automation"
     }
   ],
   "generatedFiles": [
@@ -55,8 +55,8 @@
   "qualityGate": {
     "status": "PASS",
     "passed": true,
-    "qualityScore": 8,
-    "reason": "The Playwright artifact compiles and runs correctly, with proper use of async/await and Playwright APIs. Test case ID is preserved in the test title. Selectors use data-test attributes, providing reasonable robustness. Assertions are correctly awaited and applied to Locators. Minor improvements could be made in reusability and test data handling, but overall the artifact is maintainable and assertive."
+    "qualityScore": 90,
+    "reason": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes proper asynchronous assertions with await. Selectors use data-test attributes which are stable and specific. The test case ID TC-001 is present in the test title. The test verifies visibility of key UI elements and product cards as intended."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +69,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-07-30T20:32:27.378Z"
+  "createdAt": "2026-07-31T06:09:03.675Z"
 }
