@@ -1,22 +1,12 @@
 import { test, expect } from '@playwright/test';
 
-const baseURL = 'https://v1.practicesoftwaretesting.com';
+const BASE_URL = 'https://v1.practicesoftwaretesting.com';
 
-test('TC-001 - Display of Product Cards on Home Page', async ({ page }) => {
-  await page.goto(baseURL);
-
-  // Verify the home navigation is visible
-  await expect(page.locator('[data-test="nav-home"]')).toBeVisible();
-
-  // Verify the product grid container is visible
-  const productGrid = page.locator('[data-test="product-grid"]');
-  await expect(productGrid).toBeVisible();
-
-  // Verify at least one product card is visible inside the product grid
-  const productCards = productGrid.locator('[data-test="product-card"]');
-  await expect(productCards.first()).toBeVisible();
-
-  // Optionally verify product card count is greater than zero
-  const count = await productCards.count();
-  expect(count).toBeGreaterThan(0);
+test('[TC-001] Display of Product Cards on Home Page', async ({ page }) => {
+    await page.goto(BASE_URL);
+    await expect(page.locator('[data-test="product-1"]')).toBeVisible();
+    await expect(page.locator('[data-test="product-2"]')).toBeVisible();
+    await expect(page.locator('[data-test="product-3"]')).toBeVisible();
+    await expect(page.locator('[data-test="product-4"]')).toBeVisible();
+    await expect(page.locator('[data-test="product-5"]')).toBeVisible();
 });
