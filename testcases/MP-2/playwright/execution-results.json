@@ -1,0 +1,198 @@
+{
+  "schemaVersion": "0.1.0",
+  "artifactType": "PLAYWRIGHT_EXECUTION_RESULTS",
+  "storyKey": "MP-2",
+  "executionId": "MP-SPRINT-20260731092336",
+  "executionType": "PLAYWRIGHT",
+  "status": "COMPLETED",
+  "repository": {
+    "owner": "balatoth",
+    "name": "QA-AI-copilot-V2",
+    "branch": "main"
+  },
+  "source": {
+    "specPath": "testcases/MP-2/playwright/product-detail.spec.ts",
+    "rawResultsPath": "playwright-execution/playwright-results.json",
+    "metadataPath": "playwright-execution/execution-metadata.json"
+  },
+  "githubActions": {
+    "workflowRunId": "30620039868",
+    "workflowRunAttempt": "1",
+    "commitSha": "084c32af455d6678232de7da4ec2439a61d8843e",
+    "playwrightExitCode": 0
+  },
+  "summary": {
+    "expected": 1,
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "durationMs": 3906.5629999999996
+  },
+  "errors": [],
+  "rawResults": {
+    "config": {
+      "argv": [
+        "/opt/hostedtoolcache/node/20.20.2/x64/bin/node",
+        "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/node_modules/.bin/playwright",
+        "test",
+        "tests/story.spec.ts"
+      ],
+      "configFile": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/playwright.config.ts",
+      "rootDir": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests",
+      "failOnFlakyTests": false,
+      "forbidOnly": false,
+      "fullyParallel": false,
+      "globalSetup": null,
+      "globalTeardown": null,
+      "globalTimeout": 0,
+      "grep": {},
+      "grepInvert": null,
+      "maxFailures": 0,
+      "metadata": {
+        "ci": {
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/084c32af455d6678232de7da4ec2439a61d8843e",
+          "commitHash": "084c32af455d6678232de7da4ec2439a61d8843e",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30620039868"
+        },
+        "gitCommit": {
+          "shortHash": "084c32a",
+          "hash": "084c32af455d6678232de7da4ec2439a61d8843e",
+          "subject": "Update Playwright execution analysis for MP-1 - MP-SPRINT-20260731092336",
+          "body": "Update Playwright execution analysis for MP-1 - MP-SPRINT-20260731092336",
+          "author": {
+            "name": "balatoth",
+            "email": "balazs.toth@yahoo.com",
+            "time": 1785490089000
+          },
+          "committer": {
+            "name": "balatoth",
+            "email": "balazs.toth@yahoo.com",
+            "time": 1785490089000
+          },
+          "branch": "main"
+        },
+        "actualWorkers": 1
+      },
+      "preserveOutput": "always",
+      "projects": [
+        {
+          "outputDir": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results",
+          "repeatEach": 1,
+          "retries": 0,
+          "metadata": {
+            "ci": {
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/084c32af455d6678232de7da4ec2439a61d8843e",
+              "commitHash": "084c32af455d6678232de7da4ec2439a61d8843e",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30620039868"
+            },
+            "gitCommit": {
+              "shortHash": "084c32a",
+              "hash": "084c32af455d6678232de7da4ec2439a61d8843e",
+              "subject": "Update Playwright execution analysis for MP-1 - MP-SPRINT-20260731092336",
+              "body": "Update Playwright execution analysis for MP-1 - MP-SPRINT-20260731092336",
+              "author": {
+                "name": "balatoth",
+                "email": "balazs.toth@yahoo.com",
+                "time": 1785490089000
+              },
+              "committer": {
+                "name": "balatoth",
+                "email": "balazs.toth@yahoo.com",
+                "time": 1785490089000
+              },
+              "branch": "main"
+            },
+            "actualWorkers": 1
+          },
+          "id": "",
+          "name": "",
+          "testDir": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests",
+          "testIgnore": [],
+          "testMatch": [
+            "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+          ],
+          "timeout": 30000
+        }
+      ],
+      "quiet": false,
+      "reporter": [
+        [
+          "json",
+          {
+            "outputFile": "playwright-results.json"
+          }
+        ],
+        [
+          "line",
+          null
+        ]
+      ],
+      "reportSlowTests": {
+        "max": 5,
+        "threshold": 300000
+      },
+      "shard": null,
+      "tags": [],
+      "updateSnapshots": "missing",
+      "updateSourceMethod": "patch",
+      "version": "1.62.1",
+      "workers": 1,
+      "webServer": null
+    },
+    "suites": [
+      {
+        "title": "story.spec.ts",
+        "file": "story.spec.ts",
+        "column": 0,
+        "line": 0,
+        "specs": [
+          {
+            "title": "Verify Product Detail Page is Displayed",
+            "ok": true,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [
+                  {
+                    "workerIndex": 0,
+                    "parallelIndex": 0,
+                    "status": "passed",
+                    "duration": 2424,
+                    "errors": [],
+                    "stdout": [],
+                    "stderr": [],
+                    "retry": 0,
+                    "startTime": "2026-07-31T09:29:42.602Z",
+                    "annotations": [],
+                    "attachments": []
+                  }
+                ],
+                "status": "expected"
+              }
+            ],
+            "id": "92a6e7f2d2460e449614-56d079219b07552d4651",
+            "file": "story.spec.ts",
+            "line": 5,
+            "column": 5
+          }
+        ]
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "startTime": "2026-07-31T09:29:42.083Z",
+      "duration": 3906.5629999999996,
+      "expected": 1,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "completedAt": "2026-07-31T09:29:46.089Z"
+}
