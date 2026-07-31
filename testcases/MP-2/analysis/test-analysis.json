@@ -2,25 +2,39 @@
   "storyKey": "MP-2",
   "storyTitle": "Product Detail",
   "application": "Practice Software Testing",
-  "functionalArea": "Product Display",
-  "businessGoal": "Allow visitors to view detailed product information before making a purchase decision.",
+  "functionalArea": "Product Information",
+  "businessGoal": "Allow visitors to view full product details before purchasing.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that the product detail page is displayed when a product is clicked from the overview or category page."
+      "goal": "Verify that the product detail page is displayed when a product is clicked."
     },
     {
       "scenarioId": "SC-002",
       "category": "Positive",
-      "goal": "Verify that the product image, name, description, price, category badge, and brand badge are displayed on the product detail page."
+      "goal": "Verify that all required product information is displayed on the product detail page."
     },
     {
       "scenarioId": "SC-003",
       "category": "Positive",
-      "goal": "Verify that the related products section is displayed below the main product information and that each related product is clickable and navigates to its detail page."
+      "goal": "Verify that the related products section is displayed with clickable items."
     }
   ],
   "outOfScope": [],
-  "clarifications": []
+  "clarifications": [],
+  "testApplicability": {
+    "manual": {
+      "applicable": true,
+      "reason": "The acceptance criteria describe visible behavior on the product detail page."
+    },
+    "api": {
+      "applicable": false,
+      "reason": "No API capabilities are mentioned that can validate the product details or related products."
+    },
+    "ui": {
+      "applicable": true,
+      "reason": "The story describes visible browser behavior and interaction on the product detail page."
+    }
+  }
 }
