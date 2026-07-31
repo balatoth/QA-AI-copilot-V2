@@ -2,7 +2,7 @@
   "schemaVersion": "0.1.0",
   "artifactType": "PLAYWRIGHT_EXECUTION_RESULTS",
   "storyKey": "MP-2",
-  "executionId": "MP-SPRINT-20260731094753",
+  "executionId": "MP-SPRINT-20260731102514",
   "executionType": "PLAYWRIGHT",
   "status": "COMPLETED",
   "repository": {
@@ -16,9 +16,9 @@
     "metadataPath": "playwright-execution/execution-metadata.json"
   },
   "githubActions": {
-    "workflowRunId": "30621469134",
+    "workflowRunId": "30623683551",
     "workflowRunAttempt": "1",
-    "commitSha": "5e1a39db8aa3f9a7010fa3b21cd7635291d530d8",
+    "commitSha": "1ff6a9f952464caf12a583ddb69b419ef312470d",
     "playwrightExitCode": 0
   },
   "summary": {
@@ -27,7 +27,7 @@
     "failed": 0,
     "skipped": 0,
     "flaky": 0,
-    "durationMs": 3487.927
+    "durationMs": 3399.993
   },
   "errors": [],
   "rawResults": {
@@ -51,24 +51,24 @@
       "maxFailures": 0,
       "metadata": {
         "ci": {
-          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/5e1a39db8aa3f9a7010fa3b21cd7635291d530d8",
-          "commitHash": "5e1a39db8aa3f9a7010fa3b21cd7635291d530d8",
-          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30621469134"
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/1ff6a9f952464caf12a583ddb69b419ef312470d",
+          "commitHash": "1ff6a9f952464caf12a583ddb69b419ef312470d",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30623683551"
         },
         "gitCommit": {
-          "shortHash": "5e1a39d",
-          "hash": "5e1a39db8aa3f9a7010fa3b21cd7635291d530d8",
-          "subject": "Update Playwright execution analysis for MP-1 - MP-SPRINT-20260731094753",
-          "body": "Update Playwright execution analysis for MP-1 - MP-SPRINT-20260731094753",
+          "shortHash": "1ff6a9f",
+          "hash": "1ff6a9f952464caf12a583ddb69b419ef312470d",
+          "subject": "Update Playwright execution analysis for MP-1 - MP-SPRINT-20260731102514",
+          "body": "Update Playwright execution analysis for MP-1 - MP-SPRINT-20260731102514",
           "author": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785491502000
+            "time": 1785493721000
           },
           "committer": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785491502000
+            "time": 1785493721000
           },
           "branch": "main"
         },
@@ -82,24 +82,24 @@
           "retries": 0,
           "metadata": {
             "ci": {
-              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/5e1a39db8aa3f9a7010fa3b21cd7635291d530d8",
-              "commitHash": "5e1a39db8aa3f9a7010fa3b21cd7635291d530d8",
-              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30621469134"
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/1ff6a9f952464caf12a583ddb69b419ef312470d",
+              "commitHash": "1ff6a9f952464caf12a583ddb69b419ef312470d",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30623683551"
             },
             "gitCommit": {
-              "shortHash": "5e1a39d",
-              "hash": "5e1a39db8aa3f9a7010fa3b21cd7635291d530d8",
-              "subject": "Update Playwright execution analysis for MP-1 - MP-SPRINT-20260731094753",
-              "body": "Update Playwright execution analysis for MP-1 - MP-SPRINT-20260731094753",
+              "shortHash": "1ff6a9f",
+              "hash": "1ff6a9f952464caf12a583ddb69b419ef312470d",
+              "subject": "Update Playwright execution analysis for MP-1 - MP-SPRINT-20260731102514",
+              "body": "Update Playwright execution analysis for MP-1 - MP-SPRINT-20260731102514",
               "author": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785491502000
+                "time": 1785493721000
               },
               "committer": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785491502000
+                "time": 1785493721000
               },
               "branch": "main"
             },
@@ -148,7 +148,7 @@
         "line": 0,
         "specs": [
           {
-            "title": "TC-001 - Verify Product Detail Page is Displayed",
+            "title": "TC-001: Verify Product Detail Page is Displayed",
             "ok": true,
             "tags": [],
             "tests": [
@@ -163,12 +163,12 @@
                     "workerIndex": 0,
                     "parallelIndex": 0,
                     "status": "passed",
-                    "duration": 2592,
+                    "duration": 2556,
                     "errors": [],
                     "stdout": [],
                     "stderr": [],
                     "retry": 0,
-                    "startTime": "2026-07-31T09:53:17.065Z",
+                    "startTime": "2026-07-31T10:30:12.947Z",
                     "annotations": [],
                     "attachments": []
                   }
@@ -176,7 +176,7 @@
                 "status": "expected"
               }
             ],
-            "id": "92a6e7f2d2460e449614-dc5f4f1c1845354c0e7d",
+            "id": "92a6e7f2d2460e449614-cdf24ea45aa3a871186b",
             "file": "story.spec.ts",
             "line": 5,
             "column": 5
@@ -186,13 +186,13 @@
     ],
     "errors": [],
     "stats": {
-      "startTime": "2026-07-31T09:53:16.499Z",
-      "duration": 3487.927,
+      "startTime": "2026-07-31T10:30:12.400Z",
+      "duration": 3399.993,
       "expected": 1,
       "skipped": 0,
       "unexpected": 0,
       "flaky": 0
     }
   },
-  "completedAt": "2026-07-31T09:53:20.093Z"
+  "completedAt": "2026-07-31T10:30:15.899Z"
 }
