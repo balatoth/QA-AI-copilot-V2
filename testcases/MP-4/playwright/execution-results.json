@@ -2,7 +2,7 @@
   "schemaVersion": "0.1.0",
   "artifactType": "PLAYWRIGHT_EXECUTION_RESULTS",
   "storyKey": "MP-4",
-  "executionId": "MP-SPRINT-20260731092336",
+  "executionId": "MP-SPRINT-20260731094753",
   "executionType": "PLAYWRIGHT",
   "status": "FAILED",
   "repository": {
@@ -16,9 +16,9 @@
     "metadataPath": "playwright-execution/execution-metadata.json"
   },
   "githubActions": {
-    "workflowRunId": "30620155184",
+    "workflowRunId": "30621735914",
     "workflowRunAttempt": "1",
-    "commitSha": "83b6b53e2b42130a0d46b25019b0aab6ded4bc65",
+    "commitSha": "f53c3ed4bbfa49df16f4e562f7885e977d1651f7",
     "playwrightExitCode": 1
   },
   "summary": {
@@ -27,7 +27,7 @@
     "failed": 1,
     "skipped": 0,
     "flaky": 0,
-    "durationMs": 1666.176
+    "durationMs": 3681.2930000000006
   },
   "errors": [],
   "rawResults": {
@@ -51,24 +51,24 @@
       "maxFailures": 0,
       "metadata": {
         "ci": {
-          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/83b6b53e2b42130a0d46b25019b0aab6ded4bc65",
-          "commitHash": "83b6b53e2b42130a0d46b25019b0aab6ded4bc65",
-          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30620155184"
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/f53c3ed4bbfa49df16f4e562f7885e977d1651f7",
+          "commitHash": "f53c3ed4bbfa49df16f4e562f7885e977d1651f7",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30621735914"
         },
         "gitCommit": {
-          "shortHash": "83b6b53",
-          "hash": "83b6b53e2b42130a0d46b25019b0aab6ded4bc65",
-          "subject": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260731092336",
-          "body": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260731092336",
+          "shortHash": "f53c3ed",
+          "hash": "f53c3ed4bbfa49df16f4e562f7885e977d1651f7",
+          "subject": "Update Playwright execution analysis for MP-3 - MP-SPRINT-20260731094753",
+          "body": "Update Playwright execution analysis for MP-3 - MP-SPRINT-20260731094753",
           "author": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785490202000
+            "time": 1785491762000
           },
           "committer": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785490202000
+            "time": 1785491762000
           },
           "branch": "main"
         },
@@ -82,24 +82,24 @@
           "retries": 0,
           "metadata": {
             "ci": {
-              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/83b6b53e2b42130a0d46b25019b0aab6ded4bc65",
-              "commitHash": "83b6b53e2b42130a0d46b25019b0aab6ded4bc65",
-              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30620155184"
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/f53c3ed4bbfa49df16f4e562f7885e977d1651f7",
+              "commitHash": "f53c3ed4bbfa49df16f4e562f7885e977d1651f7",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30621735914"
             },
             "gitCommit": {
-              "shortHash": "83b6b53",
-              "hash": "83b6b53e2b42130a0d46b25019b0aab6ded4bc65",
-              "subject": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260731092336",
-              "body": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260731092336",
+              "shortHash": "f53c3ed",
+              "hash": "f53c3ed4bbfa49df16f4e562f7885e977d1651f7",
+              "subject": "Update Playwright execution analysis for MP-3 - MP-SPRINT-20260731094753",
+              "body": "Update Playwright execution analysis for MP-3 - MP-SPRINT-20260731094753",
               "author": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785490202000
+                "time": 1785491762000
               },
               "committer": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785490202000
+                "time": 1785491762000
               },
               "branch": "main"
             },
@@ -163,7 +163,7 @@
                     "workerIndex": 0,
                     "parallelIndex": 0,
                     "status": "failed",
-                    "duration": 742,
+                    "duration": 879,
                     "error": {
                       "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('form', { name: 'Contact Form' })\nExpected: visible\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('form', { name: 'Contact Form' })\u001b[22m\n\u001b[2m  - Protocol error (Runtime.callFunctionOn): Internal server error, session closed.\u001b[22m\n",
                       "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('form', { name: 'Contact Form' })\nExpected: visible\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('form', { name: 'Contact Form' })\u001b[22m\n\u001b[2m  - Protocol error (Runtime.callFunctionOn): Internal server error, session closed.\u001b[22m\n\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:6:25",
@@ -187,7 +187,7 @@
                     "stdout": [],
                     "stderr": [],
                     "retry": 0,
-                    "startTime": "2026-07-31T09:31:40.324Z",
+                    "startTime": "2026-07-31T09:57:29.705Z",
                     "annotations": [],
                     "attachments": [
                       {
@@ -226,13 +226,13 @@
     ],
     "errors": [],
     "stats": {
-      "startTime": "2026-07-31T09:31:39.923Z",
-      "duration": 1666.176,
+      "startTime": "2026-07-31T09:57:29.175Z",
+      "duration": 3681.2930000000006,
       "expected": 0,
       "skipped": 0,
       "unexpected": 1,
       "flaky": 0
     }
   },
-  "completedAt": "2026-07-31T09:31:41.679Z"
+  "completedAt": "2026-07-31T09:57:32.970Z"
 }
