@@ -5,14 +5,14 @@
   "repaired": false,
   "repairAttempt": 0,
   "reviewStatus": "WARNING",
-  "qualityScore": 7,
+  "qualityScore": 75,
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 7,
-    "reason": "The test compiles and uses Playwright APIs correctly, with proper awaits and assertion on page URL. However, the selector '[data-test=\"product-1\"]' may be a guess without evidence that it is stable or unique. The URL assertion is weak since it only checks for the presence of 'product' in the URL, which may not guarantee the correct product detail page. The test title properly includes the testCaseId (TC-001)."
+    "qualityScore": 75,
+    "reason": "The test is syntactically correct and uses Playwright APIs properly, but the selector and assertion are weak. The selector '[data-test=\"product-1\"]' appears specific but may not be dynamic, and the URL assertion is generic, only checking for '/product/' without verifying the exact product page. No evidence of test data handling or maintainability improvements. No misuse of asynchronous code or Locator API."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-08-02T15:42:35.912Z"
+  "createdAt": "2026-08-02T16:24:14.873Z"
 }
