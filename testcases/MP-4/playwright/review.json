@@ -1,18 +1,29 @@
 {
   "artifactType": "playwright",
   "storyKey": "MP-4",
-  "reviewStatus": "PASS",
-  "qualityScore": 90,
-  "summary": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes awaited asynchronous assertions. Selectors use data-test attributes which are stable and specific. The test case ID is present in the test title. The test navigates and asserts visibility appropriately.",
+  "reviewStatus": "WARNING",
+  "qualityScore": 65,
+  "summary": "The test is valid and will run successfully, correctly awaiting asynchronous assertions. However, the selector used appears weak and likely incorrect as it targets a nav element rather than the contact form itself, which weakens the test's assertion strength. The test title correctly retains the testCaseId. No compilation or Playwright API misuse issues found.",
   "scores": {
-    "correctness": 10,
-    "selectorQuality": 8,
-    "assertionStrength": 9,
+    "correctness": 9,
+    "selectorQuality": 6,
+    "assertionStrength": 5,
     "reusability": 8,
-    "maintainability": 9,
-    "testDataHandling": 9,
+    "maintainability": 8,
+    "testDataHandling": 10,
     "playwrightBestPractices": 9
   },
-  "issues": [],
-  "recommendations": []
+  "issues": [
+    {
+      "severity": "MEDIUM",
+      "category": "Selector Quality",
+      "file": "playwright/contact-form.spec.ts",
+      "description": "The locator '[data-test=\"nav-contact\"]' targets a navigation element rather than the contact form itself, which may not sufficiently verify the presence or accessibility of the contact form.",
+      "recommendation": "Use a more precise selector that targets the actual contact form element, such as a form tag with a specific id or data attribute, to strengthen the test's assertion and avoid false positives."
+    }
+  ],
+  "recommendations": [
+    "Improve selector specificity targeting the actual contact form element rather than a navigation link or menu item.",
+    "Consider adding further assertions to verify form input fields or form accessibility attributes for stronger test coverage."
+  ]
 }
