@@ -25,11 +25,16 @@
   "scope": "PLAYWRIGHT_GENERATION",
   "repaired": false,
   "repairAttempt": 0,
-  "generatedTestCount": 1,
-  "skippedTestCount": 2,
+  "generatedTestCount": 2,
+  "skippedTestCount": 1,
   "generatedTestCases": [
     {
       "testCaseId": "TC-001",
+      "status": "GENERATED",
+      "filePath": "playwright/product-overview.spec.ts"
+    },
+    {
+      "testCaseId": "TC-003",
       "status": "GENERATED",
       "filePath": "playwright/product-overview.spec.ts"
     }
@@ -37,10 +42,6 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing verified evidence required for safe automation"
-    },
-    {
-      "testCaseId": "TC-003",
       "reason": "Missing verified evidence required for safe automation"
     }
   ],
@@ -55,8 +56,8 @@
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 65,
-    "reason": "The Playwright test is syntactically correct and will execute without errors; however, the selector used appears weak and potentially incorrect for the test case intent, and the test lacks assertions strong enough to confirm the display of product cards. The test title preserves the test case ID as required. No asynchronous handling issues or API misuse detected."
+    "qualityScore": 75,
+    "reason": "The Playwright tests are valid TypeScript and use Playwright API correctly. All locators and assertions are awaited and properly used. However, the selector strategy uses hard-coded data-test attributes which could be brittle. The navigation verification is too generic, only checking for '/product/' in the URL without confirming the exact product. Also, the test titles do not preserve the testCaseId and there is redundancy in asserting visibility of many similar product elements instead of a loop or more scalable approach."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +70,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-07-31T14:58:30.874Z"
+  "createdAt": "2026-08-02T15:42:06.993Z"
 }
