@@ -37,11 +37,11 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing verified evidence for product card content verification."
+      "reason": "Missing verified evidence for product image and name in the card."
     },
     {
       "testCaseId": "TC-003",
-      "reason": "Missing verified evidence for navigation to the product detail page."
+      "reason": "Missing navigation evidence to confirm product detail page display."
     }
   ],
   "generatedFiles": [
@@ -55,8 +55,8 @@
   "qualityGate": {
     "status": "PASS",
     "passed": true,
-    "qualityScore": 8,
-    "reason": "The generated test script compiles and uses Playwright APIs correctly with proper asynchronous awaits before assertions. The selectors use data-test attributes which are reliable and intentional rather than guessed or generic selectors. The test covers visibility checks for multiple product cards on the home page. However, the test could improve maintainability and reusability by reducing repetition with loops or parameterization."
+    "qualityScore": 85,
+    "reason": "The test is valid TypeScript and uses Playwright APIs correctly with proper awaited assertions on locators. The test includes the correct testCaseId in the title and verifies visibility of multiple product cards using data-test attributes, which are reasonably stable selectors. However, the selectors could be more descriptive to increase robustness and reusability. The test is straightforward, without unnecessary complexity, and properly navigates to the correct URL. There are no hard-coded waits or invented functionality. Some improvements could be made on maintainability by reducing repetition."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +69,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-02T17:17:52.881Z"
+  "createdAt": "2026-08-02T17:47:36.104Z"
 }
