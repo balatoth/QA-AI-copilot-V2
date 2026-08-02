@@ -1,0 +1,168 @@
+{
+  "schemaVersion": "0.1.0",
+  "artifactType": "SPRINT_EXECUTION_SUMMARY",
+  "executionId": "MP-SPRINT-20260802162327",
+  "status": "COMPLETED",
+  "executionStatus": "FAILED",
+  "scope": "SPRINT_EXECUTION",
+  "summary": {
+    "totalStories": 4,
+    "completedStories": 4,
+    "notExecutableStories": 0,
+    "technicalFailedStories": 0,
+    "testFailedStories": 1
+  },
+  "stories": [
+    {
+      "storyKey": "MP-1",
+      "executionId": "MP-SPRINT-20260802162327",
+      "status": "COMPLETED",
+      "executionStatus": "FAILED",
+      "scope": "STORY_EXECUTION",
+      "apiExecution": {
+        "executionId": "MP-SPRINT-20260802162327",
+        "storyKey": "MP-1",
+        "executionType": "API",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-1/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-1/api/execution-analysis.json",
+        "artifactVersion": null,
+        "repository": {
+          "owner": "balatoth",
+          "name": "QA-AI-copilot-V2",
+          "branch": "main"
+        },
+        "completedAt": "2026-08-02T16:24:54.161Z"
+      },
+      "playwrightExecution": {
+        "storyKey": "MP-1",
+        "executionId": "MP-SPRINT-20260802162327",
+        "executionType": "PLAYWRIGHT",
+        "scope": "PLAYWRIGHT_EXECUTION",
+        "status": "COMPLETED",
+        "executionStatus": "FAILED",
+        "summary": {
+          "expected": 0,
+          "passed": 0,
+          "failed": 1,
+          "skipped": 0,
+          "flaky": 0,
+          "durationMs": 7463.789
+        },
+        "rootCauseCategory": "SELECTOR_MISMATCH",
+        "releaseImpact": "High - The failure indicates a critical UI element is not detected, potentially blocking further UI interactions and impacting test coverage for product card display functionality.",
+        "failedTestCount": 1,
+        "executionResultsPath": "testcases/MP-1/playwright/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-1/playwright/execution-analysis.json",
+        "executionResultsSha": "4eb17b604901f08c3e00eb7b26c4f937c1296b88",
+        "executionAnalysisSha": "2740126810c8370cdfb1e4b38e7a5211f43eb05c",
+        "analysisCommitSha": "4265f6e374041e7918d6f97688aa74a0492cce64",
+        "completedAt": "2026-08-02T16:26:50.966Z"
+      }
+    },
+    {
+      "storyKey": "MP-2",
+      "executionId": "MP-SPRINT-20260802162327",
+      "status": "COMPLETED",
+      "executionStatus": "PASSED",
+      "scope": "STORY_EXECUTION",
+      "apiExecution": {
+        "executionId": "MP-SPRINT-20260802162327",
+        "storyKey": "MP-2",
+        "executionType": "API",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-2/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-2/api/execution-analysis.json",
+        "artifactVersion": null,
+        "repository": {
+          "owner": "balatoth",
+          "name": "QA-AI-copilot-V2",
+          "branch": "main"
+        },
+        "completedAt": "2026-08-02T16:24:54.161Z"
+      },
+      "playwrightExecution": {
+        "storyKey": "MP-2",
+        "executionId": "MP-SPRINT-20260802162327",
+        "executionType": "PLAYWRIGHT",
+        "scope": "PLAYWRIGHT_EXECUTION",
+        "status": "COMPLETED",
+        "executionStatus": "COMPLETED",
+        "summary": {
+          "expected": 1,
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "flaky": 0,
+          "durationMs": 3016.25
+        },
+        "rootCauseCategory": "N/A",
+        "releaseImpact": "No impact on release as all tests passed successfully.",
+        "failedTestCount": 0,
+        "executionResultsPath": "testcases/MP-2/playwright/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-2/playwright/execution-analysis.json",
+        "executionResultsSha": "e2fcc0a2a7335eeb09b19f9f51c510676ccba8d5",
+        "executionAnalysisSha": "957b57bb0076073eb4ea3fecd696241292a404a8",
+        "analysisCommitSha": "371ae8fb9bd2d8509de6427bf9384dfd9804420f",
+        "completedAt": "2026-08-02T16:28:43.695Z"
+      }
+    },
+    {
+      "storyKey": "MP-3",
+      "executionId": "MP-SPRINT-20260802162327",
+      "status": "COMPLETED",
+      "executionStatus": "PASSED",
+      "scope": "STORY_EXECUTION",
+      "apiExecution": {
+        "executionId": "MP-SPRINT-20260802162327",
+        "storyKey": "MP-3",
+        "executionType": "API",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-3/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-3/api/execution-analysis.json",
+        "artifactVersion": null,
+        "repository": {
+          "owner": "balatoth",
+          "name": "QA-AI-copilot-V2",
+          "branch": "main"
+        },
+        "completedAt": "2026-08-02T16:24:54.162Z"
+      },
+      "playwrightExecution": null
+    },
+    {
+      "storyKey": "MP-4",
+      "executionId": "MP-SPRINT-20260802162327",
+      "status": "COMPLETED",
+      "executionStatus": "PASSED",
+      "scope": "STORY_EXECUTION",
+      "apiExecution": null,
+      "playwrightExecution": {
+        "storyKey": "MP-4",
+        "executionId": "MP-SPRINT-20260802162327",
+        "executionType": "PLAYWRIGHT",
+        "scope": "PLAYWRIGHT_EXECUTION",
+        "status": "COMPLETED",
+        "executionStatus": "COMPLETED",
+        "summary": {
+          "expected": 1,
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "flaky": 0,
+          "durationMs": 2603.271
+        },
+        "rootCauseCategory": "N/A",
+        "releaseImpact": "No impact on release as all tests passed successfully.",
+        "failedTestCount": 0,
+        "executionResultsPath": "testcases/MP-4/playwright/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-4/playwright/execution-analysis.json",
+        "executionResultsSha": "90a9398cb597817b583431ab967e6b6914b6c05c",
+        "executionAnalysisSha": "3341bdc8f0c62240926e4ec5796c02f2e126bf79",
+        "analysisCommitSha": "dd4df69876daf6add25206bfaa4faceae213805d",
+        "completedAt": "2026-08-02T16:30:36.680Z"
+      }
+    }
+  ],
+  "completedAt": "2026-08-02T16:30:36.748Z"
+}
