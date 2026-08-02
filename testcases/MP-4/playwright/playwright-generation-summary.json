@@ -23,8 +23,8 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": false,
-  "repairAttempt": 0,
+  "repaired": true,
+  "repairAttempt": 1,
   "generatedTestCount": 1,
   "skippedTestCount": 4,
   "generatedTestCases": [
@@ -41,15 +41,15 @@
     },
     {
       "testCaseId": "TC-003",
-      "reason": "No verified selector for specific options in the subject dropdown."
+      "reason": "Missing verified evidence required for safe automation"
     },
     {
       "testCaseId": "TC-004",
-      "reason": "Missing evidence to validate character count for the message field."
+      "reason": "Missing verified evidence required for safe automation"
     },
     {
       "testCaseId": "TC-005",
-      "reason": "Insufficient evidence to confirm confirmation message upon submission."
+      "reason": "Missing verified evidence required for safe automation"
     }
   ],
   "generatedFiles": [
@@ -63,8 +63,8 @@
   "qualityGate": {
     "status": "PASS",
     "passed": true,
-    "qualityScore": 8,
-    "reason": "The Playwright test artifact compiles and uses correct Playwright API usage with proper awaits. The test includes the manual testCaseId in the test title and verifies navigation and visibility of the contact form via URL and interaction. The selectors used are data-test attributes, which are reliable. The test is simple but sufficient for verifying accessibility of the contact form. There is no misuse of assertions or locators, and no hardcoded waits or placeholder code."
+    "qualityScore": 90,
+    "reason": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes awaited asynchronous assertions. Selectors use data-test attributes which are stable and specific. The test case ID is present in the test title. The test navigates and asserts visibility appropriately."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -77,5 +77,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-02T16:24:44.405Z"
+  "createdAt": "2026-08-02T17:18:56.360Z"
 }
