@@ -37,11 +37,11 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing verified evidence required for safe automation"
+      "reason": "Missing verified evidence required for safe automation of checking the page title."
     },
     {
       "testCaseId": "TC-003",
-      "reason": "Missing evidence for filtering products by selected category."
+      "reason": "Missing verified evidence required for safe automation to display only products from the selected category."
     }
   ],
   "generatedFiles": [
@@ -55,8 +55,8 @@
   "qualityGate": {
     "status": "PASS",
     "passed": true,
-    "qualityScore": 85,
-    "reason": "The Playwright artifact is syntactically correct, uses Playwright APIs properly, and includes the required test case ID in the test title. The assertion on the URL ensures navigation to the expected category page. Selector uses a data-test attribute which is reliable. No await is missing before asynchronous assertions. The test is concise and maintainable. Slight deduction for the simplicity of the assertion which might be improved by verifying page content related to the category."
+    "qualityScore": 8,
+    "reason": "The artifact is syntactically correct, uses Playwright APIs properly, and includes awaited assertions. The selector is clear and stable using a data-test attribute. The assertion on the URL is appropriate for verifying navigation to the category page. There is a placeholder comment for future assertions when more evidence is available, which is acceptable. Minor reduction in assertion strength due to lack of additional confirmation steps."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +69,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-07-31T14:59:36.162Z"
+  "createdAt": "2026-08-02T15:42:54.282Z"
 }
