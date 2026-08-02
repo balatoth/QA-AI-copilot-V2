@@ -2,17 +2,17 @@
   "storyKey": "MP-4",
   "artifactType": "playwright",
   "generatorVersion": "v0.4.7.1",
-  "repaired": false,
-  "repairAttempt": 0,
+  "repaired": true,
+  "repairAttempt": 1,
   "reviewStatus": "PASS",
-  "qualityScore": 8,
+  "qualityScore": 90,
   "qualityGate": {
     "status": "PASS",
     "passed": true,
-    "qualityScore": 8,
-    "reason": "The Playwright test artifact compiles and uses correct Playwright API usage with proper awaits. The test includes the manual testCaseId in the test title and verifies navigation and visibility of the contact form via URL and interaction. The selectors used are data-test attributes, which are reliable. The test is simple but sufficient for verifying accessibility of the contact form. There is no misuse of assertions or locators, and no hardcoded waits or placeholder code."
+    "qualityScore": 90,
+    "reason": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes awaited asynchronous assertions. Selectors use data-test attributes which are stable and specific. The test case ID is present in the test title. The test navigates and asserts visibility appropriately."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-08-02T16:24:44.405Z"
+  "createdAt": "2026-08-02T17:18:56.360Z"
 }
