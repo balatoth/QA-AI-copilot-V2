@@ -23,8 +23,8 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": true,
-  "repairAttempt": 1,
+  "repaired": false,
+  "repairAttempt": 0,
   "generatedTestCount": 1,
   "skippedTestCount": 4,
   "generatedTestCases": [
@@ -37,19 +37,19 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing verified evidence required for safe automation"
+      "reason": "Missing evidence for required fields in the contact form."
     },
     {
       "testCaseId": "TC-003",
-      "reason": "Missing verified evidence required for safe automation"
+      "reason": "Missing evidence for the subject dropdown options."
     },
     {
       "testCaseId": "TC-004",
-      "reason": "Missing verified evidence required for safe automation"
+      "reason": "Missing evidence for validation error on message character count."
     },
     {
       "testCaseId": "TC-005",
-      "reason": "Missing verified evidence required for safe automation"
+      "reason": "Missing evidence for confirmation message upon successful submission."
     }
   ],
   "generatedFiles": [
@@ -61,10 +61,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "PASS",
+    "status": "WARNING",
     "passed": true,
-    "qualityScore": 90,
-    "reason": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes awaited asynchronous assertions. Selectors use data-test attributes which are stable and specific. The test case ID is present in the test title. The test navigates and asserts visibility appropriately."
+    "qualityScore": 65,
+    "reason": "The test is valid and will run successfully, correctly awaiting asynchronous assertions. However, the selector used appears weak and likely incorrect as it targets a nav element rather than the contact form itself, which weakens the test's assertion strength. The test title correctly retains the testCaseId. No compilation or Playwright API misuse issues found."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -77,5 +77,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-02T17:18:56.360Z"
+  "createdAt": "2026-08-02T17:48:47.432Z"
 }
