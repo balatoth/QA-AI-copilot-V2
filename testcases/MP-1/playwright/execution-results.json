@@ -2,7 +2,7 @@
   "schemaVersion": "0.1.0",
   "artifactType": "PLAYWRIGHT_EXECUTION_RESULTS",
   "storyKey": "MP-1",
-  "executionId": "MP-SPRINT-20260731145748",
+  "executionId": "MP-SPRINT-20260802154136",
   "executionType": "PLAYWRIGHT",
   "status": "COMPLETED",
   "repository": {
@@ -16,18 +16,18 @@
     "metadataPath": "playwright-execution/execution-metadata.json"
   },
   "githubActions": {
-    "workflowRunId": "30657950666",
+    "workflowRunId": "30754985525",
     "workflowRunAttempt": "1",
-    "commitSha": "663db21c22f6504907cbd5fd871117555f34eb71",
+    "commitSha": "306c42c7fa9b6c18a7cacbc1bd045e9f62169b9b",
     "playwrightExitCode": 0
   },
   "summary": {
-    "expected": 1,
-    "passed": 1,
+    "expected": 2,
+    "passed": 2,
     "failed": 0,
     "skipped": 0,
     "flaky": 0,
-    "durationMs": 3438.632
+    "durationMs": 5194.558
   },
   "errors": [],
   "rawResults": {
@@ -51,24 +51,24 @@
       "maxFailures": 0,
       "metadata": {
         "ci": {
-          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/663db21c22f6504907cbd5fd871117555f34eb71",
-          "commitHash": "663db21c22f6504907cbd5fd871117555f34eb71",
-          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30657950666"
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/306c42c7fa9b6c18a7cacbc1bd045e9f62169b9b",
+          "commitHash": "306c42c7fa9b6c18a7cacbc1bd045e9f62169b9b",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30754985525"
         },
         "gitCommit": {
-          "shortHash": "663db21",
-          "hash": "663db21c22f6504907cbd5fd871117555f34eb71",
-          "subject": "Update sprint execution summary for MP-SPRINT-20260731145748",
-          "body": "Update sprint execution summary for MP-SPRINT-20260731145748",
+          "shortHash": "306c42c",
+          "hash": "306c42c7fa9b6c18a7cacbc1bd045e9f62169b9b",
+          "subject": "Update execution-results.json for MP-3",
+          "body": "Update execution-results.json for MP-3",
           "author": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785510597000
+            "time": 1785685395000
           },
           "committer": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785510597000
+            "time": 1785685395000
           },
           "branch": "main"
         },
@@ -82,24 +82,24 @@
           "retries": 0,
           "metadata": {
             "ci": {
-              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/663db21c22f6504907cbd5fd871117555f34eb71",
-              "commitHash": "663db21c22f6504907cbd5fd871117555f34eb71",
-              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30657950666"
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/306c42c7fa9b6c18a7cacbc1bd045e9f62169b9b",
+              "commitHash": "306c42c7fa9b6c18a7cacbc1bd045e9f62169b9b",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30754985525"
             },
             "gitCommit": {
-              "shortHash": "663db21",
-              "hash": "663db21c22f6504907cbd5fd871117555f34eb71",
-              "subject": "Update sprint execution summary for MP-SPRINT-20260731145748",
-              "body": "Update sprint execution summary for MP-SPRINT-20260731145748",
+              "shortHash": "306c42c",
+              "hash": "306c42c7fa9b6c18a7cacbc1bd045e9f62169b9b",
+              "subject": "Update execution-results.json for MP-3",
+              "body": "Update execution-results.json for MP-3",
               "author": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785510597000
+                "time": 1785685395000
               },
               "committer": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785510597000
+                "time": 1785685395000
               },
               "branch": "main"
             },
@@ -148,7 +148,7 @@
         "line": 0,
         "specs": [
           {
-            "title": "TC-001 - Display of Product Cards on Home Page",
+            "title": "Display of Product Cards on Home Page",
             "ok": true,
             "tags": [],
             "tests": [
@@ -163,12 +163,12 @@
                     "workerIndex": 0,
                     "parallelIndex": 0,
                     "status": "passed",
-                    "duration": 2066,
+                    "duration": 2554,
                     "errors": [],
                     "stdout": [],
                     "stderr": [],
                     "retry": 0,
-                    "startTime": "2026-07-31T19:10:35.039Z",
+                    "startTime": "2026-08-02T15:44:44.438Z",
                     "annotations": [],
                     "attachments": []
                   }
@@ -176,9 +176,43 @@
                 "status": "expected"
               }
             ],
-            "id": "92a6e7f2d2460e449614-a518c1b9fa639c0e4331",
+            "id": "92a6e7f2d2460e449614-209f1d150627f7f10ea5",
             "file": "story.spec.ts",
             "line": 5,
+            "column": 5
+          },
+          {
+            "title": "Navigation to Product Detail Page",
+            "ok": true,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [
+                  {
+                    "workerIndex": 0,
+                    "parallelIndex": 0,
+                    "status": "passed",
+                    "duration": 1751,
+                    "errors": [],
+                    "stdout": [],
+                    "stderr": [],
+                    "retry": 0,
+                    "startTime": "2026-08-02T15:44:47.268Z",
+                    "annotations": [],
+                    "attachments": []
+                  }
+                ],
+                "status": "expected"
+              }
+            ],
+            "id": "92a6e7f2d2460e449614-8fcf5bf9cf19ec967425",
+            "file": "story.spec.ts",
+            "line": 35,
             "column": 5
           }
         ]
@@ -186,13 +220,13 @@
     ],
     "errors": [],
     "stats": {
-      "startTime": "2026-07-31T19:10:34.518Z",
-      "duration": 3438.632,
-      "expected": 1,
+      "startTime": "2026-08-02T15:44:43.881Z",
+      "duration": 5194.558,
+      "expected": 2,
       "skipped": 0,
       "unexpected": 0,
       "flaky": 0
     }
   },
-  "completedAt": "2026-07-31T19:10:38.041Z"
+  "completedAt": "2026-08-02T15:44:49.173Z"
 }
