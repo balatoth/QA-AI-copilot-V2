@@ -2,18 +2,28 @@
   "schemaVersion": "0.1.0",
   "artifactType": "PLAYWRIGHT_EXECUTION_ANALYSIS",
   "storyKey": "MP-4",
-  "executionId": "MP-SPRINT-20260802162327",
+  "executionId": "MP-SPRINT-20260802171721",
   "executionType": "PLAYWRIGHT",
-  "status": "SUCCESS",
-  "summary": "All expected tests passed successfully with no failures, errors, or flaky tests detected. The single test case verified accessibility of the contact form and completed within expected duration.",
-  "rootCauseCategory": "N/A",
-  "rootCause": "No failures or errors detected in the execution results.",
-  "failedTests": [],
-  "recommendations": [
-    "Continue monitoring test executions to ensure stability.",
-    "Maintain current test and environment configurations as no issues were found.",
-    "Consider adding more test cases to increase coverage if applicable."
+  "status": "FAILED",
+  "summary": "One test executed and failed due to an element not found error on locator '[data-test=\"nav-contact\"]'. No other tests were run or failed.",
+  "rootCauseCategory": "SELECTOR_MISMATCH",
+  "rootCause": "The test failed because the locator '[data-test=\"nav-contact\"]' did not find any visible element within the timeout, indicating a possible mismatch between the selector used in the test and the actual application DOM.",
+  "failedTests": [
+    {
+      "testName": "TC-001: Verify accessibility of the contact form",
+      "status": "failed",
+      "errorMessage": "expect(locator('[data-test=\"nav-contact\"]')).toBeVisible() failed: element(s) not found within 5000ms timeout.",
+      "likelyCause": "Selector '[data-test=\"nav-contact\"]' does not match any visible element on the page at the time of the check.",
+      "recommendation": "Verify that the selector '[data-test=\"nav-contact\"]' is correct and present in the application UI at the expected page and state. Update the selector if the application UI has changed or add waits if the element appears asynchronously."
+    }
   ],
-  "releaseImpact": "No impact on release as all tests passed successfully.",
-  "analyzedAt": "2026-08-02T16:30:35.820Z"
+  "recommendations": [
+    "Review and validate the selector '[data-test=\"nav-contact\"]' against the current application UI.",
+    "Check if the page URL and navigation are correct and the element should be present at that point.",
+    "Consider adding explicit waits or increasing timeout if the element appears with delay.",
+    "If the application UI has changed, update the test selectors accordingly.",
+    "Review the attached screenshot and trace files for more context on the failure."
+  ],
+  "releaseImpact": "High - The failure prevents verification of the contact form accessibility, blocking related functionality validation.",
+  "analyzedAt": "2026-08-02T17:25:23.411Z"
 }
