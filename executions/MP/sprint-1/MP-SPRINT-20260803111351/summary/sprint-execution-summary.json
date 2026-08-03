@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "0.1.0",
+  "artifactType": "SPRINT_EXECUTION_SUMMARY",
+  "executionId": "MP-SPRINT-20260803111351",
+  "status": "COMPLETED",
+  "executionStatus": "FAILED",
+  "scope": "SPRINT_EXECUTION",
+  "summary": {
+    "totalStories": 3,
+    "completedStories": 3,
+    "notExecutableStories": 0,
+    "technicalFailedStories": 0,
+    "testFailedStories": 1
+  },
+  "stories": [
+    {
+      "storyKey": "MP-1",
+      "executionId": "MP-SPRINT-20260803111351",
+      "status": "COMPLETED",
+      "executionStatus": "PASSED",
+      "scope": "STORY_EXECUTION",
+      "apiExecution": {
+        "executionId": "MP-SPRINT-20260803111351",
+        "storyKey": "MP-1",
+        "executionType": "API",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-1/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-1/api/execution-analysis.json",
+        "artifactVersion": null,
+        "repository": {
+          "owner": "balatoth",
+          "name": "QA-AI-copilot-V2",
+          "branch": "main"
+        },
+        "completedAt": "2026-08-03T11:16:00.220Z"
+      },
+      "playwrightExecution": null
+    },
+    {
+      "storyKey": "MP-2",
+      "executionId": "MP-SPRINT-20260803111351",
+      "status": "COMPLETED",
+      "executionStatus": "PASSED",
+      "scope": "STORY_EXECUTION",
+      "apiExecution": {
+        "executionId": "MP-SPRINT-20260803111351",
+        "storyKey": "MP-2",
+        "executionType": "API",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-2/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-2/api/execution-analysis.json",
+        "artifactVersion": null,
+        "repository": {
+          "owner": "balatoth",
+          "name": "QA-AI-copilot-V2",
+          "branch": "main"
+        },
+        "completedAt": "2026-08-03T11:16:00.221Z"
+      },
+      "playwrightExecution": {
+        "storyKey": "MP-2",
+        "executionId": "MP-SPRINT-20260803111351",
+        "executionType": "PLAYWRIGHT",
+        "scope": "PLAYWRIGHT_EXECUTION",
+        "status": "COMPLETED",
+        "executionStatus": "COMPLETED",
+        "summary": {
+          "expected": 1,
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "flaky": 0,
+          "durationMs": 4817.758
+        },
+        "rootCauseCategory": "UNKNOWN",
+        "releaseImpact": "No impact, as all tests passed without failures.",
+        "failedTestCount": 0,
+        "executionResultsPath": "testcases/MP-2/playwright/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-2/playwright/execution-analysis.json",
+        "executionResultsSha": "a9e7f9a836e5844f25e0e9612bd9e587662da32c",
+        "executionAnalysisSha": "590d7bf0a0e3be64054e1ea47b95519523d2898e",
+        "analysisCommitSha": "90b9b47646ad98dbb4d1a231bc7a84e7d4eb35d9",
+        "completedAt": "2026-08-03T11:17:53.118Z"
+      }
+    },
+    {
+      "storyKey": "MP-3",
+      "executionId": "MP-SPRINT-20260803111351",
+      "status": "COMPLETED",
+      "executionStatus": "FAILED",
+      "scope": "STORY_EXECUTION",
+      "apiExecution": {
+        "executionId": "MP-SPRINT-20260803111351",
+        "storyKey": "MP-3",
+        "executionType": "API",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-3/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-3/api/execution-analysis.json",
+        "artifactVersion": null,
+        "repository": {
+          "owner": "balatoth",
+          "name": "QA-AI-copilot-V2",
+          "branch": "main"
+        },
+        "completedAt": "2026-08-03T11:16:00.222Z"
+      },
+      "playwrightExecution": {
+        "storyKey": "MP-3",
+        "executionId": "MP-SPRINT-20260803111351",
+        "executionType": "PLAYWRIGHT",
+        "scope": "PLAYWRIGHT_EXECUTION",
+        "status": "COMPLETED",
+        "executionStatus": "FAILED",
+        "summary": {
+          "expected": 0,
+          "passed": 0,
+          "failed": 3,
+          "skipped": 0,
+          "flaky": 0,
+          "durationMs": 95794.486
+        },
+        "rootCauseCategory": "SELECTOR_MISMATCH",
+        "releaseImpact": "High - All tests related to category page navigation are failing, blocking validation of critical product browsing functionality.",
+        "failedTestCount": 3,
+        "executionResultsPath": "testcases/MP-3/playwright/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-3/playwright/execution-analysis.json",
+        "executionResultsSha": "f48cf520d85d8e5264ec27b730de80851db613ef",
+        "executionAnalysisSha": "027a64071921a407644cf424604f840beac99178",
+        "analysisCommitSha": "1a711a1c213580a258e7c046bb0f18c098033e58",
+        "completedAt": "2026-08-03T11:21:42.169Z"
+      }
+    }
+  ],
+  "completedAt": "2026-08-03T11:21:42.236Z"
+}
