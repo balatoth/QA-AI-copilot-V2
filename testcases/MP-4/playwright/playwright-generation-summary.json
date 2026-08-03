@@ -23,8 +23,8 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": false,
-  "repairAttempt": 0,
+  "repaired": true,
+  "repairAttempt": 1,
   "generatedTestCount": 1,
   "skippedTestCount": 4,
   "generatedTestCases": [
@@ -63,8 +63,8 @@
   "qualityGate": {
     "status": "PASS",
     "passed": true,
-    "qualityScore": 8,
-    "reason": "The generated Playwright test compiles and uses Playwright APIs correctly. The test case ID is preserved in the test title, and assertions are properly awaited on locators. The selector used is a data-test attribute, which is a good practice for stability. The test navigates to a concrete URL with no hardcoded waits or unsupported selectors. The test is simple but sufficiently assertive for verifying accessibility of the contact form through visibility of the expected nav element."
+    "qualityScore": 90,
+    "reason": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes awaited asynchronous assertions. Selectors use data-test attributes which are stable and appropriate. The test case ID TC-001 is preserved in the test title. The test navigates and asserts visibility correctly."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -77,5 +77,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-03T16:35:22.596Z"
+  "createdAt": "2026-08-03T17:07:42.161Z"
 }
