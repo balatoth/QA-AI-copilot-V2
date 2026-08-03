@@ -2,7 +2,7 @@
   "schemaVersion": "0.1.0",
   "artifactType": "PLAYWRIGHT_EXECUTION_RESULTS",
   "storyKey": "MP-3",
-  "executionId": "MP-SPRINT-20260803163357",
+  "executionId": "MP-SPRINT-20260803170502",
   "executionType": "PLAYWRIGHT",
   "status": "FAILED",
   "repository": {
@@ -16,18 +16,18 @@
     "metadataPath": "playwright-execution/execution-metadata.json"
   },
   "githubActions": {
-    "workflowRunId": "30833144445",
+    "workflowRunId": "30835671946",
     "workflowRunAttempt": "1",
-    "commitSha": "49f1b84f8730d8039033e39e4bba18e85390bf09",
+    "commitSha": "288ff82f782200f01c6c07c25092e4f9936e8949",
     "playwrightExitCode": 1
   },
   "summary": {
     "expected": 0,
     "passed": 0,
-    "failed": 3,
+    "failed": 1,
     "skipped": 0,
     "flaky": 0,
-    "durationMs": 95876.842
+    "durationMs": 7862.511999999999
   },
   "errors": [],
   "rawResults": {
@@ -51,24 +51,24 @@
       "maxFailures": 0,
       "metadata": {
         "ci": {
-          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/49f1b84f8730d8039033e39e4bba18e85390bf09",
-          "commitHash": "49f1b84f8730d8039033e39e4bba18e85390bf09",
-          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30833144445"
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/288ff82f782200f01c6c07c25092e4f9936e8949",
+          "commitHash": "288ff82f782200f01c6c07c25092e4f9936e8949",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30835671946"
         },
         "gitCommit": {
-          "shortHash": "49f1b84",
-          "hash": "49f1b84f8730d8039033e39e4bba18e85390bf09",
-          "subject": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260803163357",
-          "body": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260803163357",
+          "shortHash": "288ff82",
+          "hash": "288ff82f782200f01c6c07c25092e4f9936e8949",
+          "subject": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260803170502",
+          "body": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260803170502",
           "author": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785775158000
+            "time": 1785777132000
           },
           "committer": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785775158000
+            "time": 1785777132000
           },
           "branch": "main"
         },
@@ -82,24 +82,24 @@
           "retries": 0,
           "metadata": {
             "ci": {
-              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/49f1b84f8730d8039033e39e4bba18e85390bf09",
-              "commitHash": "49f1b84f8730d8039033e39e4bba18e85390bf09",
-              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30833144445"
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/288ff82f782200f01c6c07c25092e4f9936e8949",
+              "commitHash": "288ff82f782200f01c6c07c25092e4f9936e8949",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30835671946"
             },
             "gitCommit": {
-              "shortHash": "49f1b84",
-              "hash": "49f1b84f8730d8039033e39e4bba18e85390bf09",
-              "subject": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260803163357",
-              "body": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260803163357",
+              "shortHash": "288ff82",
+              "hash": "288ff82f782200f01c6c07c25092e4f9936e8949",
+              "subject": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260803170502",
+              "body": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260803170502",
               "author": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785775158000
+                "time": 1785777132000
               },
               "committer": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785775158000
+                "time": 1785777132000
               },
               "branch": "main"
             },
@@ -146,226 +146,93 @@
         "file": "story.spec.ts",
         "column": 0,
         "line": 0,
-        "specs": [],
-        "suites": [
+        "specs": [
           {
-            "title": "Product Browsing - Category Tests",
+            "title": "TC-001: Display Category Page on Category Click",
+            "ok": false,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [
+                  {
+                    "workerIndex": 0,
+                    "parallelIndex": 0,
+                    "status": "failed",
+                    "duration": 6962,
+                    "error": {
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1')\nExpected pattern: \u001b[32m/Hand Tools/i\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n",
+                      "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1')\nExpected pattern: \u001b[32m/Hand Tools/i\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:10:34",
+                      "location": {
+                        "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
+                        "column": 34,
+                        "line": 10
+                      },
+                      "snippet": "\u001b[0m \u001b[90m  8 |\u001b[39m     \u001b[90m// Check if category page is displayed by verifying a key element on the category page\u001b[39m\n \u001b[90m  9 |\u001b[39m     \u001b[36mconst\u001b[39m categoryHeader \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m expect(categoryHeader)\u001b[33m.\u001b[39mtoHaveText(\u001b[35m/Hand Tools/i\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                    },
+                    "errors": [
+                      {
+                        "location": {
+                          "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
+                          "column": 34,
+                          "line": 10
+                        },
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('h1')\nExpected pattern: \u001b[32m/Hand Tools/i\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n\n   8 |     // Check if category page is displayed by verifying a key element on the category page\n   9 |     const categoryHeader = page.locator('h1');\n> 10 |     await expect(categoryHeader).toHaveText(/Hand Tools/i);\n     |                                  ^\n  11 | });\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:10:34"
+                      }
+                    ],
+                    "stdout": [],
+                    "stderr": [],
+                    "retry": 0,
+                    "startTime": "2026-08-03T17:13:43.289Z",
+                    "annotations": [],
+                    "attachments": [
+                      {
+                        "name": "screenshot",
+                        "contentType": "image/png",
+                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-TC-001-Display-Category-Page-on-Category-Click/test-failed-1.png"
+                      },
+                      {
+                        "name": "error-context",
+                        "contentType": "text/markdown",
+                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-TC-001-Display-Category-Page-on-Category-Click/error-context.md"
+                      },
+                      {
+                        "name": "trace",
+                        "contentType": "application/zip",
+                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-TC-001-Display-Category-Page-on-Category-Click/trace.zip"
+                      }
+                    ],
+                    "errorLocation": {
+                      "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
+                      "column": 34,
+                      "line": 10
+                    }
+                  }
+                ],
+                "status": "unexpected"
+              }
+            ],
+            "id": "92a6e7f2d2460e449614-52f3570726a61b42df6d",
             "file": "story.spec.ts",
             "line": 5,
-            "column": 6,
-            "specs": [
-              {
-                "title": "TC-001 - Display Category Page on Click",
-                "ok": false,
-                "tags": [],
-                "tests": [
-                  {
-                    "timeout": 30000,
-                    "annotations": [],
-                    "expectedStatus": "passed",
-                    "projectId": "",
-                    "projectName": "",
-                    "results": [
-                      {
-                        "workerIndex": 0,
-                        "parallelIndex": 0,
-                        "status": "timedOut",
-                        "duration": 30708,
-                        "error": {
-                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
-                          "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                        },
-                        "errors": [
-                          {
-                            "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                          },
-                          {
-                            "location": {
-                              "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
-                              "column": 61,
-                              "line": 10
-                            },
-                            "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Category Name' })\u001b[22m\n\n\n   8 |     await page.goto(baseURL);\n   9 |     // Assuming categories are listed with role 'link'\n> 10 |     await page.getByRole('link', { name: 'Category Name' }).click();\n     |                                                             ^\n  11 |     // Assuming the category page displays a header with role 'heading'\n  12 |     expect(await page.getByRole('heading').innerText()).toContain('Category Name');\n  13 |   });\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:10:61"
-                          }
-                        ],
-                        "stdout": [],
-                        "stderr": [],
-                        "retry": 0,
-                        "startTime": "2026-08-03T16:40:46.681Z",
-                        "annotations": [],
-                        "attachments": [
-                          {
-                            "name": "screenshot",
-                            "contentType": "image/png",
-                            "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Product-Browsing---C-ca920-play-Category-Page-on-Click/test-failed-1.png"
-                          },
-                          {
-                            "name": "error-context",
-                            "contentType": "text/markdown",
-                            "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Product-Browsing---C-ca920-play-Category-Page-on-Click/error-context.md"
-                          },
-                          {
-                            "name": "trace",
-                            "contentType": "application/zip",
-                            "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Product-Browsing---C-ca920-play-Category-Page-on-Click/trace.zip"
-                          }
-                        ]
-                      }
-                    ],
-                    "status": "unexpected"
-                  }
-                ],
-                "id": "92a6e7f2d2460e449614-df28facb51777f3a3820",
-                "file": "story.spec.ts",
-                "line": 7,
-                "column": 7
-              },
-              {
-                "title": "TC-002 - Display Category Name as Page Title",
-                "ok": false,
-                "tags": [],
-                "tests": [
-                  {
-                    "timeout": 30000,
-                    "annotations": [],
-                    "expectedStatus": "passed",
-                    "projectId": "",
-                    "projectName": "",
-                    "results": [
-                      {
-                        "workerIndex": 1,
-                        "parallelIndex": 0,
-                        "status": "timedOut",
-                        "duration": 30764,
-                        "error": {
-                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
-                          "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                        },
-                        "errors": [
-                          {
-                            "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                          },
-                          {
-                            "location": {
-                              "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
-                              "column": 61,
-                              "line": 17
-                            },
-                            "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Category Name' })\u001b[22m\n\n\n  15 |   test('TC-002 - Display Category Name as Page Title', async ({ page }) => {\n  16 |     await page.goto(baseURL);\n> 17 |     await page.getByRole('link', { name: 'Category Name' }).click();\n     |                                                             ^\n  18 |     // Assuming the title of the page is displayed within a <title> tag\n  19 |     const title = await page.title();\n  20 |     expect(title).toBe('Category Name');\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:17:61"
-                          }
-                        ],
-                        "stdout": [],
-                        "stderr": [],
-                        "retry": 0,
-                        "startTime": "2026-08-03T16:41:18.692Z",
-                        "annotations": [],
-                        "attachments": [
-                          {
-                            "name": "screenshot",
-                            "contentType": "image/png",
-                            "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Product-Browsing---C-1d895-Category-Name-as-Page-Title/test-failed-1.png"
-                          },
-                          {
-                            "name": "error-context",
-                            "contentType": "text/markdown",
-                            "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Product-Browsing---C-1d895-Category-Name-as-Page-Title/error-context.md"
-                          },
-                          {
-                            "name": "trace",
-                            "contentType": "application/zip",
-                            "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Product-Browsing---C-1d895-Category-Name-as-Page-Title/trace.zip"
-                          }
-                        ]
-                      }
-                    ],
-                    "status": "unexpected"
-                  }
-                ],
-                "id": "92a6e7f2d2460e449614-649e1959b520c6a035db",
-                "file": "story.spec.ts",
-                "line": 15,
-                "column": 7
-              },
-              {
-                "title": "TC-003 - Show Only Relevant Products on Category Page",
-                "ok": false,
-                "tags": [],
-                "tests": [
-                  {
-                    "timeout": 30000,
-                    "annotations": [],
-                    "expectedStatus": "passed",
-                    "projectId": "",
-                    "projectName": "",
-                    "results": [
-                      {
-                        "workerIndex": 2,
-                        "parallelIndex": 0,
-                        "status": "timedOut",
-                        "duration": 30695,
-                        "error": {
-                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
-                          "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                        },
-                        "errors": [
-                          {
-                            "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                          },
-                          {
-                            "location": {
-                              "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
-                              "column": 61,
-                              "line": 25
-                            },
-                            "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Category Name' })\u001b[22m\n\n\n  23 |   test('TC-003 - Show Only Relevant Products on Category Page', async ({ page }) => {\n  24 |     await page.goto(baseURL);\n> 25 |     await page.getByRole('link', { name: 'Category Name' }).click();\n     |                                                             ^\n  26 |     // Assuming products belong to category and are displayed under 'product' role\n  27 |     const products = await page.locator('[data-testid=\"product\"]').allTextContents();\n  28 |     // Assuming 'Product A' and 'Product B' belong to the category\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:25:61"
-                          }
-                        ],
-                        "stdout": [],
-                        "stderr": [],
-                        "retry": 0,
-                        "startTime": "2026-08-03T16:41:50.625Z",
-                        "annotations": [],
-                        "attachments": [
-                          {
-                            "name": "screenshot",
-                            "contentType": "image/png",
-                            "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Product-Browsing---C-14b1a-t-Products-on-Category-Page/test-failed-1.png"
-                          },
-                          {
-                            "name": "error-context",
-                            "contentType": "text/markdown",
-                            "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Product-Browsing---C-14b1a-t-Products-on-Category-Page/error-context.md"
-                          },
-                          {
-                            "name": "trace",
-                            "contentType": "application/zip",
-                            "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Product-Browsing---C-14b1a-t-Products-on-Category-Page/trace.zip"
-                          }
-                        ]
-                      }
-                    ],
-                    "status": "unexpected"
-                  }
-                ],
-                "id": "92a6e7f2d2460e449614-f40511feaa22c2e50808",
-                "file": "story.spec.ts",
-                "line": 23,
-                "column": 7
-              }
-            ]
+            "column": 5
           }
         ]
       }
     ],
     "errors": [],
     "stats": {
-      "startTime": "2026-08-03T16:40:46.145Z",
-      "duration": 95876.842,
+      "startTime": "2026-08-03T17:13:42.763Z",
+      "duration": 7862.511999999999,
       "expected": 0,
       "skipped": 0,
-      "unexpected": 3,
+      "unexpected": 1,
       "flaky": 0
     }
   },
-  "completedAt": "2026-08-03T16:42:22.125Z"
+  "completedAt": "2026-08-03T17:13:50.729Z"
 }
