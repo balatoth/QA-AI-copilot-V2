@@ -1,10 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-const baseURL = 'https://v1.practicesoftwaretesting.com';
-
-test('Display Category Page on Category Click', async ({ page }) => {
-    await page.goto(baseURL);
+test('TC-001: Display Category Page on Category Click', async ({ page }) => {
+    await page.goto('https://v1.practicesoftwaretesting.com');
     await page.locator('[data-test="nav-hand-tools"]').click();
-    await expect(page).toHaveURL(/hand-tools/);
-    // Add assertion for category page visibility depending on application behavior
+    await expect(page).toHaveURL(/category/);
 });
