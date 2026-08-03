@@ -342,12 +342,36 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 6px;
+      gap: 9px;
     }
-
-    .quality-detail {
+    
+    .execution-metrics {
+      display: grid;
+      gap: 5px;
+      min-width: 120px;
+    }
+    
+    .execution-metric {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      width: 100%;
       color: var(--text-muted);
       font-size: 12px;
+      line-height: 1.4;
+    }
+    
+    .execution-metric strong {
+      color: var(--text);
+      font-weight: 800;
+      text-align: right;
+    }
+    
+    .execution-note {
+      max-width: 230px;
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 1.45;
     }
 
     .assessment-stack {
@@ -523,7 +547,7 @@
           <span>Generated</span>
           <strong>
             03 Aug 2026
-             · 12:23 UTC
+             · 12:44 UTC
           </strong>
         </div>
       </div>
@@ -533,7 +557,7 @@
       <div>
         <div class="eyebrow">Release Readiness</div>
         <h2>DO NOT RELEASE</h2>
-        <p>The sprint execution involved 3 total stories, with 1 story passing and 2 stories failing. Notably, 4 automated UI tests failed across these stories due to selector mismatches, which hinder user navigation and impede core functionalities. Given these factors, there is an identified high release risk, warranting a recommendation against release.</p>
+        <p>The release is not recommended due to the occurrence of high-impact failures in two stories, directly affecting essential business capabilities. The identified root causes, related to selector mismatches, raise substantial risks regarding UI integrity and user experience, hindering confidence in product stability.</p>
       </div>
 
       <div class="readiness-decision">
@@ -590,7 +614,7 @@
 
     <section class="section">
       <h3 class="section-heading">Executive Summary</h3>
-      <p class="section-copy">The sprint resulted in significant failures that directly affect critical business capabilities related to user interface navigation and functionality. As such, the decision is to not proceed with release due to high operational risks.</p>
+      <p class="section-copy">The sprint execution resulted in a failure due to two out of three stories failing critical automated tests, significantly impacting release readiness. High risks associated with UI detection failures necessitate urgent review and resolution.</p>
     </section>
 
     <section class="section">
@@ -617,68 +641,61 @@
       </td>
 
       <td>
-
-        <div class="manual-cell">
-
+        <div class="execution-cell">
           <span class="status-badge status-warning">
             Not Reported
           </span>
-
         </div>
-
       </td>
 
-<td>
-
-      <div class="playwright-cell">
-
-        <span class="status-badge status-pass">
-          Completed
-        </span>
-
-        <span class="quality-detail">
-          Failed Tests:
-          0
-        </span>
-
-        
-
-      </div>
-
-</td>
       <td>
+        <div class="execution-cell">
+          <span class="status-badge status-pass">
+            Completed
+          </span>
 
-        <div class="playwright-cell">
+          
+                <div class="execution-metrics">
+                  <div class="execution-metric">
+                    <span>Failed tests</span>
+                    <strong>0</strong>
+                  </div>
+                </div>
+              
+        </div>
+      </td>
 
+      <td>
+        <div class="execution-cell">
           <span class="status-badge status-fail">
             Failed
           </span>
 
-          <span class="quality-detail">
-            Passed:
-            0
-          </span>
+          
+                <div class="execution-metrics">
+                  <div class="execution-metric">
+                    <span>Passed</span>
+                    <strong>0</strong>
+                  </div>
 
-          <span class="quality-detail">
-            Failed:
-            1
-          </span>
+                  <div class="execution-metric">
+                    <span>Failed</span>
+                    <strong>1</strong>
+                  </div>
 
-          <span class="quality-detail">
-            Skipped:
-            0
-          </span>
-
-  </div>
-
-</td>
+                  <div class="execution-metric">
+                    <span>Skipped</span>
+                    <strong>0</strong>
+                  </div>
+                </div>
+              
+        </div>
+      </td>
 
       <td>
-
-      <span class="status-badge status-fail">
-      Failed
-      </span>
-
+        <span class="status-badge status-fail">
+          Failed
+        </span>
       </td>
     </tr>
   
@@ -688,68 +705,61 @@
       </td>
 
       <td>
-
-        <div class="manual-cell">
-
+        <div class="execution-cell">
           <span class="status-badge status-warning">
             Not Reported
           </span>
-
         </div>
-
       </td>
 
-<td>
-
-      <div class="playwright-cell">
-
-        <span class="status-badge status-pass">
-          Completed
-        </span>
-
-        <span class="quality-detail">
-          Failed Tests:
-          0
-        </span>
-
-        
-
-      </div>
-
-</td>
       <td>
-
-        <div class="playwright-cell">
-
+        <div class="execution-cell">
           <span class="status-badge status-pass">
             Completed
           </span>
 
-          <span class="quality-detail">
-            Passed:
-            1
-          </span>
-
-          <span class="quality-detail">
-            Failed:
-            0
-          </span>
-
-          <span class="quality-detail">
-            Skipped:
-            0
-          </span>
-
-  </div>
-
-</td>
+          
+                <div class="execution-metrics">
+                  <div class="execution-metric">
+                    <span>Failed tests</span>
+                    <strong>0</strong>
+                  </div>
+                </div>
+              
+        </div>
+      </td>
 
       <td>
+        <div class="execution-cell">
+          <span class="status-badge status-pass">
+            Completed
+          </span>
 
-      <span class="status-badge status-pass">
-      Passed
-      </span>
+          
+                <div class="execution-metrics">
+                  <div class="execution-metric">
+                    <span>Passed</span>
+                    <strong>1</strong>
+                  </div>
 
+                  <div class="execution-metric">
+                    <span>Failed</span>
+                    <strong>0</strong>
+                  </div>
+
+                  <div class="execution-metric">
+                    <span>Skipped</span>
+                    <strong>0</strong>
+                  </div>
+                </div>
+              
+        </div>
+      </td>
+
+      <td>
+        <span class="status-badge status-pass">
+          Passed
+        </span>
       </td>
     </tr>
   
@@ -759,68 +769,61 @@
       </td>
 
       <td>
-
-        <div class="manual-cell">
-
+        <div class="execution-cell">
           <span class="status-badge status-warning">
             Not Reported
           </span>
-
         </div>
-
       </td>
 
-<td>
-
-      <div class="playwright-cell">
-
-        <span class="status-badge status-pass">
-          Completed
-        </span>
-
-        <span class="quality-detail">
-          Failed Tests:
-          0
-        </span>
-
-        
-
-      </div>
-
-</td>
       <td>
+        <div class="execution-cell">
+          <span class="status-badge status-pass">
+            Completed
+          </span>
 
-        <div class="playwright-cell">
+          
+                <div class="execution-metrics">
+                  <div class="execution-metric">
+                    <span>Failed tests</span>
+                    <strong>0</strong>
+                  </div>
+                </div>
+              
+        </div>
+      </td>
 
+      <td>
+        <div class="execution-cell">
           <span class="status-badge status-fail">
             Failed
           </span>
 
-          <span class="quality-detail">
-            Passed:
-            0
-          </span>
+          
+                <div class="execution-metrics">
+                  <div class="execution-metric">
+                    <span>Passed</span>
+                    <strong>0</strong>
+                  </div>
 
-          <span class="quality-detail">
-            Failed:
-            3
-          </span>
+                  <div class="execution-metric">
+                    <span>Failed</span>
+                    <strong>3</strong>
+                  </div>
 
-          <span class="quality-detail">
-            Skipped:
-            0
-          </span>
-
-  </div>
-
-</td>
+                  <div class="execution-metric">
+                    <span>Skipped</span>
+                    <strong>0</strong>
+                  </div>
+                </div>
+              
+        </div>
+      </td>
 
       <td>
-
-      <span class="status-badge status-fail">
-      Failed
-      </span>
-
+        <span class="status-badge status-fail">
+          Failed
+        </span>
       </td>
     </tr>
   
@@ -923,7 +926,7 @@
         <article class="assessment-block">
           <h4>Key Achievements</h4>
 
-          <p class="section-copy">No achievements recorded.</p>
+          <ul><li>All API executions were successfully completed for 3 applicable stories.</li><li>1 story passed all automated tests, confirming some functionality is stable.</li></ul>
         </article>
 
         <article class="assessment-block">
@@ -940,7 +943,7 @@
         DO NOT RELEASE
       </h3>
 
-      <p>The sprint execution involved 3 total stories, with 1 story passing and 2 stories failing. Notably, 4 automated UI tests failed across these stories due to selector mismatches, which hinder user navigation and impede core functionalities. Given these factors, there is an identified high release risk, warranting a recommendation against release.</p>
+      <p>The release is not recommended due to the occurrence of high-impact failures in two stories, directly affecting essential business capabilities. The identified root causes, related to selector mismatches, raise substantial risks regarding UI integrity and user experience, hindering confidence in product stability.</p>
 
       
             <div class="next-actions">
