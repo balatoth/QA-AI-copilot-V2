@@ -200,6 +200,46 @@
       box-shadow: var(--shadow);
     }
 
+.card-accent {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-accent::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+}
+
+.card-success::before {
+  background: #16a34a;
+}
+
+.card-danger::before {
+  background: #dc2626;
+}
+
+.card-warning::before {
+  background: #d97706;
+}
+
+.card-info::before {
+  background: #2563eb;
+}
+
+.card-neutral::before {
+  background: #6b7280;
+}
+
+.card-subtext {
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
     .card-label {
       min-height: 32px;
       color: var(--text-muted);
@@ -558,7 +598,7 @@
           <span>Generated</span>
           <strong>
             03 Aug 2026
-             · 12:47 UTC
+             · 13:37 UTC
           </strong>
         </div>
       </div>
@@ -568,7 +608,7 @@
       <div>
         <div class="eyebrow">Release Readiness</div>
         <h2>DO NOT RELEASE</h2>
-        <p>The release is not recommended due to multiple critical failures in key functionalities. Specifically, 2 out of 3 stories failed automated tests, with 4 Playwright tests failing overall, leading to a high overall risk assessment. Immediate investigation and resolution of the identified issues are necessary before considering any further release activities.</p>
+        <p>The sprint faced significant issues, with 2 out of 3 stories failing due to selector mismatches in key user interface components. This raises a high release risk, as validation of core application functionalities remains unachieved, necessitating resolution of identified blocking conditions before any release can be considered.</p>
       </div>
 
       <div class="readiness-decision">
@@ -580,52 +620,10 @@
     </section>
 
     <section class="cards">
-      <article class="card">
-        <div class="card-label">Total Stories</div>
-        <div class="card-value">3</div>
-      </article>
-
-      <article class="card">
-        <div class="card-label">Executed Stories</div>
-        <div class="card-value">3</div>
-      </article>
-
-      <article class="card">
-        <div class="card-label">API Coverage</div>
-        <div class="card-value compact">
-          3
-          /
-          3
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-label">UI Coverage</div>
-        <div class="card-value compact">
-          3
-          /
-          3
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-label">Failed Tests</div>
-        <div class="card-value">4</div>
-      </article>
-
-      <article class="card">
-        <div class="card-label">Release Decision</div>
-        <div class="card-value compact">
-          <span class="status-badge status-fail">
-            Do Not Release
-          </span>
-        </div>
-      </article>
-    </section>
 
     <section class="section">
       <h3 class="section-heading">Executive Summary</h3>
-      <p class="section-copy">The sprint encountered significant failures, with 2 out of 3 stories failing automated tests. The release decision is to not proceed due to high risks associated with critical UI elements and core functionality failures.</p>
+      <p class="section-copy">The sprint execution resulted in 3 completed stories, with 1 passing and 2 failing. The automated test coverage indicated severe issues, leading to high release risk.</p>
     </section>
 
     <section class="section">
@@ -843,7 +841,7 @@
             </div>
           
     </section>
-
+y
     <section class="section">
       <h3 class="section-heading">Test Coverage Matrix</h3>
 
@@ -937,7 +935,7 @@
         <article class="assessment-block">
           <h4>Key Achievements</h4>
 
-          <p class="section-copy">No achievements recorded.</p>
+          <ul><li>3 stories executed with API tests completed for all.</li><li>1 story passed successfully, demonstrating at least partial functionality.</li></ul>
         </article>
 
         <article class="assessment-block">
@@ -954,7 +952,7 @@
         DO NOT RELEASE
       </h3>
 
-      <p>The release is not recommended due to multiple critical failures in key functionalities. Specifically, 2 out of 3 stories failed automated tests, with 4 Playwright tests failing overall, leading to a high overall risk assessment. Immediate investigation and resolution of the identified issues are necessary before considering any further release activities.</p>
+      <p>The sprint faced significant issues, with 2 out of 3 stories failing due to selector mismatches in key user interface components. This raises a high release risk, as validation of core application functionalities remains unachieved, necessitating resolution of identified blocking conditions before any release can be considered.</p>
 
       
             <div class="next-actions">
