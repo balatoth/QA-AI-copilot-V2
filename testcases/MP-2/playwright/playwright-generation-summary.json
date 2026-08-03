@@ -37,11 +37,11 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing verified evidence required to confirm all required product information presence."
+      "reason": "Missing verified evidence required for safe automation"
     },
     {
       "testCaseId": "TC-003",
-      "reason": "Missing verified evidence for the related products section."
+      "reason": "Missing verified evidence to confirm related products section visibility."
     }
   ],
   "generatedFiles": [
@@ -56,7 +56,7 @@
     "status": "WARNING",
     "passed": true,
     "qualityScore": 75,
-    "reason": "The test compiles and uses Playwright APIs correctly. The testCaseId is preserved in the test title. The selector uses a data-test attribute which is acceptable, but the navigation URL assertion uses a generic regex which is not strong enough to fully verify the product detail page. The test lacks assertion verifying content on the product detail page, which weakens validation strength."
+    "reason": "The test case compiles and uses Playwright APIs correctly. It preserves the test case ID in the title and uses a data-test attribute selector which is good practice. However, the URL assertion is broad and may not reliably verify navigation to the correct product detail page. This results in a warning for weak navigation validation."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +69,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-03T16:26:22.004Z"
+  "createdAt": "2026-08-03T16:34:38.572Z"
 }
