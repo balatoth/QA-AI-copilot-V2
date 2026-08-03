@@ -41,7 +41,7 @@
     },
     {
       "testCaseId": "TC-003",
-      "reason": "Missing navigation validation for product detail page"
+      "reason": "Missing navigation destination evidence for the product detail page."
     }
   ],
   "generatedFiles": [
@@ -55,8 +55,8 @@
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 65,
-    "reason": "The test compiles and runs without Playwright API misuse. However, it lacks a valid selector for product cards and contains a placeholder comment, reducing coverage. The single locator assertion is minimal and does not verify navigation to product details or the presence of multiple product cards. The test title does not mention the testCaseId 'TC-001'. Selector quality and assertion strength are low due to incomplete selectors and weak validations."
+    "qualityScore": 75,
+    "reason": "The test script is syntactically correct and uses Playwright APIs properly with awaited assertions on locators. However, the selectors rely heavily on guessed data-test attributes without validation evidence, which reduces selector robustness. The test case lacks any parameterization or reuse abstractions, causing a lengthy and repetitive script which impacts maintainability and reusability. No testCaseId preservation in the test title is present. There is no negative or edge case coverage, and the URL is hardcoded without config usage."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +69,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-03T16:34:14.908Z"
+  "createdAt": "2026-08-03T17:05:37.710Z"
 }
