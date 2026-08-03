@@ -2,7 +2,7 @@
   "schemaVersion": "0.1.0",
   "artifactType": "PLAYWRIGHT_EXECUTION_RESULTS",
   "storyKey": "MP-4",
-  "executionId": "MP-SPRINT-20260803163357",
+  "executionId": "MP-SPRINT-20260803170502",
   "executionType": "PLAYWRIGHT",
   "status": "FAILED",
   "repository": {
@@ -16,9 +16,9 @@
     "metadataPath": "playwright-execution/execution-metadata.json"
   },
   "githubActions": {
-    "workflowRunId": "30833421864",
+    "workflowRunId": "30835821658",
     "workflowRunAttempt": "1",
-    "commitSha": "0446c16714c446ccdd91c940ed93ae71976d8645",
+    "commitSha": "1e2d138acc75f5580c3966735ee495fa762010ae",
     "playwrightExitCode": 1
   },
   "summary": {
@@ -27,7 +27,7 @@
     "failed": 1,
     "skipped": 0,
     "flaky": 0,
-    "durationMs": 6543.738
+    "durationMs": 7278.329
   },
   "errors": [],
   "rawResults": {
@@ -51,24 +51,24 @@
       "maxFailures": 0,
       "metadata": {
         "ci": {
-          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/0446c16714c446ccdd91c940ed93ae71976d8645",
-          "commitHash": "0446c16714c446ccdd91c940ed93ae71976d8645",
-          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30833421864"
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/1e2d138acc75f5580c3966735ee495fa762010ae",
+          "commitHash": "1e2d138acc75f5580c3966735ee495fa762010ae",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30835821658"
         },
         "gitCommit": {
-          "shortHash": "0446c16",
-          "hash": "0446c16714c446ccdd91c940ed93ae71976d8645",
-          "subject": "Update Playwright execution analysis for MP-3 - MP-SPRINT-20260803163357",
-          "body": "Update Playwright execution analysis for MP-3 - MP-SPRINT-20260803163357",
+          "shortHash": "1e2d138",
+          "hash": "1e2d138acc75f5580c3966735ee495fa762010ae",
+          "subject": "Update Playwright execution analysis for MP-3 - MP-SPRINT-20260803170502",
+          "body": "Update Playwright execution analysis for MP-3 - MP-SPRINT-20260803170502",
           "author": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785775378000
+            "time": 1785777250000
           },
           "committer": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785775378000
+            "time": 1785777250000
           },
           "branch": "main"
         },
@@ -82,24 +82,24 @@
           "retries": 0,
           "metadata": {
             "ci": {
-              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/0446c16714c446ccdd91c940ed93ae71976d8645",
-              "commitHash": "0446c16714c446ccdd91c940ed93ae71976d8645",
-              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30833421864"
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/1e2d138acc75f5580c3966735ee495fa762010ae",
+              "commitHash": "1e2d138acc75f5580c3966735ee495fa762010ae",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30835821658"
             },
             "gitCommit": {
-              "shortHash": "0446c16",
-              "hash": "0446c16714c446ccdd91c940ed93ae71976d8645",
-              "subject": "Update Playwright execution analysis for MP-3 - MP-SPRINT-20260803163357",
-              "body": "Update Playwright execution analysis for MP-3 - MP-SPRINT-20260803163357",
+              "shortHash": "1e2d138",
+              "hash": "1e2d138acc75f5580c3966735ee495fa762010ae",
+              "subject": "Update Playwright execution analysis for MP-3 - MP-SPRINT-20260803170502",
+              "body": "Update Playwright execution analysis for MP-3 - MP-SPRINT-20260803170502",
               "author": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785775378000
+                "time": 1785777250000
               },
               "committer": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785775378000
+                "time": 1785777250000
               },
               "branch": "main"
             },
@@ -163,31 +163,31 @@
                     "workerIndex": 0,
                     "parallelIndex": 0,
                     "status": "failed",
-                    "duration": 5666,
+                    "duration": 6396,
                     "error": {
-                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test=\"nav-contact\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"nav-contact\"]')\u001b[22m\n",
-                      "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test=\"nav-contact\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"nav-contact\"]')\u001b[22m\n\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:7:61",
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('form[data-test=\"contact-form\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('form[data-test=\"contact-form\"]')\u001b[22m\n",
+                      "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('form[data-test=\"contact-form\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('form[data-test=\"contact-form\"]')\u001b[22m\n\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:14:29",
                       "location": {
                         "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
-                        "column": 61,
-                        "line": 7
+                        "column": 29,
+                        "line": 14
                       },
-                      "snippet": "\u001b[0m \u001b[90m 5 |\u001b[39m test(\u001b[32m'TC-001 - Verify accessibility of the contact form'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 6 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m`${baseURL}/contact`\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 7 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-test=\"nav-contact\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 8 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      "snippet": "\u001b[0m \u001b[90m 12 |\u001b[39m   \u001b[90m// Verify that the contact form is visible on the page\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[36mconst\u001b[39m contactForm \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'form[data-test=\"contact-form\"]'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m   \u001b[36mawait\u001b[39m expect(contactForm)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 15 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
                     },
                     "errors": [
                       {
                         "location": {
                           "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
-                          "column": 61,
-                          "line": 7
+                          "column": 29,
+                          "line": 14
                         },
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test=\"nav-contact\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"nav-contact\"]')\u001b[22m\n\n\n  5 | test('TC-001 - Verify accessibility of the contact form', async ({ page }) => {\n  6 |     await page.goto(`${baseURL}/contact`);\n> 7 |     await expect(page.locator('[data-test=\"nav-contact\"]')).toBeVisible();\n    |                                                             ^\n  8 | });\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:7:61"
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('form[data-test=\"contact-form\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('form[data-test=\"contact-form\"]')\u001b[22m\n\n\n  12 |   // Verify that the contact form is visible on the page\n  13 |   const contactForm = page.locator('form[data-test=\"contact-form\"]');\n> 14 |   await expect(contactForm).toBeVisible();\n     |                             ^\n  15 | });\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:14:29"
                       }
                     ],
                     "stdout": [],
                     "stderr": [],
                     "retry": 0,
-                    "startTime": "2026-08-03T16:44:30.876Z",
+                    "startTime": "2026-08-03T17:15:37.579Z",
                     "annotations": [],
                     "attachments": [
                       {
@@ -208,8 +208,8 @@
                     ],
                     "errorLocation": {
                       "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
-                      "column": 61,
-                      "line": 7
+                      "column": 29,
+                      "line": 14
                     }
                   }
                 ],
@@ -218,7 +218,7 @@
             ],
             "id": "92a6e7f2d2460e449614-f499f6010f444b01008e",
             "file": "story.spec.ts",
-            "line": 5,
+            "line": 3,
             "column": 5
           }
         ]
@@ -226,13 +226,13 @@
     ],
     "errors": [],
     "stats": {
-      "startTime": "2026-08-03T16:44:30.345Z",
-      "duration": 6543.738,
+      "startTime": "2026-08-03T17:15:37.060Z",
+      "duration": 7278.329,
       "expected": 0,
       "skipped": 0,
       "unexpected": 1,
       "flaky": 0
     }
   },
-  "completedAt": "2026-08-03T16:44:37.004Z"
+  "completedAt": "2026-08-03T17:15:44.451Z"
 }
