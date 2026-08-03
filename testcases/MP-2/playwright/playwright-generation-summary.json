@@ -37,11 +37,11 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing specific selectors for all required product information on the product detail page."
+      "reason": "Missing verified evidence required to confirm all required product information presence."
     },
     {
       "testCaseId": "TC-003",
-      "reason": "Missing specific selectors for related product section elements."
+      "reason": "Missing verified evidence for the related products section."
     }
   ],
   "generatedFiles": [
@@ -55,8 +55,8 @@
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 65,
-    "reason": "The test compiles and uses Playwright APIs correctly, with async assertions awaited properly. The test case ID is preserved in the test title. However, the selector '[data-test=\"product-1\"]' may be too specific or fragile depending on the UI and could cause maintenance issues if product IDs change. The URL assertion using a regex /product/ is weak and might pass even if the wrong product detail is loaded, lacking specificity to confirm the correct product detail page is displayed."
+    "qualityScore": 75,
+    "reason": "The test compiles and uses Playwright APIs correctly. The testCaseId is preserved in the test title. The selector uses a data-test attribute which is acceptable, but the navigation URL assertion uses a generic regex which is not strong enough to fully verify the product detail page. The test lacks assertion verifying content on the product detail page, which weakens validation strength."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +69,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-03T12:14:48.150Z"
+  "createdAt": "2026-08-03T16:26:22.004Z"
 }
