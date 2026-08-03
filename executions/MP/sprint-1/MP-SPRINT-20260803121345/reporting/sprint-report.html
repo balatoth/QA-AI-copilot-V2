@@ -351,15 +351,26 @@
       min-width: 120px;
     }
     
-    .execution-metric {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 14px;
-      width: 100%;
-      color: var(--text-muted);
-      font-size: 12px;
-      line-height: 1.4;
-    }
+.execution-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 110px;
+  gap: 20px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.execution-metric span {
+  color: var(--text-muted);
+}
+
+.execution-metric strong {
+  min-width: 18px;
+  text-align: right;
+  font-weight: 700;
+  color: var(--text);
+}
     
     .execution-metric strong {
       color: var(--text);
@@ -547,7 +558,7 @@
           <span>Generated</span>
           <strong>
             03 Aug 2026
-             · 12:44 UTC
+             · 12:47 UTC
           </strong>
         </div>
       </div>
@@ -557,7 +568,7 @@
       <div>
         <div class="eyebrow">Release Readiness</div>
         <h2>DO NOT RELEASE</h2>
-        <p>The release is not recommended due to the occurrence of high-impact failures in two stories, directly affecting essential business capabilities. The identified root causes, related to selector mismatches, raise substantial risks regarding UI integrity and user experience, hindering confidence in product stability.</p>
+        <p>The release is not recommended due to multiple critical failures in key functionalities. Specifically, 2 out of 3 stories failed automated tests, with 4 Playwright tests failing overall, leading to a high overall risk assessment. Immediate investigation and resolution of the identified issues are necessary before considering any further release activities.</p>
       </div>
 
       <div class="readiness-decision">
@@ -614,7 +625,7 @@
 
     <section class="section">
       <h3 class="section-heading">Executive Summary</h3>
-      <p class="section-copy">The sprint execution resulted in a failure due to two out of three stories failing critical automated tests, significantly impacting release readiness. High risks associated with UI detection failures necessitate urgent review and resolution.</p>
+      <p class="section-copy">The sprint encountered significant failures, with 2 out of 3 stories failing automated tests. The release decision is to not proceed due to high risks associated with critical UI elements and core functionality failures.</p>
     </section>
 
     <section class="section">
@@ -926,7 +937,7 @@
         <article class="assessment-block">
           <h4>Key Achievements</h4>
 
-          <ul><li>All API executions were successfully completed for 3 applicable stories.</li><li>1 story passed all automated tests, confirming some functionality is stable.</li></ul>
+          <p class="section-copy">No achievements recorded.</p>
         </article>
 
         <article class="assessment-block">
@@ -943,7 +954,7 @@
         DO NOT RELEASE
       </h3>
 
-      <p>The release is not recommended due to the occurrence of high-impact failures in two stories, directly affecting essential business capabilities. The identified root causes, related to selector mismatches, raise substantial risks regarding UI integrity and user experience, hindering confidence in product stability.</p>
+      <p>The release is not recommended due to multiple critical failures in key functionalities. Specifically, 2 out of 3 stories failed automated tests, with 4 Playwright tests failing overall, leading to a high overall risk assessment. Immediate investigation and resolution of the identified issues are necessary before considering any further release activities.</p>
 
       
             <div class="next-actions">
