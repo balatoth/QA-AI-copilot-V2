@@ -2,7 +2,7 @@
   "schemaVersion": "0.1.0",
   "artifactType": "PLAYWRIGHT_EXECUTION_RESULTS",
   "storyKey": "MP-3",
-  "executionId": "MP-SPRINT-20260802174718",
+  "executionId": "MP-SPRINT-20260803111351",
   "executionType": "PLAYWRIGHT",
   "status": "FAILED",
   "repository": {
@@ -16,9 +16,9 @@
     "metadataPath": "playwright-execution/execution-metadata.json"
   },
   "githubActions": {
-    "workflowRunId": "30759856607",
+    "workflowRunId": "30808974409",
     "workflowRunAttempt": "1",
-    "commitSha": "685a8260dcb23306db63e15db3e993f4d32512ad",
+    "commitSha": "90b9b47646ad98dbb4d1a231bc7a84e7d4eb35d9",
     "playwrightExitCode": 1
   },
   "summary": {
@@ -27,7 +27,7 @@
     "failed": 3,
     "skipped": 0,
     "flaky": 0,
-    "durationMs": 95903.177
+    "durationMs": 95794.486
   },
   "errors": [],
   "rawResults": {
@@ -51,24 +51,24 @@
       "maxFailures": 0,
       "metadata": {
         "ci": {
-          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/685a8260dcb23306db63e15db3e993f4d32512ad",
-          "commitHash": "685a8260dcb23306db63e15db3e993f4d32512ad",
-          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30759856607"
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/90b9b47646ad98dbb4d1a231bc7a84e7d4eb35d9",
+          "commitHash": "90b9b47646ad98dbb4d1a231bc7a84e7d4eb35d9",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30808974409"
         },
         "gitCommit": {
-          "shortHash": "685a826",
-          "hash": "685a8260dcb23306db63e15db3e993f4d32512ad",
-          "subject": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260802174718",
-          "body": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260802174718",
+          "shortHash": "90b9b47",
+          "hash": "90b9b47646ad98dbb4d1a231bc7a84e7d4eb35d9",
+          "subject": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260803111351",
+          "body": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260803111351",
           "author": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785693179000
+            "time": 1785755872000
           },
           "committer": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785693179000
+            "time": 1785755872000
           },
           "branch": "main"
         },
@@ -82,24 +82,24 @@
           "retries": 0,
           "metadata": {
             "ci": {
-              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/685a8260dcb23306db63e15db3e993f4d32512ad",
-              "commitHash": "685a8260dcb23306db63e15db3e993f4d32512ad",
-              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30759856607"
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/90b9b47646ad98dbb4d1a231bc7a84e7d4eb35d9",
+              "commitHash": "90b9b47646ad98dbb4d1a231bc7a84e7d4eb35d9",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30808974409"
             },
             "gitCommit": {
-              "shortHash": "685a826",
-              "hash": "685a8260dcb23306db63e15db3e993f4d32512ad",
-              "subject": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260802174718",
-              "body": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260802174718",
+              "shortHash": "90b9b47",
+              "hash": "90b9b47646ad98dbb4d1a231bc7a84e7d4eb35d9",
+              "subject": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260803111351",
+              "body": "Update Playwright execution analysis for MP-2 - MP-SPRINT-20260803111351",
               "author": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785693179000
+                "time": 1785755872000
               },
               "committer": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785693179000
+                "time": 1785755872000
               },
               "branch": "main"
             },
@@ -170,7 +170,7 @@
                         "workerIndex": 0,
                         "parallelIndex": 0,
                         "status": "timedOut",
-                        "duration": 30698,
+                        "duration": 30687,
                         "error": {
                           "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                           "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -191,7 +191,7 @@
                         "stdout": [],
                         "stderr": [],
                         "retry": 0,
-                        "startTime": "2026-08-02T17:54:27.654Z",
+                        "startTime": "2026-08-03T11:19:22.751Z",
                         "annotations": [],
                         "attachments": [
                           {
@@ -236,7 +236,7 @@
                         "workerIndex": 1,
                         "parallelIndex": 0,
                         "status": "timedOut",
-                        "duration": 30698,
+                        "duration": 30708,
                         "error": {
                           "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                           "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -257,7 +257,7 @@
                         "stdout": [],
                         "stderr": [],
                         "retry": 0,
-                        "startTime": "2026-08-02T17:54:59.645Z",
+                        "startTime": "2026-08-03T11:19:54.742Z",
                         "annotations": [],
                         "attachments": [
                           {
@@ -302,7 +302,7 @@
                         "workerIndex": 2,
                         "parallelIndex": 0,
                         "status": "timedOut",
-                        "duration": 30782,
+                        "duration": 30702,
                         "error": {
                           "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                           "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -323,7 +323,7 @@
                         "stdout": [],
                         "stderr": [],
                         "retry": 0,
-                        "startTime": "2026-08-02T17:55:31.504Z",
+                        "startTime": "2026-08-03T11:20:26.595Z",
                         "annotations": [],
                         "attachments": [
                           {
@@ -359,13 +359,13 @@
     ],
     "errors": [],
     "stats": {
-      "startTime": "2026-08-02T17:54:27.120Z",
-      "duration": 95903.177,
+      "startTime": "2026-08-03T11:19:22.171Z",
+      "duration": 95794.486,
       "expected": 0,
       "skipped": 0,
       "unexpected": 3,
       "flaky": 0
     }
   },
-  "completedAt": "2026-08-02T17:56:03.120Z"
+  "completedAt": "2026-08-03T11:20:58.067Z"
 }
