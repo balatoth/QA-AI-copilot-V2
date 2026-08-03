@@ -2,17 +2,17 @@
   "storyKey": "MP-1",
   "artifactType": "playwright",
   "generatorVersion": "v0.4.7.1",
-  "repaired": false,
-  "repairAttempt": 0,
+  "repaired": true,
+  "repairAttempt": 1,
   "reviewStatus": "PASS",
-  "qualityScore": 85,
+  "qualityScore": 90,
   "qualityGate": {
     "status": "PASS",
     "passed": true,
-    "qualityScore": 85,
-    "reason": "The test is valid TypeScript and uses Playwright APIs correctly with proper awaited assertions on locators. The test includes the correct testCaseId in the title and verifies visibility of multiple product cards using data-test attributes, which are reasonably stable selectors. However, the selectors could be more descriptive to increase robustness and reusability. The test is straightforward, without unnecessary complexity, and properly navigates to the correct URL. There are no hard-coded waits or invented functionality. Some improvements could be made on maintainability by reducing repetition."
+    "qualityScore": 90,
+    "reason": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes awaited assertions. Selectors use stable data-testid attributes, improving reliability. The test case ID is preserved in the test title. The test is maintainable and follows best practices."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-08-02T17:47:36.104Z"
+  "createdAt": "2026-08-03T12:14:24.802Z"
 }
