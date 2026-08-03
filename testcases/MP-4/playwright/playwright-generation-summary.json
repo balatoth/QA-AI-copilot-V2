@@ -37,19 +37,19 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing evidence for required fields in the contact form."
+      "reason": "Missing verified evidence required for safe automation"
     },
     {
       "testCaseId": "TC-003",
-      "reason": "Missing evidence for the subject dropdown options."
+      "reason": "Missing verified evidence required for safe automation"
     },
     {
       "testCaseId": "TC-004",
-      "reason": "Missing evidence for validation error on message character count."
+      "reason": "Missing verified evidence required for safe automation"
     },
     {
       "testCaseId": "TC-005",
-      "reason": "Missing evidence for confirmation message upon successful submission."
+      "reason": "Missing verified evidence required for safe automation"
     }
   ],
   "generatedFiles": [
@@ -61,10 +61,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "WARNING",
+    "status": "PASS",
     "passed": true,
-    "qualityScore": 65,
-    "reason": "The test is valid and will run successfully, correctly awaiting asynchronous assertions. However, the selector used appears weak and likely incorrect as it targets a nav element rather than the contact form itself, which weakens the test's assertion strength. The test title correctly retains the testCaseId. No compilation or Playwright API misuse issues found."
+    "qualityScore": 8,
+    "reason": "The generated Playwright test compiles and uses Playwright APIs correctly. The test case ID is preserved in the test title, and assertions are properly awaited on locators. The selector used is a data-test attribute, which is a good practice for stability. The test navigates to a concrete URL with no hardcoded waits or unsupported selectors. The test is simple but sufficiently assertive for verifying accessibility of the contact form through visibility of the expected nav element."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -77,5 +77,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-02T17:48:47.432Z"
+  "createdAt": "2026-08-03T16:35:22.596Z"
 }
