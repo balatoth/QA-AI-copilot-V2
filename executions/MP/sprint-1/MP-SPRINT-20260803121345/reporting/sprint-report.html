@@ -147,58 +147,168 @@
 
     .readiness-decision strong { display: block; font-size: 17px; line-height: 1.4; }
 
-    .cards {
+    .executive-dashboard {
       display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 16px;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+      gap: 18px;
       margin-bottom: 24px;
     }
 
-    .card {
-      position: relative;
-      min-width: 0;
-      overflow: hidden;
-      padding: 22px;
+    .confidence-panel,
+    .dashboard-metrics {
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       background: var(--surface);
       box-shadow: var(--shadow);
     }
 
-    .card.accent-info::before,
-    .card.accent-success::before,
-    .card.accent-warning::before,
-    .card.accent-danger::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: 4px;
+    .confidence-panel {
+      padding: 28px;
     }
 
-    .card.accent-info::before { background: var(--info); }
-    .card.accent-success::before { background: var(--success); }
-    .card.accent-warning::before { background: var(--warning); }
-    .card.accent-danger::before { background: var(--danger); }
-
-    .card-label {
-      min-height: 32px;
+    .dashboard-eyebrow {
+      margin-bottom: 10px;
       color: var(--muted);
       font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .08em;
+      font-weight: 800;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
-    .card-value {
-      margin-top: 10px;
-      color: var(--text);
-      font-size: 30px;
-      font-weight: 800;
-      line-height: 1.15;
+    .confidence-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-start;
     }
 
-    .card-value.compact { font-size: 18px; }
-    .card-subtext { margin-top: 8px; color: var(--muted); font-size: 11px; line-height: 1.4; }
+    .confidence-value {
+      color: var(--text);
+      font-size: 52px;
+      font-weight: 850;
+      line-height: 1;
+    }
+
+    .confidence-level {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .confidence-high {
+      background: var(--success-bg);
+      color: var(--success-text);
+    }
+
+    .confidence-moderate {
+      background: var(--warning-bg);
+      color: var(--warning-text);
+    }
+
+    .confidence-low {
+      background: #ffedd5;
+      color: #9a3412;
+    }
+
+    .confidence-critical {
+      background: var(--danger-bg);
+      color: var(--danger-text);
+    }
+
+    .confidence-track {
+      height: 14px;
+      margin-top: 24px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e5e7eb;
+    }
+
+    .confidence-fill {
+      height: 100%;
+      border-radius: inherit;
+    }
+
+    .confidence-fill.confidence-high {
+      background: linear-gradient(90deg, #16a34a, #22c55e);
+    }
+
+    .confidence-fill.confidence-moderate {
+      background: linear-gradient(90deg, #d97706, #eab308);
+    }
+
+    .confidence-fill.confidence-low {
+      background: linear-gradient(90deg, #ea580c, #f97316);
+    }
+
+    .confidence-fill.confidence-critical {
+      background: linear-gradient(90deg, #991b1b, #dc2626);
+    }
+
+    .confidence-scale {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .confidence-copy {
+      margin: 18px 0 0;
+      color: var(--text-secondary);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .dashboard-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    .dashboard-metric {
+      min-width: 0;
+      padding: 21px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dashboard-metric:nth-child(2n) {
+      border-right: none;
+    }
+
+    .dashboard-metric:nth-last-child(-n + 2) {
+      border-bottom: none;
+    }
+
+    .dashboard-metric-label {
+      min-height: 30px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .dashboard-metric-value {
+      margin-top: 8px;
+      color: var(--text);
+      font-size: 27px;
+      font-weight: 850;
+      line-height: 1.1;
+    }
+
+    .dashboard-metric-note {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.4;
+    }
 
     .section {
       padding: 26px;
@@ -350,24 +460,41 @@
 
     @media (max-width: 980px) {
       .hero, .readiness { grid-template-columns: 1fr; }
-      .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .executive-dashboard { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 680px) {
       .container { padding: 18px; }
-      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .hero h1, .readiness h2 { font-size: 28px; }
       .footer { flex-direction: column; }
     }
 
     @media (max-width: 480px) {
-      .cards { grid-template-columns: 1fr; }
+      .dashboard-metrics { grid-template-columns: 1fr; }
+
+      .dashboard-metric {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .dashboard-metric:last-child {
+        border-bottom: none;
+      }
+
+      .confidence-header {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .confidence-value {
+        font-size: 44px;
+      }
     }
 
     @media print {
       body { background: white; }
       .container { max-width: none; padding: 0; }
-      .hero, .readiness, .card, .section { box-shadow: none; }
+      .hero, .readiness, .confidence-panel, .dashboard-metrics, .section { box-shadow: none; }
       .story-table tbody tr,
       .coverage-table tbody tr,
       .assessment-block,
@@ -394,7 +521,7 @@
         <div class="hero-meta-item"><span>Execution ID</span><strong>MP-SPRINT-20260803121345</strong></div>
         <div class="hero-meta-item">
           <span>Generated</span>
-          <strong>03 Aug 2026 · 15:14 UTC</strong>
+          <strong>03 Aug 2026 · 15:45 UTC</strong>
         </div>
       </div>
     </header>
@@ -403,7 +530,7 @@
       <div>
         <div class="eyebrow">Release Readiness</div>
         <h2>DO NOT RELEASE</h2>
-        <p>The release decision to not proceed is based on the failed execution of 2 out of 3 stories, with a total of 4 automated UI tests failing due to selector mismatches, disrupting essential user interface validation. The high risk associated with these failures necessitates further investigation and resolution before considering any release.</p>
+        <p>Given that 2 stories failed during execution, with 4 automated tests failing overall due to significant root causes related to selector mismatches, the release is deemed not ready. Both MP-1 and MP-3 failures halt progress on essential UI functionality, posing unacceptable risks to user experience and product stability.</p>
       </div>
 
       <div class="readiness-decision">
@@ -412,47 +539,84 @@
       </div>
     </section>
 
-    <section class="cards">
-      <article class="card">
-        <div class="card-label">Total Stories</div>
-        <div class="card-value">3</div>
-      </article>
+    <section class="executive-dashboard">
+      <article class="confidence-panel">
+        <div class="dashboard-eyebrow">Release Confidence</div>
 
-      <article class="card">
-        <div class="card-label">Executed Stories</div>
-        <div class="card-value">3</div>
-      </article>
+        <div class="confidence-header">
+          <div class="confidence-value">
+            45%
+          </div>
 
-      <article class="card accent-info">
-        <div class="card-label">API Coverage</div>
-        <div class="card-value compact">3 / 3</div>
-        <div class="card-subtext">Executed applicable stories</div>
-      </article>
-
-      <article class="card accent-info">
-        <div class="card-label">UI Coverage</div>
-        <div class="card-value compact">3 / 3</div>
-        <div class="card-subtext">Executed UI stories</div>
-      </article>
-
-      <article class="card accent-danger">
-        <div class="card-label">Failed Tests</div>
-        <div class="card-value">4</div>
-        <div class="card-subtext">Automated UI failures</div>
-      </article>
-
-      <article class="card accent-danger">
-        <div class="card-label">Release Decision</div>
-        <div class="card-value compact">
-          <span class="status-badge status-fail">Do Not Release</span>
+          <span class="confidence-level confidence-low">
+            LOW
+          </span>
         </div>
-        <div class="card-subtext">Current recommendation</div>
+
+        <div class="confidence-track">
+          <div
+            class="confidence-fill confidence-low"
+            style="width: 45%"
+          ></div>
+        </div>
+
+        <div class="confidence-scale">
+          <span>0%</span>
+          <span>50%</span>
+          <span>100%</span>
+        </div>
+
+        <p class="confidence-copy">
+          Confidence reflects execution outcomes, failed stories,
+          automation failures, technical stability and available
+          quality evidence for this sprint.
+        </p>
       </article>
+
+      <section class="dashboard-metrics">
+        <div class="dashboard-metric">
+          <div class="dashboard-metric-label">Stories Executed</div>
+          <div class="dashboard-metric-value">
+            3
+            /
+            3
+          </div>
+          <div class="dashboard-metric-note">Planned sprint stories</div>
+        </div>
+
+        <div class="dashboard-metric">
+          <div class="dashboard-metric-label">API Coverage</div>
+          <div class="dashboard-metric-value">
+            3
+            /
+            3
+          </div>
+          <div class="dashboard-metric-note">Applicable API stories executed</div>
+        </div>
+
+        <div class="dashboard-metric">
+          <div class="dashboard-metric-label">UI Coverage</div>
+          <div class="dashboard-metric-value">
+            3
+            /
+            3
+          </div>
+          <div class="dashboard-metric-note">Applicable UI stories executed</div>
+        </div>
+
+        <div class="dashboard-metric">
+          <div class="dashboard-metric-label">UI Test Failures</div>
+          <div class="dashboard-metric-value">
+            4
+          </div>
+          <div class="dashboard-metric-note">Failed automated UI tests</div>
+        </div>
+      </section>
     </section>
 
     <section class="section">
       <h3 class="section-heading">Executive Summary</h3>
-      <p class="section-copy">The sprint faced significant challenges with 2 out of 3 stories failing during execution, resulting in a recommendation against release. Key failures were identified in crucial UI testing areas, impacting critical business capabilities.</p>
+      <p class="section-copy">The sprint has concluded with significant failures affecting two out of three executed stories, resulting in a recommendation against release. Critical testing failures hinder business capabilities primarily tied to user interface functionality.</p>
     </section>
 
     <section class="section">
@@ -622,7 +786,7 @@
       <div class="assessment-stack">
         <article class="assessment-block">
           <h4>Key Achievements</h4>
-          <ul><li>100% API execution completed successfully across all stories.</li><li>1 story executed fully passed testing.</li></ul>
+          <p class="empty-copy">No achievements recorded.</p>
         </article>
         <article class="assessment-block">
           <h4>Key Risks</h4>
@@ -633,7 +797,7 @@
 
     <section class="recommendation-box accent-danger">
       <h3>Release Recommendation: Do Not Release</h3>
-      <p>The release decision to not proceed is based on the failed execution of 2 out of 3 stories, with a total of 4 automated UI tests failing due to selector mismatches, disrupting essential user interface validation. The high risk associated with these failures necessitates further investigation and resolution before considering any release.</p>
+      <p>Given that 2 stories failed during execution, with 4 automated tests failing overall due to significant root causes related to selector mismatches, the release is deemed not ready. Both MP-1 and MP-3 failures halt progress on essential UI functionality, posing unacceptable risks to user experience and product stability.</p>
 
       <div class="next-actions"><h4>Blocking Conditions</h4><ul><li>MP-1 has failed automated tests</li><li>MP-3 has failed automated tests</li></ul></div>
 
