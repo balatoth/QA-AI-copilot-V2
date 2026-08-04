@@ -2,7 +2,7 @@
   "schemaVersion": "0.1.0",
   "artifactType": "PLAYWRIGHT_EXECUTION_RESULTS",
   "storyKey": "MP-1",
-  "executionId": "MP-SPRINT-20260804110151",
+  "executionId": "MP-SPRINT-20260804112709",
   "executionType": "PLAYWRIGHT",
   "status": "FAILED",
   "repository": {
@@ -16,18 +16,18 @@
     "metadataPath": "playwright-execution/execution-metadata.json"
   },
   "githubActions": {
-    "workflowRunId": "30903265692",
+    "workflowRunId": "30904975638",
     "workflowRunAttempt": "1",
-    "commitSha": "8bf6b0f60695e93d31a21223cd46c3fc004ee986",
+    "commitSha": "c63c97df2c1f24ad02c9e363e044cec466a3c76a",
     "playwrightExitCode": 1
   },
   "summary": {
-    "expected": 0,
-    "passed": 0,
+    "expected": 1,
+    "passed": 1,
     "failed": 1,
     "skipped": 0,
     "flaky": 0,
-    "durationMs": 3624.8770000000004
+    "durationMs": 6587.907999999999
   },
   "errors": [],
   "rawResults": {
@@ -51,24 +51,24 @@
       "maxFailures": 0,
       "metadata": {
         "ci": {
-          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/8bf6b0f60695e93d31a21223cd46c3fc004ee986",
-          "commitHash": "8bf6b0f60695e93d31a21223cd46c3fc004ee986",
-          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30903265692"
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/c63c97df2c1f24ad02c9e363e044cec466a3c76a",
+          "commitHash": "c63c97df2c1f24ad02c9e363e044cec466a3c76a",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30904975638"
         },
         "gitCommit": {
-          "shortHash": "8bf6b0f",
-          "hash": "8bf6b0f60695e93d31a21223cd46c3fc004ee986",
+          "shortHash": "c63c97d",
+          "hash": "c63c97df2c1f24ad02c9e363e044cec466a3c76a",
           "subject": "Update execution-results.json for MP-3",
           "body": "Update execution-results.json for MP-3",
           "author": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785841448000
+            "time": 1785842935000
           },
           "committer": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785841448000
+            "time": 1785842935000
           },
           "branch": "main"
         },
@@ -82,24 +82,24 @@
           "retries": 0,
           "metadata": {
             "ci": {
-              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/8bf6b0f60695e93d31a21223cd46c3fc004ee986",
-              "commitHash": "8bf6b0f60695e93d31a21223cd46c3fc004ee986",
-              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30903265692"
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/c63c97df2c1f24ad02c9e363e044cec466a3c76a",
+              "commitHash": "c63c97df2c1f24ad02c9e363e044cec466a3c76a",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30904975638"
             },
             "gitCommit": {
-              "shortHash": "8bf6b0f",
-              "hash": "8bf6b0f60695e93d31a21223cd46c3fc004ee986",
+              "shortHash": "c63c97d",
+              "hash": "c63c97df2c1f24ad02c9e363e044cec466a3c76a",
               "subject": "Update execution-results.json for MP-3",
               "body": "Update execution-results.json for MP-3",
               "author": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785841448000
+                "time": 1785842935000
               },
               "committer": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785841448000
+                "time": 1785842935000
               },
               "branch": "main"
             },
@@ -148,7 +148,7 @@
         "line": 0,
         "specs": [
           {
-            "title": "TC-001 - Display of Product Cards on Home Page",
+            "title": "Display of Product Cards on Home Page",
             "ok": false,
             "tags": [],
             "tests": [
@@ -163,62 +163,96 @@
                     "workerIndex": 0,
                     "parallelIndex": 0,
                     "status": "failed",
-                    "duration": 2679,
+                    "duration": 2649,
                     "error": {
-                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test^=\"product-\"]')\nExpected: visible\nError: strict mode violation: locator('[data-test^=\"product-\"]') resolved to 78 elements:\n    1) <a href=\"#/product/1\" data-test=\"product-1\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-1\"]')\n    2) <strong data-test=\"product-name\">Combination Pliers</strong> aka locator('[data-test=\"product-1\"]')\n    3) <span data-test=\"product-price\">$14.15</span> aka getByText('$14.15')\n    4) <a href=\"#/product/2\" data-test=\"product-2\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-2\"]')\n    5) <strong data-test=\"product-name\">Pliers</strong> aka locator('[data-test=\"product-2\"]')\n    6) <span data-test=\"product-price\">$12.01</span> aka getByText('$12.01')\n    7) <a href=\"#/product/3\" data-test=\"product-3\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-3\"]')\n    8) <strong data-test=\"product-name\">Bolt Cutters</strong> aka locator('[data-test=\"product-3\"]')\n    9) <span data-test=\"product-price\">$48.41</span> aka getByText('$48.41')\n    10) <a href=\"#/product/4\" data-test=\"product-4\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-4\"]')\n    ...\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test^=\"product-\"]')\u001b[22m\n",
-                      "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test^=\"product-\"]')\nExpected: visible\nError: strict mode violation: locator('[data-test^=\"product-\"]') resolved to 78 elements:\n    1) <a href=\"#/product/1\" data-test=\"product-1\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-1\"]')\n    2) <strong data-test=\"product-name\">Combination Pliers</strong> aka locator('[data-test=\"product-1\"]')\n    3) <span data-test=\"product-price\">$14.15</span> aka getByText('$14.15')\n    4) <a href=\"#/product/2\" data-test=\"product-2\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-2\"]')\n    5) <strong data-test=\"product-name\">Pliers</strong> aka locator('[data-test=\"product-2\"]')\n    6) <span data-test=\"product-price\">$12.01</span> aka getByText('$12.01')\n    7) <a href=\"#/product/3\" data-test=\"product-3\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-3\"]')\n    8) <strong data-test=\"product-name\">Bolt Cutters</strong> aka locator('[data-test=\"product-3\"]')\n    9) <span data-test=\"product-price\">$48.41</span> aka getByText('$48.41')\n    10) <a href=\"#/product/4\" data-test=\"product-4\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-4\"]')\n    ...\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test^=\"product-\"]')\u001b[22m\n\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:6:32",
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test=\"product-1\"], [data-test=\"product-2\"], [data-test=\"product-3\"], [data-test=\"product-4\"], [data-test=\"product-5\"], [data-test=\"product-6\"], [data-test=\"product-7\"], [data-test=\"product-8\"], [data-test=\"product-9\"], [data-test=\"product-10\"]')\nExpected: visible\nError: strict mode violation: locator('[data-test=\"product-1\"], [data-test=\"product-2\"], [data-test=\"product-3\"], [data-test=\"product-4\"], [data-test=\"product-5\"], [data-test=\"product-6\"], [data-test=\"product-7\"], [data-test=\"product-8\"], [data-test=\"product-9\"], [data-test=\"product-10\"]') resolved to 10 elements:\n    1) <a href=\"#/product/1\" data-test=\"product-1\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-1\"]')\n    2) <a href=\"#/product/2\" data-test=\"product-2\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-2\"]')\n    3) <a href=\"#/product/3\" data-test=\"product-3\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-3\"]')\n    4) <a href=\"#/product/4\" data-test=\"product-4\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-4\"]')\n    5) <a href=\"#/product/5\" data-test=\"product-5\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-5\"]')\n    6) <a href=\"#/product/6\" data-test=\"product-6\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-6\"]')\n    7) <a href=\"#/product/7\" data-test=\"product-7\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-7\"]')\n    8) <a href=\"#/product/8\" data-test=\"product-8\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-8\"]')\n    9) <a href=\"#/product/9\" data-test=\"product-9\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-9\"]')\n    10) <a href=\"#/product/10\" data-test=\"product-10\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-10\"]')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"product-1\"], [data-test=\"product-2\"], [data-test=\"product-3\"], [data-test=\"product-4\"], [data-test=\"product-5\"], [data-test=\"product-6\"], [data-test=\"product-7\"], [data-test=\"product-8\"], [data-test=\"product-9\"], [data-test=\"product-10\"]')\u001b[22m\n",
+                      "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test=\"product-1\"], [data-test=\"product-2\"], [data-test=\"product-3\"], [data-test=\"product-4\"], [data-test=\"product-5\"], [data-test=\"product-6\"], [data-test=\"product-7\"], [data-test=\"product-8\"], [data-test=\"product-9\"], [data-test=\"product-10\"]')\nExpected: visible\nError: strict mode violation: locator('[data-test=\"product-1\"], [data-test=\"product-2\"], [data-test=\"product-3\"], [data-test=\"product-4\"], [data-test=\"product-5\"], [data-test=\"product-6\"], [data-test=\"product-7\"], [data-test=\"product-8\"], [data-test=\"product-9\"], [data-test=\"product-10\"]') resolved to 10 elements:\n    1) <a href=\"#/product/1\" data-test=\"product-1\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-1\"]')\n    2) <a href=\"#/product/2\" data-test=\"product-2\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-2\"]')\n    3) <a href=\"#/product/3\" data-test=\"product-3\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-3\"]')\n    4) <a href=\"#/product/4\" data-test=\"product-4\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-4\"]')\n    5) <a href=\"#/product/5\" data-test=\"product-5\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-5\"]')\n    6) <a href=\"#/product/6\" data-test=\"product-6\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-6\"]')\n    7) <a href=\"#/product/7\" data-test=\"product-7\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-7\"]')\n    8) <a href=\"#/product/8\" data-test=\"product-8\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-8\"]')\n    9) <a href=\"#/product/9\" data-test=\"product-9\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-9\"]')\n    10) <a href=\"#/product/10\" data-test=\"product-10\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-10\"]')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"product-1\"], [data-test=\"product-2\"], [data-test=\"product-3\"], [data-test=\"product-4\"], [data-test=\"product-5\"], [data-test=\"product-6\"], [data-test=\"product-7\"], [data-test=\"product-8\"], [data-test=\"product-9\"], [data-test=\"product-10\"]')\u001b[22m\n\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:8:32",
                       "location": {
                         "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
                         "column": 32,
-                        "line": 6
+                        "line": 8
                       },
-                      "snippet": "\u001b[0m \u001b[90m 4 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'https://v1.practicesoftwaretesting.com'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 5 |\u001b[39m     \u001b[36mconst\u001b[39m productCards \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-test^=\"product-\"]'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m     \u001b[36mawait\u001b[39m expect(productCards)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 7 |\u001b[39m     \u001b[36mconst\u001b[39m count \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m productCards\u001b[33m.\u001b[39mcount()\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m     expect(count)\u001b[33m.\u001b[39mtoBeGreaterThan(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 9 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      "snippet": "\u001b[0m \u001b[90m  6 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(baseURL)\u001b[33m;\u001b[39m\n \u001b[90m  7 |\u001b[39m     \u001b[36mconst\u001b[39m productCards \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-test=\"product-1\"], [data-test=\"product-2\"], [data-test=\"product-3\"], [data-test=\"product-4\"], [data-test=\"product-5\"], [data-test=\"product-6\"], [data-test=\"product-7\"], [data-test=\"product-8\"], [data-test=\"product-9\"], [data-test=\"product-10\"]'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  8 |\u001b[39m     \u001b[36mawait\u001b[39m expect(productCards)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  9 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m\n \u001b[90m 11 |\u001b[39m test(\u001b[32m'Navigation to Product Detail Page'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
                     },
                     "errors": [
                       {
                         "location": {
                           "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
                           "column": 32,
-                          "line": 6
+                          "line": 8
                         },
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test^=\"product-\"]')\nExpected: visible\nError: strict mode violation: locator('[data-test^=\"product-\"]') resolved to 78 elements:\n    1) <a href=\"#/product/1\" data-test=\"product-1\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-1\"]')\n    2) <strong data-test=\"product-name\">Combination Pliers</strong> aka locator('[data-test=\"product-1\"]')\n    3) <span data-test=\"product-price\">$14.15</span> aka getByText('$14.15')\n    4) <a href=\"#/product/2\" data-test=\"product-2\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-2\"]')\n    5) <strong data-test=\"product-name\">Pliers</strong> aka locator('[data-test=\"product-2\"]')\n    6) <span data-test=\"product-price\">$12.01</span> aka getByText('$12.01')\n    7) <a href=\"#/product/3\" data-test=\"product-3\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-3\"]')\n    8) <strong data-test=\"product-name\">Bolt Cutters</strong> aka locator('[data-test=\"product-3\"]')\n    9) <span data-test=\"product-price\">$48.41</span> aka getByText('$48.41')\n    10) <a href=\"#/product/4\" data-test=\"product-4\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-4\"]')\n    ...\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test^=\"product-\"]')\u001b[22m\n\n\n  4 |     await page.goto('https://v1.practicesoftwaretesting.com');\n  5 |     const productCards = page.locator('[data-test^=\"product-\"]');\n> 6 |     await expect(productCards).toBeVisible();\n    |                                ^\n  7 |     const count = await productCards.count();\n  8 |     expect(count).toBeGreaterThan(0);\n  9 | });\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:6:32"
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test=\"product-1\"], [data-test=\"product-2\"], [data-test=\"product-3\"], [data-test=\"product-4\"], [data-test=\"product-5\"], [data-test=\"product-6\"], [data-test=\"product-7\"], [data-test=\"product-8\"], [data-test=\"product-9\"], [data-test=\"product-10\"]')\nExpected: visible\nError: strict mode violation: locator('[data-test=\"product-1\"], [data-test=\"product-2\"], [data-test=\"product-3\"], [data-test=\"product-4\"], [data-test=\"product-5\"], [data-test=\"product-6\"], [data-test=\"product-7\"], [data-test=\"product-8\"], [data-test=\"product-9\"], [data-test=\"product-10\"]') resolved to 10 elements:\n    1) <a href=\"#/product/1\" data-test=\"product-1\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-1\"]')\n    2) <a href=\"#/product/2\" data-test=\"product-2\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-2\"]')\n    3) <a href=\"#/product/3\" data-test=\"product-3\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-3\"]')\n    4) <a href=\"#/product/4\" data-test=\"product-4\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-4\"]')\n    5) <a href=\"#/product/5\" data-test=\"product-5\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-5\"]')\n    6) <a href=\"#/product/6\" data-test=\"product-6\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-6\"]')\n    7) <a href=\"#/product/7\" data-test=\"product-7\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-7\"]')\n    8) <a href=\"#/product/8\" data-test=\"product-8\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-8\"]')\n    9) <a href=\"#/product/9\" data-test=\"product-9\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-9\"]')\n    10) <a href=\"#/product/10\" data-test=\"product-10\" class=\"text-decoration-none text-dark\">…</a> aka locator('[data-test=\"product-10\"]')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"product-1\"], [data-test=\"product-2\"], [data-test=\"product-3\"], [data-test=\"product-4\"], [data-test=\"product-5\"], [data-test=\"product-6\"], [data-test=\"product-7\"], [data-test=\"product-8\"], [data-test=\"product-9\"], [data-test=\"product-10\"]')\u001b[22m\n\n\n   6 |     await page.goto(baseURL);\n   7 |     const productCards = page.locator('[data-test=\"product-1\"], [data-test=\"product-2\"], [data-test=\"product-3\"], [data-test=\"product-4\"], [data-test=\"product-5\"], [data-test=\"product-6\"], [data-test=\"product-7\"], [data-test=\"product-8\"], [data-test=\"product-9\"], [data-test=\"product-10\"]');\n>  8 |     await expect(productCards).toBeVisible();\n     |                                ^\n   9 | });\n  10 |\n  11 | test('Navigation to Product Detail Page', async ({ page }) => {\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:8:32"
                       }
                     ],
                     "stdout": [],
                     "stderr": [],
                     "retry": 0,
-                    "startTime": "2026-08-04T11:05:43.841Z",
+                    "startTime": "2026-08-04T11:30:51.017Z",
                     "annotations": [],
                     "attachments": [
                       {
                         "name": "screenshot",
                         "contentType": "image/png",
-                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-TC-001---Display-of-Product-Cards-on-Home-Page/test-failed-1.png"
+                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Display-of-Product-Cards-on-Home-Page/test-failed-1.png"
                       },
                       {
                         "name": "error-context",
                         "contentType": "text/markdown",
-                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-TC-001---Display-of-Product-Cards-on-Home-Page/error-context.md"
+                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Display-of-Product-Cards-on-Home-Page/error-context.md"
                       },
                       {
                         "name": "trace",
                         "contentType": "application/zip",
-                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-TC-001---Display-of-Product-Cards-on-Home-Page/trace.zip"
+                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-Display-of-Product-Cards-on-Home-Page/trace.zip"
                       }
                     ],
                     "errorLocation": {
                       "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
                       "column": 32,
-                      "line": 6
+                      "line": 8
                     }
                   }
                 ],
                 "status": "unexpected"
               }
             ],
-            "id": "92a6e7f2d2460e449614-a518c1b9fa639c0e4331",
+            "id": "92a6e7f2d2460e449614-209f1d150627f7f10ea5",
             "file": "story.spec.ts",
-            "line": 3,
+            "line": 5,
+            "column": 5
+          },
+          {
+            "title": "Navigation to Product Detail Page",
+            "ok": true,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [
+                  {
+                    "workerIndex": 1,
+                    "parallelIndex": 0,
+                    "status": "passed",
+                    "duration": 2520,
+                    "errors": [],
+                    "stdout": [],
+                    "stderr": [],
+                    "retry": 0,
+                    "startTime": "2026-08-04T11:30:54.488Z",
+                    "annotations": [],
+                    "attachments": []
+                  }
+                ],
+                "status": "expected"
+              }
+            ],
+            "id": "92a6e7f2d2460e449614-8fcf5bf9cf19ec967425",
+            "file": "story.spec.ts",
+            "line": 11,
             "column": 5
           }
         ]
@@ -226,13 +260,13 @@
     ],
     "errors": [],
     "stats": {
-      "startTime": "2026-08-04T11:05:43.311Z",
-      "duration": 3624.8770000000004,
-      "expected": 0,
+      "startTime": "2026-08-04T11:30:50.558Z",
+      "duration": 6587.907999999999,
+      "expected": 1,
       "skipped": 0,
       "unexpected": 1,
       "flaky": 0
     }
   },
-  "completedAt": "2026-08-04T11:05:47.039Z"
+  "completedAt": "2026-08-04T11:30:57.225Z"
 }
