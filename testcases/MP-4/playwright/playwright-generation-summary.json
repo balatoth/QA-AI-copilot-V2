@@ -37,19 +37,19 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing verified evidence for explicit required fields in the contact form."
+      "reason": "Missing verified evidence required for safe automation"
     },
     {
       "testCaseId": "TC-003",
-      "reason": "The expected options for the subject dropdown are not provided as evidence."
+      "reason": "Missing verified evidence required for safe automation"
     },
     {
       "testCaseId": "TC-004",
-      "reason": "A verified selector for the message input is missing for character count validation."
+      "reason": "Missing verified evidence required for safe automation"
     },
     {
       "testCaseId": "TC-005",
-      "reason": "Missing the confirmation message selector after successful submission."
+      "reason": "Missing verified evidence required for safe automation"
     }
   ],
   "generatedFiles": [
@@ -64,7 +64,7 @@
     "status": "PASS",
     "passed": true,
     "qualityScore": 90,
-    "reason": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes awaited assertions. Selectors use data-test attributes which are robust and maintainable. The test case ID is preserved in the test title. No critical defects remain."
+    "reason": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes proper asynchronous assertions with await. The locator is correctly used and the test case ID is preserved in the test title. The selector is specific and appropriate for the contact form."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -77,5 +77,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-04T09:31:17.021Z"
+  "createdAt": "2026-08-04T11:03:59.102Z"
 }
