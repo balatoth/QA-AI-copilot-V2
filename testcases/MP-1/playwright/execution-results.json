@@ -2,7 +2,7 @@
   "schemaVersion": "0.1.0",
   "artifactType": "PLAYWRIGHT_EXECUTION_RESULTS",
   "storyKey": "MP-1",
-  "executionId": "MP-SPRINT-20260804091839",
+  "executionId": "MP-SPRINT-20260804092927",
   "executionType": "PLAYWRIGHT",
   "status": "COMPLETED",
   "repository": {
@@ -16,18 +16,18 @@
     "metadataPath": "playwright-execution/execution-metadata.json"
   },
   "githubActions": {
-    "workflowRunId": "30895897697",
+    "workflowRunId": "30896695378",
     "workflowRunAttempt": "1",
-    "commitSha": "43bee441741cd8e791a5aba9e60f6631ba131ec3",
+    "commitSha": "4b315cfea42325f63c61f6d56ae98926b6c0a465",
     "playwrightExitCode": 0
   },
   "summary": {
-    "expected": 1,
-    "passed": 1,
+    "expected": 2,
+    "passed": 2,
     "failed": 0,
     "skipped": 0,
     "flaky": 0,
-    "durationMs": 3996.974
+    "durationMs": 5026.229
   },
   "errors": [],
   "rawResults": {
@@ -51,24 +51,24 @@
       "maxFailures": 0,
       "metadata": {
         "ci": {
-          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/43bee441741cd8e791a5aba9e60f6631ba131ec3",
-          "commitHash": "43bee441741cd8e791a5aba9e60f6631ba131ec3",
-          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30895897697"
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/4b315cfea42325f63c61f6d56ae98926b6c0a465",
+          "commitHash": "4b315cfea42325f63c61f6d56ae98926b6c0a465",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30896695378"
         },
         "gitCommit": {
-          "shortHash": "43bee44",
-          "hash": "43bee441741cd8e791a5aba9e60f6631ba131ec3",
+          "shortHash": "4b315cf",
+          "hash": "4b315cfea42325f63c61f6d56ae98926b6c0a465",
           "subject": "Update execution-results.json for MP-3",
           "body": "Update execution-results.json for MP-3",
           "author": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785835232000
+            "time": 1785835888000
           },
           "committer": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785835232000
+            "time": 1785835888000
           },
           "branch": "main"
         },
@@ -82,24 +82,24 @@
           "retries": 0,
           "metadata": {
             "ci": {
-              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/43bee441741cd8e791a5aba9e60f6631ba131ec3",
-              "commitHash": "43bee441741cd8e791a5aba9e60f6631ba131ec3",
-              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30895897697"
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/4b315cfea42325f63c61f6d56ae98926b6c0a465",
+              "commitHash": "4b315cfea42325f63c61f6d56ae98926b6c0a465",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30896695378"
             },
             "gitCommit": {
-              "shortHash": "43bee44",
-              "hash": "43bee441741cd8e791a5aba9e60f6631ba131ec3",
+              "shortHash": "4b315cf",
+              "hash": "4b315cfea42325f63c61f6d56ae98926b6c0a465",
               "subject": "Update execution-results.json for MP-3",
               "body": "Update execution-results.json for MP-3",
               "author": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785835232000
+                "time": 1785835888000
               },
               "committer": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785835232000
+                "time": 1785835888000
               },
               "branch": "main"
             },
@@ -146,53 +146,96 @@
         "file": "story.spec.ts",
         "column": 0,
         "line": 0,
-        "specs": [
+        "specs": [],
+        "suites": [
           {
-            "title": "TC-001 - Display of Product Cards on Home Page",
-            "ok": true,
-            "tags": [],
-            "tests": [
-              {
-                "timeout": 30000,
-                "annotations": [],
-                "expectedStatus": "passed",
-                "projectId": "",
-                "projectName": "",
-                "results": [
-                  {
-                    "workerIndex": 0,
-                    "parallelIndex": 0,
-                    "status": "passed",
-                    "duration": 2887,
-                    "errors": [],
-                    "stdout": [],
-                    "stderr": [],
-                    "retry": 0,
-                    "startTime": "2026-08-04T09:22:23.791Z",
-                    "annotations": [],
-                    "attachments": []
-                  }
-                ],
-                "status": "expected"
-              }
-            ],
-            "id": "92a6e7f2d2460e449614-a518c1b9fa639c0e4331",
+            "title": "Product Overview",
             "file": "story.spec.ts",
             "line": 3,
-            "column": 5
+            "column": 6,
+            "specs": [
+              {
+                "title": "Display of Product Cards on Home Page",
+                "ok": true,
+                "tags": [],
+                "tests": [
+                  {
+                    "timeout": 30000,
+                    "annotations": [],
+                    "expectedStatus": "passed",
+                    "projectId": "",
+                    "projectName": "",
+                    "results": [
+                      {
+                        "workerIndex": 0,
+                        "parallelIndex": 0,
+                        "status": "passed",
+                        "duration": 2318,
+                        "errors": [],
+                        "stdout": [],
+                        "stderr": [],
+                        "retry": 0,
+                        "startTime": "2026-08-04T09:33:00.700Z",
+                        "annotations": [],
+                        "attachments": []
+                      }
+                    ],
+                    "status": "expected"
+                  }
+                ],
+                "id": "92a6e7f2d2460e449614-c7979dfa96fd7320e1a1",
+                "file": "story.spec.ts",
+                "line": 4,
+                "column": 7
+              },
+              {
+                "title": "Navigation to Product Detail Page",
+                "ok": true,
+                "tags": [],
+                "tests": [
+                  {
+                    "timeout": 30000,
+                    "annotations": [],
+                    "expectedStatus": "passed",
+                    "projectId": "",
+                    "projectName": "",
+                    "results": [
+                      {
+                        "workerIndex": 0,
+                        "parallelIndex": 0,
+                        "status": "passed",
+                        "duration": 2017,
+                        "errors": [],
+                        "stdout": [],
+                        "stderr": [],
+                        "retry": 0,
+                        "startTime": "2026-08-04T09:33:03.306Z",
+                        "annotations": [],
+                        "attachments": []
+                      }
+                    ],
+                    "status": "expected"
+                  }
+                ],
+                "id": "92a6e7f2d2460e449614-ba6ba86c6f7f0429df1a",
+                "file": "story.spec.ts",
+                "line": 9,
+                "column": 7
+              }
+            ]
           }
         ]
       }
     ],
     "errors": [],
     "stats": {
-      "startTime": "2026-08-04T09:22:23.307Z",
-      "duration": 3996.974,
-      "expected": 1,
+      "startTime": "2026-08-04T09:33:00.348Z",
+      "duration": 5026.229,
+      "expected": 2,
       "skipped": 0,
       "unexpected": 0,
       "flaky": 0
     }
   },
-  "completedAt": "2026-08-04T09:22:27.387Z"
+  "completedAt": "2026-08-04T09:33:05.440Z"
 }
