@@ -5,14 +5,14 @@
   "repaired": false,
   "repairAttempt": 0,
   "reviewStatus": "WARNING",
-  "qualityScore": 65,
+  "qualityScore": 75,
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 65,
-    "reason": "The test script compiles and uses Playwright APIs correctly with proper async/await usage and valid assertions. However, the selector '[data-test=\"product-1\"]' appears to be a hard-coded and potentially fragile selector as it targets a specific product ID without evidence that this is stable. The URL check with toHaveURL(/product/) is weak for verifying correct detail page navigation because it only checks the presence of 'product' in the URL, not the specific product. The test title lacks the testcase ID 'TC-001' linkage. No reusability features such as page object pattern or centralized selectors are implemented. The test data handling is minimal and implicit. Maintainability could improve by parameterizing product IDs, improving URL checks, and aligning test titles with test case IDs."
+    "qualityScore": 75,
+    "reason": "The Playwright test compiles and uses Playwright APIs correctly, but the test has weak assertions verifying navigation only by partial URL matching and the selector used to click the product is data-test based but generic. The testCaseId is preserved in the test title. No misuse of Locator or missing awaits is detected. However, navigation validation is too weak to robustly prove the correct product detail page was opened."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-08-03T17:39:42.180Z"
+  "createdAt": "2026-08-04T08:56:59.154Z"
 }
