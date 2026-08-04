@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QA AI Copilot - Sprint Execution Report</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    :root {
+      --page: #f3f4f6;
+      --surface: #ffffff;
+      --surface-soft: #f8fafc;
+      --border: #e5e7eb;
+      --text: #111827;
+      --text-secondary: #374151;
+      --muted: #6b7280;
+      --success-bg: #dcfce7;
+      --success-text: #166534;
+      --success: #16a34a;
+      --warning-bg: #fef3c7;
+      --warning-text: #92400e;
+      --warning: #d97706;
+      --danger-bg: #fee2e2;
+      --danger-text: #991b1b;
+      --danger: #dc2626;
+      --neutral-bg: #e5e7eb;
+      --neutral-text: #4b5563;
+      --info-bg: #e0e7ff;
+      --info-text: #3730a3;
+      --info: #2563eb;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 32px;
+      padding: 34px;
+      margin-bottom: 24px;
+      border-radius: var(--radius-lg);
+      color: white;
+      background: linear-gradient(135deg, #111827, #1f2937);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+    }
+
+    .eyebrow {
+      margin-bottom: 10px;
+      color: #93c5fd;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 36px;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 14px 0 0;
+      color: #d1d5db;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .hero-meta { display: grid; gap: 10px; }
+
+    .hero-meta-item {
+      padding: 12px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-meta-item span {
+      display: block;
+      margin-bottom: 4px;
+      color: #cbd5e1;
+      font-size: 11px;
+    }
+
+    .hero-meta-item strong {
+      display: block;
+      color: white;
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .readiness {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 240px;
+      gap: 28px;
+      align-items: center;
+      padding: 30px;
+      margin-bottom: 24px;
+      border-radius: var(--radius-lg);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .readiness.pass { background: linear-gradient(135deg, #15803d, #16a34a); }
+    .readiness.observations { background: linear-gradient(135deg, #ca8a04, #eab308); }
+    .readiness.review { background: linear-gradient(135deg, #ea580c, #f97316); }
+    .readiness.blocked { background: linear-gradient(135deg, #991b1b, #dc2626); }
+    .readiness.unknown { background: linear-gradient(135deg, #4b5563, #6b7280); }
+
+    .readiness h2 { margin: 0; font-size: 36px; line-height: 1.1; }
+    .readiness p { margin: 10px 0 0; color: rgba(255,255,255,.92); font-size: 15px; line-height: 1.65; }
+
+    .readiness-decision {
+      padding: 18px 20px;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,.12);
+      text-align: center;
+    }
+
+    .readiness-decision span {
+      display: block;
+      margin-bottom: 7px;
+      color: rgba(255,255,255,.78);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .readiness-decision strong { display: block; font-size: 17px; line-height: 1.4; }
+
+    .executive-dashboard {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .confidence-panel,
+    .dashboard-metrics {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .confidence-panel {
+      padding: 28px;
+    }
+
+    .dashboard-eyebrow {
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .confidence-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .confidence-value {
+      color: var(--text);
+      font-size: 52px;
+      font-weight: 850;
+      line-height: 1;
+    }
+
+    .confidence-level {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .confidence-high {
+      background: var(--success-bg);
+      color: var(--success-text);
+    }
+
+    .confidence-moderate {
+      background: var(--warning-bg);
+      color: var(--warning-text);
+    }
+
+    .confidence-low {
+      background: #ffedd5;
+      color: #9a3412;
+    }
+
+    .confidence-critical {
+      background: var(--danger-bg);
+      color: var(--danger-text);
+    }
+
+    .confidence-track {
+      height: 14px;
+      margin-top: 24px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e5e7eb;
+    }
+
+    .confidence-fill {
+      height: 100%;
+      border-radius: inherit;
+    }
+
+    .confidence-fill.confidence-high {
+      background: linear-gradient(90deg, #16a34a, #22c55e);
+    }
+
+    .confidence-fill.confidence-moderate {
+      background: linear-gradient(90deg, #d97706, #eab308);
+    }
+
+    .confidence-fill.confidence-low {
+      background: linear-gradient(90deg, #ea580c, #f97316);
+    }
+
+    .confidence-fill.confidence-critical {
+      background: linear-gradient(90deg, #991b1b, #dc2626);
+    }
+
+    .confidence-scale {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .confidence-copy {
+      margin: 18px 0 0;
+      color: var(--text-secondary);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .dashboard-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    .dashboard-metric {
+      min-width: 0;
+      padding: 21px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dashboard-metric:nth-child(2n) {
+      border-right: none;
+    }
+
+    .dashboard-metric:nth-last-child(-n + 2) {
+      border-bottom: none;
+    }
+
+    .dashboard-metric-label {
+      min-height: 30px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .dashboard-metric-value {
+      margin-top: 8px;
+      color: var(--text);
+      font-size: 27px;
+      font-weight: 850;
+      line-height: 1.1;
+    }
+
+    .dashboard-metric-note {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    .section {
+      padding: 26px;
+      margin-bottom: 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .section-heading { margin: 0 0 16px; font-size: 20px; }
+    .section-copy, .empty-copy { margin: 0; color: var(--text-secondary); font-size: 15px; line-height: 1.7; }
+
+    .table-wrapper { overflow-x: auto; }
+
+    .story-table, .coverage-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .story-table { min-width: 820px; }
+    .coverage-table { min-width: 720px; }
+
+    .story-table th, .coverage-table th {
+      padding: 13px 15px;
+      border-bottom: 2px solid var(--border);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    .story-table td, .coverage-table td {
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    .story-table tbody tr:last-child td,
+    .coverage-table tbody tr:last-child td { border-bottom: none; }
+
+    .story-table tbody tr:hover,
+    .coverage-table tbody tr:hover { background: var(--surface-soft); }
+
+    .story-key, .coverage-layer {
+      color: var(--text);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .coverage-number { font-weight: 700; }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .03em;
+      white-space: nowrap;
+    }
+
+    .status-pass { background: var(--success-bg); color: var(--success-text); }
+    .status-warning { background: var(--warning-bg); color: var(--warning-text); }
+    .status-fail { background: var(--danger-bg); color: var(--danger-text); }
+    .status-na { background: var(--neutral-bg); color: var(--neutral-text); }
+    .status-unknown { background: var(--info-bg); color: var(--info-text); }
+
+    .execution-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 9px;
+    }
+
+    .metric-list { display: grid; gap: 5px; min-width: 120px; }
+    .compact-list { min-width: 110px; }
+
+    .metric-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 110px;
+      gap: 20px;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .metric-line span { color: var(--muted); }
+    .metric-line strong { min-width: 18px; color: var(--text); font-weight: 700; text-align: right; }
+
+    .execution-note {
+      max-width: 230px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .assessment-stack { display: grid; gap: 18px; }
+
+    .assessment-block {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface-soft);
+    }
+
+    .assessment-block h4 { margin: 0 0 14px; font-size: 17px; }
+    .assessment-block ul { margin: 0; padding-left: 20px; }
+    .assessment-block li { margin-bottom: 10px; line-height: 1.6; }
+
+    .recommendation-box {
+      margin-bottom: 24px;
+      padding: 26px;
+      border-radius: var(--radius-lg);
+      border-left: 6px solid var(--info);
+      background: #eff6ff;
+    }
+
+    .recommendation-box.accent-danger { border-left-color: var(--danger); background: #fff7f7; }
+    .recommendation-box.accent-warning { border-left-color: var(--warning); background: #fffbeb; }
+    .recommendation-box.accent-success { border-left-color: var(--success); background: #f0fdf4; }
+
+    .recommendation-box h3 { margin: 0 0 12px; font-size: 21px; }
+    .recommendation-box p { margin: 0; color: #1f2937; line-height: 1.7; }
+
+    .next-actions {
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(37,99,235,.18);
+    }
+
+    .next-actions h4 { margin: 0 0 12px; color: #1e3a8a; font-size: 14px; }
+    .next-actions ul, .next-actions ol { margin: 0; padding-left: 22px; }
+    .next-actions li { margin-bottom: 9px; line-height: 1.55; }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 8px 4px 20px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 980px) {
+      .hero, .readiness { grid-template-columns: 1fr; }
+      .executive-dashboard { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .container { padding: 18px; }
+      .hero h1, .readiness h2 { font-size: 28px; }
+      .footer { flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      .dashboard-metrics { grid-template-columns: 1fr; }
+
+      .dashboard-metric {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .dashboard-metric:last-child {
+        border-bottom: none;
+      }
+
+      .confidence-header {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .confidence-value {
+        font-size: 44px;
+      }
+    }
+
+    @media print {
+      body { background: white; }
+      .container { max-width: none; padding: 0; }
+      .hero, .readiness, .confidence-panel, .dashboard-metrics, .section { box-shadow: none; }
+      .story-table tbody tr,
+      .coverage-table tbody tr,
+      .assessment-block,
+      .recommendation-box { break-inside: avoid; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <header class="hero">
+      <div>
+        <div class="eyebrow">QA AI Copilot</div>
+        <h1>Sprint Execution Report</h1>
+        <p>
+          Executive sprint-level quality assessment generated from automated
+          API and UI execution evidence, risk analysis, and release-readiness evaluation.
+        </p>
+      </div>
+
+      <div class="hero-meta">
+        <div class="hero-meta-item"><span>Project</span><strong>MP</strong></div>
+        <div class="hero-meta-item"><span>Sprint</span><strong>MP Sprint 1</strong></div>
+        <div class="hero-meta-item"><span>Execution ID</span><strong>MP-SPRINT-20260804110151</strong></div>
+        <div class="hero-meta-item">
+          <span>Generated</span>
+          <strong>04 Aug 2026 · 11:10 UTC</strong>
+        </div>
+      </div>
+    </header>
+
+    <section class="readiness unknown">
+      <div>
+        <div class="eyebrow">Release Readiness</div>
+        <h2>NOT_READY_FOR_MANUAL_UAT</h2>
+        <p>The release is not endorsed due to the failure of 3 out of 4 executed stories, along with specific high-risk automation issues that could severely affect user experience. All failed stories are linked to critical user flows that require immediate resolution before any further deployment.</p>
+      </div>
+
+      <div class="readiness-decision">
+        <span>Recommendation</span>
+        <strong>Do Not Release</strong>
+      </div>
+    </section>
+
+    <section class="executive-dashboard">
+      <article class="confidence-panel">
+        <div class="dashboard-eyebrow">Release Confidence</div>
+
+        <div class="confidence-header">
+          <div class="confidence-value">
+            25%
+          </div>
+
+          <span class="confidence-level confidence-critical">
+            CRITICAL
+          </span>
+        </div>
+
+        <div class="confidence-track">
+          <div
+            class="confidence-fill confidence-critical"
+            style="width: 25%"
+          ></div>
+        </div>
+
+        <div class="confidence-scale">
+          <span>0%</span>
+          <span>50%</span>
+          <span>100%</span>
+        </div>
+
+        <p class="confidence-copy">
+          Confidence reflects execution outcomes, failed stories,
+          automation failures, technical stability and available
+          quality evidence for this sprint.
+        </p>
+      </article>
+
+      <section class="dashboard-metrics">
+        <div class="dashboard-metric">
+          <div class="dashboard-metric-label">Stories Executed</div>
+          <div class="dashboard-metric-value">
+            0
+            /
+            4
+          </div>
+          <div class="dashboard-metric-note">Planned sprint stories</div>
+        </div>
+
+        <div class="dashboard-metric">
+          <div class="dashboard-metric-label">API Coverage</div>
+          <div class="dashboard-metric-value">
+            3
+            /
+            3
+          </div>
+          <div class="dashboard-metric-note">Applicable API stories executed</div>
+        </div>
+
+        <div class="dashboard-metric">
+          <div class="dashboard-metric-label">UI Coverage</div>
+          <div class="dashboard-metric-value">
+            3
+            /
+            4
+          </div>
+          <div class="dashboard-metric-note">Applicable UI stories executed</div>
+        </div>
+
+        <div class="dashboard-metric">
+          <div class="dashboard-metric-label">UI Test Failures</div>
+          <div class="dashboard-metric-value">
+            3
+          </div>
+          <div class="dashboard-metric-note">Failed automated UI tests</div>
+        </div>
+      </section>
+    </section>
+
+    <section class="section">
+      <h3 class="section-heading">Executive Summary</h3>
+      <p class="section-copy">In this sprint, 4 stories were executed with 3 resulting in failures and 1 being blocked, indicating significant issues with the automation tests. The sprint is not ready for release due to critical UI component failures, which could impact user interactions.</p>
+    </section>
+
+    <section class="section">
+      <h3 class="section-heading">Story Execution Summary</h3>
+      <div class="table-wrapper"><table class="story-table"><thead><tr><th>Story</th><th>Manual</th><th>API</th><th>Playwright</th><th>Status</th></tr></thead><tbody>
+    <tr>
+      <td class="story-key">MP-1</td>
+      <td>
+        <span class="status-badge status-warning">
+          Not Reported
+        </span>
+      </td>
+      <td>
+        <div class="execution-cell">
+          <span class="status-badge status-pass">
+            Passed
+          </span>
+          
+      <div class="metric-list compact-list">
+        <div class="metric-line">
+          <span>Failed tests</span>
+          <strong>0</strong>
+        </div>
+      </div>
+        </div>
+      </td>
+      <td>
+        <div class="execution-cell">
+          <span class="status-badge status-fail">
+            Failed
+          </span>
+          
+      <div class="metric-list">
+        <div class="metric-line"><span>Passed</span><strong>0</strong></div>
+        <div class="metric-line"><span>Failed</span><strong>1</strong></div>
+        <div class="metric-line"><span>Skipped</span><strong>0</strong></div>
+      </div>
+        </div>
+      </td>
+      <td>
+        <span class="status-badge status-fail">
+          Failed
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td class="story-key">MP-2</td>
+      <td>
+        <span class="status-badge status-warning">
+          Not Reported
+        </span>
+      </td>
+      <td>
+        <div class="execution-cell">
+          <span class="status-badge status-pass">
+            Passed
+          </span>
+          
+      <div class="metric-list compact-list">
+        <div class="metric-line">
+          <span>Failed tests</span>
+          <strong>0</strong>
+        </div>
+      </div>
+        </div>
+      </td>
+      <td>
+        <div class="execution-cell">
+          <span class="status-badge status-fail">
+            Failed
+          </span>
+          
+      <div class="metric-list">
+        <div class="metric-line"><span>Passed</span><strong>0</strong></div>
+        <div class="metric-line"><span>Failed</span><strong>1</strong></div>
+        <div class="metric-line"><span>Skipped</span><strong>0</strong></div>
+      </div>
+        </div>
+      </td>
+      <td>
+        <span class="status-badge status-fail">
+          Failed
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td class="story-key">MP-3</td>
+      <td>
+        <span class="status-badge status-warning">
+          Not Reported
+        </span>
+      </td>
+      <td>
+        <div class="execution-cell">
+          <span class="status-badge status-pass">
+            Passed
+          </span>
+          
+      <div class="metric-list compact-list">
+        <div class="metric-line">
+          <span>Failed tests</span>
+          <strong>0</strong>
+        </div>
+      </div>
+        </div>
+      </td>
+      <td>
+        <div class="execution-cell">
+          <span class="status-badge status-fail">
+            Blocked
+          </span>
+          
+      <div class="metric-list">
+        <div class="metric-line"><span>Passed</span><strong>0</strong></div>
+        <div class="metric-line"><span>Failed</span><strong>0</strong></div>
+        <div class="metric-line"><span>Skipped</span><strong>0</strong></div>
+      </div>
+        </div>
+      </td>
+      <td>
+        <span class="status-badge status-fail">
+          Blocked
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td class="story-key">MP-4</td>
+      <td>
+        <span class="status-badge status-warning">
+          Not Reported
+        </span>
+      </td>
+      <td>
+        <div class="execution-cell">
+          <span class="status-badge status-na">
+            N/A
+          </span>
+          <span class="execution-note">NO_TEST_CASES</span>
+        </div>
+      </td>
+      <td>
+        <div class="execution-cell">
+          <span class="status-badge status-fail">
+            Failed
+          </span>
+          
+      <div class="metric-list">
+        <div class="metric-line"><span>Passed</span><strong>0</strong></div>
+        <div class="metric-line"><span>Failed</span><strong>1</strong></div>
+        <div class="metric-line"><span>Skipped</span><strong>0</strong></div>
+      </div>
+        </div>
+      </td>
+      <td>
+        <span class="status-badge status-fail">
+          Failed
+        </span>
+      </td>
+    </tr></tbody></table></div>
+    </section>
+
+    <section class="section">
+      <h3 class="section-heading">Test Coverage Matrix</h3>
+      <div class="table-wrapper">
+        <table class="coverage-table">
+          <thead>
+            <tr><th>Test Layer</th><th>Applicable</th><th>Executed</th><th>Passed</th><th>Failed</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="coverage-layer">Manual</td>
+              <td class="coverage-number">4</td>
+              <td class="coverage-number">0</td>
+              <td class="coverage-number">—</td>
+              <td class="coverage-number">—</td>
+              <td><span class="status-badge status-warning">Not Reported</span></td>
+            </tr>
+            <tr>
+              <td class="coverage-layer">API</td>
+              <td class="coverage-number">3</td>
+              <td class="coverage-number">3</td>
+              <td class="coverage-number">3</td>
+              <td class="coverage-number">0</td>
+              <td><span class="status-badge status-pass">Completed</span></td>
+            </tr>
+            <tr>
+              <td class="coverage-layer">Playwright</td>
+              <td class="coverage-number">4</td>
+              <td class="coverage-number">3</td>
+              <td class="coverage-number">0</td>
+              <td class="coverage-number">3</td>
+              <td><span class="status-badge status-fail">Failed</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3 class="section-heading">Executive Assessment</h3>
+      <div class="assessment-stack">
+        <article class="assessment-block">
+          <h4>Key Achievements</h4>
+          <ul><li>API execution completed for 3 applicable stories with 100% pass rate.</li><li>Automation orchestration was completed successfully.</li></ul>
+        </article>
+        <article class="assessment-block">
+          <h4>Key Risks</h4>
+          <ul><li>High - The failure indicates a fundamental issue with the test selector that prevents verification of product card visibility, blocking validation of a key UI component.</li><li>High - The failure indicates that the product detail page is not displayed as expected, which is a critical user flow.</li><li>High - The failure indicates a critical UI element (contact form) is not accessible, which may block user interactions.</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="recommendation-box accent-danger">
+      <h3>Release Recommendation: Do Not Release</h3>
+      <p>The release is not endorsed due to the failure of 3 out of 4 executed stories, along with specific high-risk automation issues that could severely affect user experience. All failed stories are linked to critical user flows that require immediate resolution before any further deployment.</p>
+
+      <div class="next-actions"><h4>Blocking Conditions</h4><ul><li>MP-1 has failed automated tests</li><li>MP-2 has failed automated tests</li><li>MP-3 has incomplete required automation evidence</li><li>MP-4 has failed automated tests</li></ul></div>
+
+      <div class="next-actions"><h4>Recommended Next Actions</h4><ol><li>Investigate and resolve failed automated tests before Manual/UAT entry</li><li>Assess final production release only after required Manual/UAT evidence is available</li></ol></div>
+    </section>
+
+    <footer class="footer">
+      <span>Generated by QA AI Copilot</span>
+      <span>MP-SPRINT-20260804110151</span>
+    </footer>
+  </main>
+</body>
+</html>
