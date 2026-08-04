@@ -2,9 +2,9 @@
   "schemaVersion": "0.1.0",
   "artifactType": "PLAYWRIGHT_EXECUTION_RESULTS",
   "storyKey": "MP-2",
-  "executionId": "MP-SPRINT-20260804095748",
+  "executionId": "MP-SPRINT-20260804110151",
   "executionType": "PLAYWRIGHT",
-  "status": "COMPLETED",
+  "status": "FAILED",
   "repository": {
     "owner": "balatoth",
     "name": "QA-AI-copilot-V2",
@@ -16,18 +16,18 @@
     "metadataPath": "playwright-execution/execution-metadata.json"
   },
   "githubActions": {
-    "workflowRunId": "30898762768",
+    "workflowRunId": "30903426635",
     "workflowRunAttempt": "1",
-    "commitSha": "610599c568d0c4538772af8544ba25533b56647d",
-    "playwrightExitCode": 0
+    "commitSha": "2c32ef7c553d5d0721c5ac66918426638bf67c28",
+    "playwrightExitCode": 1
   },
   "summary": {
-    "expected": 1,
-    "passed": 1,
-    "failed": 0,
+    "expected": 0,
+    "passed": 0,
+    "failed": 1,
     "skipped": 0,
     "flaky": 0,
-    "durationMs": 4189.965
+    "durationMs": 8266.677
   },
   "errors": [],
   "rawResults": {
@@ -51,24 +51,24 @@
       "maxFailures": 0,
       "metadata": {
         "ci": {
-          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/610599c568d0c4538772af8544ba25533b56647d",
-          "commitHash": "610599c568d0c4538772af8544ba25533b56647d",
-          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30898762768"
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/2c32ef7c553d5d0721c5ac66918426638bf67c28",
+          "commitHash": "2c32ef7c553d5d0721c5ac66918426638bf67c28",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30903426635"
         },
         "gitCommit": {
-          "shortHash": "610599c",
-          "hash": "610599c568d0c4538772af8544ba25533b56647d",
-          "subject": "Update execution-results.json for MP-3",
-          "body": "Update execution-results.json for MP-3",
+          "shortHash": "2c32ef7",
+          "hash": "2c32ef7c553d5d0721c5ac66918426638bf67c28",
+          "subject": "Update Playwright execution analysis for MP-1 - MP-SPRINT-20260804110151",
+          "body": "Update Playwright execution analysis for MP-1 - MP-SPRINT-20260804110151",
           "author": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785837602000
+            "time": 1785841584000
           },
           "committer": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785837602000
+            "time": 1785841584000
           },
           "branch": "main"
         },
@@ -82,24 +82,24 @@
           "retries": 0,
           "metadata": {
             "ci": {
-              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/610599c568d0c4538772af8544ba25533b56647d",
-              "commitHash": "610599c568d0c4538772af8544ba25533b56647d",
-              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30898762768"
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/2c32ef7c553d5d0721c5ac66918426638bf67c28",
+              "commitHash": "2c32ef7c553d5d0721c5ac66918426638bf67c28",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30903426635"
             },
             "gitCommit": {
-              "shortHash": "610599c",
-              "hash": "610599c568d0c4538772af8544ba25533b56647d",
-              "subject": "Update execution-results.json for MP-3",
-              "body": "Update execution-results.json for MP-3",
+              "shortHash": "2c32ef7",
+              "hash": "2c32ef7c553d5d0721c5ac66918426638bf67c28",
+              "subject": "Update Playwright execution analysis for MP-1 - MP-SPRINT-20260804110151",
+              "body": "Update Playwright execution analysis for MP-1 - MP-SPRINT-20260804110151",
               "author": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785837602000
+                "time": 1785841584000
               },
               "committer": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785837602000
+                "time": 1785841584000
               },
               "branch": "main"
             },
@@ -148,8 +148,8 @@
         "line": 0,
         "specs": [
           {
-            "title": "TC-001: Verify Product Detail Page is Displayed",
-            "ok": true,
+            "title": "MP-2: Verify Product Detail Page is Displayed",
+            "ok": false,
             "tags": [],
             "tests": [
               {
@@ -162,23 +162,63 @@
                   {
                     "workerIndex": 0,
                     "parallelIndex": 0,
-                    "status": "passed",
-                    "duration": 2196,
-                    "errors": [],
+                    "status": "failed",
+                    "duration": 7248,
+                    "error": {
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test=\"product-detail\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"product-detail\"]')\u001b[22m\n",
+                      "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test=\"product-detail\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"product-detail\"]')\u001b[22m\n\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:26:31",
+                      "location": {
+                        "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
+                        "column": 31,
+                        "line": 26
+                      },
+                      "snippet": "\u001b[0m \u001b[90m 24 |\u001b[39m   \u001b[90m// Additional assertion: check that a product detail element is visible\u001b[39m\n \u001b[90m 25 |\u001b[39m   \u001b[36mconst\u001b[39m productDetail \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-test=\"product-detail\"]'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m expect(productDetail)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 27 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                    },
+                    "errors": [
+                      {
+                        "location": {
+                          "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
+                          "column": 31,
+                          "line": 26
+                        },
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test=\"product-detail\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"product-detail\"]')\u001b[22m\n\n\n  24 |   // Additional assertion: check that a product detail element is visible\n  25 |   const productDetail = page.locator('[data-test=\"product-detail\"]');\n> 26 |   await expect(productDetail).toBeVisible();\n     |                               ^\n  27 | });\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:26:31"
+                      }
+                    ],
                     "stdout": [],
                     "stderr": [],
                     "retry": 0,
-                    "startTime": "2026-08-04T10:01:46.418Z",
+                    "startTime": "2026-08-04T11:07:57.330Z",
                     "annotations": [],
-                    "attachments": []
+                    "attachments": [
+                      {
+                        "name": "screenshot",
+                        "contentType": "image/png",
+                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-MP-2-Verify-Product-Detail-Page-is-Displayed/test-failed-1.png"
+                      },
+                      {
+                        "name": "error-context",
+                        "contentType": "text/markdown",
+                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-MP-2-Verify-Product-Detail-Page-is-Displayed/error-context.md"
+                      },
+                      {
+                        "name": "trace",
+                        "contentType": "application/zip",
+                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-MP-2-Verify-Product-Detail-Page-is-Displayed/trace.zip"
+                      }
+                    ],
+                    "errorLocation": {
+                      "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
+                      "column": 31,
+                      "line": 26
+                    }
                   }
                 ],
-                "status": "expected"
+                "status": "unexpected"
               }
             ],
-            "id": "92a6e7f2d2460e449614-cdf24ea45aa3a871186b",
+            "id": "92a6e7f2d2460e449614-418b41b53109618f3143",
             "file": "story.spec.ts",
-            "line": 5,
+            "line": 8,
             "column": 5
           }
         ]
@@ -186,13 +226,13 @@
     ],
     "errors": [],
     "stats": {
-      "startTime": "2026-08-04T10:01:46.023Z",
-      "duration": 4189.965,
-      "expected": 1,
+      "startTime": "2026-08-04T11:07:56.742Z",
+      "duration": 8266.677,
+      "expected": 0,
       "skipped": 0,
-      "unexpected": 0,
+      "unexpected": 1,
       "flaky": 0
     }
   },
-  "completedAt": "2026-08-04T10:01:50.318Z"
+  "completedAt": "2026-08-04T11:08:05.111Z"
 }
