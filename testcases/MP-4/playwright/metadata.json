@@ -2,17 +2,17 @@
   "storyKey": "MP-4",
   "artifactType": "playwright",
   "generatorVersion": "v0.4.7.1",
-  "repaired": true,
-  "repairAttempt": 1,
+  "repaired": false,
+  "repairAttempt": 0,
   "reviewStatus": "PASS",
-  "qualityScore": 90,
+  "qualityScore": 8,
   "qualityGate": {
     "status": "PASS",
     "passed": true,
-    "qualityScore": 90,
-    "reason": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes proper asynchronous assertions with await. The locator is correctly used and the test case ID is preserved in the test title. The selector is specific and appropriate for the contact form."
+    "qualityScore": 8,
+    "reason": "The Playwright test artifact is syntactically correct and uses Playwright API appropriately. The test includes the testCaseId in the title and properly awaits the asynchronous assertion. The selector used is acceptable given the context of verifying navigation to the contact form page. No issues found that would cause failure or require warning flags."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-08-04T11:03:59.102Z"
+  "createdAt": "2026-08-04T13:07:53.593Z"
 }
