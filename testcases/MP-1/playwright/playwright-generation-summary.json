@@ -25,11 +25,16 @@
   "scope": "PLAYWRIGHT_GENERATION",
   "repaired": false,
   "repairAttempt": 0,
-  "generatedTestCount": 1,
-  "skippedTestCount": 2,
+  "generatedTestCount": 2,
+  "skippedTestCount": 1,
   "generatedTestCases": [
     {
       "testCaseId": "TC-001",
+      "status": "GENERATED",
+      "filePath": "playwright/product-overview.spec.ts"
+    },
+    {
+      "testCaseId": "TC-003",
       "status": "GENERATED",
       "filePath": "playwright/product-overview.spec.ts"
     }
@@ -38,10 +43,6 @@
     {
       "testCaseId": "TC-002",
       "reason": "Missing verified evidence required for safe automation"
-    },
-    {
-      "testCaseId": "TC-003",
-      "reason": "Missing verified evidence needed for navigation assertion."
     }
   ],
   "generatedFiles": [
@@ -53,10 +54,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "PASS",
+    "status": "WARNING",
     "passed": true,
-    "qualityScore": 9,
-    "reason": "The Playwright test compiles, uses correct API usage, and properly awaits assertions on Locator objects. The selectors are specific data-test attributes which are reliable and clear. The test case ID is preserved in the test title. No hard-coded waits or placeholder URLs were found. The test is straightforward, maintainable, and adequately assertive to verify the visibility of product cards on the home page."
+    "qualityScore": 7,
+    "reason": "The tests are syntactically correct and use Playwright APIs properly, ensuring compilation and runtime correctness. Await is used correctly with assertions, and Locators are handled appropriately. However, selectors rely on data-test attributes without clarity about their stability, and navigation validation only checks a partial URL match, which is weak against false positives. Additionally, test titles do not include testCaseId references, which reduces traceability. No hard-coded waits or placeholder URLs were used."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +70,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-04T09:18:56.028Z"
+  "createdAt": "2026-08-04T09:29:48.029Z"
 }
