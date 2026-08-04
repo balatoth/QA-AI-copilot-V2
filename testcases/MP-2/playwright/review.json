@@ -1,18 +1,36 @@
 {
   "artifactType": "playwright",
   "storyKey": "MP-2",
-  "reviewStatus": "PASS",
-  "qualityScore": 90,
-  "summary": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes awaited asynchronous assertions. The selectors are specific and appropriate for the test scenario. The test case ID is preserved in the test title. The test is maintainable and follows best practices.",
+  "reviewStatus": "WARNING",
+  "qualityScore": 75,
+  "summary": "The test compiles and uses Playwright APIs correctly, with correct usage of awaiting the asynchronous assertion. The test case ID is preserved in the title. However, the selector '[data-test=\"product-1\"]' may be too specific or inferred and there is only a weak assertion to verify navigation by matching part of the URL, which may not fully guarantee the correct product detail page is shown.",
   "scores": {
     "correctness": 10,
-    "selectorQuality": 8,
-    "assertionStrength": 9,
-    "reusability": 8,
-    "maintainability": 9,
-    "testDataHandling": 9,
-    "playwrightBestPractices": 9
+    "selectorQuality": 7,
+    "assertionStrength": 6,
+    "reusability": 9,
+    "maintainability": 8,
+    "testDataHandling": 10,
+    "playwrightBestPractices": 10
   },
-  "issues": [],
-  "recommendations": []
+  "issues": [
+    {
+      "severity": "MEDIUM",
+      "category": "Selector Quality",
+      "file": "playwright/product-detail.spec.ts",
+      "description": "Selector '[data-test=\"product-1\"]' may be too specific or guessed. Hardcoded data-test attribute may not be stable if the product ID changes.",
+      "recommendation": "Use a selector strategy that is more robust or data-driven to identify products dynamically."
+    },
+    {
+      "severity": "LOW",
+      "category": "Assertion Strength",
+      "file": "playwright/product-detail.spec.ts",
+      "description": "The URL assertion only checks if URL contains 'product' which may not guarantee the exact product detail page opened.",
+      "recommendation": "Enhance the assertion by verifying presence of key product detail elements or verifying the full expected URL."
+    }
+  ],
+  "recommendations": [
+    "Consider expanding assertions to verify specific product information on the product detail page for stronger validation.",
+    "Consider parameterizing or dynamically retrieving product selectors for better reusability."
+  ]
 }
