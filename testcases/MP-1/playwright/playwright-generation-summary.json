@@ -25,11 +25,16 @@
   "scope": "PLAYWRIGHT_GENERATION",
   "repaired": false,
   "repairAttempt": 0,
-  "generatedTestCount": 1,
-  "skippedTestCount": 2,
+  "generatedTestCount": 2,
+  "skippedTestCount": 1,
   "generatedTestCases": [
     {
       "testCaseId": "TC-001",
+      "status": "GENERATED",
+      "filePath": "playwright/product-overview.spec.ts"
+    },
+    {
+      "testCaseId": "TC-003",
       "status": "GENERATED",
       "filePath": "playwright/product-overview.spec.ts"
     }
@@ -37,11 +42,7 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing evidence for the structure and visibility of product images, names, and prices."
-    },
-    {
-      "testCaseId": "TC-003",
-      "reason": "No evidence of the navigation behavior to the product detail page after clicking a product card."
+      "reason": "Missing evidence for verifying product image, name, and price in a product card."
     }
   ],
   "generatedFiles": [
@@ -53,10 +54,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "PASS",
+    "status": "WARNING",
     "passed": true,
-    "qualityScore": 8,
-    "reason": "The provided Playwright test is syntactically correct, uses valid Playwright APIs, and includes awaited asynchronous assertions on visible elements. Selectors use data-test attributes which are generally reliable, though no advanced selector strategies or reusability patterns are implemented. The test directly visits the correct site URL and performs necessary visibility checks for the product cards. The test name preserves the testCaseId. The code is maintainable and straightforward, but could be improved with better reusability and data handling."
+    "qualityScore": 65,
+    "reason": "The tests compile and run without errors, and Playwright APIs are correctly used. However, the navigation test lacks sufficient assertions to confirm the correct product detail page is loaded which weakens test reliability. The selectors based on data-test attributes are acceptable but limited in scope and may be fragile if attributes change. Test case IDs in titles are missing. The skipped test case due to missing evidence is appropriate."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +70,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-04T13:41:41.939Z"
+  "createdAt": "2026-08-04T14:55:40.107Z"
 }
