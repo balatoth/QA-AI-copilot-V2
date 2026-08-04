@@ -3,14 +3,14 @@
   "storyKey": "MP-4",
   "reviewStatus": "PASS",
   "qualityScore": 90,
-  "summary": "The test file is syntactically correct, uses Playwright APIs properly, and includes awaited assertions. Selectors are specific and appropriate for the contact form elements. The test case ID is preserved in the test title. The repair addressed the critical defects.",
+  "summary": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes awaited assertions. Selectors use data-test attributes which are robust and maintainable. The test case ID is preserved in the test title. No critical defects remain.",
   "scores": {
     "correctness": 10,
-    "selectorQuality": 8,
+    "selectorQuality": 9,
     "assertionStrength": 9,
     "reusability": 8,
     "maintainability": 9,
-    "testDataHandling": 9,
+    "testDataHandling": 8,
     "playwrightBestPractices": 9
   },
   "issues": [],
