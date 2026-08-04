@@ -2,16 +2,16 @@
   "artifactType": "playwright",
   "storyKey": "MP-1",
   "reviewStatus": "PASS",
-  "qualityScore": 90,
-  "summary": "The test file is syntactically correct, uses Playwright APIs properly, and includes awaited assertions. Selectors use data-test attributes which are stable and appropriate. The test case ID is present in the test title. The repair addressed critical defects and the code is maintainable.",
+  "qualityScore": 9,
+  "summary": "The Playwright test compiles, uses correct API usage, and properly awaits assertions on Locator objects. The selectors are specific data-test attributes which are reliable and clear. The test case ID is preserved in the test title. No hard-coded waits or placeholder URLs were found. The test is straightforward, maintainable, and adequately assertive to verify the visibility of product cards on the home page.",
   "scores": {
     "correctness": 10,
-    "selectorQuality": 8,
-    "assertionStrength": 10,
+    "selectorQuality": 9,
+    "assertionStrength": 9,
     "reusability": 8,
     "maintainability": 9,
     "testDataHandling": 9,
-    "playwrightBestPractices": 9
+    "playwrightBestPractices": 10
   },
   "issues": [],
   "recommendations": []
