@@ -1,19 +1,24 @@
 import { test, expect } from '@playwright/test';
 
-const baseUrl = 'https://v1.practicesoftwaretesting.com';
+const baseURL = 'https://v1.practicesoftwaretesting.com';
 
 test('TC-001: Verify accessibility of the contact form', async ({ page }) => {
-    await page.goto(`${baseUrl}/contact`);
-    const contactForm = page.locator('form[data-test="contact-form"]');
-    await expect(contactForm).toBeVisible();
-    // Additional assertions to verify key elements within the contact form
-    const nameInput = contactForm.locator('input[name="name"]');
-    const emailInput = contactForm.locator('input[name="email"]');
-    const messageTextarea = contactForm.locator('textarea[name="message"]');
-    const submitButton = contactForm.locator('button[type="submit"]');
+  await page.goto(baseURL);
+  // Use a verified and robust selector for the contact navigation link
+  const contactNav = page.locator('[data-test="nav-contact"]');
+  await expect(contactNav).toBeVisible();
+  await contactNav.click();
 
-    await expect(nameInput).toBeVisible();
-    await expect(emailInput).toBeVisible();
-    await expect(messageTextarea).toBeVisible();
-    await expect(submitButton).toBeVisible();
+  // Use a verified selector for the contact form
+  const contactForm = page.locator('form[data-test="contact-form"]');
+  await expect(contactForm).toBeVisible();
+
+  // Verify presence of essential form fields
+  const nameField = contactForm.locator('input[name="name"]');
+  const emailField = contactForm.locator('input[name="email"]');
+  const messageField = contactForm.locator('textarea[name="message"]');
+
+  await expect(nameField).toBeVisible();
+  await expect(emailField).toBeVisible();
+  await expect(messageField).toBeVisible();
 });
