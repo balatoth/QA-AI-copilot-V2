@@ -2,7 +2,7 @@
   "schemaVersion": "0.1.0",
   "artifactType": "PLAYWRIGHT_EXECUTION_RESULTS",
   "storyKey": "MP-1",
-  "executionId": "MP-SPRINT-20260804145456",
+  "executionId": "MP-SPRINT-20260804155744",
   "executionType": "PLAYWRIGHT",
   "status": "COMPLETED",
   "repository": {
@@ -16,18 +16,18 @@
     "metadataPath": "playwright-execution/execution-metadata.json"
   },
   "githubActions": {
-    "workflowRunId": "30921717305",
+    "workflowRunId": "30926951584",
     "workflowRunAttempt": "1",
-    "commitSha": "eec698c4d9a5254f6331cd8a2743d4624ea79690",
+    "commitSha": "a05609479df1746d9883ada29ad426327dadb08b",
     "playwrightExitCode": 0
   },
   "summary": {
-    "expected": 2,
-    "passed": 2,
+    "expected": 1,
+    "passed": 1,
     "failed": 0,
     "skipped": 0,
     "flaky": 0,
-    "durationMs": 6811.734
+    "durationMs": 3936.407
   },
   "errors": [],
   "rawResults": {
@@ -51,24 +51,24 @@
       "maxFailures": 0,
       "metadata": {
         "ci": {
-          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/eec698c4d9a5254f6331cd8a2743d4624ea79690",
-          "commitHash": "eec698c4d9a5254f6331cd8a2743d4624ea79690",
-          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30921717305"
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/a05609479df1746d9883ada29ad426327dadb08b",
+          "commitHash": "a05609479df1746d9883ada29ad426327dadb08b",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30926951584"
         },
         "gitCommit": {
-          "shortHash": "eec698c",
-          "hash": "eec698c4d9a5254f6331cd8a2743d4624ea79690",
+          "shortHash": "a056094",
+          "hash": "a05609479df1746d9883ada29ad426327dadb08b",
           "subject": "Update execution-results.json for MP-3",
           "body": "Update execution-results.json for MP-3",
           "author": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785855506000
+            "time": 1785859176000
           },
           "committer": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785855506000
+            "time": 1785859176000
           },
           "branch": "main"
         },
@@ -82,24 +82,24 @@
           "retries": 0,
           "metadata": {
             "ci": {
-              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/eec698c4d9a5254f6331cd8a2743d4624ea79690",
-              "commitHash": "eec698c4d9a5254f6331cd8a2743d4624ea79690",
-              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30921717305"
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/a05609479df1746d9883ada29ad426327dadb08b",
+              "commitHash": "a05609479df1746d9883ada29ad426327dadb08b",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/30926951584"
             },
             "gitCommit": {
-              "shortHash": "eec698c",
-              "hash": "eec698c4d9a5254f6331cd8a2743d4624ea79690",
+              "shortHash": "a056094",
+              "hash": "a05609479df1746d9883ada29ad426327dadb08b",
               "subject": "Update execution-results.json for MP-3",
               "body": "Update execution-results.json for MP-3",
               "author": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785855506000
+                "time": 1785859176000
               },
               "committer": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785855506000
+                "time": 1785859176000
               },
               "branch": "main"
             },
@@ -163,12 +163,12 @@
                     "workerIndex": 0,
                     "parallelIndex": 0,
                     "status": "passed",
-                    "duration": 2509,
+                    "duration": 2024,
                     "errors": [],
                     "stdout": [],
                     "stderr": [],
                     "retry": 0,
-                    "startTime": "2026-08-04T15:00:02.887Z",
+                    "startTime": "2026-08-04T16:01:21.681Z",
                     "annotations": [],
                     "attachments": []
                   }
@@ -180,53 +180,19 @@
             "file": "story.spec.ts",
             "line": 5,
             "column": 5
-          },
-          {
-            "title": "Navigation to Product Detail Page",
-            "ok": true,
-            "tags": [],
-            "tests": [
-              {
-                "timeout": 30000,
-                "annotations": [],
-                "expectedStatus": "passed",
-                "projectId": "",
-                "projectName": "",
-                "results": [
-                  {
-                    "workerIndex": 0,
-                    "parallelIndex": 0,
-                    "status": "passed",
-                    "duration": 2572,
-                    "errors": [],
-                    "stdout": [],
-                    "stderr": [],
-                    "retry": 0,
-                    "startTime": "2026-08-04T15:00:06.502Z",
-                    "annotations": [],
-                    "attachments": []
-                  }
-                ],
-                "status": "expected"
-              }
-            ],
-            "id": "92a6e7f2d2460e449614-8fcf5bf9cf19ec967425",
-            "file": "story.spec.ts",
-            "line": 11,
-            "column": 5
           }
         ]
       }
     ],
     "errors": [],
     "stats": {
-      "startTime": "2026-08-04T15:00:02.330Z",
-      "duration": 6811.734,
-      "expected": 2,
+      "startTime": "2026-08-04T16:01:21.161Z",
+      "duration": 3936.407,
+      "expected": 1,
       "skipped": 0,
       "unexpected": 0,
       "flaky": 0
     }
   },
-  "completedAt": "2026-08-04T15:00:09.246Z"
+  "completedAt": "2026-08-04T16:01:25.210Z"
 }
