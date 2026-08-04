@@ -19,12 +19,12 @@
       "type": "NONE"
     }
   },
-  "manualReviewRequired": false,
-  "finalStatus": "COMPLETED",
-  "status": "COMPLETED",
+  "manualReviewRequired": true,
+  "finalStatus": "MANUAL_REVIEW_REQUIRED",
+  "status": "MANUAL_REVIEW_REQUIRED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": false,
-  "repairAttempt": 0,
+  "repaired": true,
+  "repairAttempt": 1,
   "generatedTestCount": 2,
   "skippedTestCount": 1,
   "generatedTestCases": [
@@ -42,22 +42,22 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing verified evidence required for safe automation"
+      "reason": "Missing verified evidence for product card content assertions."
     }
   ],
   "generatedFiles": [
     "playwright/product-overview.spec.ts"
   ],
-  "persistedGeneratedFiles": [
+  "persistedGeneratedFiles": [],
+  "blockedGeneratedFiles": [
     "playwright/product-overview.spec.ts"
   ],
-  "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "WARNING",
-    "passed": true,
-    "qualityScore": 7,
-    "reason": "The tests are syntactically correct and use Playwright APIs properly, ensuring compilation and runtime correctness. Await is used correctly with assertions, and Locators are handled appropriately. However, selectors rely on data-test attributes without clarity about their stability, and navigation validation only checks a partial URL match, which is weak against false positives. Additionally, test titles do not include testCaseId references, which reduces traceability. No hard-coded waits or placeholder URLs were used."
+    "status": "FAIL",
+    "passed": false,
+    "qualityScore": 40,
+    "reason": "The test file contains a critical compilation error due to the use of a non-existent Playwright assertion method 'toHaveCountGreaterThan'. This causes the TypeScript to fail compilation and the test to be non-executable. Other aspects such as selectors and test case IDs are correct, but the critical assertion issue results in a FAIL."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -70,5 +70,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-04T09:29:48.029Z"
+  "createdAt": "2026-08-04T09:58:46.484Z"
 }
