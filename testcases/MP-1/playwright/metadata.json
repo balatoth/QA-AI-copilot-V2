@@ -2,17 +2,17 @@
   "storyKey": "MP-1",
   "artifactType": "playwright",
   "generatorVersion": "v0.4.7.1",
-  "repaired": false,
-  "repairAttempt": 0,
-  "reviewStatus": "WARNING",
-  "qualityScore": 7,
+  "repaired": true,
+  "repairAttempt": 1,
+  "reviewStatus": "FAIL",
+  "qualityScore": 40,
   "qualityGate": {
-    "status": "WARNING",
-    "passed": true,
-    "qualityScore": 7,
-    "reason": "The tests are syntactically correct and use Playwright APIs properly, ensuring compilation and runtime correctness. Await is used correctly with assertions, and Locators are handled appropriately. However, selectors rely on data-test attributes without clarity about their stability, and navigation validation only checks a partial URL match, which is weak against false positives. Additionally, test titles do not include testCaseId references, which reduces traceability. No hard-coded waits or placeholder URLs were used."
+    "status": "FAIL",
+    "passed": false,
+    "qualityScore": 40,
+    "reason": "The test file contains a critical compilation error due to the use of a non-existent Playwright assertion method 'toHaveCountGreaterThan'. This causes the TypeScript to fail compilation and the test to be non-executable. Other aspects such as selectors and test case IDs are correct, but the critical assertion issue results in a FAIL."
   },
-  "manualReviewRequired": false,
-  "finalStatus": "COMPLETED",
-  "createdAt": "2026-08-04T09:29:48.029Z"
+  "manualReviewRequired": true,
+  "finalStatus": "MANUAL_REVIEW_REQUIRED",
+  "createdAt": "2026-08-04T09:58:46.484Z"
 }
