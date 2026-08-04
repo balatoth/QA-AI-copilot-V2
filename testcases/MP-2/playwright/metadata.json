@@ -2,17 +2,17 @@
   "storyKey": "MP-2",
   "artifactType": "playwright",
   "generatorVersion": "v0.4.7.1",
-  "repaired": false,
-  "repairAttempt": 0,
-  "reviewStatus": "WARNING",
-  "qualityScore": 7,
+  "repaired": true,
+  "repairAttempt": 1,
+  "reviewStatus": "PASS",
+  "qualityScore": 90,
   "qualityGate": {
-    "status": "WARNING",
+    "status": "PASS",
     "passed": true,
-    "qualityScore": 7,
-    "reason": "The artifact is syntactically valid and uses Playwright APIs correctly, preserving the test case ID in the test title. The test navigates and clicks correctly and asserts on URL asynchronously. However, the selector [data-test=\"product-1\"] appears to be a hardcoded guess without evidence it is robust. The URL assertion is weak, only checking for a substring 'product'. There are no assertions on page content to verify the product detail page fully. Test data is hardcoded and not abstracted, limiting reusability and maintainability."
+    "qualityScore": 90,
+    "reason": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes proper asynchronous assertions with await. The selectors use data-test attributes which are robust and maintainable. The test case ID TC-001 is present in the test title. The test navigates and asserts visibility and non-emptiness of product details appropriately."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-08-04T13:42:11.652Z"
+  "createdAt": "2026-08-04T14:56:42.573Z"
 }
