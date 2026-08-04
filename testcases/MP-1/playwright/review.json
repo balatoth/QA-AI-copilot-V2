@@ -3,7 +3,7 @@
   "storyKey": "MP-1",
   "reviewStatus": "PASS",
   "qualityScore": 90,
-  "summary": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes awaited asynchronous assertions. The selector is specific and stable using a data-test attribute. The test case ID is present in the test title. The repair addresses the original defects and the code is maintainable.",
+  "summary": "The test file is syntactically correct, uses Playwright APIs properly, and includes awaited assertions. Selectors use data-test attributes which are stable and appropriate. The test case ID is present in the test title. The repair addressed critical defects and the code is maintainable.",
   "scores": {
     "correctness": 10,
     "selectorQuality": 8,
