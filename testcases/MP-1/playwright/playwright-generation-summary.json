@@ -23,13 +23,18 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": true,
-  "repairAttempt": 1,
-  "generatedTestCount": 1,
-  "skippedTestCount": 2,
+  "repaired": false,
+  "repairAttempt": 0,
+  "generatedTestCount": 2,
+  "skippedTestCount": 1,
   "generatedTestCases": [
     {
       "testCaseId": "TC-001",
+      "status": "GENERATED",
+      "filePath": "playwright/product-overview.spec.ts"
+    },
+    {
+      "testCaseId": "TC-003",
       "status": "GENERATED",
       "filePath": "playwright/product-overview.spec.ts"
     }
@@ -37,10 +42,6 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing verified evidence required for safe automation"
-    },
-    {
-      "testCaseId": "TC-003",
       "reason": "Missing verified evidence required for safe automation"
     }
   ],
@@ -53,10 +54,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "PASS",
+    "status": "WARNING",
     "passed": true,
-    "qualityScore": 90,
-    "reason": "The test file compiles and uses Playwright APIs correctly. The locator usage is correct with no direct iteration over locators. Await is used properly with assertions. The selector uses a data-test attribute prefix which is a good practice. The test case ID is present in the test title. Overall, the test is executable and maintainable."
+    "qualityScore": 85,
+    "reason": "The TypeScript code compiles and Playwright APIs are used correctly. Asynchronous Playwright assertions correctly use await. Locator usage is proper with no direct iteration or array usage. However, selectors are weak because they rely on multiple hard-coded data-test attributes enumerated explicitly and may be brittle. The navigation assertion only checks for a generic URL fragment '/product/', which is not strong enough to confirm correct product detail page navigation. Also, test titles do not contain testCaseId values from generation mapping. No hard-coded waits or placeholder URLs are present."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +70,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-04T11:02:37.872Z"
+  "createdAt": "2026-08-04T11:27:32.329Z"
 }
