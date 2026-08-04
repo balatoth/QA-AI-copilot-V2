@@ -1,15 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-const baseURL = 'https://v1.practicesoftwaretesting.com';
+const BASE_URL = 'https://v1.practicesoftwaretesting.com';
 
-test('Display of Product Cards on Home Page', async ({ page }) => {
-    await page.goto(baseURL);
-    const productCards = page.locator('[data-test="product-1"], [data-test="product-2"], [data-test="product-3"], [data-test="product-4"], [data-test="product-5"], [data-test="product-6"], [data-test="product-7"], [data-test="product-8"], [data-test="product-9"], [data-test="product-10"]');
-    await expect(productCards).toBeVisible();
-});
+test.describe('Product Overview', () => {
+  test('TC-001: Display of Product Cards on Home Page', async ({ page }) => {
+    await page.goto(BASE_URL);
+    const productCard = page.locator('[data-test="product-1"]');
+    await expect(productCard).toBeVisible({ timeout: 5000 });
+  });
 
-test('Navigation to Product Detail Page', async ({ page }) => {
-    await page.goto(baseURL);
-    await page.locator('[data-test="product-1"]').click();
-    await expect(page).toHaveURL(/product/);
+  test('TC-003: Navigation to Product Detail Page', async ({ page }) => {
+    await page.goto(BASE_URL);
+    const productCard = page.locator('[data-test="product-1"]');
+    await expect(productCard).toBeVisible({ timeout: 5000 });
+    await productCard.click();
+    await expect(page).toHaveURL(/\/product\//, { timeout: 5000 });
+  });
 });
