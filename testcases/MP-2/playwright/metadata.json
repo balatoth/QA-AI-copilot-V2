@@ -5,14 +5,14 @@
   "repaired": false,
   "repairAttempt": 0,
   "reviewStatus": "WARNING",
-  "qualityScore": 7,
+  "qualityScore": 75,
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 7,
-    "reason": "The generated Playwright test compiles and runs correctly with proper Playwright API usage and valid TypeScript. The test case ID is preserved in the title. However, the selector '[data-test=\"product-1\"]' may be acceptable but could be limiting or fragile if product IDs change dynamically. The URL assertion using toHaveURL(/product/) is quite weak and does not ensure the correct product detail page is loaded. There is only a single assertion which limits confidence. The test lacks additional validations such as verifying product title or details on the page which would improve assertion strength and maintainability. Also, the base URL is hardcoded but appears relevant to the tested application. Overall, it is functional but would benefit from stronger selectors and enhanced assertions."
+    "qualityScore": 75,
+    "reason": "The Playwright test compiles and uses Playwright APIs correctly to navigate and assert the URL after clicking a product locator. However, the selector uses a data-test attribute 'product-1' which is likely specific but without further evidence could be considered brittle if product ids change. The URL assertion is a regex expecting '/product/' in the URL, which is a weak validation for confirming the correct product detail page. The test title does not reference the mapped test case TC-001, which reduces traceability. No Playwright best practices were violated, but improvements include stronger selectors and more robust validation of the product detail page."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-08-04T09:19:23.671Z"
+  "createdAt": "2026-08-04T09:30:10.178Z"
 }
