@@ -5,14 +5,14 @@
   "repaired": false,
   "repairAttempt": 0,
   "reviewStatus": "WARNING",
-  "qualityScore": 7,
+  "qualityScore": 75,
   "qualityGate": {
     "status": "WARNING",
     "passed": true,
-    "qualityScore": 7,
-    "reason": "The Playwright test is syntactically correct and will compile. It uses valid Playwright APIs and locators correctly. However, the navigation validation is weak as it only checks the URL contains 'product' which may be insufficient to confirm the specific product detail page. Selectors rely on data-test attributes which are good, but the test title does not preserve the testCaseId TC-001. There are no explicit handling of test data or reusability structures. Overall, the test is executable but can be improved for stronger validation and better test metadata."
+    "qualityScore": 75,
+    "reason": "The Playwright test compiles and runs correctly, using appropriate async/await and Playwright API usage. The test case ID is preserved in the test title. However, the selector [data-test=\"product-1\"] may be considered weak or too specific to a single product, impacting reusability. The navigation validation uses a broad regex /product/ which may pass for URLs not specific enough to verify the correct product detail page, constituting weak assertion strength."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-08-04T12:30:29.612Z"
+  "createdAt": "2026-08-04T13:07:22.410Z"
 }
