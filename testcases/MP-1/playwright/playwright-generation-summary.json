@@ -23,8 +23,8 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": true,
-  "repairAttempt": 1,
+  "repaired": false,
+  "repairAttempt": 0,
   "generatedTestCount": 1,
   "skippedTestCount": 2,
   "generatedTestCases": [
@@ -37,11 +37,11 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing verified evidence for all necessary product card content elements (image, name, price)."
+      "reason": "Missing verified evidence required for safe automation"
     },
     {
       "testCaseId": "TC-003",
-      "reason": "Missing verified evidence for navigation to product detail page after clicking a product card."
+      "reason": "Missing verified evidence needed for navigation assertion."
     }
   ],
   "generatedFiles": [
@@ -55,8 +55,8 @@
   "qualityGate": {
     "status": "PASS",
     "passed": true,
-    "qualityScore": 90,
-    "reason": "The test file is syntactically correct, uses Playwright APIs properly, and includes awaited assertions. Selectors use data-test attributes which are stable and appropriate. The test case ID is present in the test title. The repair addressed critical defects and the code is maintainable."
+    "qualityScore": 9,
+    "reason": "The Playwright test compiles, uses correct API usage, and properly awaits assertions on Locator objects. The selectors are specific data-test attributes which are reliable and clear. The test case ID is preserved in the test title. No hard-coded waits or placeholder URLs were found. The test is straightforward, maintainable, and adequately assertive to verify the visibility of product cards on the home page."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +69,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-04T08:56:35.812Z"
+  "createdAt": "2026-08-04T09:18:56.028Z"
 }
