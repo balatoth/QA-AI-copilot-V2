@@ -23,8 +23,8 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": false,
-  "repairAttempt": 0,
+  "repaired": true,
+  "repairAttempt": 1,
   "generatedTestCount": 1,
   "skippedTestCount": 2,
   "generatedTestCases": [
@@ -37,11 +37,11 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing verified evidence required for safe automation"
+      "reason": "Missing verified evidence for required product information displayed on the product detail page."
     },
     {
       "testCaseId": "TC-003",
-      "reason": "Missing verified evidence required for safe automation"
+      "reason": "Missing verified evidence to confirm the related products section is displayed."
     }
   ],
   "generatedFiles": [
@@ -53,10 +53,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "WARNING",
+    "status": "PASS",
     "passed": true,
-    "qualityScore": 7,
-    "reason": "The artifact is syntactically valid and uses Playwright APIs correctly, preserving the test case ID in the test title. The test navigates and clicks correctly and asserts on URL asynchronously. However, the selector [data-test=\"product-1\"] appears to be a hardcoded guess without evidence it is robust. The URL assertion is weak, only checking for a substring 'product'. There are no assertions on page content to verify the product detail page fully. Test data is hardcoded and not abstracted, limiting reusability and maintainability."
+    "qualityScore": 90,
+    "reason": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes proper asynchronous assertions with await. The selectors use data-test attributes which are robust and maintainable. The test case ID TC-001 is present in the test title. The test navigates and asserts visibility and non-emptiness of product details appropriately."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +69,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-04T13:42:11.652Z"
+  "createdAt": "2026-08-04T14:56:42.573Z"
 }
