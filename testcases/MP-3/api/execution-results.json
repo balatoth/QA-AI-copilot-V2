@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-3",
   "artifactType": "execution-results",
-  "generatedAt": "2026-08-04T11:04:08.330Z",
+  "generatedAt": "2026-08-04T11:28:54.494Z",
   "summary": {
     "total": 1,
     "passed": 0,
@@ -12,7 +12,7 @@
     {
       "schemaVersion": "1.0.0",
       "resultType": "API_EXECUTION_RESULT",
-      "executionId": "MP-SPRINT-20260804110151",
+      "executionId": "MP-SPRINT-20260804112709",
       "storyKey": "MP-3",
       "executionType": "API",
       "status": "COMPLETED",
