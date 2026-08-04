@@ -23,8 +23,8 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": true,
-  "repairAttempt": 1,
+  "repaired": false,
+  "repairAttempt": 0,
   "generatedTestCount": 1,
   "skippedTestCount": 2,
   "generatedTestCases": [
@@ -37,11 +37,11 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing verified evidence for required product information displayed on the product detail page."
+      "reason": "Missing evidence for all required product information display on the product detail page."
     },
     {
       "testCaseId": "TC-003",
-      "reason": "Missing verified evidence to confirm the related products section is displayed."
+      "reason": "Missing evidence for the related products section display on the product detail page."
     }
   ],
   "generatedFiles": [
@@ -53,10 +53,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "PASS",
+    "status": "WARNING",
     "passed": true,
-    "qualityScore": 90,
-    "reason": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes proper asynchronous assertions with await. The selectors use data-test attributes which are robust and maintainable. The test case ID TC-001 is present in the test title. The test navigates and asserts visibility and non-emptiness of product details appropriately."
+    "qualityScore": 75,
+    "reason": "The test compiles and executes with correct usage of Playwright APIs and awaits asynchronous assertions properly. However, the selector usage and navigation validation are somewhat weak due to reliance on data-test attributes which may be acceptable but should be verified for stability. The test title does not include the mapped testCaseId 'TC-001', which could impact traceability. The test only verifies the product name visibility and URL pattern but lacks assertions for other product details that might be expected for a product detail page, which makes the test only partially assertive."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +69,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-04T14:56:42.573Z"
+  "createdAt": "2026-08-04T15:59:01.346Z"
 }
