@@ -23,8 +23,8 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": true,
-  "repairAttempt": 1,
+  "repaired": false,
+  "repairAttempt": 0,
   "generatedTestCount": 1,
   "skippedTestCount": 2,
   "generatedTestCases": [
@@ -37,11 +37,11 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing verified evidence required for safe automation."
+      "reason": "Missing verified evidence to confirm that all required product information is displayed."
     },
     {
       "testCaseId": "TC-003",
-      "reason": "Missing verified evidence required for safe automation."
+      "reason": "Missing verified evidence to confirm the presence of related products section."
     }
   ],
   "generatedFiles": [
@@ -53,10 +53,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "PASS",
+    "status": "WARNING",
     "passed": true,
-    "qualityScore": 90,
-    "reason": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes awaited asynchronous assertions. The selectors are specific and appropriate for the test scenario. The test case ID is preserved in the test title. The test is maintainable and follows best practices."
+    "qualityScore": 75,
+    "reason": "The test compiles and uses Playwright APIs correctly, with correct usage of awaiting the asynchronous assertion. The test case ID is preserved in the title. However, the selector '[data-test=\"product-1\"]' may be too specific or inferred and there is only a weak assertion to verify navigation by matching part of the URL, which may not fully guarantee the correct product detail page is shown."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +69,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-04T11:03:10.467Z"
+  "createdAt": "2026-08-04T11:27:52.690Z"
 }
