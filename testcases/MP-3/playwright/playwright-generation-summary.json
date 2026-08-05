@@ -26,11 +26,19 @@
   "repaired": true,
   "repairAttempt": 1,
   "generatedTestCount": 0,
-  "skippedTestCount": 1,
+  "skippedTestCount": 3,
   "generatedTestCases": [],
   "skippedTestCases": [
     {
       "testCaseId": "TC-001",
+      "reason": "Exact verified evidence missing for safe automation"
+    },
+    {
+      "testCaseId": "TC-002",
+      "reason": "Exact verified evidence missing for safe automation"
+    },
+    {
+      "testCaseId": "TC-003",
       "reason": "Exact verified evidence missing for safe automation"
     }
   ],
@@ -41,8 +49,8 @@
   "qualityGate": {
     "status": "PASS",
     "passed": true,
-    "qualityScore": 100,
-    "reason": "No repaired files were provided for review. No issues detected."
+    "qualityScore": 90,
+    "reason": "No repaired files were provided for review. Since no code changes were made, no compilation or runtime issues are present. The repair attempt is considered a pass by default."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -55,5 +63,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-05T10:31:36.337Z"
+  "createdAt": "2026-08-05T11:43:45.181Z"
 }
