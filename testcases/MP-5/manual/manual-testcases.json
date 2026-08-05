@@ -1,0 +1,38 @@
+{
+  "storyKey": "MP-5",
+  "storyTitle": "Product Overview",
+  "application": "Practice Software Testing",
+  "testLevel": "UAT",
+  "testType": "MANUAL_FUNCTIONAL",
+  "testCases": [
+    {
+      "testCaseId": "TC-001",
+      "scenarioId": "SC-001",
+      "title": "Verify product grid is displayed with images, names, and prices",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the product overview page."
+      ],
+      "expectedResults": [
+        "The product grid is displayed correctly with product images.",
+        "Each product has an associated name displayed.",
+        "Each product has a price displayed."
+      ]
+    },
+    {
+      "testCaseId": "TC-002",
+      "scenarioId": "SC-002",
+      "title": "Verify navigation to product detail page from product card",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the product overview page.",
+        "Click on a product card."
+      ],
+      "expectedResults": [
+        "The product detail page is displayed for the selected product."
+      ]
+    }
+  ]
+}
