@@ -37,11 +37,11 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing verified evidence for product images."
+      "reason": "Missing explicit evidence for product images."
     },
     {
       "testCaseId": "TC-003",
-      "reason": "Missing evidence for navigation behaviors and destination assertions."
+      "reason": "Missing evidence to confirm navigation to product detail page."
     }
   ],
   "generatedFiles": [
@@ -53,10 +53,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "PASS",
+    "status": "WARNING",
     "passed": true,
-    "qualityScore": 8,
-    "reason": "The Playwright test artifact is valid and passes all compilation and execution checks. The test properly awaits all asynchronous assertions on locators. Selectors use data-test attributes which are stable and good practice. The test cases correspond correctly to the generated manual test case. The test is sparse but appropriate for the scope of verifying the visibility of product cards on the homepage. No hard-coded waits or unsupported API usage are present."
+    "qualityScore": 65,
+    "reason": "The test is executable, compiles correctly, and uses Playwright APIs properly with awaited assertions. However, the selector strategy is suboptimal due to a lengthy, explicit list of data-test attributes which impacts maintainability and readability. The assertion on a locator that combines multiple selectors may not verify visibility of each product card individually. The test name correctly preserves the testCaseId. No evidence of hard-coded waits or incorrect API usage found. Improvement is needed in selectors and assertion granularity."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +69,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-05T10:30:35.716Z"
+  "createdAt": "2026-08-05T11:42:28.259Z"
 }
