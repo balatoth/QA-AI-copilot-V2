@@ -2,7 +2,7 @@
   "schemaVersion": "0.1.0",
   "artifactType": "PLAYWRIGHT_EXECUTION_RESULTS",
   "storyKey": "MP-1",
-  "executionId": "MP-SPRINT-20260805114819",
+  "executionId": "MP-SPRINT-20260805151853",
   "executionType": "PLAYWRIGHT",
   "status": "COMPLETED",
   "repository": {
@@ -16,9 +16,9 @@
     "metadataPath": "playwright-execution/execution-metadata.json"
   },
   "githubActions": {
-    "workflowRunId": "31003113602",
+    "workflowRunId": "31019681456",
     "workflowRunAttempt": "1",
-    "commitSha": "83f5045c41e86408fb42b90210c34f5d9193141f",
+    "commitSha": "7cc6a7cb1d6af7e27e72487b239c6a23808db250",
     "playwrightExitCode": 0
   },
   "summary": {
@@ -27,7 +27,7 @@
     "failed": 0,
     "skipped": 0,
     "flaky": 0,
-    "durationMs": 3536.034
+    "durationMs": 4271.018
   },
   "errors": [],
   "rawResults": {
@@ -51,24 +51,24 @@
       "maxFailures": 0,
       "metadata": {
         "ci": {
-          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/83f5045c41e86408fb42b90210c34f5d9193141f",
-          "commitHash": "83f5045c41e86408fb42b90210c34f5d9193141f",
-          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/31003113602"
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/7cc6a7cb1d6af7e27e72487b239c6a23808db250",
+          "commitHash": "7cc6a7cb1d6af7e27e72487b239c6a23808db250",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/31019681456"
         },
         "gitCommit": {
-          "shortHash": "83f5045",
-          "hash": "83f5045c41e86408fb42b90210c34f5d9193141f",
+          "shortHash": "7cc6a7c",
+          "hash": "7cc6a7cb1d6af7e27e72487b239c6a23808db250",
           "subject": "Update execution-results.json for MP-3",
           "body": "Update execution-results.json for MP-3",
           "author": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785930656000
+            "time": 1785943147000
           },
           "committer": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1785930656000
+            "time": 1785943147000
           },
           "branch": "main"
         },
@@ -82,24 +82,24 @@
           "retries": 0,
           "metadata": {
             "ci": {
-              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/83f5045c41e86408fb42b90210c34f5d9193141f",
-              "commitHash": "83f5045c41e86408fb42b90210c34f5d9193141f",
-              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/31003113602"
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/7cc6a7cb1d6af7e27e72487b239c6a23808db250",
+              "commitHash": "7cc6a7cb1d6af7e27e72487b239c6a23808db250",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/31019681456"
             },
             "gitCommit": {
-              "shortHash": "83f5045",
-              "hash": "83f5045c41e86408fb42b90210c34f5d9193141f",
+              "shortHash": "7cc6a7c",
+              "hash": "7cc6a7cb1d6af7e27e72487b239c6a23808db250",
               "subject": "Update execution-results.json for MP-3",
               "body": "Update execution-results.json for MP-3",
               "author": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785930656000
+                "time": 1785943147000
               },
               "committer": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1785930656000
+                "time": 1785943147000
               },
               "branch": "main"
             },
@@ -148,7 +148,7 @@
         "line": 0,
         "specs": [
           {
-            "title": "Display of Product Cards on Home Page",
+            "title": "TC-001 - Display of Product Cards on Home Page",
             "ok": true,
             "tags": [],
             "tests": [
@@ -163,12 +163,12 @@
                     "workerIndex": 0,
                     "parallelIndex": 0,
                     "status": "passed",
-                    "duration": 2680,
+                    "duration": 2046,
                     "errors": [],
                     "stdout": [],
                     "stderr": [],
                     "retry": 0,
-                    "startTime": "2026-08-05T11:52:28.465Z",
+                    "startTime": "2026-08-05T15:20:38.166Z",
                     "annotations": [],
                     "attachments": []
                   }
@@ -176,9 +176,9 @@
                 "status": "expected"
               }
             ],
-            "id": "92a6e7f2d2460e449614-209f1d150627f7f10ea5",
+            "id": "92a6e7f2d2460e449614-a518c1b9fa639c0e4331",
             "file": "story.spec.ts",
-            "line": 5,
+            "line": 3,
             "column": 5
           }
         ]
@@ -186,13 +186,13 @@
     ],
     "errors": [],
     "stats": {
-      "startTime": "2026-08-05T11:52:27.917Z",
-      "duration": 3536.034,
+      "startTime": "2026-08-05T15:20:37.594Z",
+      "duration": 4271.018,
       "expected": 1,
       "skipped": 0,
       "unexpected": 0,
       "flaky": 0
     }
   },
-  "completedAt": "2026-08-05T11:52:31.558Z"
+  "completedAt": "2026-08-05T15:20:41.970Z"
 }
