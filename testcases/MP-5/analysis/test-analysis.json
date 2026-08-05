@@ -1,0 +1,41 @@
+{
+  "storyKey": "MP-5",
+  "storyTitle": "Product Overview",
+  "application": "Practice Software Testing",
+  "functionalArea": "Product Browsing",
+  "businessGoal": "Allow visitors to efficiently find products of interest.",
+  "scenarios": [
+    {
+      "scenarioId": "SC-001",
+      "category": "Positive",
+      "goal": "Verify the product grid is displayed correctly with product images, names, and prices."
+    },
+    {
+      "scenarioId": "SC-002",
+      "category": "Positive",
+      "goal": "Verify that navigating to a product detail page works when clicking on a product card."
+    }
+  ],
+  "outOfScope": [
+    "Testing the search functionality",
+    "Testing the filter options",
+    "Testing the sort feature"
+  ],
+  "clarifications": [
+    "No specific behavior described for an empty product grid."
+  ],
+  "testApplicability": {
+    "manual": {
+      "applicable": true,
+      "reason": "The story describes visible browser behavior including navigation and displayed content."
+    },
+    "api": {
+      "applicable": true,
+      "reason": "The product data can be validated through the application's API if available."
+    },
+    "ui": {
+      "applicable": true,
+      "reason": "The acceptance criteria detail visible elements and user interactions on the UI."
+    }
+  }
+}
