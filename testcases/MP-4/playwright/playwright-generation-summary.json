@@ -23,8 +23,8 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": true,
-  "repairAttempt": 1,
+  "repaired": false,
+  "repairAttempt": 0,
   "generatedTestCount": 1,
   "skippedTestCount": 4,
   "generatedTestCases": [
@@ -37,19 +37,19 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing evidence for required fields displayed in the contact form."
+      "reason": "Missing verified evidence of required fields in the contact form."
     },
     {
       "testCaseId": "TC-003",
-      "reason": "Missing evidence for options in the subject dropdown."
+      "reason": "Missing verified evidence of subject dropdown options."
     },
     {
       "testCaseId": "TC-004",
-      "reason": "Missing evidence for validation error display for message length."
+      "reason": "Missing verified evidence of validation for message character count."
     },
     {
       "testCaseId": "TC-005",
-      "reason": "Missing evidence for confirmation message upon submission."
+      "reason": "Missing verified evidence for confirmation message upon successful submission."
     }
   ],
   "generatedFiles": [
@@ -61,10 +61,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "PASS",
+    "status": "WARNING",
     "passed": true,
-    "qualityScore": 90,
-    "reason": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, includes awaited asynchronous assertions, and maintains the test case ID in the test title. The selector is specific and appropriate for the contact form. The test is maintainable and follows best practices."
+    "qualityScore": 50,
+    "reason": "The generated Playwright test compiles and uses APIs correctly but lacks any meaningful assertions and uses a weak selector without evidence of correctness. The test case ID in the title is preserved. There is no assertion or validation to verify the accessibility of the contact form, which reduces the test's effectiveness."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -77,5 +77,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-04T13:43:04.450Z"
+  "createdAt": "2026-08-05T10:32:08.854Z"
 }
