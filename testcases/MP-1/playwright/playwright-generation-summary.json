@@ -37,11 +37,11 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing verified evidence for checking product images, names, and prices. No image selectors provided."
+      "reason": "Missing verified evidence required for safe automation"
     },
     {
       "testCaseId": "TC-003",
-      "reason": "Missing verified destination evidence for navigating to the product detail page."
+      "reason": "Missing verified evidence required for safe automation"
     }
   ],
   "generatedFiles": [
@@ -53,10 +53,10 @@
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
-    "status": "PASS",
+    "status": "WARNING",
     "passed": true,
-    "qualityScore": 85,
-    "reason": "The artifact is valid TypeScript and uses Playwright APIs correctly. Await is properly used on asynchronous assertions. The selectors use data-test attributes which are generally robust. However, the test lacks testCaseId in the test title for traceability. The assertions, while correct, only check visibility and do not verify product details or navigation. The test is maintainable and clear with no async or compilation issues."
+    "qualityScore": 65,
+    "reason": "The test file is syntactically correct and uses Playwright APIs properly, but the test assertion is weak and the test title does not include the mapped testCaseId 'TC-001'. The selector for product cards is missing, and there is no assertive verification that product cards are displayed. There is also a hardcoded base URL which could affect reusability and maintainability."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -69,5 +69,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-04T15:58:30.895Z"
+  "createdAt": "2026-08-05T10:08:16.075Z"
 }
