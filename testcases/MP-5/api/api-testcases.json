@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-5",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T14:04:12.959Z",
+  "generatedAt": "2026-08-06T14:30:27.274Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -10,16 +10,15 @@
     "confidence": "LOW"
   },
   "warnings": [
-    "API test applicability is marked as false; this endpoint selection is for closest data support only.",
-    "UI rendering and navigation are UI behaviors, not directly verifiable with this API."
+    "The test analysis explicitly states API is not applicable, so this matching endpoint is only a closest fit for underlying data retrieval in product display scenarios."
   ],
   "testCases": [
     {
-      "testCaseId": "TC-MP5-001",
-      "scenarioId": "SC-001",
-      "title": "Retrieve product grid data successfully",
+      "testCaseId": "MP5-GET-products-001",
+      "scenarioId": "",
+      "title": "Retrieve all products successfully with default parameters",
       "testType": "Positive",
-      "priority": "High",
+      "priority": "Medium",
       "preconditions": [],
       "method": "GET",
       "path": "/products",
@@ -28,14 +27,19 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "Response has integer fields: current_page, from, last_page, per_page, to, total",
-        "Response data is an array of products"
+        "response body includes 'current_page' as integer",
+        "response body includes 'data' as array",
+        "response body includes 'from' as integer",
+        "response body includes 'last_page' as integer",
+        "response body includes 'per_page' as integer",
+        "response body includes 'to' as integer",
+        "response body includes 'total' as integer"
       ],
       "contractChecks": [
-        "Response content-type is application/json",
-        "Response body matches PaginatedProductResponse schema"
+        "response content-type is 'application/json'",
+        "response status code is 200"
       ],
-      "notes": "Basic GET /products call without filters to verify product grid data retrieval."
+      "notes": "Basic retrieval of products with no filters or pagination parameters."
     }
   ]
 }
