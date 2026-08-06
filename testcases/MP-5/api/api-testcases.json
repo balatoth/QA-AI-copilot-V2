@@ -1,25 +1,22 @@
 {
   "storyKey": "MP-5",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T15:29:27.222Z",
+  "generatedAt": "2026-08-06T18:25:48.165Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
     "path": "/products",
     "operationId": "getProducts",
-    "confidence": "LOW"
+    "confidence": "HIGH"
   },
-  "warnings": [
-    "API applicability for the story is false, as it focuses on UI behaviors only.",
-    "No exact API match for UI navigation interactions like clicking product cards."
-  ],
+  "warnings": [],
   "testCases": [
     {
-      "testCaseId": "TC-MP-5-001",
+      "testCaseId": "TC_MP5_001",
       "scenarioId": "SC-001",
-      "title": "Verify GET /products returns 200 with valid product pagination structure",
+      "title": "Retrieve all products and validate product grid fields presence",
       "testType": "Positive",
-      "priority": "Medium",
+      "priority": "High",
       "preconditions": [],
       "method": "GET",
       "path": "/products",
@@ -28,14 +25,15 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response body contains current_page as integer",
-        "response body contains data as array",
-        "response body contains from, last_page, per_page, to, total as integers"
+        "response contains integer fields: current_page, from, last_page, per_page, to, total",
+        "response contains array field: data",
+        "each element in data contains product details as defined in ProductResponse schema"
       ],
       "contractChecks": [
-        "response conforms to PaginatedProductResponse schema"
+        "200 status code response conforms to PaginatedProductResponse schema",
+        "no unsupported query parameters sent"
       ],
-      "notes": "This test verifies the API returns product data required to display product grid, although API is not the scope of the story."
+      "notes": "This test validates the product overview grid data retrieval with product details for UI display."
     }
   ]
 }
