@@ -1,0 +1,37 @@
+{
+  "storyKey": "MP-12",
+  "storyTitle": "Browse Products by Category",
+  "application": "Practice Software Testing",
+  "testLevel": "UAT",
+  "testType": "MANUAL_FUNCTIONAL",
+  "testCases": [
+    {
+      "testCaseId": "TC-001",
+      "scenarioId": "SC-001",
+      "title": "Verify category name opens corresponding product page",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the product category page.",
+        "Click on a category name."
+      ],
+      "expectedResults": [
+        "The corresponding product page is displayed.",
+        "The page title is updated to reflect the selected category."
+      ]
+    },
+    {
+      "testCaseId": "TC-002",
+      "scenarioId": "SC-002",
+      "title": "Verify required filters are available on category page",
+      "priority": "Medium",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the product category page."
+      ],
+      "expectedResults": [
+        "All required filters are present and available for selection."
+      ]
+    }
+  ]
+}
