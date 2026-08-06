@@ -3,22 +3,22 @@
   "storyTitle": "Product Detail",
   "application": "Practice Software Testing",
   "functionalArea": "Product Information",
-  "businessGoal": "Allow visitors to view full details of a product.",
+  "businessGoal": "Allow visitors to view detailed information about a product",
   "scenarios": [
     {
       "scenarioId": "SC-001",
-      "category": "Validation",
-      "goal": "Ensure that product information is displayed correctly on the product detail page."
+      "category": "Positive",
+      "goal": "Verify that the product information is displayed correctly, including image, name, description, price, category badge, and brand badge."
     },
     {
       "scenarioId": "SC-002",
-      "category": "Validation",
+      "category": "Positive",
       "goal": "Verify that the related products section is displayed below the main product information."
     },
     {
       "scenarioId": "SC-003",
-      "category": "Validation",
-      "goal": "Confirm that each related product is clickable and navigates to its detail page."
+      "category": "Positive",
+      "goal": "Verify that each related product is clickable and navigates to its respective detail page."
     }
   ],
   "outOfScope": [],
@@ -26,15 +26,15 @@
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story involves visible browser behavior on the product detail page."
+      "reason": "The story and acceptance criteria outline visible browser behavior."
     },
     "api": {
-      "applicable": true,
-      "reason": "The product and related products data can be validated through the application's API."
+      "applicable": false,
+      "reason": "The story does not indicate data retrieval or validation through an API."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria describe visible elements and interactions in the UI."
+      "reason": "The acceptance criteria describe visible content and user interactions on the product detail page."
     }
   }
 }
