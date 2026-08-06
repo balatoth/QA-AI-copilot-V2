@@ -1,63 +1,44 @@
 {
   "storyKey": "MP-7",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T19:43:53.961Z",
+  "generatedAt": "2026-08-06T20:16:00.299Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
     "path": "/products/search",
     "operationId": "searchProduct",
-    "confidence": "HIGH"
+    "confidence": "LOW"
   },
-  "warnings": [],
+  "warnings": [
+    "Test analysis states API applicability as false and lacks specific API behavior details.",
+    "Chosen endpoint is domain-specific, but the story describes a general search feature without domain context.",
+    "If search is for other content types like brands or categories, corresponding search APIs /brands/search or /categories/search might also be applicable."
+  ],
   "testCases": [
     {
       "testCaseId": "TC_MP7_SC001_001",
       "scenarioId": "SC-001",
-      "title": "Positive test: User can successfully perform a search with valid input",
+      "title": "Search products with a valid keyword",
       "testType": "Positive",
-      "priority": "High",
+      "priority": "Medium",
       "preconditions": [],
       "method": "GET",
       "path": "/products/search",
       "requestHeaders": {},
       "queryParams": {
-        "q": "validsearchterm"
+        "q": "test"
       },
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        {
-          "check": "response body contains current_page as integer"
-        },
-        {
-          "check": "response body contains data array"
-        },
-        {
-          "check": "response body contains from as integer"
-        },
-        {
-          "check": "response body contains last_page as integer"
-        },
-        {
-          "check": "response body contains per_page as integer"
-        },
-        {
-          "check": "response body contains to as integer"
-        },
-        {
-          "check": "response body contains total as integer"
-        }
+        "Response JSON must have current_page as integer",
+        "Response JSON must have total as integer",
+        "Response JSON must have data as an array"
       ],
       "contractChecks": [
-        {
-          "check": "200 response returned"
-        },
-        {
-          "check": "response body matches PaginatedProductResponse schema"
-        }
+        "Response must conform to PaginatedProductResponse schema"
       ],
-      "notes": "Valid search string used, expecting a successful product search result with pagination details."
+      "notes": ""
     }
   ]
 }
