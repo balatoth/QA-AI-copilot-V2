@@ -8,31 +8,44 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Filter items by a specific category",
+      "title": "Successful Filtering by Category",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the filtering section of the application.",
-        "Select a specific category to filter items.",
-        "Click on the 'Apply Filter' button."
+        "Select a specified category from the filter options.",
+        "Click on the filter button."
       ],
       "expectedResults": [
-        "The application displays items relevant to the selected category."
+        "Items are displayed that belong to the selected category."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Filter items by a category with no matching items",
+      "title": "Error Message for Non-existing Category Filtering",
       "priority": "Medium",
       "preconditions": [],
       "steps": [
-        "Navigate to the filtering section of the application.",
-        "Select a category that is known to have no matching items.",
-        "Click on the 'Apply Filter' button."
+        "Select a non-existing category from the filter options.",
+        "Click on the filter button."
       ],
       "expectedResults": [
-        "The application displays a message indicating that no items match the selected category."
+        "An appropriate error message is displayed."
+      ]
+    },
+    {
+      "testCaseId": "TC-003",
+      "scenarioId": "SC-003",
+      "title": "Correct Set of Items Displayed after Filtering",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Select a specified category from the filter options.",
+        "Click on the filter button.",
+        "Review the displayed items."
+      ],
+      "expectedResults": [
+        "The displayed items match the criteria of the selected category."
       ]
     }
   ]
