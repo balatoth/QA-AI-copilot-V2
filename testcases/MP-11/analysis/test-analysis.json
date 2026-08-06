@@ -1,0 +1,40 @@
+{
+  "storyKey": "MP-11",
+  "storyTitle": "Product Detail",
+  "application": "Practice Software Testing",
+  "functionalArea": "Product Information",
+  "businessGoal": "Allow visitors to view full product details.",
+  "scenarios": [
+    {
+      "scenarioId": "SC-001",
+      "category": "Positive",
+      "goal": "Verify that all product information (image, name, description, price, category badge, brand badge) is displayed correctly on the product detail page."
+    },
+    {
+      "scenarioId": "SC-002",
+      "category": "Positive",
+      "goal": "Verify that the related products section is displayed below the main product information on the product detail page."
+    },
+    {
+      "scenarioId": "SC-003",
+      "category": "Positive",
+      "goal": "Verify that each related product in the related products section is clickable and navigates to its respective detail page."
+    }
+  ],
+  "outOfScope": [],
+  "clarifications": [],
+  "testApplicability": {
+    "manual": {
+      "applicable": true,
+      "reason": "The acceptance criteria describe visible browser behavior and user interaction."
+    },
+    "api": {
+      "applicable": true,
+      "reason": "Product details and related products can be validated through the application's API capabilities."
+    },
+    "ui": {
+      "applicable": true,
+      "reason": "The acceptance criteria involve user interface elements displayed on the product detail page."
+    }
+  }
+}
