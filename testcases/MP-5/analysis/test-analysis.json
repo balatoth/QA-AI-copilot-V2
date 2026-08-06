@@ -2,8 +2,8 @@
   "storyKey": "MP-5",
   "storyTitle": "Product Overview",
   "application": "Practice Software Testing",
-  "functionalArea": "Product Browsing",
-  "businessGoal": "Enable visitors to efficiently find products of interest through browsing, searching, filtering, and sorting.",
+  "functionalArea": "Product Display",
+  "businessGoal": "Allow visitors to efficiently find products of interest.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
@@ -13,28 +13,23 @@
     {
       "scenarioId": "SC-002",
       "category": "Positive",
-      "goal": "Verify that clicking a product card navigates to the product detail page."
+      "goal": "Verify that clicking on a product card navigates to the product detail page."
     }
   ],
-  "outOfScope": [
-    "Testing functionalities of search, filter, and sort as they are not explicitly mentioned in the acceptance criteria."
-  ],
-  "clarifications": [
-    "What happens if there are no products to display in the product grid?",
-    "Are there any performance requirements for loading the product grid?"
-  ],
+  "outOfScope": [],
+  "clarifications": [],
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The scenarios involve visible browser behavior and user interaction."
+      "reason": "The story describes visible browser behavior and user interaction."
     },
     "api": {
       "applicable": false,
-      "reason": "There are no specified API endpoints or capabilities that validate the product overview behavior."
+      "reason": "No API behavior is specified in the story."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria describe visible UI elements that need to be tested."
+      "reason": "The acceptance criteria specify UI elements and interactions."
     }
   }
 }
