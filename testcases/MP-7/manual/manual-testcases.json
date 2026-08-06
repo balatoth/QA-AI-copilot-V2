@@ -8,29 +8,29 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Valid Keyword Search",
+      "title": "Perform a search with valid input",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Enter a valid keyword into the search input field.",
-        "Click the search button."
+        "Enter valid search input in the search field",
+        "Click the search button"
       ],
       "expectedResults": [
-        "The search results relevant to the valid keyword are displayed."
+        "User can see the search results relevant to the input provided"
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Invalid Keyword Search",
-      "priority": "Medium",
+      "title": "Perform a search with invalid input",
+      "priority": "High",
       "preconditions": [],
       "steps": [
-        "Enter an invalid keyword into the search input field.",
-        "Click the search button."
+        "Enter invalid search input in the search field",
+        "Click the search button"
       ],
       "expectedResults": [
-        "An appropriate message indicating no results found is displayed."
+        "User receives an error message indicating the search input is invalid"
       ]
     }
   ]
