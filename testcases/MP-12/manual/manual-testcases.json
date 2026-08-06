@@ -8,29 +8,36 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify category name opens corresponding product page",
+      "title": "Verify category page displays the correct products and title",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the product category page.",
-        "Click on a category name."
+        "Navigate to the category name on the main page.",
+        "Click on the category name.",
+        "Observe the category page that loads."
       ],
       "expectedResults": [
-        "The corresponding product page is displayed.",
-        "The page title is updated to reflect the selected category."
+        "The category page is displayed.",
+        "The title of the category page matches the clicked category name.",
+        "The products relevant to the selected category are displayed correctly."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Verify required filters are available on category page",
+      "title": "Ensure filters, sorting options, and pagination controls are present on category page",
       "priority": "Medium",
       "preconditions": [],
       "steps": [
-        "Navigate to the product category page."
+        "Navigate to the category page as per test case TC-001.",
+        "Inspect the presence of filter options.",
+        "Inspect the presence of sorting options.",
+        "Inspect the presence of pagination controls."
       ],
       "expectedResults": [
-        "All required filters are present and available for selection."
+        "Filters are available for users to select.",
+        "Sorting options are available for users to choose from.",
+        "Pagination controls are present for browsing through products."
       ]
     }
   ]
