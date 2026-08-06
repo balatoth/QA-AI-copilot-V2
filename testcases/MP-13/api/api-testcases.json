@@ -1,11 +1,11 @@
 {
   "storyKey": "MP-13",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T15:35:33.458Z",
+  "generatedAt": "2026-08-06T18:32:27.363Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": null,
   "warnings": [
-    "No API endpoint in the catalog corresponds to a contact form or inquiry submission functionality; the story is strictly UI-focused for contact form display and validation with no backend API support shown."
+    "No API endpoints related to contact form submission, contact message handling, or support request management are found in the provided endpoint catalog. The story describes UI form behavior without any API capabilities mentioned or implied."
   ],
   "testCases": []
 }
