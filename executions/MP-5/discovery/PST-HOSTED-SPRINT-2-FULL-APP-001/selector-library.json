@@ -1,0 +1,479 @@
+{
+  "schemaVersion": "1.2",
+  "artifactType": "SELECTOR_LIBRARY",
+  "storyKey": "MP-5",
+  "executionId": "MP-SPRINT-2-FULL-APP-DISCOVERY-001",
+  "discoveryId": "PST-HOSTED-SPRINT-2-FULL-APP-001",
+  "application": {
+    "name": "Practice Software Testing",
+    "environmentId": "hosted-sprint-2",
+    "origin": "https://v2.practicesoftwaretesting.com",
+    "pageTitle": "Just a moment...",
+    "pageUrl": "https://v2.practicesoftwaretesting.com/#/"
+  },
+  "discovery": {
+    "scope": "FULL_APP",
+    "strategy": "BOUNDED_ROUTE_CRAWL"
+  },
+  "generatedAt": "2026-08-06T15:27:54.024Z",
+  "routes": [
+    {
+      "pageId": "01-home",
+      "requestedUrl": "https://v2.practicesoftwaretesting.com/#/",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/",
+      "title": "Just a moment...",
+      "depth": 0,
+      "source": "SEED",
+      "summary": {
+        "headingCount": 2,
+        "linkCount": 2,
+        "buttonCount": 0,
+        "inputCount": 0,
+        "formCount": 0,
+        "landmarkCount": 2,
+        "imageCount": 1,
+        "tableCount": 0,
+        "listCount": 0,
+        "dialogCount": 0,
+        "dataTestIdCount": 0,
+        "explicitRoleCount": 2,
+        "acceptedSelectorCount": 2,
+        "productCardCount": 0
+      }
+    },
+    {
+      "pageId": "02-contact",
+      "requestedUrl": "https://v2.practicesoftwaretesting.com/#/contact",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/contact",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/contact",
+      "title": "Just a moment...",
+      "depth": 0,
+      "source": "SEED",
+      "summary": {
+        "headingCount": 2,
+        "linkCount": 2,
+        "buttonCount": 0,
+        "inputCount": 0,
+        "formCount": 0,
+        "landmarkCount": 2,
+        "imageCount": 1,
+        "tableCount": 0,
+        "listCount": 0,
+        "dialogCount": 0,
+        "dataTestIdCount": 0,
+        "explicitRoleCount": 2,
+        "acceptedSelectorCount": 2,
+        "productCardCount": 0
+      }
+    },
+    {
+      "pageId": "03-category-hand-tools",
+      "requestedUrl": "https://v2.practicesoftwaretesting.com/#/category/hand-tools",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/category/hand-tools",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/category/hand-tools",
+      "title": "Just a moment...",
+      "depth": 0,
+      "source": "SEED",
+      "summary": {
+        "headingCount": 2,
+        "linkCount": 2,
+        "buttonCount": 0,
+        "inputCount": 0,
+        "formCount": 0,
+        "landmarkCount": 2,
+        "imageCount": 1,
+        "tableCount": 0,
+        "listCount": 0,
+        "dialogCount": 0,
+        "dataTestIdCount": 0,
+        "explicitRoleCount": 2,
+        "acceptedSelectorCount": 2,
+        "productCardCount": 0
+      }
+    },
+    {
+      "pageId": "04-category-power-tools",
+      "requestedUrl": "https://v2.practicesoftwaretesting.com/#/category/power-tools",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/category/power-tools",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/category/power-tools",
+      "title": "Just a moment...",
+      "depth": 0,
+      "source": "SEED",
+      "summary": {
+        "headingCount": 2,
+        "linkCount": 2,
+        "buttonCount": 0,
+        "inputCount": 0,
+        "formCount": 0,
+        "landmarkCount": 2,
+        "imageCount": 1,
+        "tableCount": 0,
+        "listCount": 0,
+        "dialogCount": 0,
+        "dataTestIdCount": 0,
+        "explicitRoleCount": 2,
+        "acceptedSelectorCount": 2,
+        "productCardCount": 0
+      }
+    },
+    {
+      "pageId": "05-product-1",
+      "requestedUrl": "https://v2.practicesoftwaretesting.com/#/product/1",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/product/1",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/product/:id",
+      "title": "Just a moment...",
+      "depth": 0,
+      "source": "SEED",
+      "summary": {
+        "headingCount": 2,
+        "linkCount": 2,
+        "buttonCount": 0,
+        "inputCount": 0,
+        "formCount": 0,
+        "landmarkCount": 2,
+        "imageCount": 1,
+        "tableCount": 0,
+        "listCount": 0,
+        "dialogCount": 0,
+        "dataTestIdCount": 0,
+        "explicitRoleCount": 2,
+        "acceptedSelectorCount": 2,
+        "productCardCount": 0
+      }
+    }
+  ],
+  "selectors": [
+    {
+      "name": "Cloudflare",
+      "strategy": "accessible-role",
+      "selector": "getByRole('link', { name: 'Cloudflare' })",
+      "attribute": null,
+      "tagName": "a",
+      "text": "Cloudflare",
+      "accessibleName": "Cloudflare",
+      "confidence": 0.88,
+      "pageId": "01-home",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/"
+    },
+    {
+      "name": "Privacy",
+      "strategy": "accessible-role",
+      "selector": "getByRole('link', { name: 'Privacy' })",
+      "attribute": null,
+      "tagName": "a",
+      "text": "Privacy",
+      "accessibleName": "Privacy",
+      "confidence": 0.88,
+      "pageId": "01-home",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/"
+    },
+    {
+      "name": "Cloudflare",
+      "strategy": "accessible-role",
+      "selector": "getByRole('link', { name: 'Cloudflare' })",
+      "attribute": null,
+      "tagName": "a",
+      "text": "Cloudflare",
+      "accessibleName": "Cloudflare",
+      "confidence": 0.88,
+      "pageId": "02-contact",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/contact",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/contact"
+    },
+    {
+      "name": "Privacy",
+      "strategy": "accessible-role",
+      "selector": "getByRole('link', { name: 'Privacy' })",
+      "attribute": null,
+      "tagName": "a",
+      "text": "Privacy",
+      "accessibleName": "Privacy",
+      "confidence": 0.88,
+      "pageId": "02-contact",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/contact",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/contact"
+    },
+    {
+      "name": "Cloudflare",
+      "strategy": "accessible-role",
+      "selector": "getByRole('link', { name: 'Cloudflare' })",
+      "attribute": null,
+      "tagName": "a",
+      "text": "Cloudflare",
+      "accessibleName": "Cloudflare",
+      "confidence": 0.88,
+      "pageId": "03-category-hand-tools",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/category/hand-tools",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/category/hand-tools"
+    },
+    {
+      "name": "Privacy",
+      "strategy": "accessible-role",
+      "selector": "getByRole('link', { name: 'Privacy' })",
+      "attribute": null,
+      "tagName": "a",
+      "text": "Privacy",
+      "accessibleName": "Privacy",
+      "confidence": 0.88,
+      "pageId": "03-category-hand-tools",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/category/hand-tools",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/category/hand-tools"
+    },
+    {
+      "name": "Cloudflare",
+      "strategy": "accessible-role",
+      "selector": "getByRole('link', { name: 'Cloudflare' })",
+      "attribute": null,
+      "tagName": "a",
+      "text": "Cloudflare",
+      "accessibleName": "Cloudflare",
+      "confidence": 0.88,
+      "pageId": "04-category-power-tools",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/category/power-tools",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/category/power-tools"
+    },
+    {
+      "name": "Privacy",
+      "strategy": "accessible-role",
+      "selector": "getByRole('link', { name: 'Privacy' })",
+      "attribute": null,
+      "tagName": "a",
+      "text": "Privacy",
+      "accessibleName": "Privacy",
+      "confidence": 0.88,
+      "pageId": "04-category-power-tools",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/category/power-tools",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/category/power-tools"
+    },
+    {
+      "name": "Cloudflare",
+      "strategy": "accessible-role",
+      "selector": "getByRole('link', { name: 'Cloudflare' })",
+      "attribute": null,
+      "tagName": "a",
+      "text": "Cloudflare",
+      "accessibleName": "Cloudflare",
+      "confidence": 0.88,
+      "pageId": "05-product-1",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/product/1",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/product/:id"
+    },
+    {
+      "name": "Privacy",
+      "strategy": "accessible-role",
+      "selector": "getByRole('link', { name: 'Privacy' })",
+      "attribute": null,
+      "tagName": "a",
+      "text": "Privacy",
+      "accessibleName": "Privacy",
+      "confidence": 0.88,
+      "pageId": "05-product-1",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/product/1",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/product/:id"
+    }
+  ],
+  "testIds": [],
+  "components": [],
+  "componentTypes": {
+    "PRODUCT_CARD": {
+      "count": 0,
+      "relationshipModel": "PAGE_SCOPED_COMPONENTS"
+    }
+  },
+  "pages": [
+    {
+      "pageId": "01-home",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/",
+      "title": "Just a moment...",
+      "selectors": [
+        {
+          "name": "Cloudflare",
+          "strategy": "accessible-role",
+          "selector": "getByRole('link', { name: 'Cloudflare' })",
+          "attribute": null,
+          "tagName": "a",
+          "text": "Cloudflare",
+          "accessibleName": "Cloudflare",
+          "confidence": 0.88,
+          "pageId": "01-home",
+          "pageUrl": "https://v2.practicesoftwaretesting.com/#/",
+          "routePattern": "https://v2.practicesoftwaretesting.com/#/"
+        },
+        {
+          "name": "Privacy",
+          "strategy": "accessible-role",
+          "selector": "getByRole('link', { name: 'Privacy' })",
+          "attribute": null,
+          "tagName": "a",
+          "text": "Privacy",
+          "accessibleName": "Privacy",
+          "confidence": 0.88,
+          "pageId": "01-home",
+          "pageUrl": "https://v2.practicesoftwaretesting.com/#/",
+          "routePattern": "https://v2.practicesoftwaretesting.com/#/"
+        }
+      ],
+      "forms": [],
+      "productCards": []
+    },
+    {
+      "pageId": "02-contact",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/contact",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/contact",
+      "title": "Just a moment...",
+      "selectors": [
+        {
+          "name": "Cloudflare",
+          "strategy": "accessible-role",
+          "selector": "getByRole('link', { name: 'Cloudflare' })",
+          "attribute": null,
+          "tagName": "a",
+          "text": "Cloudflare",
+          "accessibleName": "Cloudflare",
+          "confidence": 0.88,
+          "pageId": "02-contact",
+          "pageUrl": "https://v2.practicesoftwaretesting.com/#/contact",
+          "routePattern": "https://v2.practicesoftwaretesting.com/#/contact"
+        },
+        {
+          "name": "Privacy",
+          "strategy": "accessible-role",
+          "selector": "getByRole('link', { name: 'Privacy' })",
+          "attribute": null,
+          "tagName": "a",
+          "text": "Privacy",
+          "accessibleName": "Privacy",
+          "confidence": 0.88,
+          "pageId": "02-contact",
+          "pageUrl": "https://v2.practicesoftwaretesting.com/#/contact",
+          "routePattern": "https://v2.practicesoftwaretesting.com/#/contact"
+        }
+      ],
+      "forms": [],
+      "productCards": []
+    },
+    {
+      "pageId": "03-category-hand-tools",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/category/hand-tools",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/category/hand-tools",
+      "title": "Just a moment...",
+      "selectors": [
+        {
+          "name": "Cloudflare",
+          "strategy": "accessible-role",
+          "selector": "getByRole('link', { name: 'Cloudflare' })",
+          "attribute": null,
+          "tagName": "a",
+          "text": "Cloudflare",
+          "accessibleName": "Cloudflare",
+          "confidence": 0.88,
+          "pageId": "03-category-hand-tools",
+          "pageUrl": "https://v2.practicesoftwaretesting.com/#/category/hand-tools",
+          "routePattern": "https://v2.practicesoftwaretesting.com/#/category/hand-tools"
+        },
+        {
+          "name": "Privacy",
+          "strategy": "accessible-role",
+          "selector": "getByRole('link', { name: 'Privacy' })",
+          "attribute": null,
+          "tagName": "a",
+          "text": "Privacy",
+          "accessibleName": "Privacy",
+          "confidence": 0.88,
+          "pageId": "03-category-hand-tools",
+          "pageUrl": "https://v2.practicesoftwaretesting.com/#/category/hand-tools",
+          "routePattern": "https://v2.practicesoftwaretesting.com/#/category/hand-tools"
+        }
+      ],
+      "forms": [],
+      "productCards": []
+    },
+    {
+      "pageId": "04-category-power-tools",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/category/power-tools",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/category/power-tools",
+      "title": "Just a moment...",
+      "selectors": [
+        {
+          "name": "Cloudflare",
+          "strategy": "accessible-role",
+          "selector": "getByRole('link', { name: 'Cloudflare' })",
+          "attribute": null,
+          "tagName": "a",
+          "text": "Cloudflare",
+          "accessibleName": "Cloudflare",
+          "confidence": 0.88,
+          "pageId": "04-category-power-tools",
+          "pageUrl": "https://v2.practicesoftwaretesting.com/#/category/power-tools",
+          "routePattern": "https://v2.practicesoftwaretesting.com/#/category/power-tools"
+        },
+        {
+          "name": "Privacy",
+          "strategy": "accessible-role",
+          "selector": "getByRole('link', { name: 'Privacy' })",
+          "attribute": null,
+          "tagName": "a",
+          "text": "Privacy",
+          "accessibleName": "Privacy",
+          "confidence": 0.88,
+          "pageId": "04-category-power-tools",
+          "pageUrl": "https://v2.practicesoftwaretesting.com/#/category/power-tools",
+          "routePattern": "https://v2.practicesoftwaretesting.com/#/category/power-tools"
+        }
+      ],
+      "forms": [],
+      "productCards": []
+    },
+    {
+      "pageId": "05-product-1",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/product/1",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/product/:id",
+      "title": "Just a moment...",
+      "selectors": [
+        {
+          "name": "Cloudflare",
+          "strategy": "accessible-role",
+          "selector": "getByRole('link', { name: 'Cloudflare' })",
+          "attribute": null,
+          "tagName": "a",
+          "text": "Cloudflare",
+          "accessibleName": "Cloudflare",
+          "confidence": 0.88,
+          "pageId": "05-product-1",
+          "pageUrl": "https://v2.practicesoftwaretesting.com/#/product/1",
+          "routePattern": "https://v2.practicesoftwaretesting.com/#/product/:id"
+        },
+        {
+          "name": "Privacy",
+          "strategy": "accessible-role",
+          "selector": "getByRole('link', { name: 'Privacy' })",
+          "attribute": null,
+          "tagName": "a",
+          "text": "Privacy",
+          "accessibleName": "Privacy",
+          "confidence": 0.88,
+          "pageId": "05-product-1",
+          "pageUrl": "https://v2.practicesoftwaretesting.com/#/product/1",
+          "routePattern": "https://v2.practicesoftwaretesting.com/#/product/:id"
+        }
+      ],
+      "forms": [],
+      "productCards": []
+    }
+  ],
+  "summary": {
+    "pageCount": 5,
+    "routePatternCount": 5,
+    "selectorCount": 10,
+    "testIdSelectorCount": 0,
+    "componentCount": 0,
+    "productCardCount": 0,
+    "formCount": 0,
+    "inputCount": 0,
+    "failureCount": 0
+  }
+}

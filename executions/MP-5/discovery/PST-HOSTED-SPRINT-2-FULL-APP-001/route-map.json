@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "1.0",
+  "artifactType": "APPLICATION_ROUTE_MAP",
+  "application": {
+    "name": "Practice Software Testing",
+    "environmentId": "hosted-sprint-2",
+    "origin": "https://v2.practicesoftwaretesting.com"
+  },
+  "discoveryId": "PST-HOSTED-SPRINT-2-FULL-APP-001",
+  "generatedAt": "2026-08-06T15:27:54.024Z",
+  "routes": [
+    {
+      "pageId": "01-home",
+      "requestedUrl": "https://v2.practicesoftwaretesting.com/#/",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/",
+      "title": "Just a moment...",
+      "depth": 0,
+      "source": "SEED",
+      "summary": {
+        "headingCount": 2,
+        "linkCount": 2,
+        "buttonCount": 0,
+        "inputCount": 0,
+        "formCount": 0,
+        "landmarkCount": 2,
+        "imageCount": 1,
+        "tableCount": 0,
+        "listCount": 0,
+        "dialogCount": 0,
+        "dataTestIdCount": 0,
+        "explicitRoleCount": 2,
+        "acceptedSelectorCount": 2,
+        "productCardCount": 0
+      }
+    },
+    {
+      "pageId": "02-contact",
+      "requestedUrl": "https://v2.practicesoftwaretesting.com/#/contact",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/contact",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/contact",
+      "title": "Just a moment...",
+      "depth": 0,
+      "source": "SEED",
+      "summary": {
+        "headingCount": 2,
+        "linkCount": 2,
+        "buttonCount": 0,
+        "inputCount": 0,
+        "formCount": 0,
+        "landmarkCount": 2,
+        "imageCount": 1,
+        "tableCount": 0,
+        "listCount": 0,
+        "dialogCount": 0,
+        "dataTestIdCount": 0,
+        "explicitRoleCount": 2,
+        "acceptedSelectorCount": 2,
+        "productCardCount": 0
+      }
+    },
+    {
+      "pageId": "03-category-hand-tools",
+      "requestedUrl": "https://v2.practicesoftwaretesting.com/#/category/hand-tools",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/category/hand-tools",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/category/hand-tools",
+      "title": "Just a moment...",
+      "depth": 0,
+      "source": "SEED",
+      "summary": {
+        "headingCount": 2,
+        "linkCount": 2,
+        "buttonCount": 0,
+        "inputCount": 0,
+        "formCount": 0,
+        "landmarkCount": 2,
+        "imageCount": 1,
+        "tableCount": 0,
+        "listCount": 0,
+        "dialogCount": 0,
+        "dataTestIdCount": 0,
+        "explicitRoleCount": 2,
+        "acceptedSelectorCount": 2,
+        "productCardCount": 0
+      }
+    },
+    {
+      "pageId": "04-category-power-tools",
+      "requestedUrl": "https://v2.practicesoftwaretesting.com/#/category/power-tools",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/category/power-tools",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/category/power-tools",
+      "title": "Just a moment...",
+      "depth": 0,
+      "source": "SEED",
+      "summary": {
+        "headingCount": 2,
+        "linkCount": 2,
+        "buttonCount": 0,
+        "inputCount": 0,
+        "formCount": 0,
+        "landmarkCount": 2,
+        "imageCount": 1,
+        "tableCount": 0,
+        "listCount": 0,
+        "dialogCount": 0,
+        "dataTestIdCount": 0,
+        "explicitRoleCount": 2,
+        "acceptedSelectorCount": 2,
+        "productCardCount": 0
+      }
+    },
+    {
+      "pageId": "05-product-1",
+      "requestedUrl": "https://v2.practicesoftwaretesting.com/#/product/1",
+      "pageUrl": "https://v2.practicesoftwaretesting.com/#/product/1",
+      "routePattern": "https://v2.practicesoftwaretesting.com/#/product/:id",
+      "title": "Just a moment...",
+      "depth": 0,
+      "source": "SEED",
+      "summary": {
+        "headingCount": 2,
+        "linkCount": 2,
+        "buttonCount": 0,
+        "inputCount": 0,
+        "formCount": 0,
+        "landmarkCount": 2,
+        "imageCount": 1,
+        "tableCount": 0,
+        "listCount": 0,
+        "dialogCount": 0,
+        "dataTestIdCount": 0,
+        "explicitRoleCount": 2,
+        "acceptedSelectorCount": 2,
+        "productCardCount": 0
+      }
+    }
+  ],
+  "failures": []
+}

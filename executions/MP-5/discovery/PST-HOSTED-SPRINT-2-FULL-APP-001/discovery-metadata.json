@@ -1,0 +1,19 @@
+{
+  "storyKey": "MP-5",
+  "executionId": "MP-SPRINT-2-FULL-APP-DISCOVERY-001",
+  "discoveryId": "PST-HOSTED-SPRINT-2-FULL-APP-001",
+  "applicationName": "Practice Software Testing",
+  "environmentId": "hosted-sprint-2",
+  "targetUrl": "https://v2.practicesoftwaretesting.com/#/",
+  "discoveryScope": "FULL_APP",
+  "discoveryStrategy": "BOUNDED_ROUTE_CRAWL",
+  "seedRoutes": ["#/","#/contact","#/category/hand-tools","#/category/power-tools","#/product/1"],
+  "maxPages": "20",
+  "maxDepth": "3",
+  "branch": "main",
+  "workflowRunId": "31115670240",
+  "workflowRunAttempt": "1",
+  "commitSha": "845082221b1b8fa0a97f8aa93cbc0db32ec8e1f0",
+  "discoveryExitCode": "0",
+  "completedAt": "2026-08-06T15:27:54Z"
+}
