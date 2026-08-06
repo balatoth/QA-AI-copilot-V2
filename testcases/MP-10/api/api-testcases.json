@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-10",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T19:45:40.571Z",
+  "generatedAt": "2026-08-06T20:18:16.928Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -9,14 +9,12 @@
     "operationId": "getProducts",
     "confidence": "HIGH"
   },
-  "warnings": [
-    "The story describes UI dropdown and user interaction scenarios which are not directly verifiable via this API endpoint."
-  ],
+  "warnings": [],
   "testCases": [
     {
-      "testCaseId": "TC-MP-10-001",
+      "testCaseId": "MP-10-TC-001",
       "scenarioId": "SC-003",
-      "title": "Verify loading products sorted by name in ascending order",
+      "title": "Verify products are returned sorted by price ascending",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -24,18 +22,21 @@
       "path": "/products",
       "requestHeaders": {},
       "queryParams": {
-        "sort": "name,asc"
+        "sort": "price,asc"
       },
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "Response JSON must include 'data' array",
-        "The 'data' array should be sorted by product name ascending"
+        {
+          "check": "responseBody.data[i].price <= responseBody.data[i+1].price for all valid i"
+        }
       ],
       "contractChecks": [
-        "Response must conform to PaginatedProductResponse schema"
+        "response code is 200",
+        "response content-type is application/json",
+        "response body matches PaginatedProductResponse schema"
       ],
-      "notes": "This validates that the API supports sorting by name ascending as described by the story's sorting feature."
+      "notes": "Validates sorted product listing by ascending price using API sorting query parameter."
     }
   ]
 }
