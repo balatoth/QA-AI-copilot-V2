@@ -1,0 +1,51 @@
+{
+  "storyKey": "MP-9",
+  "storyTitle": "Filtering by Brand",
+  "application": "Practice Software Testing",
+  "testLevel": "UAT",
+  "testType": "MANUAL_FUNCTIONAL",
+  "testCases": [
+    {
+      "testCaseId": "TC-001",
+      "scenarioId": "SC-001",
+      "title": "Display of Brand Filter Checkboxes",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the product overview page."
+      ],
+      "expectedResults": [
+        "Brand filter checkboxes are displayed on the product overview page."
+      ]
+    },
+    {
+      "testCaseId": "TC-002",
+      "scenarioId": "SC-002",
+      "title": "Selecting Brand Checkboxes Updates Product Grid",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the product overview page.",
+        "Select one or more brand checkboxes."
+      ],
+      "expectedResults": [
+        "Product grid updates to show only the selected brands."
+      ]
+    },
+    {
+      "testCaseId": "TC-003",
+      "scenarioId": "SC-003",
+      "title": "Filtering by Both Categories and Brands",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the product overview page.",
+        "Select one or more category checkboxes.",
+        "Select one or more brand checkboxes."
+      ],
+      "expectedResults": [
+        "Product grid shows only products that match the selected categories and brands."
+      ]
+    }
+  ]
+}
