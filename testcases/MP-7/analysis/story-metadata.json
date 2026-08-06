@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "artifactType": "STORY_METADATA",
+  "storyKey": "MP-7",
+  "storyTitle": "Search",
+  "source": "JIRA",
+  "storyHash": "c3b15d6f1cf10a30bdf29725e716c3ac1892beaa0ac4281127e533f76147358a",
+  "priority": "MEDIUM",
+  "status": "TO_DO",
+  "applicationId": "practice-software-testing",
+  "environmentId": "hosted-sprint-2",
+  "generatedByExecutionId": "MP-SPRINT-20260806140331",
+  "lastGeneratedAt": "2026-08-06T14:06:00.838Z"
+}
