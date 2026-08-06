@@ -1,0 +1,46 @@
+{
+  "storyKey": "MP-10",
+  "artifactType": "api-testcases",
+  "generatedAt": "2026-08-06T14:09:30.715Z",
+  "testLevel": "SIT_API",
+  "sourceEndpoint": {
+    "method": "GET",
+    "path": "/products",
+    "operationId": "getProducts",
+    "confidence": "HIGH"
+  },
+  "warnings": [],
+  "testCases": [
+    {
+      "testCaseId": "TC-MP-10-001",
+      "scenarioId": "SC-003",
+      "title": "Verify that selecting the sort option 'name,asc' returns products sorted by name ascending",
+      "testType": "Positive",
+      "priority": "High",
+      "preconditions": [],
+      "method": "GET",
+      "path": "/products",
+      "requestHeaders": {},
+      "queryParams": {
+        "sort": "name,asc"
+      },
+      "requestBody": null,
+      "expectedStatus": 200,
+      "expectedResponseChecks": [
+        {
+          "checkType": "isArray",
+          "field": "data"
+        },
+        {
+          "checkType": "sortedAsc",
+          "field": "data[].name"
+        }
+      ],
+      "contractChecks": [
+        "responseContentType: application/json",
+        "responseSchema: PaginatedProductResponse"
+      ],
+      "notes": "Validate that data array is sorted by product name in ascending order as per sort parameter."
+    }
+  ]
+}
