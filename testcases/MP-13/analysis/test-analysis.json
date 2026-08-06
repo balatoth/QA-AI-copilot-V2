@@ -1,0 +1,50 @@
+{
+  "storyKey": "MP-13",
+  "storyTitle": "Contact Form",
+  "application": "Practice Software Testing",
+  "functionalArea": "Contact Management",
+  "businessGoal": "Allow visitors to send inquiries or support messages through a contact form.",
+  "scenarios": [
+    {
+      "scenarioId": "SC-001",
+      "category": "Positive",
+      "goal": "Verify that the contact form is accessible when navigating to the contact page."
+    },
+    {
+      "scenarioId": "SC-002",
+      "category": "Validation",
+      "goal": "Verify that all required fields are displayed in the contact form."
+    },
+    {
+      "scenarioId": "SC-003",
+      "category": "Validation",
+      "goal": "Verify that the subject dropdown contains the specified options."
+    },
+    {
+      "scenarioId": "SC-004",
+      "category": "Negative",
+      "goal": "Verify that a validation error is shown when the message is fewer than 50 characters."
+    },
+    {
+      "scenarioId": "SC-005",
+      "category": "Positive",
+      "goal": "Verify that a confirmation message is displayed after successfully submitting the contact form."
+    }
+  ],
+  "outOfScope": [],
+  "clarifications": [],
+  "testApplicability": {
+    "manual": {
+      "applicable": true,
+      "reason": "The story involves functional aspects of the contact form that can be manually tested."
+    },
+    "api": {
+      "applicable": false,
+      "reason": "The story does not specify any API capabilities related to the contact form."
+    },
+    "ui": {
+      "applicable": true,
+      "reason": "The acceptance criteria involve visible browser behavior and user interactions with the contact form."
+    }
+  }
+}
