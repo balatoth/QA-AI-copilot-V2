@@ -8,44 +8,29 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Successful Filtering by Category",
+      "title": "Successful item filtering by category",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Select a specified category from the filter options.",
+        "Select a valid category from the filter options.",
         "Click on the filter button."
       ],
       "expectedResults": [
-        "Items are displayed that belong to the selected category."
+        "Items corresponding to the selected category are displayed."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Error Message for Non-existing Category Filtering",
-      "priority": "Medium",
-      "preconditions": [],
-      "steps": [
-        "Select a non-existing category from the filter options.",
-        "Click on the filter button."
-      ],
-      "expectedResults": [
-        "An appropriate error message is displayed."
-      ]
-    },
-    {
-      "testCaseId": "TC-003",
-      "scenarioId": "SC-003",
-      "title": "Correct Set of Items Displayed after Filtering",
+      "title": "No items displayed for a non-existent category",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Select a specified category from the filter options.",
-        "Click on the filter button.",
-        "Review the displayed items."
+        "Select a non-existent category from the filter options.",
+        "Click on the filter button."
       ],
       "expectedResults": [
-        "The displayed items match the criteria of the selected category."
+        "No items are displayed."
       ]
     }
   ]
