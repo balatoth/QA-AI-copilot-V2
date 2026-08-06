@@ -8,7 +8,7 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify sort dropdown is displayed",
+      "title": "Verify the sort dropdown is displayed on the product overview page",
       "priority": "High",
       "preconditions": [],
       "steps": [
@@ -21,32 +21,28 @@
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Verify sorting options in dropdown",
+      "title": "Verify that the sort dropdown includes the correct options",
       "priority": "High",
-      "preconditions": [
-        "The sort dropdown is displayed on the product overview page."
-      ],
+      "preconditions": [],
       "steps": [
         "Open the sort dropdown."
       ],
       "expectedResults": [
-        "The sort dropdown includes the correct sorting options."
+        "The sort dropdown includes the options: Name (A - Z), Name (Z - A), Price (High - Low), Price (Low - High)."
       ]
     },
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-003",
-      "title": "Verify products reload with selected sort option",
+      "title": "Verify selecting a sort option reloads the product grid",
       "priority": "High",
-      "preconditions": [
-        "The sort dropdown is displayed on the product overview page.",
-        "The sort dropdown includes the correct sorting options."
-      ],
+      "preconditions": [],
       "steps": [
-        "Select a sort option from the dropdown."
+        "Select one of the sort options from the dropdown.",
+        "Observe the product grid."
       ],
       "expectedResults": [
-        "The product grid is reloaded with products ordered according to the selected sort option."
+        "The product grid reloads with products ordered according to the selected sort."
       ]
     }
   ]
