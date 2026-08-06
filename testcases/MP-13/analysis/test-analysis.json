@@ -3,32 +3,32 @@
   "storyTitle": "Contact Form",
   "application": "Practice Software Testing",
   "functionalArea": "Contact Management",
-  "businessGoal": "Allow visitors to send inquiries or support requests through a contact form.",
+  "businessGoal": "Enable visitors to send inquiries and receive support through a contact form.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that the contact form is accessible and displayed when navigating to the contact page."
+      "goal": "Verify that the contact form is displayed when navigating to the contact page."
     },
     {
       "scenarioId": "SC-002",
       "category": "Validation",
-      "goal": "Ensure that required fields (First name, Last name, Email, Subject, Message) are displayed in the contact form."
+      "goal": "Check that required fields (first name, last name, email, subject, message) are shown in the contact form."
     },
     {
       "scenarioId": "SC-003",
       "category": "Validation",
-      "goal": "Validate that the subject dropdown contains the specified options."
+      "goal": "Verify that the subject dropdown includes the specified options."
     },
     {
       "scenarioId": "SC-004",
       "category": "Negative",
-      "goal": "Check that entering a message with fewer than 50 characters shows a validation error."
+      "goal": "Ensure that a validation error is shown when the message has fewer than 50 characters."
     },
     {
       "scenarioId": "SC-005",
       "category": "Positive",
-      "goal": "Confirm that a confirmation message is displayed and the form is hidden upon successful submission of the contact form."
+      "goal": "Confirm that a confirmation message is displayed and the form is hidden upon successful submission with valid data."
     }
   ],
   "outOfScope": [],
@@ -36,15 +36,15 @@
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "Functional story that involves user interaction with the contact form."
+      "reason": "The story includes user interface components and interactions that require manual testing."
     },
     "api": {
       "applicable": false,
-      "reason": "No API capabilities mentioned or implied for this interaction."
+      "reason": "The story does not mention any API behavior or capability for validating behaviors via API."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria describe UI behavior, forms, and user interactions."
+      "reason": "The acceptance criteria describe visible browser behaviors and user interactions."
     }
   }
 }
