@@ -2,23 +2,23 @@
   "storyKey": "MP-11",
   "storyTitle": "Product Detail",
   "application": "Practice Software Testing",
-  "functionalArea": "Product Display",
-  "businessGoal": "Allow visitors to view detailed information about a product",
+  "functionalArea": "Product Information",
+  "businessGoal": "Allow visitors to view full details of a product.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
-      "category": "Positive",
-      "goal": "Verify that the product information (image, name, description, price, category badge, brand badge) is displayed on the product detail page"
+      "category": "Validation",
+      "goal": "Ensure that product information is displayed correctly on the product detail page."
     },
     {
       "scenarioId": "SC-002",
-      "category": "Positive",
-      "goal": "Verify that the related products section is displayed below the main product information on the product detail page"
+      "category": "Validation",
+      "goal": "Verify that the related products section is displayed below the main product information."
     },
     {
       "scenarioId": "SC-003",
-      "category": "Positive",
-      "goal": "Verify that each related product is clickable and navigates to its respective detail page"
+      "category": "Validation",
+      "goal": "Confirm that each related product is clickable and navigates to its detail page."
     }
   ],
   "outOfScope": [],
@@ -26,15 +26,15 @@
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story describes visible browser behavior on the product detail page."
+      "reason": "The story involves visible browser behavior on the product detail page."
     },
     "api": {
-      "applicable": false,
-      "reason": "The story does not mention any API capabilities for validating product details."
+      "applicable": true,
+      "reason": "The product and related products data can be validated through the application's API."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria describe the visible elements on the product detail page."
+      "reason": "The acceptance criteria describe visible elements and interactions in the UI."
     }
   }
 }
