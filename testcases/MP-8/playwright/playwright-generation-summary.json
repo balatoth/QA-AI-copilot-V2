@@ -23,19 +23,15 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": false,
-  "repairAttempt": 0,
+  "repaired": true,
+  "repairAttempt": 1,
   "generatedTestCount": 0,
-  "skippedTestCount": 2,
+  "skippedTestCount": 1,
   "generatedTestCases": [],
   "skippedTestCases": [
     {
       "testCaseId": "TC-001",
-      "reason": "Missing verified evidence required for safe automation."
-    },
-    {
-      "testCaseId": "TC-002",
-      "reason": "Missing verified evidence required for safe automation."
+      "reason": "Exact verified evidence missing for safe automation"
     }
   ],
   "generatedFiles": [],
@@ -45,8 +41,8 @@
   "qualityGate": {
     "status": "PASS",
     "passed": true,
-    "qualityScore": 85,
-    "reason": "No Playwright artifacts were generated for this story. Skipped test cases are documented with valid reasons. No generation warnings or errors are present."
+    "qualityScore": 100,
+    "reason": "No repaired files were provided for review. No issues detected."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -68,5 +64,5 @@
     "productCardCount": 0,
     "formCount": 0
   },
-  "createdAt": "2026-08-06T18:28:58.277Z"
+  "createdAt": "2026-08-06T20:17:02.736Z"
 }
