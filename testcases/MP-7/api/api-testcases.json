@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-7",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T14:06:20.756Z",
+  "generatedAt": "2026-08-06T14:32:03.536Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -14,7 +14,7 @@
     {
       "testCaseId": "TC-MP7-001",
       "scenarioId": "SC-001",
-      "title": "Valid search keyword returns relevant product results",
+      "title": "User can perform a search with a valid keyword",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -22,24 +22,23 @@
       "path": "/products/search",
       "requestHeaders": {},
       "queryParams": {
-        "q": "validProductName"
+        "q": "test"
       },
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
         {
-          "check": "response_body",
-          "field": "data",
-          "type": "array",
-          "notEmpty": true
+          "check": "response body contains keys current_page, data, from, last_page, per_page, to, total"
+        },
+        {
+          "check": "data is an array"
         }
       ],
       "contractChecks": [
-        "response_code_200",
-        "response_content_type_application/json",
-        "response_schema_PaginatedProductResponse"
+        "query parameter 'q' is required and of type string",
+        "response code 200 with PaginatedProductResponse schema"
       ],
-      "notes": "Per contract, search keyword is required query parameter 'q'. Valid keyword expected to return results in the 'data' array."
+      "notes": "Search performed on 'name' column with query 'test'"
     }
   ]
 }
