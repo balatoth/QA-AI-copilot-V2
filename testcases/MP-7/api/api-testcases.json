@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-7",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T14:32:03.536Z",
+  "generatedAt": "2026-08-06T15:31:02.434Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -12,9 +12,9 @@
   "warnings": [],
   "testCases": [
     {
-      "testCaseId": "TC-MP7-001",
+      "testCaseId": "MP-7-SC-001-TC-001",
       "scenarioId": "SC-001",
-      "title": "User can perform a search with a valid keyword",
+      "title": "Search products with a valid keyword",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -22,23 +22,21 @@
       "path": "/products/search",
       "requestHeaders": {},
       "queryParams": {
-        "q": "test"
+        "q": "validKeyword"
       },
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        {
-          "check": "response body contains keys current_page, data, from, last_page, per_page, to, total"
-        },
-        {
-          "check": "data is an array"
-        }
+        "response body contains 'data' array",
+        "'data' array length is greater than or equal to 0",
+        "response body contains 'current_page', 'from', 'last_page', 'per_page', 'to', and 'total' fields"
       ],
       "contractChecks": [
-        "query parameter 'q' is required and of type string",
-        "response code 200 with PaginatedProductResponse schema"
+        "status code is 200",
+        "response Content-Type is application/json",
+        "response adheres to PaginatedProductResponse schema"
       ],
-      "notes": "Search performed on 'name' column with query 'test'"
+      "notes": "Valid keyword is a non-empty string as required by the contract; exact results depend on backend data."
     }
   ]
 }
