@@ -41,8 +41,8 @@
   "qualityGate": {
     "status": "PASS",
     "passed": true,
-    "qualityScore": 100,
-    "reason": "No repaired files were provided for review. No issues detected."
+    "qualityScore": 90,
+    "reason": "No repaired files were provided for review. Since no code changes were made, no issues were detected. The repair attempt is considered a pass by default."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -56,7 +56,7 @@
     "discoveryId": "PST-HOSTED-SPRINT-2-FULL-APP-001",
     "discoveryScope": "FULL_APP",
     "environmentId": "hosted-sprint-2",
-    "manualTestCaseCount": 5,
+    "manualTestCaseCount": 4,
     "selectorCount": 10,
     "testIdCount": 0,
     "pageCount": 5,
@@ -64,5 +64,5 @@
     "productCardCount": 0,
     "formCount": 0
   },
-  "createdAt": "2026-08-06T19:48:31.427Z"
+  "createdAt": "2026-08-06T20:21:16.403Z"
 }
