@@ -1,0 +1,18 @@
+{
+  "storyKey": "MP-6",
+  "artifactType": "playwright",
+  "generatorVersion": "v0.4.7.1",
+  "repaired": false,
+  "repairAttempt": 0,
+  "reviewStatus": "PASS",
+  "qualityScore": 100,
+  "qualityGate": {
+    "status": "PASS",
+    "passed": true,
+    "qualityScore": 100,
+    "reason": "No Playwright artifacts were generated, hence no code to review. Skipped test cases are properly documented with valid reasons. No warnings or issues detected."
+  },
+  "manualReviewRequired": false,
+  "finalStatus": "COMPLETED",
+  "createdAt": "2026-08-06T19:43:26.578Z"
+}
