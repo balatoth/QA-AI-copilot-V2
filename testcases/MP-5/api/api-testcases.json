@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-5",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T14:30:27.274Z",
+  "generatedAt": "2026-08-06T15:29:27.222Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -10,13 +10,14 @@
     "confidence": "LOW"
   },
   "warnings": [
-    "The test analysis explicitly states API is not applicable, so this matching endpoint is only a closest fit for underlying data retrieval in product display scenarios."
+    "API applicability for the story is false, as it focuses on UI behaviors only.",
+    "No exact API match for UI navigation interactions like clicking product cards."
   ],
   "testCases": [
     {
-      "testCaseId": "MP5-GET-products-001",
-      "scenarioId": "",
-      "title": "Retrieve all products successfully with default parameters",
+      "testCaseId": "TC-MP-5-001",
+      "scenarioId": "SC-001",
+      "title": "Verify GET /products returns 200 with valid product pagination structure",
       "testType": "Positive",
       "priority": "Medium",
       "preconditions": [],
@@ -27,19 +28,14 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response body includes 'current_page' as integer",
-        "response body includes 'data' as array",
-        "response body includes 'from' as integer",
-        "response body includes 'last_page' as integer",
-        "response body includes 'per_page' as integer",
-        "response body includes 'to' as integer",
-        "response body includes 'total' as integer"
+        "response body contains current_page as integer",
+        "response body contains data as array",
+        "response body contains from, last_page, per_page, to, total as integers"
       ],
       "contractChecks": [
-        "response content-type is 'application/json'",
-        "response status code is 200"
+        "response conforms to PaginatedProductResponse schema"
       ],
-      "notes": "Basic retrieval of products with no filters or pagination parameters."
+      "notes": "This test verifies the API returns product data required to display product grid, although API is not the scope of the story."
     }
   ]
 }
