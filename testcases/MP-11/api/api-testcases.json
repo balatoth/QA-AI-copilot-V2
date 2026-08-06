@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-11",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T18:30:43.382Z",
+  "generatedAt": "2026-08-06T19:46:18.247Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -12,10 +12,10 @@
   "warnings": [],
   "testCases": [
     {
-      "testCaseId": "TC-MP11-001",
+      "testCaseId": "MP-11-TC-001",
       "scenarioId": "SC-001",
-      "title": "Retrieve product details returns 200 with valid product information",
-      "testType": "Validation",
+      "title": "Retrieve specific product - verify product detail fields presence",
+      "testType": "Positive",
       "priority": "High",
       "preconditions": [],
       "method": "GET",
@@ -25,14 +25,42 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response is JSON",
-        "response contains all required fields of ProductResponse schema"
+        {
+          "check": "exists",
+          "field": "image"
+        },
+        {
+          "check": "exists",
+          "field": "name"
+        },
+        {
+          "check": "exists",
+          "field": "description"
+        },
+        {
+          "check": "exists",
+          "field": "price"
+        },
+        {
+          "check": "exists",
+          "field": "categoryBadge"
+        },
+        {
+          "check": "exists",
+          "field": "brandBadge"
+        }
       ],
       "contractChecks": [
-        "response Content-Type is application/json",
-        "response status is 200"
+        {
+          "type": "statusCode",
+          "expected": 200
+        },
+        {
+          "type": "responseSchema",
+          "schemaRef": "#/components/schemas/ProductResponse"
+        }
       ],
-      "notes": "This test verifies that the API returns product details successfully for an existing product"
+      "notes": "Uses example productId=1 as per contract example"
     }
   ]
 }
