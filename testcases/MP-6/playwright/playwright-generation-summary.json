@@ -1,0 +1,76 @@
+{
+  "storyKey": "MP-6",
+  "application": {
+    "applicationId": "practice-software-testing",
+    "applicationName": "Practice Software Testing",
+    "environmentId": "hosted-sprint-2",
+    "environmentName": "Hosted Sprint 2",
+    "environmentType": "TEST",
+    "deploymentType": "HOSTED",
+    "ui": {
+      "baseUrl": "https://v2.practicesoftwaretesting.com"
+    },
+    "api": {
+      "baseUrl": "https://api-v2.practicesoftwaretesting.com",
+      "openApiSpec": "https://api-v2.practicesoftwaretesting.com/docs?api-docs",
+      "type": "REST"
+    },
+    "authentication": {
+      "type": "NONE"
+    }
+  },
+  "manualReviewRequired": false,
+  "finalStatus": "COMPLETED",
+  "status": "COMPLETED",
+  "scope": "PLAYWRIGHT_GENERATION",
+  "repaired": false,
+  "repairAttempt": 0,
+  "generatedTestCount": 0,
+  "skippedTestCount": 3,
+  "generatedTestCases": [],
+  "skippedTestCases": [
+    {
+      "testCaseId": "TC-001",
+      "reason": "No verified evidence for pagination controls display."
+    },
+    {
+      "testCaseId": "TC-002",
+      "reason": "No verified evidence for interaction with pagination controls."
+    },
+    {
+      "testCaseId": "TC-003",
+      "reason": "No verified evidence for highlighting current page number."
+    }
+  ],
+  "generatedFiles": [],
+  "persistedGeneratedFiles": [],
+  "blockedGeneratedFiles": [],
+  "warnings": [],
+  "qualityGate": {
+    "status": "PASS",
+    "passed": true,
+    "qualityScore": 100,
+    "reason": "No Playwright artifacts were generated, hence no code to review. Skipped test cases are properly documented with valid reasons. No warnings or issues detected."
+  },
+  "sourceContext": {
+    "manualTestCasesPath": null,
+    "manualTestCasesSha": null,
+    "analysisPath": "testcases/MP-6/analysis/story-metadata.json",
+    "analysisSha": null,
+    "applicationDiscoveryPath": "executions/MP-5/discovery/PST-HOSTED-SPRINT-2-FULL-APP-001/application-discovery.json",
+    "applicationDiscoverySha": null,
+    "selectorLibraryPath": "executions/MP-5/discovery/PST-HOSTED-SPRINT-2-FULL-APP-001/selector-library.json",
+    "selectorLibrarySha": null,
+    "discoveryId": "PST-HOSTED-SPRINT-2-FULL-APP-001",
+    "discoveryScope": "FULL_APP",
+    "environmentId": "hosted-sprint-2",
+    "manualTestCaseCount": 3,
+    "selectorCount": 10,
+    "testIdCount": 0,
+    "pageCount": 5,
+    "routeCount": 5,
+    "productCardCount": 0,
+    "formCount": 0
+  },
+  "createdAt": "2026-08-06T19:43:26.578Z"
+}
