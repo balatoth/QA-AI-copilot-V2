@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-6",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T14:31:21.663Z",
+  "generatedAt": "2026-08-06T15:30:20.763Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -9,12 +9,14 @@
     "operationId": "getProducts",
     "confidence": "HIGH"
   },
-  "warnings": [],
+  "warnings": [
+    "The story scenario is primarily UI-focused and does not mandate API validation beyond pagination parameter usage."
+  ],
   "testCases": [
     {
-      "testCaseId": "TC-MP6-001",
+      "testCaseId": "MP-6_TC-01",
       "scenarioId": "SC-002",
-      "title": "Verify that requesting page 2 returns products with current_page = 2",
+      "title": "Verify that GET /products with page query returns products for specified page",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -27,20 +29,13 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        {
-          "check": "body.current_page",
-          "value": 2,
-          "operator": "equals"
-        },
-        {
-          "check": "body.data",
-          "operator": "isArray"
-        }
+        "response.current_page == 2",
+        "response.data is array"
       ],
       "contractChecks": [
-        "Response includes current_page, data, from, last_page, per_page, to, total fields as per schema"
+        "response properties: current_page, data, from, last_page, per_page, to, total are present and of correct types"
       ],
-      "notes": "This test validates pagination by checking that the API returns products for page 2 and sets current_page accordingly."
+      "notes": "This test validates the API pagination parameter by requesting page 2 and checking the current_page in response."
     }
   ]
 }
