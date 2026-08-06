@@ -1,0 +1,51 @@
+{
+  "storyKey": "MP-10",
+  "storyTitle": "Sorting",
+  "application": "Practice Software Testing",
+  "testLevel": "UAT",
+  "testType": "MANUAL_FUNCTIONAL",
+  "testCases": [
+    {
+      "testCaseId": "TC-001",
+      "scenarioId": "SC-001",
+      "title": "Verify Sorting Dropdown Display",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the product overview page."
+      ],
+      "expectedResults": [
+        "The sorting dropdown is displayed on the product overview page."
+      ]
+    },
+    {
+      "testCaseId": "TC-002",
+      "scenarioId": "SC-002",
+      "title": "Verify Sorting Options in Dropdown",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the product overview page.",
+        "Open the sorting dropdown."
+      ],
+      "expectedResults": [
+        "The sorting dropdown includes options: Name A-Z, Name Z-A, Price High-Low, Price Low-High."
+      ]
+    },
+    {
+      "testCaseId": "TC-003",
+      "scenarioId": "SC-003",
+      "title": "Verify Sorting Products by Selected Option",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the product overview page.",
+        "Open the sorting dropdown.",
+        "Select the 'Price Low-High' option."
+      ],
+      "expectedResults": [
+        "The product grid is reloaded with products sorted by Price Low-High."
+      ]
+    }
+  ]
+}
