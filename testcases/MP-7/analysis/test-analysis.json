@@ -3,39 +3,38 @@
   "storyTitle": "Search",
   "application": "Practice Software Testing",
   "functionalArea": "Search Functionality",
-  "businessGoal": "Enable users to perform searches within the application.",
+  "businessGoal": "To enable users to search for items effectively",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "User can perform a search with a valid keyword."
+      "goal": "User can successfully perform a search with valid input"
     },
     {
       "scenarioId": "SC-002",
       "category": "Negative",
-      "goal": "User receives an appropriate message when searching for an invalid keyword."
+      "goal": "User receives an error message on search with invalid input"
     }
   ],
   "outOfScope": [
-    "Search behavior when no keyword is entered.",
-    "Performance of the search function under load."
+    "Search behavior when no input is provided"
   ],
   "clarifications": [
-    "The story does not specify what happens when no keyword is entered.",
-    "Details regarding error handling for malformed keywords are not provided."
+    "Details needed on how the system handles no results for a search.",
+    "What constitutes valid and invalid search input is not specified."
   ],
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story involves functional testing of search capability, which is a user-interactive feature."
+      "reason": "Functional stories typically involve manual testing for UI interactions."
     },
     "api": {
-      "applicable": false,
-      "reason": "The story does not provide API interaction details for validating search behavior."
+      "applicable": true,
+      "reason": "The search functionality can likely be validated through available API endpoints."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria likely includes browser-specific search interactions, which necessitate UI testing."
+      "reason": "Acceptance criteria for search imply user interaction and UI behavior."
     }
   }
 }
