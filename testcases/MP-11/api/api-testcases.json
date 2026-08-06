@@ -1,17 +1,70 @@
 {
   "storyKey": "MP-11",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T14:36:12.081Z",
+  "generatedAt": "2026-08-06T15:34:18.594Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
     "path": "/products/{productId}",
     "operationId": "getProduct",
-    "confidence": "LOW"
+    "confidence": "HIGH"
   },
-  "warnings": [
-    "The story does not require API tests according to test applicability analysis, as it focuses on UI verification of product details and related products.",
-    "The endpoint supports verifying retrieval of product by ID but does not cover UI behavior such as displaying badges or related product navigation."
-  ],
-  "testCases": []
+  "warnings": [],
+  "testCases": [
+    {
+      "testCaseId": "MP-11-TC-001",
+      "scenarioId": "SC-001",
+      "title": "Verify retrieval of product details for a valid productId",
+      "testType": "Positive",
+      "priority": "High",
+      "preconditions": [],
+      "method": "GET",
+      "path": "/products/1",
+      "requestHeaders": {},
+      "queryParams": {},
+      "requestBody": null,
+      "expectedStatus": 200,
+      "expectedResponseChecks": [
+        {
+          "check": "responseBody",
+          "field": "id",
+          "type": "integer"
+        },
+        {
+          "check": "responseBody",
+          "field": "image",
+          "type": "string"
+        },
+        {
+          "check": "responseBody",
+          "field": "name",
+          "type": "string"
+        },
+        {
+          "check": "responseBody",
+          "field": "description",
+          "type": "string"
+        },
+        {
+          "check": "responseBody",
+          "field": "price",
+          "type": "number"
+        },
+        {
+          "check": "responseBody",
+          "field": "categoryBadge",
+          "type": "string"
+        },
+        {
+          "check": "responseBody",
+          "field": "brandBadge",
+          "type": "string"
+        }
+      ],
+      "contractChecks": [
+        "response schema validation against ProductResponse"
+      ],
+      "notes": "Uses productId=1 from example path parameter for deterministic test"
+    }
+  ]
 }
