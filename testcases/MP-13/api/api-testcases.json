@@ -1,11 +1,11 @@
 {
   "storyKey": "MP-13",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T14:38:26.453Z",
+  "generatedAt": "2026-08-06T15:35:33.458Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": null,
   "warnings": [
-    "No API endpoints related to contact management or contact form functionalities exist in the catalog. The story is explicitly marked as not applicable for API testing and involves UI interactions only."
+    "No API endpoint in the catalog corresponds to a contact form or inquiry submission functionality; the story is strictly UI-focused for contact form display and validation with no backend API support shown."
   ],
   "testCases": []
 }
