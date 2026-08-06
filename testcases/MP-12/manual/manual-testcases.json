@@ -8,32 +8,33 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Display Correct Category Page and Title",
+      "title": "Verify Category Page Display",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the category section of the application.",
+        "Navigate to the product categories.",
         "Click on a category name."
       ],
       "expectedResults": [
-        "The correct category page is displayed.",
-        "The page title matches the clicked category name."
+        "The category page is displayed.",
+        "The correct products related to the selected category are visible.",
+        "The page title reflects the selected category."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Match Filters on Category Page and Product Overview",
+      "title": "Verify Filters Availability on Category Page",
       "priority": "Medium",
       "preconditions": [],
       "steps": [
-        "Navigate to a category page.",
-        "List all available filters on the category page.",
-        "Navigate to the product overview page.",
-        "List all available filters on the product overview page."
+        "Navigate to the category page."
       ],
       "expectedResults": [
-        "All filters available on the category page match those on the product overview."
+        "All category checkboxes are available.",
+        "All brand checkboxes are available.",
+        "The sorting dropdown is available.",
+        "Pagination controls are available."
       ]
     }
   ]
