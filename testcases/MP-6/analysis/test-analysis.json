@@ -2,23 +2,23 @@
   "storyKey": "MP-6",
   "storyTitle": "Pagination",
   "application": "Practice Software Testing",
-  "functionalArea": "Product Display",
-  "businessGoal": "Enable users to navigate through multiple pages of products efficiently.",
+  "functionalArea": "User Interface",
+  "businessGoal": "Enhance product browsing experience with pagination",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that pagination controls are displayed when there are more products than fit on one page."
+      "goal": "Verify that pagination controls are displayed when there are more products than fit on one page"
     },
     {
       "scenarioId": "SC-002",
       "category": "Positive",
-      "goal": "Verify that clicking a page number updates the product grid to show products for that page."
+      "goal": "Verify that clicking a page number updates the product grid to show products for that page"
     },
     {
       "scenarioId": "SC-003",
-      "category": "Validation",
-      "goal": "Ensure that the current page number is visually highlighted after navigating."
+      "category": "Positive",
+      "goal": "Verify that the current page number is visually highlighted after page navigation"
     }
   ],
   "outOfScope": [],
@@ -26,15 +26,15 @@
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story includes user interaction with pagination controls and visual changes."
+      "reason": "The story describes UI behavior that needs to be tested manually."
     },
     "api": {
       "applicable": false,
-      "reason": "The story does not involve any API interaction or validation through APIs."
+      "reason": "There is no indication that pagination behavior can be validated through the API."
     },
     "ui": {
       "applicable": true,
-      "reason": "The story involves visible browser behavior related to pagination controls and product display."
+      "reason": "The acceptance criteria involve visible elements and user interaction with the UI."
     }
   }
 }
