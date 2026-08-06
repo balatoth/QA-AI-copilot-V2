@@ -3,27 +3,27 @@
   "storyTitle": "Contact Form",
   "application": "Practice Software Testing",
   "functionalArea": "Contact Management",
-  "businessGoal": "Enable visitors to reach out for support or inquiries via a contact form.",
+  "businessGoal": "Enable users to send inquiries or support requests through a contact form.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that the contact form is displayed when the contact page is accessed."
+      "goal": "Verify that the contact form is displayed when navigating to the contact page."
     },
     {
       "scenarioId": "SC-002",
       "category": "Positive",
-      "goal": "Verify that all required fields are displayed when the contact form is shown."
+      "goal": "Verify that all required fields are shown on the contact form."
     },
     {
       "scenarioId": "SC-003",
       "category": "Validation",
-      "goal": "Confirm that a validation error is shown for messages with fewer than 50 characters."
+      "goal": "Verify that a validation error is shown when the message is fewer than 50 characters."
     },
     {
       "scenarioId": "SC-004",
       "category": "Positive",
-      "goal": "Ensure that a confirmation message is displayed upon successful submission of the filled contact form."
+      "goal": "Verify that a confirmation message is displayed and the form is hidden upon successful submission of the contact form."
     }
   ],
   "outOfScope": [],
@@ -31,15 +31,15 @@
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story involves user interaction with a form which requires manual testing."
+      "reason": "The story describes visible interactions and behaviors of the contact form."
     },
     "api": {
       "applicable": false,
-      "reason": "The acceptance criteria do not detail any API interactions."
+      "reason": "There is no indication that the behavior can be validated through any available API functionality."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria describe visible behaviors and interactions with the contact form."
+      "reason": "The acceptance criteria detail the UI behavior of form displays and interactions."
     }
   }
 }
