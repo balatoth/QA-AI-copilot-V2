@@ -33,6 +33,11 @@ jobs:
   execute-playwright:
     runs-on: ubuntu-latest
 
+    env:
+      PLAYWRIGHT_DIR: playwright-execution
+      PLAYWRIGHT_TEST_DIR: playwright-execution/tests
+      ARTIFACT_NAME: playwright-${{ inputs.storyKey }}-${{ inputs.executionId }}
+
     steps:
       - name: Checkout requested branch
         uses: actions/checkout@v5
@@ -44,13 +49,69 @@ jobs:
         with:
           node-version: "20"
 
+      # Create the artifact directory before any later step can fail.
+      - name: Initialize Playwright artifact workspace
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mkdir -p \
+            "$PLAYWRIGHT_TEST_DIR" \
+            "$PLAYWRIGHT_DIR/test-results"
+
+          cat > "$PLAYWRIGHT_DIR/workflow-context.json" <<EOF_JSON
+          {
+            "storyKey": "${{ inputs.storyKey }}",
+            "executionId": "${{ inputs.executionId }}",
+            "specPath": "${{ inputs.specPath }}",
+            "branch": "${{ inputs.branch }}",
+            "workflowRunId": "${{ github.run_id }}",
+            "workflowRunAttempt": "${{ github.run_attempt }}",
+            "commitSha": "${{ github.sha }}",
+            "artifactName": "$ARTIFACT_NAME",
+            "createdAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          }
+          EOF_JSON
+
+      # Missing generated specs must become diagnostic results instead of
+      # terminating the workflow before artifact creation.
+      - name: Prepare Playwright spec
+        id: prepare_spec
+        shell: bash
+        run: |
+          set +e
+
+          SPEC_SOURCE="${{ inputs.specPath }}"
+          SPEC_TARGET="$PLAYWRIGHT_TEST_DIR/story.spec.ts"
+
+          if [ -f "$SPEC_SOURCE" ]; then
+            cp "$SPEC_SOURCE" "$SPEC_TARGET"
+            echo "available=true" >> "$GITHUB_OUTPUT"
+            echo "reason=AVAILABLE" >> "$GITHUB_OUTPUT"
+            echo "Prepared spec: $SPEC_SOURCE"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "reason=SPEC_FILE_NOT_FOUND" >> "$GITHUB_OUTPUT"
+            echo "Playwright spec not found: $SPEC_SOURCE"
+          fi
+
+          exit 0
+
       - name: Checkout Practice Software Testing
+        id: checkout_application
+        if: steps.prepare_spec.outputs.available == 'true'
+        continue-on-error: true
         uses: actions/checkout@v5
         with:
           repository: testsmith-io/practice-software-testing
           path: practice-software-testing
 
       - name: Start Practice Software Testing
+        id: start_application
+        if: >-
+          steps.prepare_spec.outputs.available == 'true' &&
+          steps.checkout_application.outcome == 'success'
+        continue-on-error: true
         working-directory: practice-software-testing
         shell: bash
         run: |
@@ -59,6 +120,10 @@ jobs:
             up --pull missing -d
 
       - name: Show running containers
+        if: >-
+          steps.prepare_spec.outputs.available == 'true' &&
+          steps.start_application.outcome == 'success'
+        continue-on-error: true
         working-directory: practice-software-testing
         shell: bash
         run: |
@@ -67,6 +132,11 @@ jobs:
             ps
 
       - name: Wait for Practice Software Testing UI
+        id: wait_for_ui
+        if: >-
+          steps.prepare_spec.outputs.available == 'true' &&
+          steps.start_application.outcome == 'success'
+        continue-on-error: true
         shell: bash
         run: |
           echo "Waiting for UI at http://localhost:4200"
@@ -83,43 +153,62 @@ jobs:
           done
 
           echo "UI did not become ready in time."
-          docker compose \
-            -f practice-software-testing/docker-compose.prod.yml \
-            ps
 
           docker compose \
             -f practice-software-testing/docker-compose.prod.yml \
-            logs --tail=200
+            ps || true
+
+          docker compose \
+            -f practice-software-testing/docker-compose.prod.yml \
+            logs --tail=200 || true
 
           exit 1
 
-      - name: Create Playwright execution workspace
+      # Preserve the existing local-Docker execution model, but support specs
+      # generated from both hosted Sprint 1 and hosted Sprint 2 URLs.
+      - name: Replace hosted application URLs with local Docker URL
+        if: steps.prepare_spec.outputs.available == 'true'
         shell: bash
         run: |
-          mkdir -p playwright-execution/tests
-          cp "${{ inputs.specPath }}" \
-            playwright-execution/tests/story.spec.ts
+          set -euo pipefail
 
-      - name: Replace hosted application URL with local Docker URL
-        shell: bash
-        run: |
+          SPEC_FILE="$PLAYWRIGHT_TEST_DIR/story.spec.ts"
+
           sed -i \
             "s|https://practicesoftwaretesting.com/|http://localhost:4200/|g" \
-            playwright-execution/tests/story.spec.ts
+            "$SPEC_FILE"
 
           sed -i \
             "s|https://testsmith-io.github.io/practice-software-testing/#/|http://localhost:4200/|g" \
-            playwright-execution/tests/story.spec.ts
+            "$SPEC_FILE"
 
-          echo "Execution target:"
-          grep -n "baseUrl" \
-            playwright-execution/tests/story.spec.ts || true
+          sed -i \
+            "s|https://v1.practicesoftwaretesting.com/#/|http://localhost:4200/|g" \
+            "$SPEC_FILE"
+
+          sed -i \
+            "s|https://v1.practicesoftwaretesting.com/|http://localhost:4200/|g" \
+            "$SPEC_FILE"
+
+          sed -i \
+            "s|https://v2.practicesoftwaretesting.com/#/|http://localhost:4200/|g" \
+            "$SPEC_FILE"
+
+          sed -i \
+            "s|https://v2.practicesoftwaretesting.com/|http://localhost:4200/|g" \
+            "$SPEC_FILE"
+
+          echo "Execution target references:"
+          grep -nE \
+            "baseUrl|page\.goto|practicesoftwaretesting|localhost:4200" \
+            "$SPEC_FILE" || true
 
       - name: Create package.json
+        if: steps.prepare_spec.outputs.available == 'true'
         working-directory: playwright-execution
         shell: bash
         run: |
-          cat > package.json <<'EOF'
+          cat > package.json <<'EOF_JSON'
           {
             "name": "qa-ai-copilot-playwright-execution",
             "private": true,
@@ -130,13 +219,14 @@ jobs:
               "@playwright/test": "^1.55.0"
             }
           }
-          EOF
+          EOF_JSON
 
       - name: Create Playwright configuration
+        if: steps.prepare_spec.outputs.available == 'true'
         working-directory: playwright-execution
         shell: bash
         run: |
-          cat > playwright.config.ts <<'EOF'
+          cat > playwright.config.ts <<'EOF_TS'
           import { defineConfig } from '@playwright/test';
 
           export default defineConfig({
@@ -155,85 +245,227 @@ jobs:
               trace: 'retain-on-failure'
             }
           });
-          EOF
+          EOF_TS
 
       - name: Install dependencies
+        id: install_dependencies
+        if: >-
+          steps.prepare_spec.outputs.available == 'true' &&
+          steps.wait_for_ui.outcome == 'success'
+        continue-on-error: true
         working-directory: playwright-execution
+        shell: bash
         run: npm install
 
       - name: Install Chromium
+        id: install_chromium
+        if: >-
+          steps.prepare_spec.outputs.available == 'true' &&
+          steps.wait_for_ui.outcome == 'success' &&
+          steps.install_dependencies.outcome == 'success'
+        continue-on-error: true
         working-directory: playwright-execution
+        shell: bash
         run: npx playwright install --with-deps chromium
 
       - name: Execute Playwright tests
         id: playwright
-        working-directory: playwright-execution
+        if: >-
+          steps.prepare_spec.outputs.available == 'true' &&
+          steps.wait_for_ui.outcome == 'success' &&
+          steps.install_dependencies.outcome == 'success' &&
+          steps.install_chromium.outcome == 'success'
         continue-on-error: true
+        working-directory: playwright-execution
         shell: bash
         run: |
           set +e
 
           npx playwright test tests/story.spec.ts
+          EXIT_CODE=$?
 
-          exit_code=$?
+          echo "exitCode=$EXIT_CODE" >> "$GITHUB_OUTPUT"
+          echo "Playwright exit code: $EXIT_CODE"
 
-          echo "exitCode=$exit_code" >> "$GITHUB_OUTPUT"
-
+          # Test failures are represented in execution-results.json.
           exit 0
 
-      - name: Ensure results file exists
+      - name: Ensure raw Playwright results exist
         if: always()
         shell: bash
+        env:
+          SPEC_AVAILABLE: ${{ steps.prepare_spec.outputs.available }}
+          SPEC_REASON: ${{ steps.prepare_spec.outputs.reason }}
+          APPLICATION_CHECKOUT_OUTCOME: ${{ steps.checkout_application.outcome }}
+          APPLICATION_START_OUTCOME: ${{ steps.start_application.outcome }}
+          UI_WAIT_OUTCOME: ${{ steps.wait_for_ui.outcome }}
+          DEPENDENCY_INSTALL_OUTCOME: ${{ steps.install_dependencies.outcome }}
+          CHROMIUM_INSTALL_OUTCOME: ${{ steps.install_chromium.outcome }}
+          PLAYWRIGHT_STEP_OUTCOME: ${{ steps.playwright.outcome }}
         run: |
-          mkdir -p playwright-execution
+          set -euo pipefail
 
-          if [ ! -f playwright-execution/playwright-results.json ]; then
-            cat > playwright-execution/playwright-results.json <<EOF
-          {
-            "config": {},
-            "suites": [],
-            "errors": [
+          mkdir -p "$PLAYWRIGHT_DIR"
+
+          if [ -f "$PLAYWRIGHT_DIR/playwright-results.json" ]; then
+            echo "Playwright JSON result already exists."
+            exit 0
+          fi
+
+          node <<'NODE'
+          const fs = require('fs');
+
+          const states = {
+            specAvailable: process.env.SPEC_AVAILABLE || 'false',
+            specReason: process.env.SPEC_REASON || 'UNKNOWN',
+            applicationCheckoutOutcome:
+              process.env.APPLICATION_CHECKOUT_OUTCOME || 'not-run',
+            applicationStartOutcome:
+              process.env.APPLICATION_START_OUTCOME || 'not-run',
+            uiWaitOutcome:
+              process.env.UI_WAIT_OUTCOME || 'not-run',
+            dependencyInstallOutcome:
+              process.env.DEPENDENCY_INSTALL_OUTCOME || 'not-run',
+            chromiumInstallOutcome:
+              process.env.CHROMIUM_INSTALL_OUTCOME || 'not-run',
+            playwrightStepOutcome:
+              process.env.PLAYWRIGHT_STEP_OUTCOME || 'not-run'
+          };
+
+          let message =
+            'Playwright did not create a JSON results file.';
+
+          if (states.specAvailable !== 'true') {
+            message =
+              'The requested Playwright spec file was not found.';
+          } else if (states.applicationCheckoutOutcome !== 'success') {
+            message =
+              'The Practice Software Testing repository could not be checked out.';
+          } else if (states.applicationStartOutcome !== 'success') {
+            message =
+              'The Practice Software Testing Docker environment could not be started.';
+          } else if (states.uiWaitOutcome !== 'success') {
+            message =
+              'The Practice Software Testing UI did not become ready.';
+          } else if (states.dependencyInstallOutcome !== 'success') {
+            message =
+              'Playwright dependencies could not be installed.';
+          } else if (states.chromiumInstallOutcome !== 'success') {
+            message =
+              'Chromium could not be installed.';
+          }
+
+          const result = {
+            config: {},
+            suites: [],
+            errors: [
               {
-                "message": "Playwright did not create a JSON results file."
+                message,
+                states
               }
             ],
-            "stats": {
-              "startTime": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
-              "duration": 0,
-              "expected": 0,
-              "skipped": 0,
-              "unexpected": 1,
-              "flaky": 0
+            stats: {
+              startTime: new Date().toISOString(),
+              duration: 0,
+              expected: 0,
+              skipped: 0,
+              unexpected: 1,
+              flaky: 0
             }
-          }
-          EOF
-          fi
+          };
+
+          fs.writeFileSync(
+            'playwright-execution/playwright-results.json',
+            JSON.stringify(result, null, 2)
+          );
+          NODE
 
       - name: Create execution metadata
         if: always()
         shell: bash
+        env:
+          STORY_KEY: ${{ inputs.storyKey }}
+          EXECUTION_ID: ${{ inputs.executionId }}
+          SPEC_PATH: ${{ inputs.specPath }}
+          BRANCH: ${{ inputs.branch }}
+          WORKFLOW_RUN_ID: ${{ github.run_id }}
+          WORKFLOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+          COMMIT_SHA: ${{ github.sha }}
+          SPEC_AVAILABLE: ${{ steps.prepare_spec.outputs.available }}
+          SPEC_REASON: ${{ steps.prepare_spec.outputs.reason }}
+          APPLICATION_CHECKOUT_OUTCOME: ${{ steps.checkout_application.outcome }}
+          APPLICATION_START_OUTCOME: ${{ steps.start_application.outcome }}
+          UI_WAIT_OUTCOME: ${{ steps.wait_for_ui.outcome }}
+          DEPENDENCY_INSTALL_OUTCOME: ${{ steps.install_dependencies.outcome }}
+          CHROMIUM_INSTALL_OUTCOME: ${{ steps.install_chromium.outcome }}
+          PLAYWRIGHT_STEP_OUTCOME: ${{ steps.playwright.outcome }}
+          PLAYWRIGHT_EXIT_CODE: ${{ steps.playwright.outputs.exitCode }}
         run: |
-          mkdir -p playwright-execution
+          set -euo pipefail
 
-          cat > playwright-execution/execution-metadata.json <<EOF
-          {
-            "storyKey": "${{ inputs.storyKey }}",
-            "executionId": "${{ inputs.executionId }}",
-            "specPath": "${{ inputs.specPath }}",
-            "branch": "${{ inputs.branch }}",
-            "executionApplicationUrl": "http://localhost:4200/",
-            "workflowRunId": "${{ github.run_id }}",
-            "workflowRunAttempt": "${{ github.run_attempt }}",
-            "commitSha": "${{ github.sha }}",
-            "playwrightExitCode": "${{ steps.playwright.outputs.exitCode }}",
-            "completedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          }
-          EOF
+          mkdir -p "$PLAYWRIGHT_DIR"
+
+          node <<'NODE'
+          const fs = require('fs');
+
+          const metadata = {
+            storyKey: process.env.STORY_KEY,
+            executionId: process.env.EXECUTION_ID,
+            specPath: process.env.SPEC_PATH,
+            branch: process.env.BRANCH,
+            executionApplicationUrl: 'http://localhost:4200/',
+            workflowRunId: process.env.WORKFLOW_RUN_ID,
+            workflowRunAttempt: process.env.WORKFLOW_RUN_ATTEMPT,
+            commitSha: process.env.COMMIT_SHA,
+            artifactName: process.env.ARTIFACT_NAME,
+            specAvailable: process.env.SPEC_AVAILABLE === 'true',
+            specReason: process.env.SPEC_REASON || 'UNKNOWN',
+            stepOutcomes: {
+              applicationCheckout:
+                process.env.APPLICATION_CHECKOUT_OUTCOME || 'not-run',
+              applicationStart:
+                process.env.APPLICATION_START_OUTCOME || 'not-run',
+              uiWait:
+                process.env.UI_WAIT_OUTCOME || 'not-run',
+              dependencyInstall:
+                process.env.DEPENDENCY_INSTALL_OUTCOME || 'not-run',
+              chromiumInstall:
+                process.env.CHROMIUM_INSTALL_OUTCOME || 'not-run',
+              playwright:
+                process.env.PLAYWRIGHT_STEP_OUTCOME || 'not-run'
+            },
+            playwrightExitCode:
+              process.env.PLAYWRIGHT_EXIT_CODE || null,
+            completedAt: new Date().toISOString()
+          };
+
+          fs.writeFileSync(
+            'playwright-execution/execution-metadata.json',
+            JSON.stringify(metadata, null, 2)
+          );
+          NODE
 
       - name: Create QA AI Copilot execution results
         if: always()
         shell: bash
+        env:
+          STORY_KEY: ${{ inputs.storyKey }}
+          EXECUTION_ID: ${{ inputs.executionId }}
+          SPEC_PATH: ${{ inputs.specPath }}
+          BRANCH: ${{ inputs.branch }}
+          WORKFLOW_RUN_ID: ${{ github.run_id }}
+          WORKFLOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+          COMMIT_SHA: ${{ github.sha }}
+          PLAYWRIGHT_EXIT_CODE: ${{ steps.playwright.outputs.exitCode }}
+          PLAYWRIGHT_STEP_OUTCOME: ${{ steps.playwright.outcome }}
+          SPEC_AVAILABLE: ${{ steps.prepare_spec.outputs.available }}
+          SPEC_REASON: ${{ steps.prepare_spec.outputs.reason }}
+          UI_WAIT_OUTCOME: ${{ steps.wait_for_ui.outcome }}
+          REPOSITORY_OWNER: ${{ github.repository_owner }}
+          REPOSITORY_NAME: ${{ github.event.repository.name }}
         run: |
+          set -euo pipefail
+
           node <<'NODE'
           const fs = require('fs');
 
@@ -242,7 +474,14 @@ jobs:
           const specPath = process.env.SPEC_PATH;
           const branch = process.env.BRANCH;
           const workflowRunId = process.env.WORKFLOW_RUN_ID;
-          const exitCode = Number(process.env.PLAYWRIGHT_EXIT_CODE || 1);
+
+          const rawExitCode = process.env.PLAYWRIGHT_EXIT_CODE;
+          const exitCode =
+            rawExitCode === undefined ||
+            rawExitCode === null ||
+            rawExitCode === ''
+              ? 1
+              : Number(rawExitCode);
 
           const rawResultsPath =
             'playwright-execution/playwright-results.json';
@@ -273,13 +512,28 @@ jobs:
           const skipped = Number(stats.skipped || 0);
           const flaky = Number(stats.flaky || 0);
 
+          const specAvailable =
+            process.env.SPEC_AVAILABLE === 'true';
+
+          let technicalFailureCategory = null;
+
+          if (!specAvailable) {
+            technicalFailureCategory = 'SPEC_FILE_NOT_FOUND';
+          } else if (process.env.UI_WAIT_OUTCOME !== 'success') {
+            technicalFailureCategory = 'APPLICATION_NOT_READY';
+          } else if (process.env.PLAYWRIGHT_STEP_OUTCOME !== 'success') {
+            technicalFailureCategory = 'PLAYWRIGHT_STEP_NOT_COMPLETED';
+          }
+
           const status =
-            exitCode === 0 && unexpected === 0
+            exitCode === 0 &&
+            unexpected === 0 &&
+            technicalFailureCategory === null
               ? 'COMPLETED'
               : 'FAILED';
 
           const result = {
-            schemaVersion: '0.1.0',
+            schemaVersion: '0.2.0',
             artifactType: 'PLAYWRIGHT_EXECUTION_RESULTS',
             storyKey,
             executionId,
@@ -304,9 +558,20 @@ jobs:
               commitSha: process.env.COMMIT_SHA,
               playwrightExitCode: exitCode
             },
+            technicalFailure: technicalFailureCategory
+              ? {
+                  category: technicalFailureCategory,
+                  specReason:
+                    process.env.SPEC_REASON || null,
+                  uiWaitOutcome:
+                    process.env.UI_WAIT_OUTCOME || null,
+                  playwrightStepOutcome:
+                    process.env.PLAYWRIGHT_STEP_OUTCOME || null
+                }
+              : null,
             summary: {
               expected,
-              passed: Math.max(expected - skipped, 0),
+              passed: expected,
               failed: unexpected,
               skipped,
               flaky,
@@ -324,25 +589,43 @@ jobs:
             JSON.stringify(result, null, 2)
           );
           NODE
-        env:
-          STORY_KEY: ${{ inputs.storyKey }}
-          EXECUTION_ID: ${{ inputs.executionId }}
-          SPEC_PATH: ${{ inputs.specPath }}
-          BRANCH: ${{ inputs.branch }}
-          WORKFLOW_RUN_ID: ${{ github.run_id }}
-          WORKFLOW_RUN_ATTEMPT: ${{ github.run_attempt }}
-          COMMIT_SHA: ${{ github.sha }}
-          PLAYWRIGHT_EXIT_CODE: ${{ steps.playwright.outputs.exitCode }}
-          REPOSITORY_OWNER: ${{ github.repository_owner }}
-          REPOSITORY_NAME: ${{ github.event.repository.name }}
 
-      - name: Persist Playwright execution results
+      # Upload before git persistence and Docker cleanup. The artifact therefore
+      # exists even when git push, cleanup, the application, or the test fails.
+      - name: Upload Playwright execution artifact
+        id: upload_artifact
         if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ env.ARTIFACT_NAME }}
+          path: |
+            playwright-execution/playwright-results.json
+            playwright-execution/execution-results.json
+            playwright-execution/execution-metadata.json
+            playwright-execution/workflow-context.json
+            playwright-execution/test-results/
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Show uploaded artifact details
+        if: always()
+        shell: bash
+        run: |
+          echo "Artifact name: $ARTIFACT_NAME"
+          echo "Artifact ID: ${{ steps.upload_artifact.outputs.artifact-id }}"
+          echo "Artifact URL: ${{ steps.upload_artifact.outputs.artifact-url }}"
+          echo "Artifact digest: ${{ steps.upload_artifact.outputs.artifact-digest }}"
+
+      # Repository persistence is deliberately after artifact upload.
+      - name: Persist Playwright execution results
+        id: persist_results
+        if: always()
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
 
-          RESULTS_SOURCE="playwright-execution/execution-results.json"
+          RESULTS_SOURCE="$PLAYWRIGHT_DIR/execution-results.json"
           RESULTS_TARGET="testcases/${{ inputs.storyKey }}/playwright/execution-results.json"
 
           if [ ! -f "$RESULTS_SOURCE" ]; then
@@ -367,23 +650,15 @@ jobs:
           git commit -m \
             "Update Playwright execution results for ${{ inputs.storyKey }}"
 
+          # Reduce push failures when multiple stories commit concurrently.
+          git pull --rebase origin "${{ inputs.branch }}"
           git push origin "HEAD:${{ inputs.branch }}"
 
-      - name: Upload execution artifacts
-        if: always()
-        uses: actions/upload-artifact@v6
-        with:
-          name: playwright-${{ inputs.storyKey }}-${{ inputs.executionId }}
-          path: |
-            playwright-execution/playwright-results.json
-            playwright-execution/execution-results.json
-            playwright-execution/execution-metadata.json
-            playwright-execution/test-results/
-          if-no-files-found: warn
-          retention-days: 14
-
-      - name: Show Docker logs on failure
-        if: failure()
+      - name: Show Docker logs when application startup failed
+        if: >-
+          always() &&
+          steps.prepare_spec.outputs.available == 'true' &&
+          steps.wait_for_ui.outcome != 'success'
         shell: bash
         run: |
           docker compose \
@@ -398,6 +673,24 @@ jobs:
         if: always()
         shell: bash
         run: |
-          docker compose \
-            -f practice-software-testing/docker-compose.prod.yml \
-            down --volumes || true
+          if [ -f practice-software-testing/docker-compose.prod.yml ]; then
+            docker compose \
+              -f practice-software-testing/docker-compose.prod.yml \
+              down --volumes || true
+          else
+            echo "Docker compose file is unavailable; nothing to stop."
+          fi
+
+      - name: Final artifact validation
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -z "${{ steps.upload_artifact.outputs.artifact-id }}" ]; then
+            echo "Artifact upload did not return an artifact ID."
+            exit 1
+          fi
+
+          echo "Artifact upload confirmed."
+          echo "Persistence outcome: ${{ steps.persist_results.outcome }}"
