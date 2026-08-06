@@ -2,13 +2,13 @@
   "storyKey": "MP-9",
   "storyTitle": "Filtering by Brand",
   "application": "Practice Software Testing",
-  "functionalArea": "Product Filtering",
-  "businessGoal": "Allow users to filter products by brand to enhance search functionality.",
+  "functionalArea": "Product Overview",
+  "businessGoal": "Enable users to filter products by brand for improved navigation and selection.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that the brand filter checkboxes are displayed on the product overview page."
+      "goal": "Verify that brand checkboxes are displayed in the sidebar on the product overview page."
     },
     {
       "scenarioId": "SC-002",
@@ -18,7 +18,7 @@
     {
       "scenarioId": "SC-003",
       "category": "Positive",
-      "goal": "Verify that selecting both categories and brands filters the product grid to show matching products."
+      "goal": "Verify that combining selected categories with selected brands updates the product grid to show only products matching both filters."
     }
   ],
   "outOfScope": [],
@@ -26,15 +26,15 @@
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story involves visible UI elements and user interactions."
+      "reason": "The story describes visible behavior related to the UI , brand filters and product grid."
     },
     "api": {
       "applicable": true,
-      "reason": "The filtering behavior can be validated through the application's API capabilities."
+      "reason": "The behavior of filtering products can likely be validated through the application's API."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria describe visible filter behavior on the product overview page."
+      "reason": "The story mentions UI elements such as checkboxes and the product grid, indicating visibility and user interaction."
     }
   }
 }
