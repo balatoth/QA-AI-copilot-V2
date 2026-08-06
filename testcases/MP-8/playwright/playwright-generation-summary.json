@@ -23,15 +23,19 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": true,
-  "repairAttempt": 1,
+  "repaired": false,
+  "repairAttempt": 0,
   "generatedTestCount": 0,
-  "skippedTestCount": 1,
+  "skippedTestCount": 2,
   "generatedTestCases": [],
   "skippedTestCases": [
     {
       "testCaseId": "TC-001",
-      "reason": "Exact verified evidence missing for safe automation"
+      "reason": "Missing verified evidence required for safe automation."
+    },
+    {
+      "testCaseId": "TC-002",
+      "reason": "Missing verified evidence required for safe automation."
     }
   ],
   "generatedFiles": [],
@@ -41,19 +45,28 @@
   "qualityGate": {
     "status": "PASS",
     "passed": true,
-    "qualityScore": 90,
-    "reason": "No repaired files were provided for review. No issues detected in the submitted artifacts."
+    "qualityScore": 85,
+    "reason": "No Playwright artifacts were generated for this story. Skipped test cases are documented with valid reasons. No generation warnings or errors are present."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
     "manualTestCasesSha": null,
     "analysisPath": "testcases/MP-8/analysis/story-metadata.json",
     "analysisSha": null,
-    "selectorLibraryPath": null,
+    "applicationDiscoveryPath": "executions/MP-5/discovery/PST-HOSTED-SPRINT-2-FULL-APP-001/application-discovery.json",
+    "applicationDiscoverySha": null,
+    "selectorLibraryPath": "executions/MP-5/discovery/PST-HOSTED-SPRINT-2-FULL-APP-001/selector-library.json",
     "selectorLibrarySha": null,
-    "manualTestCaseCount": 3,
-    "selectorCount": 33,
-    "testIdCount": 83
+    "discoveryId": "PST-HOSTED-SPRINT-2-FULL-APP-001",
+    "discoveryScope": "FULL_APP",
+    "environmentId": "hosted-sprint-2",
+    "manualTestCaseCount": 2,
+    "selectorCount": 10,
+    "testIdCount": 0,
+    "pageCount": 5,
+    "routeCount": 5,
+    "productCardCount": 0,
+    "formCount": 0
   },
-  "createdAt": "2026-08-06T14:33:52.159Z"
+  "createdAt": "2026-08-06T18:28:58.277Z"
 }
