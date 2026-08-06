@@ -2,17 +2,17 @@
   "storyKey": "MP-12",
   "artifactType": "playwright",
   "generatorVersion": "v0.4.7.1",
-  "repaired": false,
-  "repairAttempt": 0,
+  "repaired": true,
+  "repairAttempt": 1,
   "reviewStatus": "PASS",
-  "qualityScore": 9,
+  "qualityScore": 90,
   "qualityGate": {
     "status": "PASS",
     "passed": true,
-    "qualityScore": 9,
-    "reason": "The Playwright test compiles and uses Playwright APIs correctly. The test preserves the testCaseId in the test title and has appropriate await usage for assertions. Selectors use data-test attributes, which are generally stable. Assertions are sufficiently strong to verify navigation, page title, and visibility of important product elements. No hard-coded waits or placeholder URLs are present. A minor deduction is for selector specificity, since relying on product-1, product-2, product-3 without further validation of product names or counts may be brittle in larger contexts."
+    "qualityScore": 90,
+    "reason": "The repaired test file is valid TypeScript, uses Playwright APIs correctly, and includes awaited asynchronous assertions. The selectors are role-based and specific, and the test case ID is preserved in the test title. The expected title matches the category page. No critical issues found."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-08-06T14:38:01.134Z"
+  "createdAt": "2026-08-06T18:31:58.610Z"
 }
