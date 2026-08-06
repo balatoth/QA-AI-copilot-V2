@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "artifactType": "STORY_METADATA",
+  "storyKey": "MP-9",
+  "storyTitle": "Filtering by Brand",
+  "source": "JIRA",
+  "storyHash": "0e4beec6a14bee9887d68da641c948652fd96136284fcff720c2afa07483d08f",
+  "priority": "MEDIUM",
+  "status": "TO_DO",
+  "applicationId": "practice-software-testing",
+  "environmentId": "hosted-sprint-2",
+  "generatedByExecutionId": "MP-SPRINT-20260806140331",
+  "lastGeneratedAt": "2026-08-06T14:07:59.118Z"
+}
