@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-5",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T19:42:44.044Z",
+  "generatedAt": "2026-08-06T20:14:48.434Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -10,14 +10,14 @@
     "confidence": "LOW"
   },
   "warnings": [
-    "No endpoints specifically support testing UI product grid display or navigation scenarios.",
-    "The endpoint only provides product data and does not directly validate UI rendering or behavior."
+    "API applicability is marked false in test analysis; endpoints only partially support the test goals indirectly by providing product data.",
+    "No endpoint documents UI navigation or display logic, only product data retrieval."
   ],
   "testCases": [
     {
-      "testCaseId": "MP-5-TC-001",
+      "testCaseId": "TC-MP5-001",
       "scenarioId": "SC-001",
-      "title": "Retrieve all products to verify data availability for product grid",
+      "title": "GET /products returns HTTP 200 and valid product list structure",
       "testType": "Positive",
       "priority": "Medium",
       "preconditions": [],
@@ -28,16 +28,35 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response body contains integer 'current_page'",
-        "response body contains array 'data'",
-        "each item in 'data' contains fields 'name' and 'price'"
+        {
+          "check": "responseBody.current_page is integer"
+        },
+        {
+          "check": "responseBody.data is array"
+        },
+        {
+          "check": "responseBody.from is integer"
+        },
+        {
+          "check": "responseBody.last_page is integer"
+        },
+        {
+          "check": "responseBody.per_page is integer"
+        },
+        {
+          "check": "responseBody.to is integer"
+        },
+        {
+          "check": "responseBody.total is integer"
+        }
       ],
       "contractChecks": [
-        "status code 200",
-        "response content type application/json",
-        "response body matches PaginatedProductResponse schema"
+        "responseContentType is application/json",
+        "method is GET",
+        "path is /products",
+        "responseCode is 200"
       ],
-      "notes": "This test confirms the product data is retrievable, which is necessary but not sufficient to validate UI display scenarios."
+      "notes": "This test verifies that the product list can be successfully retrieved and includes expected pagination fields as per OpenAPI contract."
     }
   ]
 }
