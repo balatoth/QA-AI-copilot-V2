@@ -2,17 +2,17 @@
   "storyKey": "MP-8",
   "artifactType": "playwright",
   "generatorVersion": "v0.4.7.1",
-  "repaired": true,
-  "repairAttempt": 1,
+  "repaired": false,
+  "repairAttempt": 0,
   "reviewStatus": "PASS",
-  "qualityScore": 90,
+  "qualityScore": 85,
   "qualityGate": {
     "status": "PASS",
     "passed": true,
-    "qualityScore": 90,
-    "reason": "No repaired files were provided for review. No issues detected in the submitted artifacts."
+    "qualityScore": 85,
+    "reason": "No Playwright artifacts were generated for this story. Skipped test cases are documented with valid reasons. No generation warnings or errors are present."
   },
   "manualReviewRequired": false,
   "finalStatus": "COMPLETED",
-  "createdAt": "2026-08-06T14:33:52.159Z"
+  "createdAt": "2026-08-06T18:28:58.277Z"
 }
