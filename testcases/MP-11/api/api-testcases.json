@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-11",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T19:46:18.247Z",
+  "generatedAt": "2026-08-06T20:19:02.725Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -9,12 +9,14 @@
     "operationId": "getProduct",
     "confidence": "HIGH"
   },
-  "warnings": [],
+  "warnings": [
+    "The story goals relate mostly to UI validation of product details and related products section, which are not explicitly validated by this API endpoint alone."
+  ],
   "testCases": [
     {
       "testCaseId": "MP-11-TC-001",
       "scenarioId": "SC-001",
-      "title": "Retrieve specific product - verify product detail fields presence",
+      "title": "Verify retrieval of product details with valid productId",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -25,42 +27,13 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        {
-          "check": "exists",
-          "field": "image"
-        },
-        {
-          "check": "exists",
-          "field": "name"
-        },
-        {
-          "check": "exists",
-          "field": "description"
-        },
-        {
-          "check": "exists",
-          "field": "price"
-        },
-        {
-          "check": "exists",
-          "field": "categoryBadge"
-        },
-        {
-          "check": "exists",
-          "field": "brandBadge"
-        }
+        "response JSON shall conform to ProductResponse schema"
       ],
       "contractChecks": [
-        {
-          "type": "statusCode",
-          "expected": 200
-        },
-        {
-          "type": "responseSchema",
-          "schemaRef": "#/components/schemas/ProductResponse"
-        }
+        "status code 200 is returned",
+        "product details including productId=1 are present in response"
       ],
-      "notes": "Uses example productId=1 as per contract example"
+      "notes": "Valid productId is used from contract example to ensure deterministic positive test. This test confirms the endpoint returns product details as per contract."
     }
   ]
 }
