@@ -2,44 +2,42 @@
   "storyKey": "MP-8",
   "storyTitle": "Filtering by Category",
   "application": "Practice Software Testing",
-  "functionalArea": "Filtering",
-  "businessGoal": "Enable users to filter items by category efficiently.",
+  "functionalArea": "Filtering Functionality",
+  "businessGoal": "To allow users to filter items by category for easier navigation and retrieval.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "User successfully filters items by selecting a specific category."
+      "goal": "User can successfully apply a filter to view items from a selected category."
     },
     {
       "scenarioId": "SC-002",
       "category": "Negative",
-      "goal": "User attempts to filter items but selects an invalid category."
+      "goal": "User receives an appropriate message when trying to filter with a non-existent category."
     },
     {
       "scenarioId": "SC-003",
       "category": "Validation",
-      "goal": "Check that the filtering results update correctly when a new category is selected."
+      "goal": "User can reset the filter and view all items."
     }
   ],
-  "outOfScope": [
-    "Filtering by multiple categories",
-    "Resetting filters after selection"
-  ],
+  "outOfScope": [],
   "clarifications": [
-    "No specifications on default filter settings or behavior when no items match the selected category."
+    "There are no details on how multiple categories can be selected or if that functionality exists.",
+    "The impact of clearing filters on the state of the displayed items is not mentioned."
   ],
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story involves user interactions with filter options, which require manual testing."
+      "reason": "The acceptance criteria describe user interaction with filtering functionality."
     },
     "api": {
-      "applicable": false,
-      "reason": "The story does not specify any backend API behavior related to filtering."
+      "applicable": true,
+      "reason": "The business behavior of filtering by category can likely be validated through the API."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria will likely involve visible UI changes related to filtering items."
+      "reason": "The acceptance criteria includes visible user interactions with filtering in the UI."
     }
   }
 }
