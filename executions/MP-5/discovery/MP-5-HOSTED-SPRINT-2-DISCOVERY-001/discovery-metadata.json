@@ -1,0 +1,14 @@
+{
+  "storyKey": "MP-5",
+  "executionId": "MP-5-MP-SPRINT-2-DISCOVERY-001",
+  "discoveryId": "MP-5-HOSTED-SPRINT-2-DISCOVERY-001",
+  "applicationName": "Practice Software Testing",
+  "targetUrl": "https://v2.practicesoftwaretesting.com/#/",
+  "discoveryScope": "SINGLE_PAGE",
+  "branch": "main",
+  "workflowRunId": "31108219384",
+  "workflowRunAttempt": "1",
+  "commitSha": "12ec6a70556a943874098839a523f659590c7212",
+  "discoveryExitCode": "0",
+  "completedAt": "2026-08-06T13:56:23Z"
+}

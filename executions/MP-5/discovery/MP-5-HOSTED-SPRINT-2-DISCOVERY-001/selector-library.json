@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.1",
+  "storyKey": "MP-5",
+  "executionId": "MP-5-MP-SPRINT-2-DISCOVERY-001",
+  "discoveryId": "MP-5-HOSTED-SPRINT-2-DISCOVERY-001",
+  "application": {
+    "name": "Practice Software Testing",
+    "pageTitle": "Just a moment...",
+    "pageUrl": "https://v2.practicesoftwaretesting.com/#/"
+  },
+  "generatedAt": "2026-08-06T13:56:23.281Z",
+  "productDiscovery": {
+    "selectedStrategy": null,
+    "confidence": 0,
+    "productCardCount": 0,
+    "warning": "No product cards discovered: no supported discovery strategy matched validated, uniquely addressable product cards."
+  },
+  "selectors": [],
+  "testIds": [],
+  "components": [],
+  "componentTypes": {
+    "PRODUCT_CARD": {
+      "count": 0,
+      "relationshipModel": "ROOT_WITH_SCOPED_CHILDREN",
+      "availableChildren": []
+    }
+  },
+  "summary": {
+    "selectorCount": 0,
+    "testIdSelectorCount": 0,
+    "componentCount": 0,
+    "productCardCount": 0
+  }
+}

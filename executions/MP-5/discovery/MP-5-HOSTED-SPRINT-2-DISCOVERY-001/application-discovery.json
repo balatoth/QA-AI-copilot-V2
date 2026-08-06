@@ -1,0 +1,247 @@
+{
+  "schemaVersion": "1.1",
+  "storyKey": "MP-5",
+  "executionId": "MP-5-MP-SPRINT-2-DISCOVERY-001",
+  "discoveryId": "MP-5-HOSTED-SPRINT-2-DISCOVERY-001",
+  "application": {
+    "name": "Practice Software Testing",
+    "requestedUrl": "https://v2.practicesoftwaretesting.com/#/",
+    "discoveredUrl": "https://v2.practicesoftwaretesting.com/#/"
+  },
+  "discovery": {
+    "scope": "SINGLE_PAGE",
+    "status": "COMPLETED",
+    "startedAt": "2026-08-06T13:55:49.301Z",
+    "completedAt": "2026-08-06T13:56:23.281Z"
+  },
+  "productDiscovery": {
+    "selectedStrategy": null,
+    "confidence": 0,
+    "productCardCount": 0,
+    "warning": "No product cards discovered: no supported discovery strategy matched validated, uniquely addressable product cards."
+  },
+  "page": {
+    "title": "Just a moment...",
+    "url": "https://v2.practicesoftwaretesting.com/#/",
+    "origin": "https://v2.practicesoftwaretesting.com",
+    "pathname": "/",
+    "hash": "#/",
+    "language": "en-US"
+  },
+  "summary": {
+    "headingCount": 2,
+    "linkCount": 2,
+    "buttonCount": 0,
+    "inputCount": 0,
+    "formCount": 0,
+    "landmarkCount": 2,
+    "imageCount": 1,
+    "tableCount": 0,
+    "listCount": 0,
+    "dialogCount": 0,
+    "dataTestIdCount": 0,
+    "explicitRoleCount": 2,
+    "candidateSelectorCount": 0,
+    "acceptedSelectorCount": 0,
+    "componentCount": 0,
+    "productCardCount": 0
+  },
+  "elements": {
+    "headings": [
+      {
+        "tagName": "h1",
+        "text": "v2.practicesoftwaretesting.com",
+        "id": null,
+        "className": "",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "dataTestAttribute": null,
+        "testIdSelector": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {}
+      },
+      {
+        "tagName": "h2",
+        "text": "Performing security verification",
+        "id": "OcZj4",
+        "className": "RBft2 JxPg0",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "dataTestAttribute": null,
+        "testIdSelector": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "id": "OcZj4",
+          "class": "RBft2 JxPg0"
+        }
+      }
+    ],
+    "links": [
+      {
+        "tagName": "a",
+        "text": "Cloudflare",
+        "id": null,
+        "className": "",
+        "role": null,
+        "ariaLabel": "Cloudflare, opens in a new tab",
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "dataTestAttribute": null,
+        "testIdSelector": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": "https://www.cloudflare.com?utm_source=challenge&utm_campaign=m",
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "rel": "noopener noreferrer",
+          "href": "https://www.cloudflare.com?utm_source=challenge&utm_campaign=m",
+          "target": "_blank",
+          "aria-label": "Cloudflare, opens in a new tab"
+        }
+      },
+      {
+        "tagName": "a",
+        "text": "Privacy",
+        "id": null,
+        "className": "footer-text",
+        "role": null,
+        "ariaLabel": "Privacy, opens in a new tab",
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "dataTestAttribute": null,
+        "testIdSelector": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": "https://www.cloudflare.com/privacypolicy/",
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "target": "_blank",
+          "rel": "noopener noreferrer",
+          "href": "https://www.cloudflare.com/privacypolicy/",
+          "aria-label": "Privacy, opens in a new tab",
+          "class": "footer-text"
+        }
+      }
+    ],
+    "buttons": [],
+    "inputs": [],
+    "forms": [],
+    "landmarks": [
+      {
+        "tagName": "div",
+        "text": "v2.practicesoftwaretesting.com Performing security verification This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot.",
+        "id": null,
+        "className": "main-wrapper ZUSR4",
+        "role": "main",
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "dataTestAttribute": null,
+        "testIdSelector": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "class": "main-wrapper ZUSR4",
+          "role": "main"
+        }
+      },
+      {
+        "tagName": "div",
+        "text": "Ray ID: a26e8a9e4daaf37f Performance and Security by Cloudflare Privacy",
+        "id": null,
+        "className": "footer",
+        "role": "contentinfo",
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "dataTestAttribute": null,
+        "testIdSelector": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "class": "footer",
+          "role": "contentinfo"
+        }
+      }
+    ],
+    "images": [
+      {
+        "tagName": "img",
+        "text": "",
+        "id": null,
+        "className": "czPB7",
+        "role": null,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "dataTestId": null,
+        "dataTestAttribute": null,
+        "testIdSelector": null,
+        "name": null,
+        "type": null,
+        "placeholder": null,
+        "href": null,
+        "title": null,
+        "visible": true,
+        "attributes": {
+          "src": "/favicon.ico",
+          "class": "czPB7",
+          "alt": "Icon for v2.practicesoftwaretesting.com"
+        }
+      }
+    ],
+    "tables": [],
+    "lists": [],
+    "dialogs": []
+  },
+  "components": {
+    "productCards": []
+  },
+  "selectorDiscovery": {
+    "dataTestIds": [],
+    "explicitRoles": [
+      "main",
+      "contentinfo"
+    ],
+    "candidates": [],
+    "acceptedCandidates": []
+  },
+  "accessibility": {
+    "snapshot": "- main:\n  - img \"Icon for v2.practicesoftwaretesting.com\"\n  - heading \"v2.practicesoftwaretesting.com\" [level=1]\n  - heading \"Performing security verification\" [level=2]\n  - paragraph: This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot.\n- contentinfo:\n  - text: \"Ray ID:\"\n  - code: a26e8a9e4daaf37f\n  - text: Performance and Security by\n  - link \"Cloudflare, opens in a new tab\":\n    - /url: https://www.cloudflare.com?utm_source=challenge&utm_campaign=m\n    - text: Cloudflare\n  - link \"Privacy, opens in a new tab\":\n    - /url: https://www.cloudflare.com/privacypolicy/\n    - text: Privacy"
+  },
+  "artifacts": {
+    "screenshot": "homepage.png",
+    "discoveryJson": "application-discovery.json",
+    "selectorLibrary": "selector-library.json"
+  },
+  "github": {
+    "workflowRunId": "31108219384",
+    "workflowRunAttempt": "1",
+    "commitSha": "12ec6a70556a943874098839a523f659590c7212"
+  }
+}
