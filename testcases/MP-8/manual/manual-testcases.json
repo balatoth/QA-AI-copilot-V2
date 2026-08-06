@@ -1,0 +1,53 @@
+{
+  "storyKey": "MP-8",
+  "storyTitle": "Filtering by Category",
+  "application": "Practice Software Testing",
+  "testLevel": "UAT",
+  "testType": "MANUAL_FUNCTIONAL",
+  "testCases": [
+    {
+      "testCaseId": "TC-001",
+      "scenarioId": "SC-001",
+      "title": "Successful Filtering by Category",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Select a specific category from the filter options.",
+        "Click on the filter button or apply filter."
+      ],
+      "expectedResults": [
+        "Items are displayed that belong to the selected category."
+      ]
+    },
+    {
+      "testCaseId": "TC-002",
+      "scenarioId": "SC-002",
+      "title": "Invalid Category Selection",
+      "priority": "Medium",
+      "preconditions": [],
+      "steps": [
+        "Select an invalid category from the filter options.",
+        "Click on the filter button or apply filter."
+      ],
+      "expectedResults": [
+        "No items are displayed, and an appropriate error message is shown."
+      ]
+    },
+    {
+      "testCaseId": "TC-003",
+      "scenarioId": "SC-003",
+      "title": "Filter Results Update on New Category Selection",
+      "priority": "Medium",
+      "preconditions": [],
+      "steps": [
+        "Select an initial category from the filter options.",
+        "Click on the filter button or apply filter.",
+        "Select a new category from the filter options.",
+        "Click on the filter button or apply filter again."
+      ],
+      "expectedResults": [
+        "Items displayed are updated to reflect only those belonging to the newly selected category."
+      ]
+    }
+  ]
+}
