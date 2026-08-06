@@ -1,20 +1,22 @@
 {
   "storyKey": "MP-12",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T15:34:56.969Z",
+  "generatedAt": "2026-08-06T18:31:33.538Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
     "path": "/products",
     "operationId": "getProducts",
-    "confidence": "MEDIUM"
+    "confidence": "LOW"
   },
-  "warnings": [],
+  "warnings": [
+    "API is used only to get filtered products by category; UI verification of page title and filters is not supported by any endpoint."
+  ],
   "testCases": [
     {
-      "testCaseId": "TC_MP_12_001",
+      "testCaseId": "TC_MP12_001",
       "scenarioId": "SC-001",
-      "title": "Retrieve products filtered by a specific category id",
+      "title": "Retrieve products filtered by a valid category id",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -27,23 +29,16 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        {
-          "check": "response body contains current_page (integer)"
-        },
-        {
-          "check": "response body contains data array with product objects"
-        },
-        {
-          "check": "response body contains total (integer) representing total number of products in category"
-        }
+        "response body contains current_page as integer",
+        "response body contains data as array",
+        "each item in data matches ProductResponse schema",
+        "response body contains total as integer"
       ],
       "contractChecks": [
-        "query parameter by_category is integer",
-        "response code is 200",
-        "response content type is application/json",
-        "response schema matches PaginatedProductResponse"
+        "response status is 200",
+        "response content-type is application/json"
       ],
-      "notes": "No validation of category name or filters as not provided by this endpoint."
+      "notes": "This test verifies the API can filter products by category ID. It does not validate UI page title or filters."
     }
   ]
 }
