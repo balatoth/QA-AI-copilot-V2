@@ -1,0 +1,238 @@
+{
+  "schemaVersion": "0.1.0",
+  "artifactType": "PLAYWRIGHT_EXECUTION_RESULTS",
+  "storyKey": "MP-11",
+  "executionId": "MP-SPRINT-20260806142951",
+  "executionType": "PLAYWRIGHT",
+  "status": "FAILED",
+  "repository": {
+    "owner": "balatoth",
+    "name": "QA-AI-copilot-V2",
+    "branch": "main"
+  },
+  "source": {
+    "specPath": "testcases/MP-11/playwright/product-detail.spec.ts",
+    "rawResultsPath": "playwright-execution/playwright-results.json",
+    "metadataPath": "playwright-execution/execution-metadata.json"
+  },
+  "githubActions": {
+    "workflowRunId": "31111914252",
+    "workflowRunAttempt": "1",
+    "commitSha": "782b7a559e19d3704ad19e38a17933851bc3ab38",
+    "playwrightExitCode": 1
+  },
+  "summary": {
+    "expected": 0,
+    "passed": 0,
+    "failed": 1,
+    "skipped": 0,
+    "flaky": 0,
+    "durationMs": 6655.602
+  },
+  "errors": [],
+  "rawResults": {
+    "config": {
+      "argv": [
+        "/opt/hostedtoolcache/node/20.20.2/x64/bin/node",
+        "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/node_modules/.bin/playwright",
+        "test",
+        "tests/story.spec.ts"
+      ],
+      "configFile": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/playwright.config.ts",
+      "rootDir": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests",
+      "failOnFlakyTests": false,
+      "forbidOnly": false,
+      "fullyParallel": false,
+      "globalSetup": null,
+      "globalTeardown": null,
+      "globalTimeout": 0,
+      "grep": {},
+      "grepInvert": null,
+      "maxFailures": 0,
+      "metadata": {
+        "ci": {
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/782b7a559e19d3704ad19e38a17933851bc3ab38",
+          "commitHash": "782b7a559e19d3704ad19e38a17933851bc3ab38",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/31111914252"
+        },
+        "gitCommit": {
+          "shortHash": "782b7a5",
+          "hash": "782b7a559e19d3704ad19e38a17933851bc3ab38",
+          "subject": "Update execution-results.json for MP-12",
+          "body": "Update execution-results.json for MP-12",
+          "author": {
+            "name": "balatoth",
+            "email": "balazs.toth@yahoo.com",
+            "time": 1786027164000
+          },
+          "committer": {
+            "name": "balatoth",
+            "email": "balazs.toth@yahoo.com",
+            "time": 1786027164000
+          },
+          "branch": "main"
+        },
+        "actualWorkers": 1
+      },
+      "preserveOutput": "always",
+      "projects": [
+        {
+          "outputDir": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results",
+          "repeatEach": 1,
+          "retries": 0,
+          "metadata": {
+            "ci": {
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/782b7a559e19d3704ad19e38a17933851bc3ab38",
+              "commitHash": "782b7a559e19d3704ad19e38a17933851bc3ab38",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/31111914252"
+            },
+            "gitCommit": {
+              "shortHash": "782b7a5",
+              "hash": "782b7a559e19d3704ad19e38a17933851bc3ab38",
+              "subject": "Update execution-results.json for MP-12",
+              "body": "Update execution-results.json for MP-12",
+              "author": {
+                "name": "balatoth",
+                "email": "balazs.toth@yahoo.com",
+                "time": 1786027164000
+              },
+              "committer": {
+                "name": "balatoth",
+                "email": "balazs.toth@yahoo.com",
+                "time": 1786027164000
+              },
+              "branch": "main"
+            },
+            "actualWorkers": 1
+          },
+          "id": "",
+          "name": "",
+          "testDir": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests",
+          "testIgnore": [],
+          "testMatch": [
+            "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+          ],
+          "timeout": 30000
+        }
+      ],
+      "quiet": false,
+      "reporter": [
+        [
+          "json",
+          {
+            "outputFile": "playwright-results.json"
+          }
+        ],
+        [
+          "line",
+          null
+        ]
+      ],
+      "reportSlowTests": {
+        "max": 5,
+        "threshold": 300000
+      },
+      "shard": null,
+      "tags": [],
+      "updateSnapshots": "missing",
+      "updateSourceMethod": "patch",
+      "version": "1.62.1",
+      "workers": 1,
+      "webServer": null
+    },
+    "suites": [
+      {
+        "title": "story.spec.ts",
+        "file": "story.spec.ts",
+        "column": 0,
+        "line": 0,
+        "specs": [
+          {
+            "title": "TC-001: Verify all product information is displayed on the product detail page",
+            "ok": false,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [
+                  {
+                    "workerIndex": 0,
+                    "parallelIndex": 0,
+                    "status": "failed",
+                    "duration": 5568,
+                    "error": {
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test=\"product-name\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"product-name\"]')\u001b[22m\n",
+                      "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test=\"product-name\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"product-name\"]')\u001b[22m\n\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:7:62",
+                      "location": {
+                        "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
+                        "column": 62,
+                        "line": 7
+                      },
+                      "snippet": "\u001b[0m \u001b[90m  5 |\u001b[39m test(\u001b[32m'TC-001: Verify all product information is displayed on the product detail page'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m  6 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[33mBASE_URL\u001b[39m \u001b[33m+\u001b[39m \u001b[32m'/product-detail'\u001b[39m)\u001b[33m;\u001b[39m \u001b[90m// Adjust the path as necessary\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-test=\"product-name\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-test=\"product-price\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m  9 |\u001b[39m     \u001b[90m// Add checks for the other product information selectors as needed\u001b[39m\n \u001b[90m 10 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                    },
+                    "errors": [
+                      {
+                        "location": {
+                          "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
+                          "column": 62,
+                          "line": 7
+                        },
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-test=\"product-name\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"product-name\"]')\u001b[22m\n\n\n   5 | test('TC-001: Verify all product information is displayed on the product detail page', async ({ page }) => {\n   6 |     await page.goto(BASE_URL + '/product-detail'); // Adjust the path as necessary\n>  7 |     await expect(page.locator('[data-test=\"product-name\"]')).toBeVisible();\n     |                                                              ^\n   8 |     await expect(page.locator('[data-test=\"product-price\"]')).toBeVisible();\n   9 |     // Add checks for the other product information selectors as needed\n  10 | });\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:7:62"
+                      }
+                    ],
+                    "stdout": [],
+                    "stderr": [],
+                    "retry": 0,
+                    "startTime": "2026-08-06T14:40:55.268Z",
+                    "annotations": [],
+                    "attachments": [
+                      {
+                        "name": "screenshot",
+                        "contentType": "image/png",
+                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-TC-001-Verify-all-pr-96687--on-the-product-detail-page/test-failed-1.png"
+                      },
+                      {
+                        "name": "error-context",
+                        "contentType": "text/markdown",
+                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-TC-001-Verify-all-pr-96687--on-the-product-detail-page/error-context.md"
+                      },
+                      {
+                        "name": "trace",
+                        "contentType": "application/zip",
+                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-TC-001-Verify-all-pr-96687--on-the-product-detail-page/trace.zip"
+                      }
+                    ],
+                    "errorLocation": {
+                      "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
+                      "column": 62,
+                      "line": 7
+                    }
+                  }
+                ],
+                "status": "unexpected"
+              }
+            ],
+            "id": "92a6e7f2d2460e449614-8c1ca5d2ada747519c12",
+            "file": "story.spec.ts",
+            "line": 5,
+            "column": 5
+          }
+        ]
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "startTime": "2026-08-06T14:40:54.688Z",
+      "duration": 6655.602,
+      "expected": 0,
+      "skipped": 0,
+      "unexpected": 1,
+      "flaky": 0
+    }
+  },
+  "completedAt": "2026-08-06T14:41:01.473Z"
+}
