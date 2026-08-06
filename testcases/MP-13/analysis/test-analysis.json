@@ -3,48 +3,48 @@
   "storyTitle": "Contact Form",
   "application": "Practice Software Testing",
   "functionalArea": "Contact Management",
-  "businessGoal": "Enable visitors to send inquiries and receive support through a contact form.",
+  "businessGoal": "Allow visitors to send messages through a contact form for support or inquiries.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that the contact form is displayed when navigating to the contact page."
+      "goal": "Verify that the contact form is accessible on the contact page."
     },
     {
       "scenarioId": "SC-002",
       "category": "Validation",
-      "goal": "Check that required fields (first name, last name, email, subject, message) are shown in the contact form."
+      "goal": "Verify that all required fields are displayed in the contact form."
     },
     {
       "scenarioId": "SC-003",
       "category": "Validation",
-      "goal": "Verify that the subject dropdown includes the specified options."
+      "goal": "Verify that the subject dropdown contains the specified options."
     },
     {
       "scenarioId": "SC-004",
       "category": "Negative",
-      "goal": "Ensure that a validation error is shown when the message has fewer than 50 characters."
-    },
-    {
-      "scenarioId": "SC-005",
-      "category": "Positive",
-      "goal": "Confirm that a confirmation message is displayed and the form is hidden upon successful submission with valid data."
+      "goal": "Verify that a validation error is shown when a message with fewer than 50 characters is entered."
     }
   ],
-  "outOfScope": [],
-  "clarifications": [],
+  "outOfScope": [
+    "Testing non-required fields or optional features not mentioned in the acceptance criteria.",
+    "Behavior when the contact form is not displayed."
+  ],
+  "clarifications": [
+    "What happens when required fields are filled with invalid data is not specified."
+  ],
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story includes user interface components and interactions that require manual testing."
+      "reason": "The story involves visible changes on the contact page and requires user interaction."
     },
     "api": {
       "applicable": false,
-      "reason": "The story does not mention any API behavior or capability for validating behaviors via API."
+      "reason": "No API capabilities are mentioned for the contact form functionality."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria describe visible browser behaviors and user interactions."
+      "reason": "Acceptance criteria describe visible browser behavior related to the contact form."
     }
   }
 }
