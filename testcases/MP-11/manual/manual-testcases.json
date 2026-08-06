@@ -1,0 +1,49 @@
+{
+  "storyKey": "MP-11",
+  "storyTitle": "Product Detail",
+  "application": "Practice Software Testing",
+  "testLevel": "UAT",
+  "testType": "MANUAL_FUNCTIONAL",
+  "testCases": [
+    {
+      "testCaseId": "TC-001",
+      "scenarioId": "SC-001",
+      "title": "Verify all product information is displayed correctly",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the product detail page."
+      ],
+      "expectedResults": [
+        "The product image, name, description, price, category badge, and brand badge are displayed correctly."
+      ]
+    },
+    {
+      "testCaseId": "TC-002",
+      "scenarioId": "SC-002",
+      "title": "Verify related products section is displayed",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the product detail page."
+      ],
+      "expectedResults": [
+        "The related products section is displayed below the main product information."
+      ]
+    },
+    {
+      "testCaseId": "TC-003",
+      "scenarioId": "SC-003",
+      "title": "Verify related products are clickable",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the product detail page.",
+        "Click on each related product in the related products section."
+      ],
+      "expectedResults": [
+        "Each click navigates to the respective detail page of the related product."
+      ]
+    }
+  ]
+}
