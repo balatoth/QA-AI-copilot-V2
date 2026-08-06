@@ -8,43 +8,40 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Apply Filter to View Items from Selected Category",
+      "title": "Filter by Selected Category",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Select a valid category from the filter options.",
-        "Apply the filter."
+        "Select a valid category from the filter options."
       ],
       "expectedResults": [
-        "Items from the selected category are displayed."
+        "Items corresponding to the selected category are displayed."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Attempt to Filter with a Non-Existent Category",
+      "title": "Filter by Non-Existent Category",
       "priority": "Medium",
       "preconditions": [],
       "steps": [
-        "Select a non-existent category from the filter options.",
-        "Apply the filter."
+        "Select a non-existent category from the filter options."
       ],
       "expectedResults": [
-        "An appropriate message is displayed indicating the category does not exist."
+        "An empty result set is displayed."
       ]
     },
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-003",
-      "title": "Reset Filter to View All Items",
-      "priority": "Medium",
+      "title": "Remove Category Filter",
+      "priority": "High",
       "preconditions": [],
       "steps": [
-        "Apply a filter using a valid category.",
-        "Reset the filter."
+        "Remove the selected category filter."
       ],
       "expectedResults": [
-        "All items are displayed."
+        "The original list of items is displayed."
       ]
     }
   ]
