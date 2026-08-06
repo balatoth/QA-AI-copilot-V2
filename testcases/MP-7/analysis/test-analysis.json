@@ -3,34 +3,40 @@
   "storyTitle": "Search",
   "application": "Practice Software Testing",
   "functionalArea": "Search Functionality",
-  "businessGoal": "To enable users to perform searches",
+  "businessGoal": "Enable users to search for specific content within the application",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "User can perform a search with a valid keyword"
+      "goal": "User successfully performs a search with a valid keyword"
+    },
+    {
+      "scenarioId": "SC-002",
+      "category": "Negative",
+      "goal": "User performs a search with an invalid keyword and receives no results"
+    },
+    {
+      "scenarioId": "SC-003",
+      "category": "Validation",
+      "goal": "User receives appropriate feedback when no search keywords are entered"
     }
   ],
-  "outOfScope": [
-    "Search results presentation",
-    "Search functionality on mobile devices"
-  ],
+  "outOfScope": [],
   "clarifications": [
-    "What happens when a user performs a search with an empty keyword?",
-    "What kind of search results are expected for various types of keywords?"
+    "The acceptance criteria do not specify what happens when the user performs a search with an empty keyword."
   ],
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story involves user interaction with the search feature."
+      "reason": "The story involves a user interaction with the search function."
     },
     "api": {
       "applicable": true,
-      "reason": "Search functionality may be validated through API endpoints related to search."
+      "reason": "The business behavior of search can be validated through API capabilities."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria involves user-visible behavior related to search functionality."
+      "reason": "The acceptance criteria involve direct user interaction and visible results on the UI."
     }
   }
 }
