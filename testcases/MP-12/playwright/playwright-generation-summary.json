@@ -1,0 +1,69 @@
+{
+  "storyKey": "MP-12",
+  "application": {
+    "applicationId": "practice-software-testing",
+    "applicationName": "Practice Software Testing",
+    "environmentId": "hosted-sprint-2",
+    "environmentName": "Hosted Sprint 2",
+    "environmentType": "TEST",
+    "deploymentType": "HOSTED",
+    "ui": {
+      "baseUrl": "https://v2.practicesoftwaretesting.com"
+    },
+    "api": {
+      "baseUrl": "https://api-v2.practicesoftwaretesting.com",
+      "openApiSpec": "https://api-v2.practicesoftwaretesting.com/docs?api-docs",
+      "type": "REST"
+    },
+    "authentication": {
+      "type": "NONE"
+    }
+  },
+  "manualReviewRequired": false,
+  "finalStatus": "COMPLETED",
+  "status": "COMPLETED",
+  "scope": "PLAYWRIGHT_GENERATION",
+  "repaired": false,
+  "repairAttempt": 0,
+  "generatedTestCount": 1,
+  "skippedTestCount": 1,
+  "generatedTestCases": [
+    {
+      "testCaseId": "TC-001",
+      "status": "GENERATED",
+      "filePath": "playwright/browse-products-by-category.spec.ts"
+    }
+  ],
+  "skippedTestCases": [
+    {
+      "testCaseId": "TC-002",
+      "reason": "Required evidence for available filters is missing."
+    }
+  ],
+  "generatedFiles": [
+    "playwright/browse-products-by-category.spec.ts"
+  ],
+  "persistedGeneratedFiles": [
+    "playwright/browse-products-by-category.spec.ts"
+  ],
+  "blockedGeneratedFiles": [],
+  "warnings": [],
+  "qualityGate": {
+    "status": "PASS",
+    "passed": true,
+    "qualityScore": 9,
+    "reason": "The Playwright test artifact is syntactically correct, uses proper async assertions with await, and verifies necessary page elements and page title to confirm correct navigation. The selectors use data-test attributes which are stable and recommended. The test title preserves the testCaseId. There are no compilation or Playwright API usage issues."
+  },
+  "sourceContext": {
+    "manualTestCasesPath": null,
+    "manualTestCasesSha": null,
+    "analysisPath": "testcases/MP-12/analysis/story-metadata.json",
+    "analysisSha": null,
+    "selectorLibraryPath": null,
+    "selectorLibrarySha": null,
+    "manualTestCaseCount": 2,
+    "selectorCount": 33,
+    "testIdCount": 83
+  },
+  "createdAt": "2026-08-06T14:11:19.003Z"
+}
