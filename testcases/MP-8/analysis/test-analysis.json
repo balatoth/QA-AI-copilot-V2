@@ -3,42 +3,35 @@
   "storyTitle": "Filtering by Category",
   "application": "Practice Software Testing",
   "functionalArea": "Filtering",
-  "businessGoal": "Enable users to filter items by category efficiently.",
+  "businessGoal": "Allow users to filter items by different categories to enhance searchability",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "User applies a filter by selecting a category and items are displayed accordingly."
+      "goal": "Users can filter items by a specific category and see relevant results."
     },
     {
       "scenarioId": "SC-002",
       "category": "Negative",
-      "goal": "User attempts to filter by a non-existent category and sees an empty result set."
-    },
-    {
-      "scenarioId": "SC-003",
-      "category": "Validation",
-      "goal": "User removes the category filter and is returned to the original list of items."
+      "goal": "Users do not see any results when filtering by a category with no matching items."
     }
   ],
-  "outOfScope": [
-    "Edge cases for category input not specified in the acceptance criteria."
-  ],
+  "outOfScope": [],
   "clarifications": [
-    "What happens when no category is selected for filtering."
+    "The acceptance criteria do not specify how the filter behaves with no selection or multiple categories."
   ],
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story involves user interaction with filters, which requires manual testing."
+      "reason": "The story involves user interaction with the filter feature which has a UI component."
     },
     "api": {
       "applicable": true,
-      "reason": "The filtering behavior can reasonably be validated through the API."
+      "reason": "The filter functionality can be validated through available API endpoints that provide filtered data."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria involve visible browser behavior related to filtering."
+      "reason": "The filtering by category would involve visible browser behavior and user interaction."
     }
   }
 }
