@@ -1,0 +1,59 @@
+{
+  "storyKey": "MP-8",
+  "application": {
+    "applicationId": "practice-software-testing",
+    "applicationName": "Practice Software Testing",
+    "environmentId": "hosted-sprint-2",
+    "environmentName": "Hosted Sprint 2",
+    "environmentType": "TEST",
+    "deploymentType": "HOSTED",
+    "ui": {
+      "baseUrl": "https://v2.practicesoftwaretesting.com"
+    },
+    "api": {
+      "baseUrl": "https://api-v2.practicesoftwaretesting.com",
+      "openApiSpec": "https://api-v2.practicesoftwaretesting.com/docs?api-docs",
+      "type": "REST"
+    },
+    "authentication": {
+      "type": "NONE"
+    }
+  },
+  "manualReviewRequired": false,
+  "finalStatus": "COMPLETED",
+  "status": "COMPLETED",
+  "scope": "PLAYWRIGHT_GENERATION",
+  "repaired": true,
+  "repairAttempt": 1,
+  "generatedTestCount": 0,
+  "skippedTestCount": 1,
+  "generatedTestCases": [],
+  "skippedTestCases": [
+    {
+      "testCaseId": "TC-001",
+      "reason": "Exact verified evidence missing for safe automation"
+    }
+  ],
+  "generatedFiles": [],
+  "persistedGeneratedFiles": [],
+  "blockedGeneratedFiles": [],
+  "warnings": [],
+  "qualityGate": {
+    "status": "PASS",
+    "passed": true,
+    "qualityScore": 90,
+    "reason": "No repaired files were provided for review. No issues detected in the submitted artifacts."
+  },
+  "sourceContext": {
+    "manualTestCasesPath": null,
+    "manualTestCasesSha": null,
+    "analysisPath": "testcases/MP-8/analysis/story-metadata.json",
+    "analysisSha": null,
+    "selectorLibraryPath": null,
+    "selectorLibrarySha": null,
+    "manualTestCaseCount": 3,
+    "selectorCount": 33,
+    "testIdCount": 83
+  },
+  "createdAt": "2026-08-06T14:33:52.159Z"
+}
