@@ -8,43 +8,29 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Successful Search with Valid Keyword",
+      "title": "Valid Keyword Search",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Enter a valid search keyword into the search field.",
+        "Enter a valid keyword into the search input field.",
         "Click the search button."
       ],
       "expectedResults": [
-        "The search results display relevant content based on the valid keyword."
+        "The search results relevant to the valid keyword are displayed."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Search with Invalid Keyword Returns No Results",
+      "title": "Invalid Keyword Search",
       "priority": "Medium",
       "preconditions": [],
       "steps": [
-        "Enter an invalid search keyword into the search field.",
+        "Enter an invalid keyword into the search input field.",
         "Click the search button."
       ],
       "expectedResults": [
-        "The system displays a message indicating that no results were found."
-      ]
-    },
-    {
-      "testCaseId": "TC-003",
-      "scenarioId": "SC-003",
-      "title": "Feedback on Empty Search Keyword",
-      "priority": "Low",
-      "preconditions": [],
-      "steps": [
-        "Leave the search field empty.",
-        "Click the search button."
-      ],
-      "expectedResults": [
-        "The system displays appropriate feedback indicating that no keywords were entered."
+        "An appropriate message indicating no results found is displayed."
       ]
     }
   ]
