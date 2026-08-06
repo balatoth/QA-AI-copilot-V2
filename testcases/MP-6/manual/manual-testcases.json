@@ -8,43 +8,43 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify pagination controls are displayed",
+      "title": "Verify Pagination Controls are Displayed",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the product listing page with more products than fit on one page."
+        "Navigate to the product display page."
       ],
       "expectedResults": [
-        "Pagination controls are displayed on the screen."
+        "Pagination controls are displayed at the bottom of the product grid."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Verify clicking a page number updates the product grid",
+      "title": "Verify Click on Page Number Updates Product Grid",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the product listing page.",
-        "Click on a specific page number in the pagination controls."
+        "Navigate to the product display page.",
+        "Click on a page number in the pagination controls."
       ],
       "expectedResults": [
-        "The product grid updates to display products corresponding to the selected page."
+        "The product grid updates to show products corresponding to the selected page."
       ]
     },
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-003",
-      "title": "Verify current page number is highlighted",
-      "priority": "High",
+      "title": "Verify Current Page Number Highlighted",
+      "priority": "Medium",
       "preconditions": [],
       "steps": [
-        "Navigate to the product listing page.",
-        "Click on a different page number in the pagination controls."
+        "Navigate to the product display page.",
+        "Click on a page number in the pagination controls.",
+        "Observe the pagination controls."
       ],
       "expectedResults": [
-        "The previously selected page number is no longer highlighted.",
-        "The newly selected page number is visually highlighted."
+        "The current page number is visually highlighted."
       ]
     }
   ]
