@@ -2,34 +2,39 @@
   "storyKey": "MP-5",
   "storyTitle": "Product Overview",
   "application": "Practice Software Testing",
-  "functionalArea": "Product Display",
-  "businessGoal": "Enable visitors to browse and find products efficiently.",
+  "functionalArea": "Product Browsing",
+  "businessGoal": "Allow visitors to efficiently find products of interest",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that the product grid displays correctly with product images, names, and prices."
+      "goal": "Verify that the product grid is displayed with product images, names, and prices."
     },
     {
       "scenarioId": "SC-002",
       "category": "Positive",
-      "goal": "Verify that clicking on a product card navigates to the respective product detail page."
+      "goal": "Verify that clicking on a product card navigates the user to the product detail page."
     }
   ],
-  "outOfScope": [],
-  "clarifications": [],
+  "outOfScope": [
+    "Any behavior related to sorting or filtering is not specified in the acceptance criteria."
+  ],
+  "clarifications": [
+    "The behavior of the product grid when no products are present is not mentioned.",
+    "The functionality for sorting and filtering products is not defined."
+  ],
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story involves visible browser behavior related to product display and navigation."
+      "reason": "The story involves visible behaviors and interactions in the UI."
     },
     "api": {
       "applicable": false,
-      "reason": "The acceptance criteria do not mention any API interactions or data validation through the API."
+      "reason": "The story does not mention any API functionality that relates directly to product browsing and navigation."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria describe visible browser behavior and user interactions with the product overview and details."
+      "reason": "The acceptance criteria describe visible elements in the UI such as product cards and navigation."
     }
   }
 }
