@@ -23,8 +23,8 @@
   "finalStatus": "COMPLETED",
   "status": "COMPLETED",
   "scope": "PLAYWRIGHT_GENERATION",
-  "repaired": false,
-  "repairAttempt": 0,
+  "repaired": true,
+  "repairAttempt": 1,
   "generatedTestCount": 1,
   "skippedTestCount": 1,
   "generatedTestCases": [
@@ -37,7 +37,7 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Missing verified evidence for filter, sorting options, and pagination controls."
+      "reason": "Missing verified evidence required for safe automation."
     }
   ],
   "generatedFiles": [
@@ -51,19 +51,28 @@
   "qualityGate": {
     "status": "PASS",
     "passed": true,
-    "qualityScore": 9,
-    "reason": "The Playwright test compiles and uses Playwright APIs correctly. The test preserves the testCaseId in the test title and has appropriate await usage for assertions. Selectors use data-test attributes, which are generally stable. Assertions are sufficiently strong to verify navigation, page title, and visibility of important product elements. No hard-coded waits or placeholder URLs are present. A minor deduction is for selector specificity, since relying on product-1, product-2, product-3 without further validation of product names or counts may be brittle in larger contexts."
+    "qualityScore": 90,
+    "reason": "The repaired test file is valid TypeScript, uses Playwright APIs correctly, and includes awaited asynchronous assertions. The selectors are role-based and specific, and the test case ID is preserved in the test title. The expected title matches the category page. No critical issues found."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
     "manualTestCasesSha": null,
     "analysisPath": "testcases/MP-12/analysis/story-metadata.json",
     "analysisSha": null,
-    "selectorLibraryPath": null,
+    "applicationDiscoveryPath": "executions/MP-5/discovery/PST-HOSTED-SPRINT-2-FULL-APP-001/application-discovery.json",
+    "applicationDiscoverySha": null,
+    "selectorLibraryPath": "executions/MP-5/discovery/PST-HOSTED-SPRINT-2-FULL-APP-001/selector-library.json",
     "selectorLibrarySha": null,
+    "discoveryId": "PST-HOSTED-SPRINT-2-FULL-APP-001",
+    "discoveryScope": "FULL_APP",
+    "environmentId": "hosted-sprint-2",
     "manualTestCaseCount": 2,
-    "selectorCount": 33,
-    "testIdCount": 83
+    "selectorCount": 10,
+    "testIdCount": 0,
+    "pageCount": 5,
+    "routeCount": 5,
+    "productCardCount": 0,
+    "formCount": 0
   },
-  "createdAt": "2026-08-06T14:38:01.134Z"
+  "createdAt": "2026-08-06T18:31:58.610Z"
 }
