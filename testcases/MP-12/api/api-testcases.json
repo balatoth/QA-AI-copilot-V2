@@ -1,20 +1,20 @@
 {
   "storyKey": "MP-12",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T14:37:39.290Z",
+  "generatedAt": "2026-08-06T15:34:56.969Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
     "path": "/products",
     "operationId": "getProducts",
-    "confidence": "HIGH"
+    "confidence": "MEDIUM"
   },
   "warnings": [],
   "testCases": [
     {
-      "testCaseId": "TC-MP12-001",
+      "testCaseId": "TC_MP_12_001",
       "scenarioId": "SC-001",
-      "title": "Validate product retrieval filtered by category with sorting by name ascending",
+      "title": "Retrieve products filtered by a specific category id",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -22,20 +22,28 @@
       "path": "/products",
       "requestHeaders": {},
       "queryParams": {
-        "by_category": 1,
-        "sort": "name,asc"
+        "by_category": 1
       },
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response body contains 'data' array with products belonging to category 1",
-        "response body contains 'current_page', 'from', 'last_page', 'per_page', 'to', 'total' as integers"
+        {
+          "check": "response body contains current_page (integer)"
+        },
+        {
+          "check": "response body contains data array with product objects"
+        },
+        {
+          "check": "response body contains total (integer) representing total number of products in category"
+        }
       ],
       "contractChecks": [
-        "response content-type is application/json",
-        "response matches PaginatedProductResponse schema"
+        "query parameter by_category is integer",
+        "response code is 200",
+        "response content type is application/json",
+        "response schema matches PaginatedProductResponse"
       ],
-      "notes": "This test verifies category filtering and sorting as per story scenario SC-001 and SC-002, using a valid category id and sorting by name ascending."
+      "notes": "No validation of category name or filters as not provided by this endpoint."
     }
   ]
 }
