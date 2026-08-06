@@ -8,7 +8,7 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify Sorting Dropdown Display",
+      "title": "Verify Sorting Dropdown Visibility",
       "priority": "High",
       "preconditions": [],
       "steps": [
@@ -21,30 +21,29 @@
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Verify Sorting Options in Dropdown",
+      "title": "Verify Sorting Dropdown Options",
       "priority": "High",
       "preconditions": [],
       "steps": [
         "Navigate to the product overview page.",
-        "Open the sorting dropdown."
+        "Locate the sorting dropdown."
       ],
       "expectedResults": [
-        "The sorting dropdown includes options: Name A-Z, Name Z-A, Price High-Low, Price Low-High."
+        "The sorting dropdown includes the options: Name (A - Z), Name (Z - A), Price (High - Low), Price (Low - High)."
       ]
     },
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-003",
-      "title": "Verify Sorting Products by Selected Option",
+      "title": "Verify Product Sorting Functionality",
       "priority": "High",
       "preconditions": [],
       "steps": [
         "Navigate to the product overview page.",
-        "Open the sorting dropdown.",
-        "Select the 'Price Low-High' option."
+        "Select an option from the sorting dropdown."
       ],
       "expectedResults": [
-        "The product grid is reloaded with products sorted by Price Low-High."
+        "The product grid reloads with products ordered according to the selected sort."
       ]
     }
   ]
