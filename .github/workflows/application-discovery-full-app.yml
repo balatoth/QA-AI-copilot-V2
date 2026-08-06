@@ -1,0 +1,313 @@
+name: Application Discovery FULL APP - hosted-sprint-2
+
+run-name: FULL APP discovery - hosted-sprint-2 - ${{ inputs.discoveryId }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      storyKey:
+        description: Reference Jira story key used for repository storage
+        required: true
+        default: MP-5
+        type: string
+
+      executionId:
+        description: QA AI Copilot discovery execution ID
+        required: true
+        default: MP-SPRINT-2-FULL-APP-DISCOVERY-001
+        type: string
+
+      discoveryId:
+        description: Application discovery ID
+        required: true
+        default: PST-HOSTED-SPRINT-2-FULL-APP-001
+        type: string
+
+      applicationName:
+        description: Application name
+        required: true
+        default: Practice Software Testing
+        type: string
+
+      environmentId:
+        description: Application environment ID
+        required: true
+        default: hosted-sprint-2
+        type: string
+
+      targetUrl:
+        description: Root URL to inspect
+        required: true
+        default: https://v2.practicesoftwaretesting.com/#/
+        type: string
+
+      seedRoutes:
+        description: JSON array of safe routes to seed
+        required: true
+        default: '["#/","#/contact","#/category/hand-tools","#/category/power-tools","#/product/1"]'
+        type: string
+
+      maxPages:
+        description: Maximum representative pages to inspect
+        required: true
+        default: '20'
+        type: string
+
+      maxDepth:
+        description: Maximum internal navigation depth
+        required: true
+        default: '3'
+        type: string
+
+      branch:
+        description: Repository branch
+        required: true
+        default: main
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  full-app-discovery:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout QA AI Copilot repository
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.branch }}
+
+      - name: Validate hosted Sprint 2 boundary
+        shell: bash
+        env:
+          ENVIRONMENT_ID: ${{ inputs.environmentId }}
+          TARGET_URL: ${{ inputs.targetUrl }}
+        run: |
+          set -euo pipefail
+
+          if [ "$ENVIRONMENT_ID" != "hosted-sprint-2" ]; then
+            echo "FULL_APP discovery is restricted to hosted-sprint-2."
+            exit 1
+          fi
+
+          case "$TARGET_URL" in
+            https://v2.practicesoftwaretesting.com/*)
+              echo "Validated Sprint 2 target: $TARGET_URL"
+              ;;
+            *)
+              echo "FULL_APP discovery is restricted to https://v2.practicesoftwaretesting.com"
+              exit 1
+              ;;
+          esac
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+
+      - name: Create FULL APP discovery workspace
+        shell: bash
+        run: |
+          set -euo pipefail
+          DISCOVERY_DIR="$GITHUB_WORKSPACE/application-discovery-full-app"
+          mkdir -p "$DISCOVERY_DIR"
+          cd "$DISCOVERY_DIR"
+          npm init -y
+          npm install --save-exact playwright@1.55.0
+
+      - name: Diagnostic target probe
+        continue-on-error: true
+        shell: bash
+        env:
+          TARGET_URL: ${{ inputs.targetUrl }}
+        run: |
+          HTTP_CODE=$(curl \
+            --location \
+            --silent \
+            --output /dev/null \
+            --write-out "%{http_code}" \
+            --user-agent "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120 Safari/537.36" \
+            "$TARGET_URL" || true)
+
+          echo "Diagnostic HTTP response: ${HTTP_CODE:-000}"
+          echo "Playwright will make the authoritative browser-access decision."
+
+      - name: Install Chromium
+        working-directory: ${{ github.workspace }}/application-discovery-full-app
+        shell: bash
+        run: |
+          npx playwright install --with-deps chromium
+
+      - name: Execute bounded FULL APP discovery
+        id: discovery
+        working-directory: ${{ github.workspace }}/application-discovery-full-app
+        shell: bash
+        env:
+          STORY_KEY: ${{ inputs.storyKey }}
+          EXECUTION_ID: ${{ inputs.executionId }}
+          DISCOVERY_ID: ${{ inputs.discoveryId }}
+          APPLICATION_NAME: ${{ inputs.applicationName }}
+          ENVIRONMENT_ID: ${{ inputs.environmentId }}
+          TARGET_URL: ${{ inputs.targetUrl }}
+          SEED_ROUTES: ${{ inputs.seedRoutes }}
+          MAX_PAGES: ${{ inputs.maxPages }}
+          MAX_DEPTH: ${{ inputs.maxDepth }}
+          WORKFLOW_RUN_ID: ${{ github.run_id }}
+          WORKFLOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          set +e
+
+          SCRIPT_SOURCE="$GITHUB_WORKSPACE/tools/discovery/discover-full-app.js"
+
+          if [ ! -f "$SCRIPT_SOURCE" ]; then
+            echo "FULL APP discovery script not found: $SCRIPT_SOURCE"
+            echo "exitCode=1" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          cp "$SCRIPT_SOURCE" ./discover-full-app.js
+          node discover-full-app.js
+          EXIT_CODE=$?
+
+          echo "exitCode=$EXIT_CODE" >> "$GITHUB_OUTPUT"
+          echo "FULL APP discovery exit code: $EXIT_CODE"
+          exit 0
+
+      - name: Ensure diagnostic result exists
+        if: always()
+        shell: bash
+        env:
+          DISCOVERY_EXIT_CODE: ${{ steps.discovery.outputs.exitCode }}
+        run: |
+          DISCOVERY_DIR="$GITHUB_WORKSPACE/application-discovery-full-app"
+          mkdir -p "$DISCOVERY_DIR"
+
+          if [ ! -f "$DISCOVERY_DIR/application-discovery.json" ]; then
+            cat > "$DISCOVERY_DIR/application-discovery.json" <<EOF_JSON
+          {
+            "schemaVersion": "1.2",
+            "artifactType": "APPLICATION_DISCOVERY",
+            "storyKey": "${{ inputs.storyKey }}",
+            "executionId": "${{ inputs.executionId }}",
+            "discoveryId": "${{ inputs.discoveryId }}",
+            "application": {
+              "name": "${{ inputs.applicationName }}",
+              "environmentId": "${{ inputs.environmentId }}",
+              "requestedUrl": "${{ inputs.targetUrl }}"
+            },
+            "discovery": {
+              "scope": "FULL_APP",
+              "strategy": "BOUNDED_ROUTE_CRAWL",
+              "status": "FAILED",
+              "completedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            },
+            "error": {
+              "message": "FULL APP discovery did not create a result file.",
+              "exitCode": "${DISCOVERY_EXIT_CODE:-UNKNOWN}"
+            }
+          }
+          EOF_JSON
+          fi
+
+      - name: Create discovery metadata
+        if: always()
+        shell: bash
+        env:
+          DISCOVERY_EXIT_CODE: ${{ steps.discovery.outputs.exitCode }}
+        run: |
+          DISCOVERY_DIR="$GITHUB_WORKSPACE/application-discovery-full-app"
+
+          cat > "$DISCOVERY_DIR/discovery-metadata.json" <<EOF_JSON
+          {
+            "storyKey": "${{ inputs.storyKey }}",
+            "executionId": "${{ inputs.executionId }}",
+            "discoveryId": "${{ inputs.discoveryId }}",
+            "applicationName": "${{ inputs.applicationName }}",
+            "environmentId": "${{ inputs.environmentId }}",
+            "targetUrl": "${{ inputs.targetUrl }}",
+            "discoveryScope": "FULL_APP",
+            "discoveryStrategy": "BOUNDED_ROUTE_CRAWL",
+            "seedRoutes": ${{ inputs.seedRoutes }},
+            "maxPages": "${{ inputs.maxPages }}",
+            "maxDepth": "${{ inputs.maxDepth }}",
+            "branch": "${{ inputs.branch }}",
+            "workflowRunId": "${{ github.run_id }}",
+            "workflowRunAttempt": "${{ github.run_attempt }}",
+            "commitSha": "${{ github.sha }}",
+            "discoveryExitCode": "${DISCOVERY_EXIT_CODE:-UNKNOWN}",
+            "completedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          }
+          EOF_JSON
+
+      - name: Prepare discovery knowledge for repository
+        if: steps.discovery.outputs.exitCode == '0'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          SOURCE_DIR="$GITHUB_WORKSPACE/application-discovery-full-app"
+          TARGET_DIR="$GITHUB_WORKSPACE/executions/${{ inputs.storyKey }}/discovery/${{ inputs.discoveryId }}"
+
+          mkdir -p "$TARGET_DIR/pages"
+
+          cp "$SOURCE_DIR/application-discovery.json" "$TARGET_DIR/application-discovery.json"
+          cp "$SOURCE_DIR/selector-library.json" "$TARGET_DIR/selector-library.json"
+          cp "$SOURCE_DIR/route-map.json" "$TARGET_DIR/route-map.json"
+          cp "$SOURCE_DIR/discovery-metadata.json" "$TARGET_DIR/discovery-metadata.json"
+
+          if compgen -G "$SOURCE_DIR/pages/*.json" > /dev/null; then
+            cp "$SOURCE_DIR"/pages/*.json "$TARGET_DIR/pages/"
+          fi
+
+          echo "Prepared FULL APP discovery knowledge:"
+          find "$TARGET_DIR" -type f | sort
+
+      - name: Commit FULL APP discovery knowledge
+        if: steps.discovery.outputs.exitCode == '0'
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: Store FULL APP discovery for hosted-sprint-2 - ${{ inputs.discoveryId }}
+          file_pattern: executions/${{ inputs.storyKey }}/discovery/${{ inputs.discoveryId }}
+          branch: ${{ inputs.branch }}
+
+      - name: Show discovery summary
+        if: always()
+        shell: bash
+        run: |
+          DISCOVERY_FILE="$GITHUB_WORKSPACE/application-discovery-full-app/application-discovery.json"
+
+          if [ -f "$DISCOVERY_FILE" ]; then
+            node -e '
+              const fs = require("fs");
+              const value = JSON.parse(fs.readFileSync(process.argv[1], "utf8"));
+              console.log(JSON.stringify({
+                discoveryId: value.discoveryId,
+                environmentId: value.application?.environmentId,
+                requestedUrl: value.application?.requestedUrl,
+                status: value.discovery?.status,
+                scope: value.discovery?.scope,
+                strategy: value.discovery?.strategy,
+                summary: value.summary,
+                routeCount: value.routeMap?.routes?.length,
+                failures: value.routeMap?.failures
+              }, null, 2));
+            ' "$DISCOVERY_FILE"
+          fi
+
+      - name: Upload FULL APP discovery artifacts
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: full-app-discovery-${{ inputs.discoveryId }}
+          path: application-discovery-full-app/
+          if-no-files-found: warn
+          retention-days: 7
+
+      - name: Fail workflow when discovery failed
+        if: ${{ always() && steps.discovery.outputs.exitCode != '0' }}
+        shell: bash
+        run: |
+          echo "FULL APP discovery failed with exit code ${{ steps.discovery.outputs.exitCode }}"
+          exit 1
