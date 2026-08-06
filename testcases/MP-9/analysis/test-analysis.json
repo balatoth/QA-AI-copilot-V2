@@ -2,8 +2,8 @@
   "storyKey": "MP-9",
   "storyTitle": "Filtering by Brand",
   "application": "Practice Software Testing",
-  "functionalArea": "Product Overview",
-  "businessGoal": "Allow users to filter products by brand to improve product discoverability.",
+  "functionalArea": "Product Filtering",
+  "businessGoal": "Allow users to filter products by brand for improved navigation",
   "scenarios": [
     {
       "scenarioId": "SC-001",
@@ -18,7 +18,7 @@
     {
       "scenarioId": "SC-003",
       "category": "Positive",
-      "goal": "Verify that selecting both categories and brands updates the product grid to show products matching both filters."
+      "goal": "Verify that when one or more categories are selected along with one or more brands, the product grid shows only products matching both filters."
     }
   ],
   "outOfScope": [],
@@ -26,15 +26,15 @@
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story involves visible UI interactions and behaviors."
+      "reason": "The story involves user interactions and UI behavior which require manual testing."
     },
     "api": {
-      "applicable": false,
-      "reason": "The story does not specify any API interactions or capabilities."
+      "applicable": true,
+      "reason": "The filtering behavior can be validated through the application's API capabilities."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria describe visible browser behavior and interactions."
+      "reason": "The acceptance criteria describe visible UI behavior related to the brand filter."
     }
   }
 }
