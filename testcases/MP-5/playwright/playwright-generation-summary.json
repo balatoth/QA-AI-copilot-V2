@@ -1,0 +1,60 @@
+{
+  "storyKey": "MP-5",
+  "application": {
+    "applicationId": "practice-software-testing",
+    "applicationName": "Practice Software Testing",
+    "environmentId": "hosted-sprint-2",
+    "environmentName": "Hosted Sprint 2",
+    "environmentType": "TEST",
+    "deploymentType": "HOSTED",
+    "ui": {
+      "baseUrl": "https://v2.practicesoftwaretesting.com"
+    },
+    "api": {
+      "baseUrl": "https://api-v2.practicesoftwaretesting.com",
+      "openApiSpec": "https://api-v2.practicesoftwaretesting.com/docs?api-docs",
+      "type": "REST"
+    },
+    "authentication": {
+      "type": "NONE"
+    }
+  },
+  "manualReviewRequired": false,
+  "finalStatus": "COMPLETED",
+  "status": "COMPLETED",
+  "scope": "PLAYWRIGHT_GENERATION",
+  "repaired": true,
+  "repairAttempt": 1,
+  "generatedTestCount": 1,
+  "skippedTestCount": 0,
+  "generatedTestCases": [
+    "TC-001"
+  ],
+  "skippedTestCases": [],
+  "generatedFiles": [
+    "playwright/product-overview.spec.ts"
+  ],
+  "persistedGeneratedFiles": [
+    "playwright/product-overview.spec.ts"
+  ],
+  "blockedGeneratedFiles": [],
+  "warnings": [],
+  "qualityGate": {
+    "status": "PASS",
+    "passed": true,
+    "qualityScore": 90,
+    "reason": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes awaited assertions. Selectors are specific and scoped properly. The test case ID is preserved in the test title."
+  },
+  "sourceContext": {
+    "manualTestCasesPath": null,
+    "manualTestCasesSha": null,
+    "analysisPath": "testcases/MP-5/analysis/story-metadata.json",
+    "analysisSha": null,
+    "selectorLibraryPath": null,
+    "selectorLibrarySha": null,
+    "manualTestCaseCount": 2,
+    "selectorCount": 33,
+    "testIdCount": 83
+  },
+  "createdAt": "2026-08-06T14:04:56.753Z"
+}
