@@ -8,40 +8,31 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Filter by Selected Category",
+      "title": "Filter items by a specific category",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Select a valid category from the filter options."
+        "Navigate to the filtering section of the application.",
+        "Select a specific category to filter items.",
+        "Click on the 'Apply Filter' button."
       ],
       "expectedResults": [
-        "Items corresponding to the selected category are displayed."
+        "The application displays items relevant to the selected category."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Filter by Non-Existent Category",
+      "title": "Filter items by a category with no matching items",
       "priority": "Medium",
       "preconditions": [],
       "steps": [
-        "Select a non-existent category from the filter options."
+        "Navigate to the filtering section of the application.",
+        "Select a category that is known to have no matching items.",
+        "Click on the 'Apply Filter' button."
       ],
       "expectedResults": [
-        "An empty result set is displayed."
-      ]
-    },
-    {
-      "testCaseId": "TC-003",
-      "scenarioId": "SC-003",
-      "title": "Remove Category Filter",
-      "priority": "High",
-      "preconditions": [],
-      "steps": [
-        "Remove the selected category filter."
-      ],
-      "expectedResults": [
-        "The original list of items is displayed."
+        "The application displays a message indicating that no items match the selected category."
       ]
     }
   ]
