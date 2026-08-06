@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-10",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T14:09:30.715Z",
+  "generatedAt": "2026-08-06T14:35:13.217Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -12,9 +12,9 @@
   "warnings": [],
   "testCases": [
     {
-      "testCaseId": "TC-MP-10-001",
+      "testCaseId": "MP10-TC01",
       "scenarioId": "SC-003",
-      "title": "Verify that selecting the sort option 'name,asc' returns products sorted by name ascending",
+      "title": "Verify products are returned sorted by name ascending using sort parameter",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -28,19 +28,16 @@
       "expectedStatus": 200,
       "expectedResponseChecks": [
         {
-          "checkType": "isArray",
-          "field": "data"
-        },
-        {
-          "checkType": "sortedAsc",
-          "field": "data[].name"
+          "checkType": "Order",
+          "field": "data[].name",
+          "order": "ascending"
         }
       ],
       "contractChecks": [
-        "responseContentType: application/json",
-        "responseSchema: PaginatedProductResponse"
+        "Response must conform to PaginatedProductResponse schema",
+        "Status code 200"
       ],
-      "notes": "Validate that data array is sorted by product name in ascending order as per sort parameter."
+      "notes": "Validates that sorting by 'name,asc' returns a product list ordered by product name ascending."
     }
   ]
 }
