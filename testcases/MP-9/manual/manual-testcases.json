@@ -8,43 +8,44 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify brand filter is displayed on the product overview page",
+      "title": "Verify Brand Checkboxes Displayed in Sidebar",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the product overview page."
+        "Navigate to the product filtering section.",
+        "Observe the sidebar for brand checkboxes."
       ],
       "expectedResults": [
-        "The brand filter is displayed on the product overview page."
+        "Brand checkboxes are displayed correctly in the sidebar."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Verify selecting brand checkboxes updates the product grid",
+      "title": "Verify Product Grid Updates by Selected Brand Checkboxes",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the product overview page.",
-        "Select one or more brand checkboxes."
+        "Select one or more brand checkboxes in the sidebar.",
+        "Observe the product grid."
       ],
       "expectedResults": [
-        "The product grid updates to show only products from the selected brands."
+        "Product grid updates to show only products from the selected brands."
       ]
     },
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-003",
-      "title": "Verify combined filtering by brand and categories",
+      "title": "Verify Product Grid Updates by Selected Categories and Brand Checkboxes",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the product overview page.",
-        "Select one or more brand checkboxes.",
-        "Select one or more category checkboxes."
+        "Select one or more category checkboxes in the sidebar.",
+        "Select one or more brand checkboxes in the sidebar.",
+        "Observe the product grid."
       ],
       "expectedResults": [
-        "The product grid shows only products matching both the selected brands and categories."
+        "Product grid updates to show only products matching both the selected categories and brands."
       ]
     }
   ]
