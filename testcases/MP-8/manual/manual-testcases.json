@@ -8,45 +8,43 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Successful Filtering by Category",
+      "title": "Apply Filter to View Items from Selected Category",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Select a specific category from the filter options.",
-        "Click on the filter button or apply filter."
+        "Select a valid category from the filter options.",
+        "Apply the filter."
       ],
       "expectedResults": [
-        "Items are displayed that belong to the selected category."
+        "Items from the selected category are displayed."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Invalid Category Selection",
+      "title": "Attempt to Filter with a Non-Existent Category",
       "priority": "Medium",
       "preconditions": [],
       "steps": [
-        "Select an invalid category from the filter options.",
-        "Click on the filter button or apply filter."
+        "Select a non-existent category from the filter options.",
+        "Apply the filter."
       ],
       "expectedResults": [
-        "No items are displayed, and an appropriate error message is shown."
+        "An appropriate message is displayed indicating the category does not exist."
       ]
     },
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-003",
-      "title": "Filter Results Update on New Category Selection",
+      "title": "Reset Filter to View All Items",
       "priority": "Medium",
       "preconditions": [],
       "steps": [
-        "Select an initial category from the filter options.",
-        "Click on the filter button or apply filter.",
-        "Select a new category from the filter options.",
-        "Click on the filter button or apply filter again."
+        "Apply a filter using a valid category.",
+        "Reset the filter."
       ],
       "expectedResults": [
-        "Items displayed are updated to reflect only those belonging to the newly selected category."
+        "All items are displayed."
       ]
     }
   ]
