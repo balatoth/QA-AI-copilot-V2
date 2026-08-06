@@ -3,22 +3,22 @@
   "storyTitle": "Sorting",
   "application": "Practice Software Testing",
   "functionalArea": "Product Overview",
-  "businessGoal": "Enable users to sort products by various criteria.",
+  "businessGoal": "Provide users the ability to sort products in the product overview section.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that sorting dropdown is displayed on the product overview page."
+      "goal": "Verify that the sorting dropdown is displayed on the product overview page."
     },
     {
       "scenarioId": "SC-002",
       "category": "Positive",
-      "goal": "Verify that the sort dropdown includes all specified options (Name A-Z, Name Z-A, Price High-Low, Price Low-High)."
+      "goal": "Verify that the sorting dropdown includes the options: Name (A - Z), Name (Z - A), Price (High - Low), Price (Low - High)."
     },
     {
       "scenarioId": "SC-003",
       "category": "Positive",
-      "goal": "Verify that selecting a sort option reloads the product grid with products sorted correctly."
+      "goal": "Verify that selecting a sort option reloads the product grid with products ordered according to the selected sort."
     }
   ],
   "outOfScope": [],
@@ -26,15 +26,15 @@
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story describes UI elements and user interactions that can be tested manually."
+      "reason": "The story describes visible browser behavior related to the sorting functionality."
     },
     "api": {
-      "applicable": false,
-      "reason": "There are no mentions of an API for sorting behavior in the given story."
+      "applicable": true,
+      "reason": "Sorting behavior can potentially be validated through the application's API by checking the order of returned products."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria involve visible browser behaviors and dropdown interactions."
+      "reason": "The acceptance criteria mention UI elements like the sorting dropdown and product grid."
     }
   }
 }
