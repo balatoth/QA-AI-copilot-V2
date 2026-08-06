@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-8",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T15:31:50.562Z",
+  "generatedAt": "2026-08-06T18:28:34.857Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -12,9 +12,9 @@
   "warnings": [],
   "testCases": [
     {
-      "testCaseId": "TC_MP_8_001",
+      "testCaseId": "TC-MP8-001",
       "scenarioId": "SC-001",
-      "title": "Retrieve products filtered by an existing category",
+      "title": "Filter products by a specific category and validate relevant results",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -27,13 +27,13 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "Response body 'data' array items all belong to category with id=1"
+        "Response JSON contains 'data' array",
+        "Each item in 'data' (if any) has 'category_id' equal to 1"
       ],
       "contractChecks": [
-        "Verify response status code is 200",
-        "Verify response body adheres to PaginatedProductResponse schema"
+        "Response follows 'PaginatedProductResponse' schema"
       ],
-      "notes": "Category id 1 is used as an example of an existing category."
+      "notes": "Category ID '1' used as example filter value. Adjust to valid category as needed."
     }
   ]
 }
