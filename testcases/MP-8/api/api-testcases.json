@@ -1,23 +1,20 @@
 {
   "storyKey": "MP-8",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T19:44:25.513Z",
+  "generatedAt": "2026-08-06T20:16:43.790Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
     "path": "/products",
     "operationId": "getProducts",
-    "confidence": "MEDIUM"
+    "confidence": "HIGH"
   },
-  "warnings": [
-    "No explicit error handling on filtering by a non-existing category is specified in the endpoint.",
-    "The story implies filtering of generic 'items', but the endpoint filters only products by category."
-  ],
+  "warnings": [],
   "testCases": [
     {
-      "testCaseId": "TC-MP8-001",
+      "testCaseId": "TC_MP8_SC001_001",
       "scenarioId": "SC-001",
-      "title": "Filter products by an existing category ID",
+      "title": "Verify filtering products by existing category returns products",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -30,18 +27,14 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        {
-          "check": "responseBody",
-          "field": "data",
-          "assertion": "isArray"
-        }
+        "response body data array length > 0",
+        "each product in response data contains category id 1"
       ],
       "contractChecks": [
-        {
-          "check": "responseSchemaValidation"
-        }
+        "response content-type is application/json",
+        "response schema matches PaginatedProductResponse"
       ],
-      "notes": "Assumes category ID 1 exists; verifies successful filtering and valid response schema."
+      "notes": "Use a valid existing category id (e.g., 1) to verify filtering by category."
     }
   ]
 }
