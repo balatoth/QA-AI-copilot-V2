@@ -3,22 +3,22 @@
   "storyTitle": "Product Detail",
   "application": "Practice Software Testing",
   "functionalArea": "Product Information",
-  "businessGoal": "Allow visitors to view full product details.",
+  "businessGoal": "Allow visitors to view full details of a product.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that all product information (image, name, description, price, category badge, brand badge) is displayed correctly on the product detail page."
+      "goal": "Verify that all product information (image, name, description, price, category badge, brand badge) is displayed on the product detail page."
     },
     {
       "scenarioId": "SC-002",
       "category": "Positive",
-      "goal": "Verify that the related products section is displayed below the main product information on the product detail page."
+      "goal": "Verify that the section with related products is shown below the main product information on the product detail page."
     },
     {
       "scenarioId": "SC-003",
       "category": "Positive",
-      "goal": "Verify that each related product in the related products section is clickable and navigates to its respective detail page."
+      "goal": "Verify that each related product is clickable and navigates to its respective detail page."
     }
   ],
   "outOfScope": [],
@@ -26,15 +26,15 @@
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The acceptance criteria describe visible browser behavior and user interaction."
+      "reason": "Functional story requires manual verification of UI elements and interactions."
     },
     "api": {
-      "applicable": true,
-      "reason": "Product details and related products can be validated through the application's API capabilities."
+      "applicable": false,
+      "reason": "The story does not mention API capabilities related to product details."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria involve user interface elements displayed on the product detail page."
+      "reason": "The acceptance criteria describe visible browser behavior and page content."
     }
   }
 }
