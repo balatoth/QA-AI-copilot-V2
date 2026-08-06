@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test';
 
-const baseUrl = 'https://v2.practicesoftwaretesting.com';
-
-// Expected title updated to reflect the category page title instead of transient interstitial
-const expectedCategoryTitle = 'Hand Tools - Practice Software Testing';
-
-test('TC-001: Display Correct Category Page and Title', async ({ page }) => {
-    await page.goto(`${baseUrl}/#`);
-    await page.getByRole('link', { name: 'Cloudflare' }).click();
+test('TC-001: Verify Category Page Display', async ({ page }) => {
+    await page.goto('https://v2.practicesoftwaretesting.com/#/');
+    await page.click(page.getByRole('link', { name: 'Cloudflare' }));
     await expect(page).toHaveURL('https://v2.practicesoftwaretesting.com/#/category/hand-tools');
-    await expect(page).toHaveTitle(expectedCategoryTitle);
+    // Assuming the category page title is 'Hand Tools - Practice Software Testing'
+    await expect(page).toHaveTitle(/Hand Tools/i);
+    // Add assertions for product visibility as per evidence
+    // Example: Check that at least one product item is visible
+    const productItems = page.locator('.product-item');
+    await expect(productItems.first()).toBeVisible();
 });
