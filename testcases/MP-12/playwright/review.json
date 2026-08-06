@@ -3,16 +3,24 @@
   "storyKey": "MP-12",
   "reviewStatus": "PASS",
   "qualityScore": 90,
-  "summary": "The repaired test file is valid TypeScript, uses Playwright APIs correctly, and includes awaited asynchronous assertions. The selectors are role-based and specific, and the test case ID is preserved in the test title. The expected title matches the category page. No critical issues found.",
+  "summary": "The repaired test file is valid TypeScript, uses Playwright APIs correctly, and includes awaited asynchronous assertions. The selectors are reasonable given the context, and the test case ID is preserved in the test title. Minor improvements could be made to selector specificity, but no critical issues were found.",
   "scores": {
     "correctness": 10,
     "selectorQuality": 8,
-    "assertionStrength": 10,
-    "reusability": 8,
+    "assertionStrength": 9,
+    "reusability": 9,
     "maintainability": 9,
     "testDataHandling": 9,
-    "playwrightBestPractices": 10
+    "playwrightBestPractices": 9
   },
-  "issues": [],
+  "issues": [
+    {
+      "severity": "LOW",
+      "category": "Selector Quality",
+      "file": "playwright/browse-products-by-category.spec.ts",
+      "description": "The selector '.product-item' is generic and may not uniquely identify product items if the page structure changes.",
+      "recommendation": "Consider using more specific selectors or data-test attributes to improve selector robustness."
+    }
+  ],
   "recommendations": []
 }
