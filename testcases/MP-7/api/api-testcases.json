@@ -1,0 +1,45 @@
+{
+  "storyKey": "MP-7",
+  "artifactType": "api-testcases",
+  "generatedAt": "2026-08-06T14:06:20.756Z",
+  "testLevel": "SIT_API",
+  "sourceEndpoint": {
+    "method": "GET",
+    "path": "/products/search",
+    "operationId": "searchProduct",
+    "confidence": "HIGH"
+  },
+  "warnings": [],
+  "testCases": [
+    {
+      "testCaseId": "TC-MP7-001",
+      "scenarioId": "SC-001",
+      "title": "Valid search keyword returns relevant product results",
+      "testType": "Positive",
+      "priority": "High",
+      "preconditions": [],
+      "method": "GET",
+      "path": "/products/search",
+      "requestHeaders": {},
+      "queryParams": {
+        "q": "validProductName"
+      },
+      "requestBody": null,
+      "expectedStatus": 200,
+      "expectedResponseChecks": [
+        {
+          "check": "response_body",
+          "field": "data",
+          "type": "array",
+          "notEmpty": true
+        }
+      ],
+      "contractChecks": [
+        "response_code_200",
+        "response_content_type_application/json",
+        "response_schema_PaginatedProductResponse"
+      ],
+      "notes": "Per contract, search keyword is required query parameter 'q'. Valid keyword expected to return results in the 'data' array."
+    }
+  ]
+}
