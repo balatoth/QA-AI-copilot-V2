@@ -2,34 +2,39 @@
   "storyKey": "MP-5",
   "storyTitle": "Product Overview",
   "application": "Practice Software Testing",
-  "functionalArea": "Product Display",
-  "businessGoal": "Allow visitors to efficiently find products of interest through browsing, searching, filtering, and sorting.",
+  "functionalArea": "Product Browsing",
+  "businessGoal": "Enable visitors to efficiently find products of interest through browsing, searching, filtering, and sorting.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Validate that the product grid is displayed with product images, names, and prices."
+      "goal": "Verify that the product grid is displayed with product images, names, and prices."
     },
     {
       "scenarioId": "SC-002",
       "category": "Positive",
-      "goal": "Validate that clicking on a product card navigates to the product detail page."
+      "goal": "Verify that clicking a product card navigates to the product detail page."
     }
   ],
-  "outOfScope": [],
-  "clarifications": [],
+  "outOfScope": [
+    "Testing functionalities of search, filter, and sort as they are not explicitly mentioned in the acceptance criteria."
+  ],
+  "clarifications": [
+    "What happens if there are no products to display in the product grid?",
+    "Are there any performance requirements for loading the product grid?"
+  ],
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story describes visible browser behavior and user interactions."
+      "reason": "The scenarios involve visible browser behavior and user interaction."
     },
     "api": {
-      "applicable": true,
-      "reason": "The product overview behavior can be validated through the application's API capabilities."
+      "applicable": false,
+      "reason": "There are no specified API endpoints or capabilities that validate the product overview behavior."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria describe visible browser content and user interactions."
+      "reason": "The acceptance criteria describe visible UI elements that need to be tested."
     }
   }
 }
