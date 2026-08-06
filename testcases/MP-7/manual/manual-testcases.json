@@ -1,0 +1,37 @@
+{
+  "storyKey": "MP-7",
+  "storyTitle": "Search",
+  "application": "Practice Software Testing",
+  "testLevel": "UAT",
+  "testType": "MANUAL_FUNCTIONAL",
+  "testCases": [
+    {
+      "testCaseId": "TC-001",
+      "scenarioId": "SC-001",
+      "title": "Valid Search Keyword",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Enter a valid search keyword into the search input field.",
+        "Click on the search button."
+      ],
+      "expectedResults": [
+        "The system retrieves and displays relevant search results based on the entered keyword."
+      ]
+    },
+    {
+      "testCaseId": "TC-002",
+      "scenarioId": "SC-002",
+      "title": "Invalid Search Keyword",
+      "priority": "Medium",
+      "preconditions": [],
+      "steps": [
+        "Enter an invalid search keyword into the search input field.",
+        "Click on the search button."
+      ],
+      "expectedResults": [
+        "The system displays no results found message."
+      ]
+    }
+  ]
+}
