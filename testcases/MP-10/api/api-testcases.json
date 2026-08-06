@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-10",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T14:35:13.217Z",
+  "generatedAt": "2026-08-06T15:33:23.080Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -9,35 +9,8 @@
     "operationId": "getProducts",
     "confidence": "HIGH"
   },
-  "warnings": [],
-  "testCases": [
-    {
-      "testCaseId": "MP10-TC01",
-      "scenarioId": "SC-003",
-      "title": "Verify products are returned sorted by name ascending using sort parameter",
-      "testType": "Positive",
-      "priority": "High",
-      "preconditions": [],
-      "method": "GET",
-      "path": "/products",
-      "requestHeaders": {},
-      "queryParams": {
-        "sort": "name,asc"
-      },
-      "requestBody": null,
-      "expectedStatus": 200,
-      "expectedResponseChecks": [
-        {
-          "checkType": "Order",
-          "field": "data[].name",
-          "order": "ascending"
-        }
-      ],
-      "contractChecks": [
-        "Response must conform to PaginatedProductResponse schema",
-        "Status code 200"
-      ],
-      "notes": "Validates that sorting by 'name,asc' returns a product list ordered by product name ascending."
-    }
-  ]
+  "warnings": [
+    "The Jira story MP-10 is not applicable for API test generation as per test applicability: API tests are not applicable because the story does not specify API behavior or validation related to sorting dropdown UI or sorting behavior verification."
+  ],
+  "testCases": []
 }
