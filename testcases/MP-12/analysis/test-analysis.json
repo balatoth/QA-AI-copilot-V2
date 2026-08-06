@@ -3,17 +3,17 @@
   "storyTitle": "Browse Products by Category",
   "application": "Practice Software Testing",
   "functionalArea": "Product Browsing",
-  "businessGoal": "Enable users to find products easily within specific categories.",
+  "businessGoal": "Enable visitors to easily find specific products within categories.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that clicking on a category name displays the corresponding product page and updates the page title."
+      "goal": "Verify that the category page is displayed with the correct products and title when a category name is clicked."
     },
     {
       "scenarioId": "SC-002",
       "category": "Positive",
-      "goal": "Verify that when the category page is displayed, all required filters are available."
+      "goal": "Ensure that the appropriate filters, sorting options, and pagination controls are present on the category page."
     }
   ],
   "outOfScope": [],
@@ -21,15 +21,15 @@
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story involves user interactions and UI components which need to be tested manually."
+      "reason": "The acceptance criteria describe visible browser behavior and user interactions."
     },
     "api": {
-      "applicable": false,
-      "reason": "The story does not specify any behavior that can be validated through an API."
+      "applicable": true,
+      "reason": "The behavior of product categories and related data can be validated via API endpoints."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria specify visible browser behavior and interactions that need testing."
+      "reason": "The acceptance criteria explicitly mention UI elements and page behavior."
     }
   }
 }
