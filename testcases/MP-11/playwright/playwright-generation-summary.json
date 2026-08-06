@@ -1,0 +1,73 @@
+{
+  "storyKey": "MP-11",
+  "application": {
+    "applicationId": "practice-software-testing",
+    "applicationName": "Practice Software Testing",
+    "environmentId": "hosted-sprint-2",
+    "environmentName": "Hosted Sprint 2",
+    "environmentType": "TEST",
+    "deploymentType": "HOSTED",
+    "ui": {
+      "baseUrl": "https://v2.practicesoftwaretesting.com"
+    },
+    "api": {
+      "baseUrl": "https://api-v2.practicesoftwaretesting.com",
+      "openApiSpec": "https://api-v2.practicesoftwaretesting.com/docs?api-docs",
+      "type": "REST"
+    },
+    "authentication": {
+      "type": "NONE"
+    }
+  },
+  "manualReviewRequired": false,
+  "finalStatus": "COMPLETED",
+  "status": "COMPLETED",
+  "scope": "PLAYWRIGHT_GENERATION",
+  "repaired": false,
+  "repairAttempt": 0,
+  "generatedTestCount": 1,
+  "skippedTestCount": 2,
+  "generatedTestCases": [
+    {
+      "testCaseId": "TC-001",
+      "status": "GENERATED",
+      "filePath": "playwright/product-detail.spec.ts"
+    }
+  ],
+  "skippedTestCases": [
+    {
+      "testCaseId": "TC-002",
+      "reason": "No verified evidence for the section with related products being displayed."
+    },
+    {
+      "testCaseId": "TC-003",
+      "reason": "The expected result requires verified destination evidence for each related product."
+    }
+  ],
+  "generatedFiles": [
+    "playwright/product-detail.spec.ts"
+  ],
+  "persistedGeneratedFiles": [
+    "playwright/product-detail.spec.ts"
+  ],
+  "blockedGeneratedFiles": [],
+  "warnings": [],
+  "qualityGate": {
+    "status": "WARNING",
+    "passed": true,
+    "qualityScore": 7,
+    "reason": "The test is syntactically valid and compiles, with correct Playwright usage and proper asynchronous assertions. However, selectors appear generic and partially guessed, and navigation validation is weak as it uses a placeholder path without verifying the correct product's detail page loaded. The test case ID is preserved in the test title, and no hard-coded waits or incorrect API usages are found."
+  },
+  "sourceContext": {
+    "manualTestCasesPath": null,
+    "manualTestCasesSha": null,
+    "analysisPath": "testcases/MP-11/analysis/story-metadata.json",
+    "analysisSha": null,
+    "selectorLibraryPath": null,
+    "selectorLibrarySha": null,
+    "manualTestCaseCount": 3,
+    "selectorCount": 33,
+    "testIdCount": 83
+  },
+  "createdAt": "2026-08-06T14:37:09.297Z"
+}
