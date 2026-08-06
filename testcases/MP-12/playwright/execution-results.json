@@ -1,8 +1,8 @@
 {
-  "schemaVersion": "0.1.0",
+  "schemaVersion": "0.2.0",
   "artifactType": "PLAYWRIGHT_EXECUTION_RESULTS",
   "storyKey": "MP-12",
-  "executionId": "MP-SPRINT-20260806142951",
+  "executionId": "MP-SPRINT-20260806194219",
   "executionType": "PLAYWRIGHT",
   "status": "FAILED",
   "repository": {
@@ -16,18 +16,19 @@
     "metadataPath": "playwright-execution/execution-metadata.json"
   },
   "githubActions": {
-    "workflowRunId": "31112101184",
+    "workflowRunId": "31127147716",
     "workflowRunAttempt": "1",
-    "commitSha": "2da7e190b428e6776196326b3af1206a8ce0ddb5",
+    "commitSha": "042438d6189a371cba3a28bde4a2418b16ab111a",
     "playwrightExitCode": 1
   },
+  "technicalFailure": null,
   "summary": {
     "expected": 0,
     "passed": 0,
     "failed": 1,
     "skipped": 0,
     "flaky": 0,
-    "durationMs": 32316.485000000004
+    "durationMs": 1846.939
   },
   "errors": [],
   "rawResults": {
@@ -51,24 +52,24 @@
       "maxFailures": 0,
       "metadata": {
         "ci": {
-          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/2da7e190b428e6776196326b3af1206a8ce0ddb5",
-          "commitHash": "2da7e190b428e6776196326b3af1206a8ce0ddb5",
-          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/31112101184"
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/042438d6189a371cba3a28bde4a2418b16ab111a",
+          "commitHash": "042438d6189a371cba3a28bde4a2418b16ab111a",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/31127147716"
         },
         "gitCommit": {
-          "shortHash": "2da7e19",
-          "hash": "2da7e190b428e6776196326b3af1206a8ce0ddb5",
-          "subject": "Update Playwright execution analysis for MP-11 - MP-SPRINT-20260806142951",
-          "body": "Update Playwright execution analysis for MP-11 - MP-SPRINT-20260806142951",
+          "shortHash": "042438d",
+          "hash": "042438d6189a371cba3a28bde4a2418b16ab111a",
+          "subject": "Update execution-results.json for MP-12",
+          "body": "Update execution-results.json for MP-12",
           "author": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1786027298000
+            "time": 1786045726000
           },
           "committer": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1786027298000
+            "time": 1786045726000
           },
           "branch": "main"
         },
@@ -82,24 +83,24 @@
           "retries": 0,
           "metadata": {
             "ci": {
-              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/2da7e190b428e6776196326b3af1206a8ce0ddb5",
-              "commitHash": "2da7e190b428e6776196326b3af1206a8ce0ddb5",
-              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/31112101184"
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/042438d6189a371cba3a28bde4a2418b16ab111a",
+              "commitHash": "042438d6189a371cba3a28bde4a2418b16ab111a",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/31127147716"
             },
             "gitCommit": {
-              "shortHash": "2da7e19",
-              "hash": "2da7e190b428e6776196326b3af1206a8ce0ddb5",
-              "subject": "Update Playwright execution analysis for MP-11 - MP-SPRINT-20260806142951",
-              "body": "Update Playwright execution analysis for MP-11 - MP-SPRINT-20260806142951",
+              "shortHash": "042438d",
+              "hash": "042438d6189a371cba3a28bde4a2418b16ab111a",
+              "subject": "Update execution-results.json for MP-12",
+              "body": "Update execution-results.json for MP-12",
               "author": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1786027298000
+                "time": 1786045726000
               },
               "committer": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1786027298000
+                "time": 1786045726000
               },
               "branch": "main"
             },
@@ -148,7 +149,7 @@
         "line": 0,
         "specs": [
           {
-            "title": "TC-001 - Verify category page displays the correct products and title",
+            "title": "TC-001: Verify Category Page Display",
             "ok": false,
             "tags": [],
             "tests": [
@@ -162,55 +163,63 @@
                   {
                     "workerIndex": 0,
                     "parallelIndex": 0,
-                    "status": "timedOut",
-                    "duration": 30230,
+                    "status": "failed",
+                    "duration": 931,
                     "error": {
-                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
-                      "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      "message": "Error: page.click: selector: expected string, got object",
+                      "stack": "Error: page.click: selector: expected string, got object\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:5:16",
+                      "location": {
+                        "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
+                        "column": 16,
+                        "line": 5
+                      },
+                      "snippet": "\u001b[0m \u001b[90m 3 |\u001b[39m test(\u001b[32m'TC-001: Verify Category Page Display'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 4 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'http://localhost:4200/'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'link'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Cloudflare'\u001b[39m }))\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveURL(\u001b[32m'http://localhost:4200/category/hand-tools'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 7 |\u001b[39m     \u001b[90m// Assuming the category page title is 'Hand Tools - Practice Software Testing'\u001b[39m\n \u001b[90m 8 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveTitle(\u001b[35m/Hand Tools/i\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
                     },
                     "errors": [
                       {
-                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                      },
-                      {
                         "location": {
                           "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
-                          "column": 14,
-                          "line": 7
+                          "column": 16,
+                          "line": 5
                         },
-                        "message": "Error: page.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-test=\"nav-hand-tools\"]')\u001b[22m\n\n\n   5 | test('TC-001 - Verify category page displays the correct products and title', async ({ page }) => {\n   6 |   await page.goto(baseURL);\n>  7 |   await page.click('[data-test=\"nav-hand-tools\"]');\n     |              ^\n   8 |\n   9 |   await expect(page).toHaveURL(/\\w+\\/hand-tools/);\n  10 |   await expect(page).toHaveTitle(/Hand Tools/);\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:7:14"
+                        "message": "Error: page.click: selector: expected string, got object\n\n  3 | test('TC-001: Verify Category Page Display', async ({ page }) => {\n  4 |     await page.goto('http://localhost:4200/');\n> 5 |     await page.click(page.getByRole('link', { name: 'Cloudflare' }));\n    |                ^\n  6 |     await expect(page).toHaveURL('http://localhost:4200/category/hand-tools');\n  7 |     // Assuming the category page title is 'Hand Tools - Practice Software Testing'\n  8 |     await expect(page).toHaveTitle(/Hand Tools/i);\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:5:16"
                       }
                     ],
                     "stdout": [],
                     "stderr": [],
                     "retry": 0,
-                    "startTime": "2026-08-06T14:43:23.792Z",
+                    "startTime": "2026-08-06T19:50:13.804Z",
                     "annotations": [],
                     "attachments": [
                       {
                         "name": "screenshot",
                         "contentType": "image/png",
-                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-TC-001---Verify-cate-82435--correct-products-and-title/test-failed-1.png"
+                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-TC-001-Verify-Category-Page-Display/test-failed-1.png"
                       },
                       {
                         "name": "error-context",
                         "contentType": "text/markdown",
-                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-TC-001---Verify-cate-82435--correct-products-and-title/error-context.md"
+                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-TC-001-Verify-Category-Page-Display/error-context.md"
                       },
                       {
                         "name": "trace",
                         "contentType": "application/zip",
-                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-TC-001---Verify-cate-82435--correct-products-and-title/trace.zip"
+                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-TC-001-Verify-Category-Page-Display/trace.zip"
                       }
-                    ]
+                    ],
+                    "errorLocation": {
+                      "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
+                      "column": 16,
+                      "line": 5
+                    }
                   }
                 ],
                 "status": "unexpected"
               }
             ],
-            "id": "92a6e7f2d2460e449614-af7ac5323498f3b11a86",
+            "id": "92a6e7f2d2460e449614-c32ce4d343191e3cb90c",
             "file": "story.spec.ts",
-            "line": 5,
+            "line": 3,
             "column": 5
           }
         ]
@@ -218,13 +227,13 @@
     ],
     "errors": [],
     "stats": {
-      "startTime": "2026-08-06T14:43:23.273Z",
-      "duration": 32316.485000000004,
+      "startTime": "2026-08-06T19:50:13.269Z",
+      "duration": 1846.939,
       "expected": 0,
       "skipped": 0,
       "unexpected": 1,
       "flaky": 0
     }
   },
-  "completedAt": "2026-08-06T14:43:55.690Z"
+  "completedAt": "2026-08-06T19:50:15.250Z"
 }
