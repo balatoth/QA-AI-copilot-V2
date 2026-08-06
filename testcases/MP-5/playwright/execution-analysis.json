@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "0.1.0",
+  "artifactType": "PLAYWRIGHT_EXECUTION_ANALYSIS",
+  "storyKey": "MP-5",
+  "executionId": "MP-SPRINT-20260806140331",
+  "executionType": "PLAYWRIGHT",
+  "status": "FAILED",
+  "summary": "One test failed due to a locator not finding the expected element within the timeout, causing the test to fail.",
+  "rootCauseCategory": "SELECTOR_MISMATCH",
+  "rootCause": "The test failed because the locator '[data-test=\"product-1\"]' did not find any visible element within the 5000ms timeout, indicating a possible mismatch between the selector used in the test and the actual application DOM structure.",
+  "failedTests": [
+    {
+      "testName": "TC-001: Verify product grid is displayed with images, names, and prices",
+      "status": "failed",
+      "errorMessage": "expect(locator('[data-test=\"product-1\"]')).toBeVisible() failed: element(s) not found within 5000ms timeout.",
+      "likelyCause": "Selector '[data-test=\"product-1\"]' does not match any visible element in the application at test runtime.",
+      "recommendation": "Verify that the selector '[data-test=\"product-1\"]' is correct and matches the current application DOM. Check if the element is rendered and visible at the time of the assertion. Update the selector if the application markup has changed or add appropriate waits if the element appears asynchronously."
+    }
+  ],
+  "recommendations": [
+    "Review and validate the selector '[data-test=\"product-1\"]' against the current application UI.",
+    "Check if the application under test is rendering the product grid correctly and the element with data-test='product-1' is present and visible.",
+    "Consider adding explicit waits or increasing timeout if the element appears with delay.",
+    "Investigate recent application changes that might have altered the DOM structure or data-test attributes.",
+    "Review test environment stability to ensure the application loads correctly during test execution."
+  ],
+  "releaseImpact": "High - The failure indicates a critical UI element is not found, which may block further test validations and affect release confidence.",
+  "analyzedAt": "2026-08-06T14:14:30.849Z"
+}
