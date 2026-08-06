@@ -1,0 +1,921 @@
+{
+  "schemaVersion": "0.2.0",
+  "artifactType": "SPRINT_EXECUTION_SUMMARY",
+  "executionId": "MP-SPRINT-20260806142951",
+  "project": {
+    "key": "MP",
+    "name": "MVP-PST"
+  },
+  "sprint": {
+    "id": 2,
+    "name": "MP Sprint 2",
+    "storyCount": 9
+  },
+  "repository": {
+    "owner": "balatoth",
+    "name": "QA-AI-copilot-V2",
+    "branch": "main"
+  },
+  "application": {
+    "applicationId": "practice-software-testing",
+    "applicationName": "Practice Software Testing",
+    "environmentId": "hosted-sprint-2",
+    "environmentName": "Hosted Sprint 2",
+    "environmentType": "TEST",
+    "deploymentType": "HOSTED",
+    "ui": {
+      "baseUrl": "https://v2.practicesoftwaretesting.com"
+    },
+    "api": {
+      "baseUrl": "https://api-v2.practicesoftwaretesting.com",
+      "openApiSpec": "https://api-v2.practicesoftwaretesting.com/docs?api-docs",
+      "type": "REST"
+    },
+    "authentication": {
+      "type": "NONE"
+    }
+  },
+  "status": "COMPLETED",
+  "executionStatus": "FAILED",
+  "scope": "SPRINT_EXECUTION",
+  "summary": {
+    "totalStories": 9,
+    "plannedStories": 9,
+    "completedStories": 9,
+    "passedStories": 0,
+    "notExecutableStories": 0,
+    "blockedStories": 7,
+    "technicalFailedStories": 0,
+    "testFailedStories": 2,
+    "receivedExecutionResults": 9,
+    "plannedStoryKeys": [
+      "MP-5",
+      "MP-6",
+      "MP-7",
+      "MP-8",
+      "MP-9",
+      "MP-10",
+      "MP-11",
+      "MP-12",
+      "MP-13"
+    ],
+    "reportedStoryKeys": [
+      "MP-5",
+      "MP-6",
+      "MP-7",
+      "MP-8",
+      "MP-9",
+      "MP-10",
+      "MP-11",
+      "MP-12",
+      "MP-13"
+    ],
+    "missingStoryKeys": []
+  },
+  "stories": [
+    {
+      "storyKey": "MP-5",
+      "executionId": "MP-SPRINT-20260806142951",
+      "storyIndex": 0,
+      "storyCount": 9,
+      "status": "COMPLETED",
+      "executionStatus": "BLOCKED",
+      "reason": "AUTOMATION_DESIGN_BLOCKED",
+      "scope": "STORY_EXECUTION",
+      "manualExecution": {
+        "applicable": true,
+        "executed": false,
+        "status": "NOT_REPORTED",
+        "reason": "MANUAL_EXECUTION_NOT_REPORTED",
+        "testCount": 2,
+        "artifactPath": "testcases/MP-5/manual/manual-testcases.json"
+      },
+      "apiExecution": {
+        "executionId": "MP-SPRINT-20260806142951",
+        "storyKey": "MP-5",
+        "executionType": "API",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-5/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-5/api/execution-analysis.json",
+        "artifactVersion": null,
+        "repository": {
+          "owner": "balatoth",
+          "name": "QA-AI-copilot-V2",
+          "branch": "main"
+        },
+        "completedAt": "2026-08-06T14:39:24.881Z"
+      },
+      "playwrightExecution": null,
+      "layerAssessments": {
+        "api": {
+          "executionType": "API",
+          "applicable": true,
+          "plannedToExecute": true,
+          "status": "PASSED",
+          "reason": null,
+          "testCount": 1
+        },
+        "playwright": {
+          "executionType": "PLAYWRIGHT",
+          "applicable": true,
+          "plannedToExecute": false,
+          "status": "BLOCKED",
+          "reason": "Playwright generation did not produce executable files.",
+          "testCount": 0
+        }
+      },
+      "plan": {
+        "status": "READY",
+        "reason": null,
+        "layers": {
+          "manual": {
+            "execute": true,
+            "designStatus": "COMPLETED",
+            "reason": null,
+            "testCount": 2,
+            "artifactPath": "testcases/MP-5/manual/manual-testcases.json"
+          },
+          "api": {
+            "execute": true,
+            "designStatus": "COMPLETED",
+            "reason": null,
+            "testCount": 1,
+            "artifactPath": "testcases/MP-5/api/api-testcases.json",
+            "executionResultsPath": "testcases/MP-5/api/execution-results.json",
+            "executionAnalysisPath": "testcases/MP-5/api/execution-analysis.json"
+          },
+          "playwright": {
+            "execute": false,
+            "designStatus": "BLOCKED",
+            "reason": "Playwright generation did not produce executable files.",
+            "testCount": 0,
+            "artifactPath": "testcases/MP-5/playwright/playwright-generation-summary.json",
+            "folderPath": "testcases/MP-5/playwright",
+            "executionResultsPath": null,
+            "executionAnalysisPath": null,
+            "specFiles": [],
+            "specPath": null
+          }
+        },
+        "summary": {
+          "executableLayerCount": 2,
+          "failedLayerCount": 1,
+          "unfinishedLayerCount": 0
+        }
+      }
+    },
+    {
+      "storyKey": "MP-6",
+      "executionId": "MP-SPRINT-20260806142951",
+      "storyIndex": 1,
+      "storyCount": 9,
+      "status": "COMPLETED",
+      "executionStatus": "BLOCKED",
+      "reason": "AUTOMATION_DESIGN_BLOCKED",
+      "scope": "STORY_EXECUTION",
+      "manualExecution": {
+        "applicable": true,
+        "executed": false,
+        "status": "NOT_REPORTED",
+        "reason": "MANUAL_EXECUTION_NOT_REPORTED",
+        "testCount": 3,
+        "artifactPath": "testcases/MP-6/manual/manual-testcases.json"
+      },
+      "apiExecution": {
+        "executionId": "MP-SPRINT-20260806142951",
+        "storyKey": "MP-6",
+        "executionType": "API",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-6/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-6/api/execution-analysis.json",
+        "artifactVersion": null,
+        "repository": {
+          "owner": "balatoth",
+          "name": "QA-AI-copilot-V2",
+          "branch": "main"
+        },
+        "completedAt": "2026-08-06T14:39:24.882Z"
+      },
+      "playwrightExecution": null,
+      "layerAssessments": {
+        "api": {
+          "executionType": "API",
+          "applicable": true,
+          "plannedToExecute": true,
+          "status": "PASSED",
+          "reason": null,
+          "testCount": 1
+        },
+        "playwright": {
+          "executionType": "PLAYWRIGHT",
+          "applicable": true,
+          "plannedToExecute": false,
+          "status": "BLOCKED",
+          "reason": "Playwright generation did not produce executable files.",
+          "testCount": 0
+        }
+      },
+      "plan": {
+        "status": "READY",
+        "reason": null,
+        "layers": {
+          "manual": {
+            "execute": true,
+            "designStatus": "COMPLETED",
+            "reason": null,
+            "testCount": 3,
+            "artifactPath": "testcases/MP-6/manual/manual-testcases.json"
+          },
+          "api": {
+            "execute": true,
+            "designStatus": "COMPLETED",
+            "reason": null,
+            "testCount": 1,
+            "artifactPath": "testcases/MP-6/api/api-testcases.json",
+            "executionResultsPath": "testcases/MP-6/api/execution-results.json",
+            "executionAnalysisPath": "testcases/MP-6/api/execution-analysis.json"
+          },
+          "playwright": {
+            "execute": false,
+            "designStatus": "BLOCKED",
+            "reason": "Playwright generation did not produce executable files.",
+            "testCount": 0,
+            "artifactPath": "testcases/MP-6/playwright/playwright-generation-summary.json",
+            "folderPath": "testcases/MP-6/playwright",
+            "executionResultsPath": null,
+            "executionAnalysisPath": null,
+            "specFiles": [],
+            "specPath": null
+          }
+        },
+        "summary": {
+          "executableLayerCount": 2,
+          "failedLayerCount": 1,
+          "unfinishedLayerCount": 0
+        }
+      }
+    },
+    {
+      "storyKey": "MP-7",
+      "executionId": "MP-SPRINT-20260806142951",
+      "storyIndex": 2,
+      "storyCount": 9,
+      "status": "COMPLETED",
+      "executionStatus": "BLOCKED",
+      "reason": "AUTOMATION_DESIGN_BLOCKED",
+      "scope": "STORY_EXECUTION",
+      "manualExecution": {
+        "applicable": true,
+        "executed": false,
+        "status": "NOT_REPORTED",
+        "reason": "MANUAL_EXECUTION_NOT_REPORTED",
+        "testCount": 1,
+        "artifactPath": "testcases/MP-7/manual/manual-testcases.json"
+      },
+      "apiExecution": {
+        "executionId": "MP-SPRINT-20260806142951",
+        "storyKey": "MP-7",
+        "executionType": "API",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-7/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-7/api/execution-analysis.json",
+        "artifactVersion": null,
+        "repository": {
+          "owner": "balatoth",
+          "name": "QA-AI-copilot-V2",
+          "branch": "main"
+        },
+        "completedAt": "2026-08-06T14:39:24.882Z"
+      },
+      "playwrightExecution": null,
+      "layerAssessments": {
+        "api": {
+          "executionType": "API",
+          "applicable": true,
+          "plannedToExecute": true,
+          "status": "PASSED",
+          "reason": null,
+          "testCount": 1
+        },
+        "playwright": {
+          "executionType": "PLAYWRIGHT",
+          "applicable": true,
+          "plannedToExecute": false,
+          "status": "BLOCKED",
+          "reason": "No Playwright artifacts were generated for story MP-7, and a manual test case TC-001 was skipped due to missing verified evidence. Since there are no artifacts to review or run, the status is FAIL due to absence of any executable test scripts.",
+          "testCount": 0
+        }
+      },
+      "plan": {
+        "status": "READY",
+        "reason": null,
+        "layers": {
+          "manual": {
+            "execute": true,
+            "designStatus": "COMPLETED",
+            "reason": null,
+            "testCount": 1,
+            "artifactPath": "testcases/MP-7/manual/manual-testcases.json"
+          },
+          "api": {
+            "execute": true,
+            "designStatus": "COMPLETED",
+            "reason": null,
+            "testCount": 1,
+            "artifactPath": "testcases/MP-7/api/api-testcases.json",
+            "executionResultsPath": "testcases/MP-7/api/execution-results.json",
+            "executionAnalysisPath": "testcases/MP-7/api/execution-analysis.json"
+          },
+          "playwright": {
+            "execute": false,
+            "designStatus": "BLOCKED",
+            "reason": "No Playwright artifacts were generated for story MP-7, and a manual test case TC-001 was skipped due to missing verified evidence. Since there are no artifacts to review or run, the status is FAIL due to absence of any executable test scripts.",
+            "testCount": 0,
+            "artifactPath": "testcases/MP-7/playwright/playwright-generation-summary.json",
+            "folderPath": "testcases/MP-7/playwright",
+            "executionResultsPath": null,
+            "executionAnalysisPath": null,
+            "specFiles": [],
+            "specPath": null
+          }
+        },
+        "summary": {
+          "executableLayerCount": 2,
+          "failedLayerCount": 1,
+          "unfinishedLayerCount": 0
+        }
+      }
+    },
+    {
+      "storyKey": "MP-8",
+      "executionId": "MP-SPRINT-20260806142951",
+      "storyIndex": 3,
+      "storyCount": 9,
+      "status": "COMPLETED",
+      "executionStatus": "BLOCKED",
+      "reason": "AUTOMATION_DESIGN_BLOCKED",
+      "scope": "STORY_EXECUTION",
+      "manualExecution": {
+        "applicable": true,
+        "executed": false,
+        "status": "NOT_REPORTED",
+        "reason": "MANUAL_EXECUTION_NOT_REPORTED",
+        "testCount": 3,
+        "artifactPath": "testcases/MP-8/manual/manual-testcases.json"
+      },
+      "apiExecution": {
+        "executionId": "MP-SPRINT-20260806142951",
+        "storyKey": "MP-8",
+        "executionType": "API",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-8/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-8/api/execution-analysis.json",
+        "artifactVersion": null,
+        "repository": {
+          "owner": "balatoth",
+          "name": "QA-AI-copilot-V2",
+          "branch": "main"
+        },
+        "completedAt": "2026-08-06T14:39:24.883Z"
+      },
+      "playwrightExecution": null,
+      "layerAssessments": {
+        "api": {
+          "executionType": "API",
+          "applicable": true,
+          "plannedToExecute": true,
+          "status": "PASSED",
+          "reason": null,
+          "testCount": 1
+        },
+        "playwright": {
+          "executionType": "PLAYWRIGHT",
+          "applicable": true,
+          "plannedToExecute": false,
+          "status": "BLOCKED",
+          "reason": "DESIGN_NOT_COMPLETED",
+          "testCount": 0
+        }
+      },
+      "plan": {
+        "status": "READY",
+        "reason": null,
+        "layers": {
+          "manual": {
+            "execute": true,
+            "designStatus": "COMPLETED",
+            "reason": null,
+            "testCount": 3,
+            "artifactPath": "testcases/MP-8/manual/manual-testcases.json"
+          },
+          "api": {
+            "execute": true,
+            "designStatus": "COMPLETED",
+            "reason": null,
+            "testCount": 1,
+            "artifactPath": "testcases/MP-8/api/api-testcases.json",
+            "executionResultsPath": "testcases/MP-8/api/execution-results.json",
+            "executionAnalysisPath": "testcases/MP-8/api/execution-analysis.json"
+          },
+          "playwright": {
+            "execute": false,
+            "designStatus": "NOT_COMPLETED",
+            "reason": "DESIGN_NOT_COMPLETED",
+            "testCount": 0,
+            "artifactPath": "testcases/MP-8/playwright/playwright-generation-summary.json",
+            "folderPath": "testcases/MP-8/playwright",
+            "executionResultsPath": null,
+            "executionAnalysisPath": null,
+            "specFiles": [],
+            "specPath": null
+          }
+        },
+        "summary": {
+          "executableLayerCount": 2,
+          "failedLayerCount": 0,
+          "unfinishedLayerCount": 0
+        }
+      }
+    },
+    {
+      "storyKey": "MP-9",
+      "executionId": "MP-SPRINT-20260806142951",
+      "storyIndex": 4,
+      "storyCount": 9,
+      "status": "COMPLETED",
+      "executionStatus": "BLOCKED",
+      "reason": "AUTOMATION_DESIGN_BLOCKED",
+      "scope": "STORY_EXECUTION",
+      "manualExecution": {
+        "applicable": true,
+        "executed": false,
+        "status": "NOT_REPORTED",
+        "reason": "MANUAL_EXECUTION_NOT_REPORTED",
+        "testCount": 3,
+        "artifactPath": "testcases/MP-9/manual/manual-testcases.json"
+      },
+      "apiExecution": {
+        "executionId": "MP-SPRINT-20260806142951",
+        "storyKey": "MP-9",
+        "executionType": "API",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-9/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-9/api/execution-analysis.json",
+        "artifactVersion": null,
+        "repository": {
+          "owner": "balatoth",
+          "name": "QA-AI-copilot-V2",
+          "branch": "main"
+        },
+        "completedAt": "2026-08-06T14:39:24.883Z"
+      },
+      "playwrightExecution": null,
+      "layerAssessments": {
+        "api": {
+          "executionType": "API",
+          "applicable": true,
+          "plannedToExecute": true,
+          "status": "PASSED",
+          "reason": null,
+          "testCount": 1
+        },
+        "playwright": {
+          "executionType": "PLAYWRIGHT",
+          "applicable": true,
+          "plannedToExecute": false,
+          "status": "BLOCKED",
+          "reason": "No Playwright artifacts were generated for story MP-9, and three manual test cases with verified evidence requirements were skipped. This results in a fail due to lack of executable Playwright tests for the story.",
+          "testCount": 0
+        }
+      },
+      "plan": {
+        "status": "READY",
+        "reason": null,
+        "layers": {
+          "manual": {
+            "execute": true,
+            "designStatus": "COMPLETED",
+            "reason": null,
+            "testCount": 3,
+            "artifactPath": "testcases/MP-9/manual/manual-testcases.json"
+          },
+          "api": {
+            "execute": true,
+            "designStatus": "COMPLETED",
+            "reason": null,
+            "testCount": 1,
+            "artifactPath": "testcases/MP-9/api/api-testcases.json",
+            "executionResultsPath": "testcases/MP-9/api/execution-results.json",
+            "executionAnalysisPath": "testcases/MP-9/api/execution-analysis.json"
+          },
+          "playwright": {
+            "execute": false,
+            "designStatus": "BLOCKED",
+            "reason": "No Playwright artifacts were generated for story MP-9, and three manual test cases with verified evidence requirements were skipped. This results in a fail due to lack of executable Playwright tests for the story.",
+            "testCount": 0,
+            "artifactPath": "testcases/MP-9/playwright/playwright-generation-summary.json",
+            "folderPath": "testcases/MP-9/playwright",
+            "executionResultsPath": null,
+            "executionAnalysisPath": null,
+            "specFiles": [],
+            "specPath": null
+          }
+        },
+        "summary": {
+          "executableLayerCount": 2,
+          "failedLayerCount": 1,
+          "unfinishedLayerCount": 0
+        }
+      }
+    },
+    {
+      "storyKey": "MP-10",
+      "executionId": "MP-SPRINT-20260806142951",
+      "storyIndex": 5,
+      "storyCount": 9,
+      "status": "COMPLETED",
+      "executionStatus": "BLOCKED",
+      "reason": "AUTOMATION_DESIGN_BLOCKED",
+      "scope": "STORY_EXECUTION",
+      "manualExecution": {
+        "applicable": true,
+        "executed": false,
+        "status": "NOT_REPORTED",
+        "reason": "MANUAL_EXECUTION_NOT_REPORTED",
+        "testCount": 3,
+        "artifactPath": "testcases/MP-10/manual/manual-testcases.json"
+      },
+      "apiExecution": {
+        "executionId": "MP-SPRINT-20260806142951",
+        "storyKey": "MP-10",
+        "executionType": "API",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-10/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-10/api/execution-analysis.json",
+        "artifactVersion": null,
+        "repository": {
+          "owner": "balatoth",
+          "name": "QA-AI-copilot-V2",
+          "branch": "main"
+        },
+        "completedAt": "2026-08-06T14:39:24.884Z"
+      },
+      "playwrightExecution": null,
+      "layerAssessments": {
+        "api": {
+          "executionType": "API",
+          "applicable": true,
+          "plannedToExecute": true,
+          "status": "PASSED",
+          "reason": null,
+          "testCount": 1
+        },
+        "playwright": {
+          "executionType": "PLAYWRIGHT",
+          "applicable": true,
+          "plannedToExecute": false,
+          "status": "BLOCKED",
+          "reason": "Playwright generation did not produce executable files.",
+          "testCount": 0
+        }
+      },
+      "plan": {
+        "status": "READY",
+        "reason": null,
+        "layers": {
+          "manual": {
+            "execute": true,
+            "designStatus": "COMPLETED",
+            "reason": null,
+            "testCount": 3,
+            "artifactPath": "testcases/MP-10/manual/manual-testcases.json"
+          },
+          "api": {
+            "execute": true,
+            "designStatus": "COMPLETED",
+            "reason": null,
+            "testCount": 1,
+            "artifactPath": "testcases/MP-10/api/api-testcases.json",
+            "executionResultsPath": "testcases/MP-10/api/execution-results.json",
+            "executionAnalysisPath": "testcases/MP-10/api/execution-analysis.json"
+          },
+          "playwright": {
+            "execute": false,
+            "designStatus": "BLOCKED",
+            "reason": "Playwright generation did not produce executable files.",
+            "testCount": 0,
+            "artifactPath": "testcases/MP-10/playwright/playwright-generation-summary.json",
+            "folderPath": "testcases/MP-10/playwright",
+            "executionResultsPath": null,
+            "executionAnalysisPath": null,
+            "specFiles": [],
+            "specPath": null
+          }
+        },
+        "summary": {
+          "executableLayerCount": 2,
+          "failedLayerCount": 1,
+          "unfinishedLayerCount": 0
+        }
+      }
+    },
+    {
+      "storyKey": "MP-11",
+      "executionId": "MP-SPRINT-20260806142951",
+      "storyIndex": 6,
+      "storyCount": 9,
+      "status": "COMPLETED",
+      "executionStatus": "FAILED",
+      "reason": "AUTOMATED_TEST_FAILURE",
+      "scope": "STORY_EXECUTION",
+      "manualExecution": {
+        "applicable": true,
+        "executed": false,
+        "status": "NOT_REPORTED",
+        "reason": "MANUAL_EXECUTION_NOT_REPORTED",
+        "testCount": 3,
+        "artifactPath": "testcases/MP-11/manual/manual-testcases.json"
+      },
+      "apiExecution": null,
+      "playwrightExecution": {
+        "storyKey": "MP-11",
+        "executionId": "MP-SPRINT-20260806142951",
+        "executionType": "PLAYWRIGHT",
+        "scope": "PLAYWRIGHT_EXECUTION",
+        "status": "COMPLETED",
+        "executionStatus": "FAILED",
+        "summary": {
+          "expected": 0,
+          "passed": 0,
+          "failed": 1,
+          "skipped": 0,
+          "flaky": 0,
+          "durationMs": 6655.602
+        },
+        "rootCauseCategory": "SELECTOR_MISMATCH",
+        "releaseImpact": "High - The failure indicates that critical product information is not detected on the product detail page, which may affect release quality if not resolved.",
+        "failedTestCount": 1,
+        "executionResultsPath": "testcases/MP-11/playwright/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-11/playwright/execution-analysis.json",
+        "executionResultsSha": "14eb3ee3844c4db681a3e2f25faf6f3354f1edcc",
+        "executionAnalysisSha": "ccd1fa02bd58bc3d98a2095144fcfd4ee6b2bfde",
+        "analysisCommitSha": "2da7e190b428e6776196326b3af1206a8ce0ddb5",
+        "completedAt": "2026-08-06T14:41:39.752Z"
+      },
+      "layerAssessments": {
+        "api": {
+          "executionType": "API",
+          "applicable": false,
+          "plannedToExecute": false,
+          "status": "NOT_APPLICABLE",
+          "reason": "NO_TEST_CASES",
+          "testCount": 0
+        },
+        "playwright": {
+          "executionType": "PLAYWRIGHT",
+          "applicable": true,
+          "plannedToExecute": true,
+          "status": "FAILED",
+          "reason": "SELECTOR_MISMATCH",
+          "testCount": 1
+        }
+      },
+      "plan": {
+        "status": "READY",
+        "reason": null,
+        "layers": {
+          "manual": {
+            "execute": true,
+            "designStatus": "COMPLETED",
+            "reason": null,
+            "testCount": 3,
+            "artifactPath": "testcases/MP-11/manual/manual-testcases.json"
+          },
+          "api": {
+            "execute": false,
+            "designStatus": "COMPLETED",
+            "reason": "NO_TEST_CASES",
+            "testCount": 0,
+            "artifactPath": "testcases/MP-11/api/api-testcases.json",
+            "executionResultsPath": "testcases/MP-11/api/execution-results.json",
+            "executionAnalysisPath": "testcases/MP-11/api/execution-analysis.json"
+          },
+          "playwright": {
+            "execute": true,
+            "designStatus": "COMPLETED",
+            "reason": null,
+            "testCount": 1,
+            "artifactPath": "testcases/MP-11/playwright/playwright-generation-summary.json",
+            "folderPath": "testcases/MP-11/playwright",
+            "executionResultsPath": null,
+            "executionAnalysisPath": null,
+            "specFiles": [
+              "testcases/MP-11/playwright/product-detail.spec.ts"
+            ],
+            "specPath": "testcases/MP-11/playwright/product-detail.spec.ts"
+          }
+        },
+        "summary": {
+          "executableLayerCount": 2,
+          "failedLayerCount": 0,
+          "unfinishedLayerCount": 0
+        }
+      }
+    },
+    {
+      "storyKey": "MP-12",
+      "executionId": "MP-SPRINT-20260806142951",
+      "storyIndex": 7,
+      "storyCount": 9,
+      "status": "COMPLETED",
+      "executionStatus": "FAILED",
+      "reason": "AUTOMATED_TEST_FAILURE",
+      "scope": "STORY_EXECUTION",
+      "manualExecution": {
+        "applicable": true,
+        "executed": false,
+        "status": "NOT_REPORTED",
+        "reason": "MANUAL_EXECUTION_NOT_REPORTED",
+        "testCount": 2,
+        "artifactPath": "testcases/MP-12/manual/manual-testcases.json"
+      },
+      "apiExecution": {
+        "executionId": "MP-SPRINT-20260806142951",
+        "storyKey": "MP-12",
+        "executionType": "API",
+        "status": "COMPLETED",
+        "executionResultsPath": "testcases/MP-12/api/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-12/api/execution-analysis.json",
+        "artifactVersion": null,
+        "repository": {
+          "owner": "balatoth",
+          "name": "QA-AI-copilot-V2",
+          "branch": "main"
+        },
+        "completedAt": "2026-08-06T14:39:24.884Z"
+      },
+      "playwrightExecution": {
+        "storyKey": "MP-12",
+        "executionId": "MP-SPRINT-20260806142951",
+        "executionType": "PLAYWRIGHT",
+        "scope": "PLAYWRIGHT_EXECUTION",
+        "status": "COMPLETED",
+        "executionStatus": "FAILED",
+        "summary": {
+          "expected": 0,
+          "passed": 0,
+          "failed": 1,
+          "skipped": 0,
+          "flaky": 0,
+          "durationMs": 32316.485000000004
+        },
+        "rootCauseCategory": "SELECTOR_MISMATCH",
+        "releaseImpact": "High - The failure blocks the verification of critical category page functionality, impacting release confidence.",
+        "failedTestCount": 1,
+        "executionResultsPath": "testcases/MP-12/playwright/execution-results.json",
+        "executionAnalysisPath": "testcases/MP-12/playwright/execution-analysis.json",
+        "executionResultsSha": "c2442b4313d9c088a43892317182b0930232a1e6",
+        "executionAnalysisSha": "97afb98f0524eba9985f9dd140291a1e27485a4f",
+        "analysisCommitSha": "5889e9cea3987962ef3b3f1e040c295c93278c21",
+        "completedAt": "2026-08-06T14:44:37.141Z"
+      },
+      "layerAssessments": {
+        "api": {
+          "executionType": "API",
+          "applicable": true,
+          "plannedToExecute": true,
+          "status": "PASSED",
+          "reason": null,
+          "testCount": 1
+        },
+        "playwright": {
+          "executionType": "PLAYWRIGHT",
+          "applicable": true,
+          "plannedToExecute": true,
+          "status": "FAILED",
+          "reason": "SELECTOR_MISMATCH",
+          "testCount": 1
+        }
+      },
+      "plan": {
+        "status": "READY",
+        "reason": null,
+        "layers": {
+          "manual": {
+            "execute": true,
+            "designStatus": "COMPLETED",
+            "reason": null,
+            "testCount": 2,
+            "artifactPath": "testcases/MP-12/manual/manual-testcases.json"
+          },
+          "api": {
+            "execute": true,
+            "designStatus": "COMPLETED",
+            "reason": null,
+            "testCount": 1,
+            "artifactPath": "testcases/MP-12/api/api-testcases.json",
+            "executionResultsPath": "testcases/MP-12/api/execution-results.json",
+            "executionAnalysisPath": "testcases/MP-12/api/execution-analysis.json"
+          },
+          "playwright": {
+            "execute": true,
+            "designStatus": "COMPLETED",
+            "reason": null,
+            "testCount": 1,
+            "artifactPath": "testcases/MP-12/playwright/playwright-generation-summary.json",
+            "folderPath": "testcases/MP-12/playwright",
+            "executionResultsPath": null,
+            "executionAnalysisPath": null,
+            "specFiles": [
+              "testcases/MP-12/playwright/browse-products-by-category.spec.ts"
+            ],
+            "specPath": "testcases/MP-12/playwright/browse-products-by-category.spec.ts"
+          }
+        },
+        "summary": {
+          "executableLayerCount": 3,
+          "failedLayerCount": 0,
+          "unfinishedLayerCount": 0
+        }
+      }
+    },
+    {
+      "storyKey": "MP-13",
+      "executionId": "MP-SPRINT-20260806142951",
+      "storyIndex": 8,
+      "storyCount": 9,
+      "status": "COMPLETED",
+      "executionStatus": "BLOCKED",
+      "reason": "AUTOMATION_DESIGN_BLOCKED",
+      "scope": "STORY_EXECUTION",
+      "manualExecution": {
+        "applicable": true,
+        "executed": false,
+        "status": "NOT_REPORTED",
+        "reason": "MANUAL_EXECUTION_NOT_REPORTED",
+        "testCount": 4,
+        "artifactPath": "testcases/MP-13/manual/manual-testcases.json"
+      },
+      "apiExecution": null,
+      "playwrightExecution": null,
+      "layerAssessments": {
+        "api": {
+          "executionType": "API",
+          "applicable": false,
+          "plannedToExecute": false,
+          "status": "NOT_APPLICABLE",
+          "reason": "NO_TEST_CASES",
+          "testCount": 0
+        },
+        "playwright": {
+          "executionType": "PLAYWRIGHT",
+          "applicable": true,
+          "plannedToExecute": false,
+          "status": "BLOCKED",
+          "reason": "Playwright generation did not produce executable files.",
+          "testCount": 0
+        }
+      },
+      "plan": {
+        "status": "READY",
+        "reason": null,
+        "layers": {
+          "manual": {
+            "execute": true,
+            "designStatus": "COMPLETED",
+            "reason": null,
+            "testCount": 4,
+            "artifactPath": "testcases/MP-13/manual/manual-testcases.json"
+          },
+          "api": {
+            "execute": false,
+            "designStatus": "COMPLETED",
+            "reason": "NO_TEST_CASES",
+            "testCount": 0,
+            "artifactPath": "testcases/MP-13/api/api-testcases.json",
+            "executionResultsPath": "testcases/MP-13/api/execution-results.json",
+            "executionAnalysisPath": "testcases/MP-13/api/execution-analysis.json"
+          },
+          "playwright": {
+            "execute": false,
+            "designStatus": "BLOCKED",
+            "reason": "Playwright generation did not produce executable files.",
+            "testCount": 0,
+            "artifactPath": "testcases/MP-13/playwright/playwright-generation-summary.json",
+            "folderPath": "testcases/MP-13/playwright",
+            "executionResultsPath": null,
+            "executionAnalysisPath": null,
+            "specFiles": [],
+            "specPath": null
+          }
+        },
+        "summary": {
+          "executableLayerCount": 1,
+          "failedLayerCount": 1,
+          "unfinishedLayerCount": 0
+        }
+      }
+    }
+  ],
+  "completedAt": "2026-08-06T14:44:37.207Z"
+}
