@@ -8,32 +8,35 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify Category Page Display",
+      "title": "Verify Category Page Display and Title",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the product categories.",
-        "Click on a category name."
+        "Navigate to the category list.",
+        "Click on a specific category name."
       ],
       "expectedResults": [
-        "The category page is displayed.",
-        "The correct products related to the selected category are visible.",
-        "The page title reflects the selected category."
+        "The category page is displayed with the correct products.",
+        "The page title matches the selected category name."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Verify Filters Availability on Category Page",
+      "title": "Verify Availability of Filters on Category Page",
       "priority": "Medium",
       "preconditions": [],
       "steps": [
-        "Navigate to the category page."
+        "Navigate to the category page.",
+        "Check if category checkboxes are displayed.",
+        "Check if brand checkboxes are displayed.",
+        "Check if sorting dropdown is displayed.",
+        "Check if pagination controls are displayed."
       ],
       "expectedResults": [
-        "All category checkboxes are available.",
-        "All brand checkboxes are available.",
-        "The sorting dropdown is available.",
+        "Category checkboxes are available.",
+        "Brand checkboxes are available.",
+        "Sorting dropdown is available.",
         "Pagination controls are available."
       ]
     }
