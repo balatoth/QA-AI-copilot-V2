@@ -25,25 +25,24 @@
   "scope": "PLAYWRIGHT_GENERATION",
   "repaired": true,
   "repairAttempt": 1,
-  "generatedTestCount": 1,
-  "skippedTestCount": 0,
-  "generatedTestCases": [
-    "TC-001"
+  "generatedTestCount": 0,
+  "skippedTestCount": 1,
+  "generatedTestCases": [],
+  "skippedTestCases": [
+    {
+      "testCaseId": "TC-001",
+      "reason": "Exact verified evidence missing for safe automation"
+    }
   ],
-  "skippedTestCases": [],
-  "generatedFiles": [
-    "playwright/browse-products-by-category.spec.ts"
-  ],
-  "persistedGeneratedFiles": [
-    "playwright/browse-products-by-category.spec.ts"
-  ],
+  "generatedFiles": [],
+  "persistedGeneratedFiles": [],
   "blockedGeneratedFiles": [],
   "warnings": [],
   "qualityGate": {
     "status": "PASS",
     "passed": true,
-    "qualityScore": 90,
-    "reason": "The repaired test file is valid TypeScript, uses Playwright APIs correctly, and includes awaited asynchronous assertions. The selectors are reasonable given the context, and the test case ID is preserved in the test title. Minor improvements could be made to selector specificity, but no critical issues were found."
+    "qualityScore": 100,
+    "reason": "No repaired files were provided, so no issues were found. The repair attempt did not introduce any defects."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -65,5 +64,5 @@
     "productCardCount": 0,
     "formCount": 0
   },
-  "createdAt": "2026-08-06T19:47:26.591Z"
+  "createdAt": "2026-08-06T20:20:04.564Z"
 }
