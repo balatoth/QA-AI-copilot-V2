@@ -2,39 +2,34 @@
   "storyKey": "MP-5",
   "storyTitle": "Product Overview",
   "application": "Practice Software Testing",
-  "functionalArea": "Product Browsing",
-  "businessGoal": "Allow visitors to efficiently find products of interest",
+  "functionalArea": "Product Display",
+  "businessGoal": "Allow visitors to efficiently find products of interest through browsing, searching, filtering, and sorting.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that the product grid is displayed with product images, names, and prices."
+      "goal": "Validate that the product grid is displayed with product images, names, and prices."
     },
     {
       "scenarioId": "SC-002",
       "category": "Positive",
-      "goal": "Verify that clicking on a product card navigates the user to the product detail page."
+      "goal": "Validate that clicking on a product card navigates to the product detail page."
     }
   ],
-  "outOfScope": [
-    "Any behavior related to sorting or filtering is not specified in the acceptance criteria."
-  ],
-  "clarifications": [
-    "The behavior of the product grid when no products are present is not mentioned.",
-    "The functionality for sorting and filtering products is not defined."
-  ],
+  "outOfScope": [],
+  "clarifications": [],
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story involves visible behaviors and interactions in the UI."
+      "reason": "The story describes visible browser behavior and user interactions."
     },
     "api": {
-      "applicable": false,
-      "reason": "The story does not mention any API functionality that relates directly to product browsing and navigation."
+      "applicable": true,
+      "reason": "The product overview behavior can be validated through the application's API capabilities."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria describe visible elements in the UI such as product cards and navigation."
+      "reason": "The acceptance criteria describe visible browser content and user interactions."
     }
   }
 }
