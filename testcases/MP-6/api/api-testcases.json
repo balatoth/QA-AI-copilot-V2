@@ -1,0 +1,16 @@
+{
+  "storyKey": "MP-6",
+  "artifactType": "api-testcases",
+  "generatedAt": "2026-08-06T14:05:31.549Z",
+  "testLevel": "SIT_API",
+  "sourceEndpoint": {
+    "method": "GET",
+    "path": "/products",
+    "operationId": "getProducts",
+    "confidence": "HIGH"
+  },
+  "warnings": [
+    "The story focuses on UI behavior and visual pagination controls, which are not directly validated by the GET /products API endpoint."
+  ],
+  "testCases": []
+}
