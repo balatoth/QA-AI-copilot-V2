@@ -1,48 +1,16 @@
 {
   "storyKey": "MP-6",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T18:26:35.975Z",
+  "generatedAt": "2026-08-06T19:43:15.293Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
     "path": "/products",
     "operationId": "getProducts",
-    "confidence": "MEDIUM"
+    "confidence": "HIGH"
   },
   "warnings": [
-    "The story is about UI pagination behavior and visual highlights, which are not addressed by this API endpoint directly.",
-    "This endpoint supports pagination data retrieval but does not validate UI interactions or visual display."
+    "The story's scenarios describe UI behavior for pagination controls and navigation highlighting which cannot be validated via the API response. Pagination API only provides paginated product data but does not confirm UI elements or visual state."
   ],
-  "testCases": [
-    {
-      "testCaseId": "MP6-TC1",
-      "scenarioId": "SC-002",
-      "title": "Verify that retrieving products for a specific page returns data for that page",
-      "testType": "Positive",
-      "priority": "High",
-      "preconditions": [],
-      "method": "GET",
-      "path": "/products",
-      "requestHeaders": {},
-      "queryParams": {
-        "page": 2
-      },
-      "requestBody": null,
-      "expectedStatus": 200,
-      "expectedResponseChecks": [
-        "response.current_page == 2",
-        "response.data is an array"
-      ],
-      "contractChecks": [
-        "response contains current_page integer",
-        "response contains data array",
-        "response contains from integer",
-        "response contains last_page integer",
-        "response contains per_page integer",
-        "response contains to integer",
-        "response contains total integer"
-      ],
-      "notes": ""
-    }
-  ]
+  "testCases": []
 }
