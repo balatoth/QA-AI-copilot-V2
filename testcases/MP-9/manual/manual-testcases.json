@@ -8,20 +8,20 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify brand checkboxes are displayed in the sidebar",
+      "title": "Verify brand filter display on product overview page",
       "priority": "High",
       "preconditions": [],
       "steps": [
         "Navigate to the product overview page."
       ],
       "expectedResults": [
-        "Brand checkboxes are displayed in the sidebar."
+        "The brand filter is displayed on the product overview page."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Verify selecting brand checkboxes updates product grid",
+      "title": "Verify product grid updates with selected brand checkboxes",
       "priority": "High",
       "preconditions": [],
       "steps": [
@@ -29,22 +29,22 @@
         "Select one or more brand checkboxes."
       ],
       "expectedResults": [
-        "The product grid updates to show only the selected brands."
+        "The product grid updates to show only products from the selected brands."
       ]
     },
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-003",
-      "title": "Verify combining categories with brand filters updates product grid",
+      "title": "Verify product grid updates with both category and brand filters",
       "priority": "High",
       "preconditions": [],
       "steps": [
         "Navigate to the product overview page.",
-        "Select one or more brand checkboxes.",
-        "Select one or more category filters."
+        "Select one or more category checkboxes.",
+        "Select one or more brand checkboxes."
       ],
       "expectedResults": [
-        "The product grid updates to show only products matching both selected brands and categories."
+        "The product grid updates to show products matching both the selected categories and brands."
       ]
     }
   ]
