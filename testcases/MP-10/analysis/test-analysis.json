@@ -3,38 +3,43 @@
   "storyTitle": "Sorting",
   "application": "Practice Software Testing",
   "functionalArea": "Product Overview",
-  "businessGoal": "Enable users to sort products based on their preferences.",
+  "businessGoal": "Allow users to sort products to improve navigation and selection.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
-      "category": "Positive",
-      "goal": "Verify the sort dropdown is displayed on the product overview page."
+      "category": "Validation",
+      "goal": "Verify that the sort dropdown is displayed on the product overview page."
     },
     {
       "scenarioId": "SC-002",
       "category": "Positive",
-      "goal": "Verify the sort dropdown includes options: Name (A - Z), Name (Z - A), Price (High - Low), Price (Low - High)."
+      "goal": "Verify that the sort dropdown includes the correct sorting options."
     },
     {
       "scenarioId": "SC-003",
       "category": "Positive",
-      "goal": "Verify that selecting a sort option reloads the product grid in the selected order."
+      "goal": "Verify that selecting a sort option reloads the product grid with products ordered accordingly."
     }
   ],
-  "outOfScope": [],
-  "clarifications": [],
+  "outOfScope": [
+    "Testing scenarios related to sorting with invalid or unsupported options."
+  ],
+  "clarifications": [
+    "No behavior is mentioned for the case when the dropdown is not displayed.",
+    "No details are provided regarding the default sort order when the page loads."
+  ],
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story involves visible behavior of the sort dropdown and product grid."
+      "reason": "The story involves UI elements and user interactions requiring manual validation."
     },
     "api": {
       "applicable": false,
-      "reason": "The story does not mention API capabilities related to sorting."
+      "reason": "No API capabilities are mentioned or implied for validating sorting behavior."
     },
     "ui": {
       "applicable": true,
-      "reason": "The story includes visible dropdown options and product ordering behavior."
+      "reason": "The criteria describe visible UI elements and user interactions on the product overview page."
     }
   }
 }
