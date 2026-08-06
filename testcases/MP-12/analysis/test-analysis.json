@@ -1,0 +1,35 @@
+{
+  "storyKey": "MP-12",
+  "storyTitle": "Browse Products by Category",
+  "application": "Practice Software Testing",
+  "functionalArea": "Product Browsing",
+  "businessGoal": "Enable users to find products easily within specific categories.",
+  "scenarios": [
+    {
+      "scenarioId": "SC-001",
+      "category": "Positive",
+      "goal": "Verify that clicking on a category name displays the corresponding product page and updates the page title."
+    },
+    {
+      "scenarioId": "SC-002",
+      "category": "Positive",
+      "goal": "Verify that when the category page is displayed, all required filters are available."
+    }
+  ],
+  "outOfScope": [],
+  "clarifications": [],
+  "testApplicability": {
+    "manual": {
+      "applicable": true,
+      "reason": "The story involves user interactions and UI components which need to be tested manually."
+    },
+    "api": {
+      "applicable": false,
+      "reason": "The story does not specify any behavior that can be validated through an API."
+    },
+    "ui": {
+      "applicable": true,
+      "reason": "The acceptance criteria specify visible browser behavior and interactions that need testing."
+    }
+  }
+}
