@@ -8,21 +8,20 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify product grid displays correctly",
+      "title": "Verify the product grid displays product images, names, and prices",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the product overview page.",
-        "Observe the product grid."
+        "Navigate to the product overview page."
       ],
       "expectedResults": [
-        "The product grid displays product images, names, and prices correctly."
+        "The product grid is displayed with all product images, names, and prices clearly visible."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Verify navigation to product detail page",
+      "title": "Verify navigation to product detail page from product card",
       "priority": "High",
       "preconditions": [],
       "steps": [
@@ -30,7 +29,7 @@
         "Click on a product card."
       ],
       "expectedResults": [
-        "The user is navigated to the respective product detail page."
+        "The user is navigated to the product detail page for the clicked product."
       ]
     }
   ]
