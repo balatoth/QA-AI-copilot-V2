@@ -1,0 +1,46 @@
+{
+  "storyKey": "MP-12",
+  "artifactType": "api-testcases",
+  "generatedAt": "2026-08-06T14:11:04.114Z",
+  "testLevel": "SIT_API",
+  "sourceEndpoint": {
+    "method": "GET",
+    "path": "/products",
+    "operationId": "getProducts",
+    "confidence": "LOW"
+  },
+  "warnings": [
+    "The story's API applicability is false; explicit UI behaviors such as page title update and filter availability cannot be validated via this API.",
+    "The endpoint does not explicitly validate the story scenarios, so generated tests are limited to basic retrieval."
+  ],
+  "testCases": [
+    {
+      "testCaseId": "TC_MP-12_01",
+      "scenarioId": "SC-001",
+      "title": "Verify retrieval of products filtered by a specific category",
+      "testType": "Positive",
+      "priority": "Medium",
+      "preconditions": [],
+      "method": "GET",
+      "path": "/products",
+      "requestHeaders": {},
+      "queryParams": {
+        "by_category": 1
+      },
+      "requestBody": null,
+      "expectedStatus": 200,
+      "expectedResponseChecks": [
+        "Response must contain current_page as integer",
+        "Response must contain data as array",
+        "Each item in data must match ProductResponse schema",
+        "Response must contain total as integer"
+      ],
+      "contractChecks": [
+        "Response content type is application/json",
+        "Response status is 200",
+        "Query parameter 'by_category' is integer"
+      ],
+      "notes": "Filtered retrieval by category ID; actual UI behaviors are out of scope for API testing."
+    }
+  ]
+}
