@@ -1,0 +1,40 @@
+{
+  "storyKey": "MP-6",
+  "storyTitle": "Pagination",
+  "application": "Practice Software Testing",
+  "functionalArea": "Product Display",
+  "businessGoal": "Improve user navigation through product listings",
+  "scenarios": [
+    {
+      "scenarioId": "SC-001",
+      "category": "Positive",
+      "goal": "Verify that pagination controls are displayed when there are more products than fit on one page"
+    },
+    {
+      "scenarioId": "SC-002",
+      "category": "Positive",
+      "goal": "Verify that clicking a page number updates the product grid to show products for that page"
+    },
+    {
+      "scenarioId": "SC-003",
+      "category": "Positive",
+      "goal": "Verify that the current page number is visually highlighted after navigation"
+    }
+  ],
+  "outOfScope": [],
+  "clarifications": [],
+  "testApplicability": {
+    "manual": {
+      "applicable": true,
+      "reason": "The story involves user interface interactions and visual elements."
+    },
+    "api": {
+      "applicable": false,
+      "reason": "The story does not mention any API behavior related to pagination."
+    },
+    "ui": {
+      "applicable": true,
+      "reason": "The acceptance criteria describe visible browser behavior and user interactions with pagination."
+    }
+  }
+}
