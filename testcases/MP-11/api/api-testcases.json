@@ -1,0 +1,41 @@
+{
+  "storyKey": "MP-11",
+  "artifactType": "api-testcases",
+  "generatedAt": "2026-08-06T14:10:24.026Z",
+  "testLevel": "SIT_API",
+  "sourceEndpoint": {
+    "method": "GET",
+    "path": "/products/{productId}",
+    "operationId": "getProduct",
+    "confidence": "HIGH"
+  },
+  "warnings": [],
+  "testCases": [
+    {
+      "testCaseId": "TC_MP11_SC001_01",
+      "scenarioId": "SC-001",
+      "title": "Retrieve full product details and validate required fields",
+      "testType": "Positive",
+      "priority": "High",
+      "preconditions": [],
+      "method": "GET",
+      "path": "/products/1",
+      "requestHeaders": {},
+      "queryParams": {},
+      "requestBody": null,
+      "expectedStatus": 200,
+      "expectedResponseChecks": [
+        "response body contains 'image'",
+        "response body contains 'name'",
+        "response body contains 'description'",
+        "response body contains 'price'",
+        "response body contains 'category' badge",
+        "response body contains 'brand' badge"
+      ],
+      "contractChecks": [
+        "Response schema matches ProductResponse"
+      ],
+      "notes": "This test verifies that a product can be retrieved by ID and all product information required for the product detail page is returned."
+    }
+  ]
+}
