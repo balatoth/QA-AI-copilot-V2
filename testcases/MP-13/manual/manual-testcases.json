@@ -1,0 +1,82 @@
+{
+  "storyKey": "MP-13",
+  "storyTitle": "Contact Form",
+  "application": "Practice Software Testing",
+  "testLevel": "UAT",
+  "testType": "MANUAL_FUNCTIONAL",
+  "testCases": [
+    {
+      "testCaseId": "TC-001",
+      "scenarioId": "SC-001",
+      "title": "Verify Accessibility of Contact Form",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the contact page."
+      ],
+      "expectedResults": [
+        "The contact form is displayed."
+      ]
+    },
+    {
+      "testCaseId": "TC-002",
+      "scenarioId": "SC-002",
+      "title": "Verify Required Fields in Contact Form",
+      "priority": "Medium",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the contact page.",
+        "Check that all required fields are displayed in the contact form."
+      ],
+      "expectedResults": [
+        "All required fields are displayed."
+      ]
+    },
+    {
+      "testCaseId": "TC-003",
+      "scenarioId": "SC-003",
+      "title": "Verify Subject Dropdown Options",
+      "priority": "Medium",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the contact page.",
+        "Check the options in the subject dropdown."
+      ],
+      "expectedResults": [
+        "The subject dropdown contains the specified options."
+      ]
+    },
+    {
+      "testCaseId": "TC-004",
+      "scenarioId": "SC-004",
+      "title": "Verify Validation Error for Short Message",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the contact page.",
+        "Fill in the required fields with valid data.",
+        "Enter a message with fewer than 50 characters.",
+        "Submit the contact form."
+      ],
+      "expectedResults": [
+        "A validation error is shown indicating the message must be at least 50 characters."
+      ]
+    },
+    {
+      "testCaseId": "TC-005",
+      "scenarioId": "SC-005",
+      "title": "Verify Confirmation Message After Submission",
+      "priority": "High",
+      "preconditions": [],
+      "steps": [
+        "Navigate to the contact page.",
+        "Fill in all required fields with valid data.",
+        "Enter a message with 50 characters or more.",
+        "Submit the contact form."
+      ],
+      "expectedResults": [
+        "A confirmation message is displayed after successfully submitting the contact form."
+      ]
+    }
+  ]
+}
