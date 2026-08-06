@@ -2,18 +2,18 @@
   "storyKey": "MP-10",
   "storyTitle": "Sorting",
   "application": "Practice Software Testing",
-  "functionalArea": "Product Display",
-  "businessGoal": "To provide users with a way to sort products for improved navigation and usability.",
+  "functionalArea": "Product Overview",
+  "businessGoal": "Improve product discoverability and browsing experience.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify the sort dropdown is displayed on the product overview page."
+      "goal": "Verify that the sort dropdown is displayed on the product overview page."
     },
     {
       "scenarioId": "SC-002",
       "category": "Positive",
-      "goal": "Verify that the sort dropdown includes the correct options: Name (A - Z), Name (Z - A), Price (High - Low), Price (Low - High)."
+      "goal": "Verify that the sort dropdown includes the correct sorting options."
     },
     {
       "scenarioId": "SC-003",
@@ -21,20 +21,26 @@
       "goal": "Verify that selecting a sort option reloads the product grid with products ordered according to the selected sort."
     }
   ],
-  "outOfScope": [],
-  "clarifications": [],
+  "outOfScope": [
+    "Sorting behavior when no sort option is selected.",
+    "Performance of the sorting operation."
+  ],
+  "clarifications": [
+    "No information is provided on default sorting when the page initially loads.",
+    "Sorting behavior under different browser or device conditions is not specified."
+  ],
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story involves visible UI elements and user interactions."
+      "reason": "The scenarios involve visible UI components and user interactions."
     },
     "api": {
-      "applicable": false,
-      "reason": "No API interactions are mentioned in the story for sorting functionality."
+      "applicable": true,
+      "reason": "Sorting behavior may be validated through API responses for product ordering."
     },
     "ui": {
       "applicable": true,
-      "reason": "Acceptance criteria clearly describe UI behavior and interactions with sorting."
+      "reason": "The acceptance criteria describe visible browser behavior and user interaction."
     }
   }
 }
