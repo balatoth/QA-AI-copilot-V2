@@ -2,18 +2,18 @@
   "storyKey": "MP-5",
   "storyTitle": "Product Overview",
   "application": "Practice Software Testing",
-  "functionalArea": "Product Browsing",
-  "businessGoal": "Enable visitors to efficiently find products of interest through browsing, searching, filtering, and sorting.",
+  "functionalArea": "Product Display",
+  "businessGoal": "Enable visitors to browse and find products efficiently.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that the product grid is displayed on the home page showing product images, names, and prices."
+      "goal": "Verify that the product grid displays correctly with product images, names, and prices."
     },
     {
       "scenarioId": "SC-002",
       "category": "Positive",
-      "goal": "Verify navigation to the product detail page when clicking on a product card."
+      "goal": "Verify that clicking on a product card navigates to the respective product detail page."
     }
   ],
   "outOfScope": [],
@@ -21,15 +21,15 @@
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story involves visible UI behavior and user interaction."
+      "reason": "The story involves visible browser behavior related to product display and navigation."
     },
     "api": {
       "applicable": false,
-      "reason": "No specific API behavior related to the story is mentioned."
+      "reason": "The acceptance criteria do not mention any API interactions or data validation through the API."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria specify visible elements and interactions on the UI."
+      "reason": "The acceptance criteria describe visible browser behavior and user interactions with the product overview and details."
     }
   }
 }
