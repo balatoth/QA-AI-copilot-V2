@@ -1,0 +1,42 @@
+{
+  "storyKey": "MP-9",
+  "artifactType": "api-testcases",
+  "generatedAt": "2026-08-06T14:08:21.997Z",
+  "testLevel": "SIT_API",
+  "sourceEndpoint": {
+    "method": "GET",
+    "path": "/products",
+    "operationId": "getProducts",
+    "confidence": "HIGH"
+  },
+  "warnings": [],
+  "testCases": [
+    {
+      "testCaseId": "TC-001",
+      "scenarioId": "SC-002",
+      "title": "Verify filtering products by a single brand ID",
+      "testType": "Positive",
+      "priority": "High",
+      "preconditions": [],
+      "method": "GET",
+      "path": "/products",
+      "requestHeaders": {},
+      "queryParams": {
+        "by_brand": 1
+      },
+      "requestBody": null,
+      "expectedStatus": 200,
+      "expectedResponseChecks": [
+        {
+          "check": "each product in response data has brand id 1"
+        }
+      ],
+      "contractChecks": [
+        "response code is 200",
+        "response is JSON",
+        "response schema matches PaginatedProductResponse"
+      ],
+      "notes": "Filters products by brand with brand ID 1. Brand 1 is an example valid brand ID."
+    }
+  ]
+}
