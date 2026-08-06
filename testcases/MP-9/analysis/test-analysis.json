@@ -1,0 +1,40 @@
+{
+  "storyKey": "MP-9",
+  "storyTitle": "Filtering by Brand",
+  "application": "Practice Software Testing",
+  "functionalArea": "Product Filtering",
+  "businessGoal": "Allow users to filter products by brand to enhance search functionality.",
+  "scenarios": [
+    {
+      "scenarioId": "SC-001",
+      "category": "Positive",
+      "goal": "Verify that the brand filter checkboxes are displayed on the product overview page."
+    },
+    {
+      "scenarioId": "SC-002",
+      "category": "Positive",
+      "goal": "Verify that selecting one or more brand checkboxes updates the product grid to show only the selected brands."
+    },
+    {
+      "scenarioId": "SC-003",
+      "category": "Positive",
+      "goal": "Verify that selecting both categories and brands filters the product grid to show matching products."
+    }
+  ],
+  "outOfScope": [],
+  "clarifications": [],
+  "testApplicability": {
+    "manual": {
+      "applicable": true,
+      "reason": "The story involves visible UI elements and user interactions."
+    },
+    "api": {
+      "applicable": true,
+      "reason": "The filtering behavior can be validated through the application's API capabilities."
+    },
+    "ui": {
+      "applicable": true,
+      "reason": "The acceptance criteria describe visible filter behavior on the product overview page."
+    }
+  }
+}
