@@ -1,0 +1,11 @@
+{
+  "storyKey": "MP-13",
+  "artifactType": "api-testcases",
+  "generatedAt": "2026-08-06T14:12:02.730Z",
+  "testLevel": "SIT_API",
+  "sourceEndpoint": null,
+  "warnings": [
+    "No API endpoints exist related to a contact form or message submission capabilities. The existing endpoints pertain to brands, categories, images, and products, which are unrelated to contact management or forms."
+  ],
+  "testCases": []
+}
