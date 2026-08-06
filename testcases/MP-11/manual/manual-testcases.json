@@ -8,54 +8,44 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify product information display",
+      "title": "Verify product information is displayed correctly",
       "priority": "High",
       "preconditions": [],
       "steps": [
         "Navigate to the product detail page.",
-        "Check that the product image is displayed.",
-        "Check that the product name is displayed.",
-        "Check that the product description is displayed.",
-        "Check that the product price is displayed.",
-        "Check that the category badge is displayed.",
-        "Check that the brand badge is displayed."
+        "Observe the product information section."
       ],
       "expectedResults": [
-        "The product image is displayed correctly.",
-        "The product name is displayed correctly.",
-        "The product description is displayed correctly.",
-        "The product price is displayed correctly.",
-        "The category badge is displayed correctly.",
-        "The brand badge is displayed correctly."
+        "The product information (image, name, description, price, category badge, brand badge) is displayed correctly on the product detail page."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Verify related products section display",
+      "title": "Verify related products section is displayed",
       "priority": "Medium",
       "preconditions": [],
       "steps": [
         "Navigate to the product detail page.",
-        "Check that the related products section is displayed below the main product information."
+        "Scroll down to the section with related products."
       ],
       "expectedResults": [
-        "The related products section is displayed."
+        "A section with related products is displayed below the main product information on the product detail page."
       ]
     },
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-003",
       "title": "Verify related products are clickable",
-      "priority": "Medium",
+      "priority": "High",
       "preconditions": [],
       "steps": [
         "Navigate to the product detail page.",
-        "Locate the related products section.",
-        "Click on each related product."
+        "Locate the section with related products.",
+        "Click on each of the related products."
       ],
       "expectedResults": [
-        "Each related product navigates to its respective detail page."
+        "Each related product is clickable and navigates to its respective detail page."
       ]
     }
   ]
