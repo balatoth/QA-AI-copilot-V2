@@ -1,22 +1,23 @@
 {
   "storyKey": "MP-6",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T15:30:20.763Z",
+  "generatedAt": "2026-08-06T18:26:35.975Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
     "path": "/products",
     "operationId": "getProducts",
-    "confidence": "HIGH"
+    "confidence": "MEDIUM"
   },
   "warnings": [
-    "The story scenario is primarily UI-focused and does not mandate API validation beyond pagination parameter usage."
+    "The story is about UI pagination behavior and visual highlights, which are not addressed by this API endpoint directly.",
+    "This endpoint supports pagination data retrieval but does not validate UI interactions or visual display."
   ],
   "testCases": [
     {
-      "testCaseId": "MP-6_TC-01",
+      "testCaseId": "MP6-TC1",
       "scenarioId": "SC-002",
-      "title": "Verify that GET /products with page query returns products for specified page",
+      "title": "Verify that retrieving products for a specific page returns data for that page",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -30,12 +31,18 @@
       "expectedStatus": 200,
       "expectedResponseChecks": [
         "response.current_page == 2",
-        "response.data is array"
+        "response.data is an array"
       ],
       "contractChecks": [
-        "response properties: current_page, data, from, last_page, per_page, to, total are present and of correct types"
+        "response contains current_page integer",
+        "response contains data array",
+        "response contains from integer",
+        "response contains last_page integer",
+        "response contains per_page integer",
+        "response contains to integer",
+        "response contains total integer"
       ],
-      "notes": "This test validates the API pagination parameter by requesting page 2 and checking the current_page in response."
+      "notes": ""
     }
   ]
 }
