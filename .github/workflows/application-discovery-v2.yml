@@ -28,7 +28,7 @@ on:
       targetUrl:
         description: URL to inspect
         required: true
-        default: https://v1.practicesoftwaretesting.com/#/
+        default: https://v2.practicesoftwaretesting.com/#/
         type: string
 
       discoveryScope:
@@ -61,48 +61,63 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Verify discovery target is reachable
+      # Create the directory before any later step tries to use it.
+      - name: Create discovery workspace and package
+        shell: bash
+        run: |
+          set -e
+
+          DISCOVERY_DIR="$GITHUB_WORKSPACE/application-discovery-v2"
+
+          mkdir -p "$DISCOVERY_DIR"
+          cd "$DISCOVERY_DIR"
+
+          npm init -y
+          npm install --save-exact playwright@1.55.0
+
+          echo "Discovery workspace created:"
+          ls -la "$DISCOVERY_DIR"
+
+      # Diagnostic only. A 403 from curl will not stop the workflow.
+      # The real access validation is performed by Playwright.
+      - name: Probe discovery target
+        continue-on-error: true
         shell: bash
         env:
           TARGET_URL: ${{ inputs.targetUrl }}
         run: |
-          echo "Checking discovery target: $TARGET_URL"
+          echo "Diagnostic HTTP probe: $TARGET_URL"
 
-          for attempt in {1..12}; do
-            if curl \
-              --location \
-              --fail \
-              --silent \
-              --show-error \
-              "$TARGET_URL" > /dev/null; then
-              echo "Discovery target is reachable."
-              exit 0
-            fi
+          HTTP_CODE=$(curl \
+            --location \
+            --silent \
+            --output /dev/null \
+            --write-out "%{http_code}" \
+            --user-agent "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
+            "$TARGET_URL" || true)
 
-            echo "Attempt ${attempt}/12: target is not reachable yet."
-            sleep 5
-          done
+          HTTP_CODE="${HTTP_CODE:-000}"
 
-          echo "Discovery target could not be reached: $TARGET_URL"
-          exit 1
+          echo "HTTP response code: $HTTP_CODE"
 
-      - name: Create discovery workspace and package
-        shell: bash
-        run: |
-          mkdir -p application-discovery-v2
-          cd application-discovery-v2
+          if [ "$HTTP_CODE" = "403" ]; then
+            echo "Warning: curl received HTTP 403."
+            echo "The Playwright browser step will determine whether browser access works."
+          fi
 
-          npm init -y
-          npm install playwright@1.55.0
+          exit 0
 
       - name: Install Chromium
-        working-directory: application-discovery-v2
+        working-directory: ${{ github.workspace }}/application-discovery-v2
         shell: bash
         run: |
           npx playwright install --with-deps chromium
 
+      # This step records the discovery exit code but allows metadata and
+      # debugging artifacts to be created even when discovery fails.
       - name: Execute standalone discovery script
-        working-directory: application-discovery-v2
+        id: discovery
+        working-directory: ${{ github.workspace }}/application-discovery-v2
         shell: bash
         env:
           STORY_KEY: ${{ inputs.storyKey }}
@@ -115,15 +130,76 @@ jobs:
           WORKFLOW_RUN_ATTEMPT: ${{ github.run_attempt }}
           COMMIT_SHA: ${{ github.sha }}
         run: |
-          cp ../tools/discovery/discover-application.js .
-          node discover-application.js
+          set +e
 
+          SCRIPT_SOURCE="$GITHUB_WORKSPACE/tools/discovery/discover-application.js"
+
+          if [ ! -f "$SCRIPT_SOURCE" ]; then
+            echo "Discovery script not found: $SCRIPT_SOURCE"
+            echo "exitCode=1" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          cp "$SCRIPT_SOURCE" ./discover-application.js
+
+          node discover-application.js
+          EXIT_CODE=$?
+
+          echo "exitCode=$EXIT_CODE" >> "$GITHUB_OUTPUT"
+          echo "Discovery exit code: $EXIT_CODE"
+
+          # Keep the job running so metadata and artifacts can be generated.
+          exit 0
+
+      # Create a fallback result if the discovery script failed before
+      # producing application-discovery.json.
+      - name: Ensure discovery result exists
+        if: always()
+        shell: bash
+        env:
+          DISCOVERY_EXIT_CODE: ${{ steps.discovery.outputs.exitCode }}
+        run: |
+          DISCOVERY_DIR="$GITHUB_WORKSPACE/application-discovery-v2"
+
+          mkdir -p "$DISCOVERY_DIR"
+
+          if [ ! -f "$DISCOVERY_DIR/application-discovery.json" ]; then
+            cat > "$DISCOVERY_DIR/application-discovery.json" <<EOF
+          {
+            "schemaVersion": "1.0",
+            "storyKey": "${{ inputs.storyKey }}",
+            "executionId": "${{ inputs.executionId }}",
+            "discoveryId": "${{ inputs.discoveryId }}",
+            "application": {
+              "name": "${{ inputs.applicationName }}",
+              "requestedUrl": "${{ inputs.targetUrl }}"
+            },
+            "discovery": {
+              "scope": "${{ inputs.discoveryScope }}",
+              "status": "FAILED",
+              "completedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            },
+            "error": {
+              "message": "Application discovery did not create a result file.",
+              "exitCode": "${DISCOVERY_EXIT_CODE:-UNKNOWN}"
+            }
+          }
+          EOF
+          fi
+
+      # Do not declare a working-directory here. This step creates the
+      # directory itself and can therefore run after any earlier failure.
       - name: Create discovery metadata
         if: always()
-        working-directory: application-discovery-v2
         shell: bash
+        env:
+          DISCOVERY_EXIT_CODE: ${{ steps.discovery.outputs.exitCode }}
         run: |
-          cat > discovery-metadata.json <<EOF
+          DISCOVERY_DIR="$GITHUB_WORKSPACE/application-discovery-v2"
+
+          mkdir -p "$DISCOVERY_DIR"
+
+          cat > "$DISCOVERY_DIR/discovery-metadata.json" <<EOF
           {
             "storyKey": "${{ inputs.storyKey }}",
             "executionId": "${{ inputs.executionId }}",
@@ -135,24 +211,30 @@ jobs:
             "workflowRunId": "${{ github.run_id }}",
             "workflowRunAttempt": "${{ github.run_attempt }}",
             "commitSha": "${{ github.sha }}",
+            "discoveryExitCode": "${DISCOVERY_EXIT_CODE:-UNKNOWN}",
             "completedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           }
           EOF
 
+      # Only store knowledge in the repository when discovery succeeded.
       - name: Prepare discovery knowledge for repository
+        if: steps.discovery.outputs.exitCode == '0'
         shell: bash
         run: |
-          TARGET_DIR="executions/${{ inputs.storyKey }}/discovery/${{ inputs.discoveryId }}"
+          set -e
+
+          SOURCE_DIR="$GITHUB_WORKSPACE/application-discovery-v2"
+          TARGET_DIR="$GITHUB_WORKSPACE/executions/${{ inputs.storyKey }}/discovery/${{ inputs.discoveryId }}"
 
           mkdir -p "$TARGET_DIR"
 
-          cp application-discovery-v2/application-discovery.json \
+          cp "$SOURCE_DIR/application-discovery.json" \
             "$TARGET_DIR/application-discovery.json"
 
-          cp application-discovery-v2/selector-library.json \
+          cp "$SOURCE_DIR/selector-library.json" \
             "$TARGET_DIR/selector-library.json"
 
-          cp application-discovery-v2/discovery-metadata.json \
+          cp "$SOURCE_DIR/discovery-metadata.json" \
             "$TARGET_DIR/discovery-metadata.json"
 
           echo ""
@@ -164,21 +246,27 @@ jobs:
           find "$TARGET_DIR" -maxdepth 1 -type f | sort
 
       - name: Commit discovery knowledge
+        if: steps.discovery.outputs.exitCode == '0'
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
-          commit_message: |
-            Store discovery knowledge for ${{ inputs.storyKey }}
-
-          file_pattern: |
-            executions/${{ inputs.storyKey }}/discovery/${{ inputs.discoveryId }}/*.json
+          commit_message: Store discovery knowledge for ${{ inputs.storyKey }} - ${{ inputs.discoveryId }}
+          file_pattern: executions/${{ inputs.storyKey }}/discovery/${{ inputs.discoveryId }}/*.json
+          branch: ${{ inputs.branch }}
 
       - name: Show discovery output
-        working-directory: application-discovery-v2
+        if: always()
         shell: bash
         run: |
-          cat application-discovery.json
+          DISCOVERY_FILE="$GITHUB_WORKSPACE/application-discovery-v2/application-discovery.json"
+
+          if [ -f "$DISCOVERY_FILE" ]; then
+            cat "$DISCOVERY_FILE"
+          else
+            echo "No application-discovery.json file was produced."
+          fi
 
       - name: Upload discovery artifacts
+        if: always()
         uses: actions/upload-artifact@v6
         with:
           name: application-discovery-v2-${{ inputs.storyKey }}-${{ inputs.discoveryId }}
@@ -187,5 +275,15 @@ jobs:
             application-discovery-v2/selector-library.json
             application-discovery-v2/discovery-metadata.json
             application-discovery-v2/homepage.png
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 7
+
+      # Mark the workflow as failed only after metadata and debugging
+      # artifacts have been preserved.
+      - name: Fail workflow when discovery failed
+        if: always() && steps.discovery.outputs.exitCode != '0'
+        shell: bash
+        run: |
+          echo "Application Discovery failed."
+          echo "Exit code: ${{ steps.discovery.outputs.exitCode }}"
+          exit 1
