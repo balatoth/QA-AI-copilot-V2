@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-6",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T14:05:31.549Z",
+  "generatedAt": "2026-08-06T14:31:21.663Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -9,8 +9,38 @@
     "operationId": "getProducts",
     "confidence": "HIGH"
   },
-  "warnings": [
-    "The story focuses on UI behavior and visual pagination controls, which are not directly validated by the GET /products API endpoint."
-  ],
-  "testCases": []
+  "warnings": [],
+  "testCases": [
+    {
+      "testCaseId": "TC-MP6-001",
+      "scenarioId": "SC-002",
+      "title": "Verify that requesting page 2 returns products with current_page = 2",
+      "testType": "Positive",
+      "priority": "High",
+      "preconditions": [],
+      "method": "GET",
+      "path": "/products",
+      "requestHeaders": {},
+      "queryParams": {
+        "page": 2
+      },
+      "requestBody": null,
+      "expectedStatus": 200,
+      "expectedResponseChecks": [
+        {
+          "check": "body.current_page",
+          "value": 2,
+          "operator": "equals"
+        },
+        {
+          "check": "body.data",
+          "operator": "isArray"
+        }
+      ],
+      "contractChecks": [
+        "Response includes current_page, data, from, last_page, per_page, to, total fields as per schema"
+      ],
+      "notes": "This test validates pagination by checking that the API returns products for page 2 and sets current_page accordingly."
+    }
+  ]
 }
