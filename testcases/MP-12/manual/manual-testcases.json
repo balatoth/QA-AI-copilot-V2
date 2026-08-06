@@ -8,31 +8,32 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify Category Page Display and Title",
+      "title": "Display Correct Category Page and Title",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the category page.",
-        "Check that the category name is displayed as the page title.",
-        "Verify the relevant products associated with the category are displayed."
+        "Navigate to the category section of the application.",
+        "Click on a category name."
       ],
       "expectedResults": [
-        "The category name is shown as the page title.",
-        "The relevant products for the selected category are visible on the page."
+        "The correct category page is displayed.",
+        "The page title matches the clicked category name."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Verify Availability of Filters on Category Page",
+      "title": "Match Filters on Category Page and Product Overview",
       "priority": "Medium",
       "preconditions": [],
       "steps": [
-        "Navigate to the category page.",
-        "Check for the presence of all filters available in the product overview."
+        "Navigate to a category page.",
+        "List all available filters on the category page.",
+        "Navigate to the product overview page.",
+        "List all available filters on the product overview page."
       ],
       "expectedResults": [
-        "All filters that are available in the product overview are present on the category page."
+        "All filters available on the category page match those on the product overview."
       ]
     }
   ]
