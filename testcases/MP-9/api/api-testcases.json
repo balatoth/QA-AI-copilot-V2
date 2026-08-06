@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-9",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T18:29:25.944Z",
+  "generatedAt": "2026-08-06T19:45:01.223Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -12,9 +12,9 @@
   "warnings": [],
   "testCases": [
     {
-      "testCaseId": "TC-MP9-001",
+      "testCaseId": "TC-MP9-SC002-001",
       "scenarioId": "SC-002",
-      "title": "Verify filtering products by single brand ID returns products only of that brand",
+      "title": "Verify filtering products by brand using by_brand query parameter",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -27,18 +27,13 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        {
-          "type": "responseSchema",
-          "schema": "PaginatedProductResponse"
-        }
+        "All products in the response data array have brand id equal to 1"
       ],
       "contractChecks": [
-        {
-          "check": "responseDataArrayProductsHaveBrandId",
-          "description": "Each product in data array must have brand id 1"
-        }
+        "Response schema validation against PaginatedProductResponse",
+        "Status code is 200"
       ],
-      "notes": "This test verifies API supports filtering by brand only using by_brand query parameter."
+      "notes": "Using a fixed brand id as an example since no test data details available; the test verifies that filtering by a single brand works as per the contract."
     }
   ]
 }
