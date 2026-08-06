@@ -1,0 +1,18 @@
+{
+  "artifactType": "playwright",
+  "storyKey": "MP-8",
+  "reviewStatus": "PASS",
+  "qualityScore": 90,
+  "summary": "No repaired files were provided for review. No issues detected in the submitted artifacts.",
+  "scores": {
+    "correctness": 10,
+    "selectorQuality": 10,
+    "assertionStrength": 10,
+    "reusability": 10,
+    "maintainability": 10,
+    "testDataHandling": 10,
+    "playwrightBestPractices": 10
+  },
+  "issues": [],
+  "recommendations": []
+}
