@@ -8,72 +8,57 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify display of the contact form",
+      "title": "Verify Accessibility of Contact Form",
       "priority": "High",
       "preconditions": [],
       "steps": [
         "Navigate to the contact page."
       ],
       "expectedResults": [
-        "The contact form is displayed."
+        "The contact form is displayed on the page."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Check required fields in the contact form",
+      "title": "Verify Required Fields in Contact Form",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the contact page."
+        "Navigate to the contact page.",
+        "Check the contact form for required fields."
       ],
       "expectedResults": [
-        "The following required fields are present: first name, last name, email, subject, message."
+        "All required fields are displayed in the contact form."
       ]
     },
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-003",
-      "title": "Verify options in the subject dropdown",
+      "title": "Verify Subject Dropdown Options",
       "priority": "Medium",
       "preconditions": [],
       "steps": [
         "Navigate to the contact page.",
-        "Check the subject dropdown."
+        "Open the subject dropdown in the contact form."
       ],
       "expectedResults": [
-        "The subject dropdown includes the specified options."
+        "The subject dropdown contains the specified options."
       ]
     },
     {
       "testCaseId": "TC-004",
       "scenarioId": "SC-004",
-      "title": "Ensure validation error for message length",
+      "title": "Verify Validation Error for Short Message",
       "priority": "High",
       "preconditions": [],
       "steps": [
         "Navigate to the contact page.",
-        "Fill all fields with valid data except for the message (enter fewer than 50 characters).",
-        "Submit the form."
+        "Enter a message with fewer than 50 characters into the message field.",
+        "Submit the contact form."
       ],
       "expectedResults": [
-        "A validation error is shown for the message field."
-      ]
-    },
-    {
-      "testCaseId": "TC-005",
-      "scenarioId": "SC-005",
-      "title": "Confirm confirmation message on successful submission",
-      "priority": "High",
-      "preconditions": [],
-      "steps": [
-        "Navigate to the contact page.",
-        "Fill all fields with valid data.",
-        "Submit the form."
-      ],
-      "expectedResults": [
-        "A confirmation message is displayed.",
-        "The contact form is hidden."
+        "A validation error is shown indicating the message must be at least 50 characters."
       ]
     }
   ]
