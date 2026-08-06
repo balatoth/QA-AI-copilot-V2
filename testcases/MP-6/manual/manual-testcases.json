@@ -8,40 +8,39 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify Pagination Controls are Displayed",
+      "title": "Verify pagination controls display",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the product display page."
+        "Navigate to the product listing page."
       ],
       "expectedResults": [
-        "Pagination controls are displayed at the bottom of the product grid."
+        "Pagination controls are displayed on the page."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Verify Click on Page Number Updates Product Grid",
+      "title": "Verify clicking page number updates product grid",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the product display page.",
-        "Click on a page number in the pagination controls."
+        "Navigate to the product listing page.",
+        "Click on a number indicating a different page."
       ],
       "expectedResults": [
-        "The product grid updates to show products corresponding to the selected page."
+        "The product grid updates to show products for the selected page."
       ]
     },
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-003",
-      "title": "Verify Current Page Number Highlighted",
+      "title": "Verify current page number is visually highlighted",
       "priority": "Medium",
       "preconditions": [],
       "steps": [
-        "Navigate to the product display page.",
-        "Click on a page number in the pagination controls.",
-        "Observe the pagination controls."
+        "Navigate to the product listing page.",
+        "Click on a page number."
       ],
       "expectedResults": [
         "The current page number is visually highlighted."
