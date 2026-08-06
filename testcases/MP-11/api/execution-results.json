@@ -1,0 +1,23 @@
+{
+  "storyKey": "MP-11",
+  "artifactType": "execution-results",
+  "generatedAt": "2026-08-06T14:12:28.337Z",
+  "summary": {
+    "total": 1,
+    "passed": 0,
+    "failed": 0,
+    "passRate": 0
+  },
+  "executionResults": [
+    {
+      "schemaVersion": "1.0.0",
+      "resultType": "API_EXECUTION_RESULT",
+      "executionId": "MP-SPRINT-20260806140331",
+      "storyKey": "MP-11",
+      "executionType": "API",
+      "status": "COMPLETED",
+      "executionResultsPath": "testcases/MP-11/api/execution-results.json",
+      "executionAnalysisPath": "testcases/MP-11/api/execution-analysis.json"
+    }
+  ]
+}
