@@ -2,39 +2,44 @@
   "storyKey": "MP-6",
   "storyTitle": "Pagination",
   "application": "Practice Software Testing",
-  "functionalArea": "User Interface",
-  "businessGoal": "Enhance product browsing experience with pagination",
+  "functionalArea": "Product Listing",
+  "businessGoal": "Allow users to navigate through multiple products effectively.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that pagination controls are displayed when there are more products than fit on one page"
+      "goal": "Verify pagination controls are displayed when there are more products than fit on one page."
     },
     {
       "scenarioId": "SC-002",
       "category": "Positive",
-      "goal": "Verify that clicking a page number updates the product grid to show products for that page"
+      "goal": "Verify that clicking a page number updates the product grid to show products for that page."
     },
     {
       "scenarioId": "SC-003",
       "category": "Positive",
-      "goal": "Verify that the current page number is visually highlighted after page navigation"
+      "goal": "Verify that the current page number is visually highlighted when navigating through pages."
     }
   ],
-  "outOfScope": [],
-  "clarifications": [],
+  "outOfScope": [
+    "Behavior of pagination controls when only one page of products is available.",
+    "Performance of pagination controls under high product volume."
+  ],
+  "clarifications": [
+    "No information is provided about how to handle edge cases such as very few products or invalid page numbers."
+  ],
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story describes UI behavior that needs to be tested manually."
+      "reason": "The story involves visible UI behavior related to pagination controls and product listing."
     },
     "api": {
       "applicable": false,
-      "reason": "There is no indication that pagination behavior can be validated through the API."
+      "reason": "There is no mention of API interactions or endpoints related to pagination in the story."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria involve visible elements and user interaction with the UI."
+      "reason": "The acceptance criteria include UI interactions that are visible to the user in the browser."
     }
   }
 }
