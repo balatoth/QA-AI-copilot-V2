@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "artifactType": "STORY_METADATA",
+  "storyKey": "MP-6",
+  "storyTitle": "Pagination",
+  "source": "JIRA",
+  "storyHash": "52db53f84b8cf52c3afe0c1bebda8304bae43d2ff91d378320df91b78f10866f",
+  "priority": "MEDIUM",
+  "status": "TO_DO",
+  "applicationId": "practice-software-testing",
+  "environmentId": "hosted-sprint-2",
+  "generatedByExecutionId": "MP-SPRINT-20260806140331",
+  "lastGeneratedAt": "2026-08-06T14:05:08.673Z"
+}
