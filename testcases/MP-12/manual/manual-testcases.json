@@ -8,36 +8,31 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify category page displays the correct products and title",
+      "title": "Verify Category Page Display and Title",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the category name on the main page.",
-        "Click on the category name.",
-        "Observe the category page that loads."
+        "Navigate to the category page.",
+        "Check that the category name is displayed as the page title.",
+        "Verify the relevant products associated with the category are displayed."
       ],
       "expectedResults": [
-        "The category page is displayed.",
-        "The title of the category page matches the clicked category name.",
-        "The products relevant to the selected category are displayed correctly."
+        "The category name is shown as the page title.",
+        "The relevant products for the selected category are visible on the page."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Ensure filters, sorting options, and pagination controls are present on category page",
+      "title": "Verify Availability of Filters on Category Page",
       "priority": "Medium",
       "preconditions": [],
       "steps": [
-        "Navigate to the category page as per test case TC-001.",
-        "Inspect the presence of filter options.",
-        "Inspect the presence of sorting options.",
-        "Inspect the presence of pagination controls."
+        "Navigate to the category page.",
+        "Check for the presence of all filters available in the product overview."
       ],
       "expectedResults": [
-        "Filters are available for users to select.",
-        "Sorting options are available for users to choose from.",
-        "Pagination controls are present for browsing through products."
+        "All filters that are available in the product overview are present on the category page."
       ]
     }
   ]
