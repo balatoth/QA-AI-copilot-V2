@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-9",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T14:34:28.854Z",
+  "generatedAt": "2026-08-06T15:32:42.643Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -9,12 +9,14 @@
     "operationId": "getProducts",
     "confidence": "HIGH"
   },
-  "warnings": [],
+  "warnings": [
+    "The story scenarios describe UI interactions and visible behavior but do not specify API interactions or expected API responses with filter parameters. Only basic API contract validation is possible."
+  ],
   "testCases": [
     {
-      "testCaseId": "TC_MP9_001",
+      "testCaseId": "MP-9_TC-001",
       "scenarioId": "SC-002",
-      "title": "Verify filtering products by a specific brand ID returns filtered products",
+      "title": "Retrieve products filtered by brand using by_brand query parameter",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -27,12 +29,14 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "Assert that all returned product items in 'data' have 'brand_id' equal to 1"
+        "Response must contain current_page, data, from, last_page, per_page, to, total fields",
+        "Data array items must conform to ProductResponse schema"
       ],
       "contractChecks": [
-        "Response schema validation against PaginatedProductResponse"
+        "Query parameter 'by_brand' is integer and optional",
+        "Accept only 200 response code"
       ],
-      "notes": "Brand id 1 is used as an example; any valid brand id can be substituted to test filtering by brand."
+      "notes": "Test verifies basic filtering by brand presence at API level with valid integer brand id"
     }
   ]
 }
