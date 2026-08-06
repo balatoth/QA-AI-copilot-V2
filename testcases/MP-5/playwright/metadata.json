@@ -1,0 +1,18 @@
+{
+  "storyKey": "MP-5",
+  "artifactType": "playwright",
+  "generatorVersion": "v0.4.7.1",
+  "repaired": true,
+  "repairAttempt": 1,
+  "reviewStatus": "PASS",
+  "qualityScore": 90,
+  "qualityGate": {
+    "status": "PASS",
+    "passed": true,
+    "qualityScore": 90,
+    "reason": "The repaired Playwright test file is valid TypeScript, uses Playwright APIs correctly, and includes awaited assertions. Selectors are specific and scoped properly. The test case ID is preserved in the test title."
+  },
+  "manualReviewRequired": false,
+  "finalStatus": "COMPLETED",
+  "createdAt": "2026-08-06T14:04:56.753Z"
+}
