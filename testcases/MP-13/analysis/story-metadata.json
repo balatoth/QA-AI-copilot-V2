@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "artifactType": "STORY_METADATA",
+  "storyKey": "MP-13",
+  "storyTitle": "Contact Form",
+  "source": "JIRA",
+  "storyHash": "e164e451d28a3844402914aaa488fdccec1d077c10939e79cb49450038591462",
+  "priority": "MEDIUM",
+  "status": "TO_DO",
+  "applicationId": "practice-software-testing",
+  "environmentId": "hosted-sprint-2",
+  "generatedByExecutionId": "MP-SPRINT-20260806140331",
+  "lastGeneratedAt": "2026-08-06T14:11:32.131Z"
+}
