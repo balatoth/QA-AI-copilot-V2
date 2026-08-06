@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-12",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T19:46:54.910Z",
+  "generatedAt": "2026-08-06T20:19:44.523Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -12,9 +12,9 @@
   "warnings": [],
   "testCases": [
     {
-      "testCaseId": "TC_MP12_001",
+      "testCaseId": "TC-MP12-001",
       "scenarioId": "SC-001",
-      "title": "Verify retrieval of products filtered by valid category ID",
+      "title": "Verify retrieval of products filtered by category with valid category ID",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -27,14 +27,19 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response contains current_page of type integer",
-        "response contains data array with ProductResponse items",
-        "each product in data array belongs to requested category (implicit business validation - manual or UI)"
+        "response body current_page is integer",
+        "response body data is array",
+        "response body from is integer",
+        "response body last_page is integer",
+        "response body per_page is integer",
+        "response body to is integer",
+        "response body total is integer"
       ],
       "contractChecks": [
-        "response matches PaginatedProductResponse schema"
+        "status code is 200",
+        "response body matches PaginatedProductResponse schema"
       ],
-      "notes": "Category ID 1 used as example. Actual ID to be replaced with valid category ID as per test environment."
+      "notes": "Retrieves products filtered by a specific category ID to check if products belong to category."
     }
   ]
 }
