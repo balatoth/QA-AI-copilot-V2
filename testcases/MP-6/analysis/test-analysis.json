@@ -3,40 +3,38 @@
   "storyTitle": "Pagination",
   "application": "Practice Software Testing",
   "functionalArea": "Product Display",
-  "businessGoal": "Improve user navigation through product listings",
+  "businessGoal": "Enable users to navigate through multiple pages of products efficiently.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that pagination controls are displayed when there are more products than fit on one page"
+      "goal": "Verify that pagination controls are displayed when there are more products than fit on one page."
     },
     {
       "scenarioId": "SC-002",
       "category": "Positive",
-      "goal": "Verify that clicking a page number updates the product grid to show products for that page"
+      "goal": "Verify that clicking a page number updates the product grid to show products for that page."
     },
     {
       "scenarioId": "SC-003",
-      "category": "Positive",
-      "goal": "Verify that the current page number is visually highlighted after navigation"
+      "category": "Validation",
+      "goal": "Ensure that the current page number is visually highlighted after navigating."
     }
   ],
   "outOfScope": [],
-  "clarifications": [
-    "No scenarios mentioned for behavior when there are no products or exactly one page of products."
-  ],
+  "clarifications": [],
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story describes visible browser behavior and user interactions with pagination controls."
+      "reason": "The story includes user interaction with pagination controls and visual changes."
     },
     "api": {
       "applicable": false,
-      "reason": "The pagination behavior is primarily UI-focused and does not involve data validation through an API."
+      "reason": "The story does not involve any API interaction or validation through APIs."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria involve UI elements like pagination controls and page updates that are visible to the user."
+      "reason": "The story involves visible browser behavior related to pagination controls and product display."
     }
   }
 }
