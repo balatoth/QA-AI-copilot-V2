@@ -1,0 +1,230 @@
+{
+  "schemaVersion": "0.1.0",
+  "artifactType": "PLAYWRIGHT_EXECUTION_RESULTS",
+  "storyKey": "MP-12",
+  "executionId": "MP-SPRINT-20260806140331",
+  "executionType": "PLAYWRIGHT",
+  "status": "FAILED",
+  "repository": {
+    "owner": "balatoth",
+    "name": "QA-AI-copilot-V2",
+    "branch": "main"
+  },
+  "source": {
+    "specPath": "testcases/MP-12/playwright/browse-products-by-category.spec.ts",
+    "rawResultsPath": "playwright-execution/playwright-results.json",
+    "metadataPath": "playwright-execution/execution-metadata.json"
+  },
+  "githubActions": {
+    "workflowRunId": "31109835088",
+    "workflowRunAttempt": "1",
+    "commitSha": "2de0ff7105ffe62956e62583aca7948d56687587",
+    "playwrightExitCode": 1
+  },
+  "summary": {
+    "expected": 0,
+    "passed": 0,
+    "failed": 1,
+    "skipped": 0,
+    "flaky": 0,
+    "durationMs": 32495.312
+  },
+  "errors": [],
+  "rawResults": {
+    "config": {
+      "argv": [
+        "/opt/hostedtoolcache/node/20.20.2/x64/bin/node",
+        "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/node_modules/.bin/playwright",
+        "test",
+        "tests/story.spec.ts"
+      ],
+      "configFile": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/playwright.config.ts",
+      "rootDir": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests",
+      "failOnFlakyTests": false,
+      "forbidOnly": false,
+      "fullyParallel": false,
+      "globalSetup": null,
+      "globalTeardown": null,
+      "globalTimeout": 0,
+      "grep": {},
+      "grepInvert": null,
+      "maxFailures": 0,
+      "metadata": {
+        "ci": {
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/2de0ff7105ffe62956e62583aca7948d56687587",
+          "commitHash": "2de0ff7105ffe62956e62583aca7948d56687587",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/31109835088"
+        },
+        "gitCommit": {
+          "shortHash": "2de0ff7",
+          "hash": "2de0ff7105ffe62956e62583aca7948d56687587",
+          "subject": "Update Playwright execution analysis for MP-5 - MP-SPRINT-20260806140331",
+          "body": "Update Playwright execution analysis for MP-5 - MP-SPRINT-20260806140331",
+          "author": {
+            "name": "balatoth",
+            "email": "balazs.toth@yahoo.com",
+            "time": 1786025671000
+          },
+          "committer": {
+            "name": "balatoth",
+            "email": "balazs.toth@yahoo.com",
+            "time": 1786025671000
+          },
+          "branch": "main"
+        },
+        "actualWorkers": 1
+      },
+      "preserveOutput": "always",
+      "projects": [
+        {
+          "outputDir": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results",
+          "repeatEach": 1,
+          "retries": 0,
+          "metadata": {
+            "ci": {
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/2de0ff7105ffe62956e62583aca7948d56687587",
+              "commitHash": "2de0ff7105ffe62956e62583aca7948d56687587",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/31109835088"
+            },
+            "gitCommit": {
+              "shortHash": "2de0ff7",
+              "hash": "2de0ff7105ffe62956e62583aca7948d56687587",
+              "subject": "Update Playwright execution analysis for MP-5 - MP-SPRINT-20260806140331",
+              "body": "Update Playwright execution analysis for MP-5 - MP-SPRINT-20260806140331",
+              "author": {
+                "name": "balatoth",
+                "email": "balazs.toth@yahoo.com",
+                "time": 1786025671000
+              },
+              "committer": {
+                "name": "balatoth",
+                "email": "balazs.toth@yahoo.com",
+                "time": 1786025671000
+              },
+              "branch": "main"
+            },
+            "actualWorkers": 1
+          },
+          "id": "",
+          "name": "",
+          "testDir": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests",
+          "testIgnore": [],
+          "testMatch": [
+            "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+          ],
+          "timeout": 30000
+        }
+      ],
+      "quiet": false,
+      "reporter": [
+        [
+          "json",
+          {
+            "outputFile": "playwright-results.json"
+          }
+        ],
+        [
+          "line",
+          null
+        ]
+      ],
+      "reportSlowTests": {
+        "max": 5,
+        "threshold": 300000
+      },
+      "shard": null,
+      "tags": [],
+      "updateSnapshots": "missing",
+      "updateSourceMethod": "patch",
+      "version": "1.62.1",
+      "workers": 1,
+      "webServer": null
+    },
+    "suites": [
+      {
+        "title": "story.spec.ts",
+        "file": "story.spec.ts",
+        "column": 0,
+        "line": 0,
+        "specs": [
+          {
+            "title": "TC-001: Verify category name opens corresponding product page",
+            "ok": false,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [
+                  {
+                    "workerIndex": 0,
+                    "parallelIndex": 0,
+                    "status": "timedOut",
+                    "duration": 30191,
+                    "error": {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                      "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    "errors": [
+                      {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      {
+                        "location": {
+                          "file": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts",
+                          "column": 16,
+                          "line": 5
+                        },
+                        "message": "Error: page.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-test=\"nav-hand-tools\"]')\u001b[22m\n\n\n  3 | test('TC-001: Verify category name opens corresponding product page', async ({ page }) => {\n  4 |     await page.goto('https://v2.practicesoftwaretesting.com');\n> 5 |     await page.click('[data-test=\"nav-hand-tools\"]');\n    |                ^\n  6 |\n  7 |     // Verify product page is displayed\n  8 |     await expect(page.locator('[data-test=\"product-name\"]')).toBeVisible();\n    at /home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/tests/story.spec.ts:5:16"
+                      }
+                    ],
+                    "stdout": [],
+                    "stderr": [],
+                    "retry": 0,
+                    "startTime": "2026-08-06T14:16:05.301Z",
+                    "annotations": [],
+                    "attachments": [
+                      {
+                        "name": "screenshot",
+                        "contentType": "image/png",
+                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-TC-001-Verify-catego-51265--corresponding-product-page/test-failed-1.png"
+                      },
+                      {
+                        "name": "error-context",
+                        "contentType": "text/markdown",
+                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-TC-001-Verify-catego-51265--corresponding-product-page/error-context.md"
+                      },
+                      {
+                        "name": "trace",
+                        "contentType": "application/zip",
+                        "path": "/home/runner/work/QA-AI-copilot-V2/QA-AI-copilot-V2/playwright-execution/test-results/story-TC-001-Verify-catego-51265--corresponding-product-page/trace.zip"
+                      }
+                    ]
+                  }
+                ],
+                "status": "unexpected"
+              }
+            ],
+            "id": "92a6e7f2d2460e449614-d03dedc46d13f378952f",
+            "file": "story.spec.ts",
+            "line": 3,
+            "column": 5
+          }
+        ]
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "startTime": "2026-08-06T14:16:04.745Z",
+      "duration": 32495.312,
+      "expected": 0,
+      "skipped": 0,
+      "unexpected": 1,
+      "flaky": 0
+    }
+  },
+  "completedAt": "2026-08-06T14:16:37.362Z"
+}
