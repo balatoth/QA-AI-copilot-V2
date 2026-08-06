@@ -3,22 +3,22 @@
   "storyTitle": "Sorting",
   "application": "Practice Software Testing",
   "functionalArea": "Product Overview",
-  "businessGoal": "Provide users the ability to sort products in the product overview section.",
+  "businessGoal": "Enable users to sort products based on their preferences.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that the sorting dropdown is displayed on the product overview page."
+      "goal": "Verify the sort dropdown is displayed on the product overview page."
     },
     {
       "scenarioId": "SC-002",
       "category": "Positive",
-      "goal": "Verify that the sorting dropdown includes the options: Name (A - Z), Name (Z - A), Price (High - Low), Price (Low - High)."
+      "goal": "Verify the sort dropdown includes options: Name (A - Z), Name (Z - A), Price (High - Low), Price (Low - High)."
     },
     {
       "scenarioId": "SC-003",
       "category": "Positive",
-      "goal": "Verify that selecting a sort option reloads the product grid with products ordered according to the selected sort."
+      "goal": "Verify that selecting a sort option reloads the product grid in the selected order."
     }
   ],
   "outOfScope": [],
@@ -26,15 +26,15 @@
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story describes visible browser behavior related to the sorting functionality."
+      "reason": "The story involves visible behavior of the sort dropdown and product grid."
     },
     "api": {
-      "applicable": true,
-      "reason": "Sorting behavior can potentially be validated through the application's API by checking the order of returned products."
+      "applicable": false,
+      "reason": "The story does not mention API capabilities related to sorting."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria mention UI elements like the sorting dropdown and product grid."
+      "reason": "The story includes visible dropdown options and product ordering behavior."
     }
   }
 }
