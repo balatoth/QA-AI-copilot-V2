@@ -2,45 +2,39 @@
   "storyKey": "MP-8",
   "storyTitle": "Filtering by Category",
   "application": "Practice Software Testing",
-  "functionalArea": "Filter Functionality",
-  "businessGoal": "Allow users to filter items by different categories to find relevant content",
+  "functionalArea": "Filtering",
+  "businessGoal": "Allow users to filter items by category.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "User can successfully filter items by a specified category"
+      "goal": "Verify that users can successfully filter items by a selected category."
     },
     {
       "scenarioId": "SC-002",
       "category": "Negative",
-      "goal": "User receives an appropriate error message when attempting to filter items by a non-existing category"
-    },
-    {
-      "scenarioId": "SC-003",
-      "category": "Validation",
-      "goal": "User can view the correct set of items displayed after applying a filter"
+      "goal": "Verify that no items are displayed when a non-existent category is selected."
     }
   ],
   "outOfScope": [
-    "User interactions outside of category filtering",
-    "Performance of the filter function under heavy load"
+    "Testing filter functionalities with multiple categories at once, as this is not mentioned.",
+    "Testing behavior when no filters are applied."
   ],
   "clarifications": [
-    "No specific error message requirements detailed in the story",
-    "No mention of default state before filtering is applied"
+    "What happens if the filter option is not selected or left empty?"
   ],
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story involves user interaction with filtering options."
+      "reason": "The story involves user interaction with filtering functionality."
     },
     "api": {
-      "applicable": false,
-      "reason": "The story does not mention any API endpoints or data retrieval via API for filtering."
+      "applicable": true,
+      "reason": "Filtering behavior can be validated through API capabilities that manage item filtering."
     },
     "ui": {
       "applicable": true,
-      "reason": "The filtering functionality requires UI interaction and displays results in the browser."
+      "reason": "The filtering action involves UI interaction and affects visible content."
     }
   }
 }
