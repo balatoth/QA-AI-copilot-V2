@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-11",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T15:34:18.594Z",
+  "generatedAt": "2026-08-06T18:30:43.382Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -12,10 +12,10 @@
   "warnings": [],
   "testCases": [
     {
-      "testCaseId": "MP-11-TC-001",
+      "testCaseId": "TC-MP11-001",
       "scenarioId": "SC-001",
-      "title": "Verify retrieval of product details for a valid productId",
-      "testType": "Positive",
+      "title": "Retrieve product details returns 200 with valid product information",
+      "testType": "Validation",
       "priority": "High",
       "preconditions": [],
       "method": "GET",
@@ -25,46 +25,14 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        {
-          "check": "responseBody",
-          "field": "id",
-          "type": "integer"
-        },
-        {
-          "check": "responseBody",
-          "field": "image",
-          "type": "string"
-        },
-        {
-          "check": "responseBody",
-          "field": "name",
-          "type": "string"
-        },
-        {
-          "check": "responseBody",
-          "field": "description",
-          "type": "string"
-        },
-        {
-          "check": "responseBody",
-          "field": "price",
-          "type": "number"
-        },
-        {
-          "check": "responseBody",
-          "field": "categoryBadge",
-          "type": "string"
-        },
-        {
-          "check": "responseBody",
-          "field": "brandBadge",
-          "type": "string"
-        }
+        "response is JSON",
+        "response contains all required fields of ProductResponse schema"
       ],
       "contractChecks": [
-        "response schema validation against ProductResponse"
+        "response Content-Type is application/json",
+        "response status is 200"
       ],
-      "notes": "Uses productId=1 from example path parameter for deterministic test"
+      "notes": "This test verifies that the API returns product details successfully for an existing product"
     }
   ]
 }
