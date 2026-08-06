@@ -8,44 +8,44 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify pagination controls are displayed",
+      "title": "Verify pagination controls are displayed for multiple products",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the product display page.",
-        "Observe the pagination area."
+        "Navigate to the products page.",
+        "Observe the presence of pagination controls."
       ],
       "expectedResults": [
-        "Pagination controls are displayed when there are more products than fit on one page."
+        "Pagination controls are displayed on the page."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Verify clicking a page number updates the product grid",
+      "title": "Verify that clicking a page number updates the product grid",
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the product display page.",
-        "Click on a specific page number in the pagination controls."
+        "Navigate to the products page.",
+        "Click on a page number in the pagination controls."
       ],
       "expectedResults": [
-        "The product grid updates to show products for that selected page."
+        "The product grid updates to display products for the selected page."
       ]
     },
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-003",
-      "title": "Ensure current page number is highlighted",
-      "priority": "Medium",
+      "title": "Verify that current page number is highlighted after navigation",
+      "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the product display page.",
+        "Navigate to the products page.",
         "Click on a page number in the pagination controls.",
         "Observe the current page number."
       ],
       "expectedResults": [
-        "The current page number is visually highlighted after navigating."
+        "The selected page number is visually highlighted."
       ]
     }
   ]
