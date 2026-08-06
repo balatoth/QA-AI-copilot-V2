@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-6",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T19:43:15.293Z",
+  "generatedAt": "2026-08-06T20:15:25.540Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -10,7 +10,39 @@
     "confidence": "HIGH"
   },
   "warnings": [
-    "The story's scenarios describe UI behavior for pagination controls and navigation highlighting which cannot be validated via the API response. Pagination API only provides paginated product data but does not confirm UI elements or visual state."
+    "The test analysis states 'API applicable: false' and focuses on UI pagination behavior, but this endpoint is the closest relevant match for product pagination functionality."
   ],
-  "testCases": []
+  "testCases": [
+    {
+      "testCaseId": "TC_MP6_001",
+      "scenarioId": "SC-002",
+      "title": "Verify that requesting page 2 returns product data with current_page set to 2",
+      "testType": "Positive",
+      "priority": "High",
+      "preconditions": [],
+      "method": "GET",
+      "path": "/products",
+      "requestHeaders": {},
+      "queryParams": {
+        "page": 2
+      },
+      "requestBody": null,
+      "expectedStatus": 200,
+      "expectedResponseChecks": [
+        {
+          "check": "equals",
+          "field": "current_page",
+          "value": 2
+        },
+        {
+          "check": "isArray",
+          "field": "data"
+        }
+      ],
+      "contractChecks": [
+        "Response matches PaginatedProductResponse schema"
+      ],
+      "notes": "This test validates backend pagination by requesting page 2 and verifying the current_page in the response."
+    }
+  ]
 }
