@@ -1,0 +1,45 @@
+{
+  "storyKey": "MP-8",
+  "storyTitle": "Filtering by Category",
+  "application": "Practice Software Testing",
+  "functionalArea": "Filtering",
+  "businessGoal": "Enable users to filter items by category efficiently.",
+  "scenarios": [
+    {
+      "scenarioId": "SC-001",
+      "category": "Positive",
+      "goal": "User successfully filters items by selecting a specific category."
+    },
+    {
+      "scenarioId": "SC-002",
+      "category": "Negative",
+      "goal": "User attempts to filter items but selects an invalid category."
+    },
+    {
+      "scenarioId": "SC-003",
+      "category": "Validation",
+      "goal": "Check that the filtering results update correctly when a new category is selected."
+    }
+  ],
+  "outOfScope": [
+    "Filtering by multiple categories",
+    "Resetting filters after selection"
+  ],
+  "clarifications": [
+    "No specifications on default filter settings or behavior when no items match the selected category."
+  ],
+  "testApplicability": {
+    "manual": {
+      "applicable": true,
+      "reason": "The story involves user interactions with filter options, which require manual testing."
+    },
+    "api": {
+      "applicable": false,
+      "reason": "The story does not specify any backend API behavior related to filtering."
+    },
+    "ui": {
+      "applicable": true,
+      "reason": "The acceptance criteria will likely involve visible UI changes related to filtering items."
+    }
+  }
+}
