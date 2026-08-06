@@ -8,42 +8,41 @@
     {
       "testCaseId": "TC-001",
       "scenarioId": "SC-001",
-      "title": "Verify all product information is displayed on the product detail page",
+      "title": "Display of Product Information on Product Detail Page",
       "priority": "High",
       "preconditions": [],
       "steps": [
         "Navigate to the product detail page."
       ],
       "expectedResults": [
-        "All product information including image, name, description, price, category badge, and brand badge is displayed correctly."
+        "Product information (image, name, description, price, category badge, brand badge) is displayed correctly."
       ]
     },
     {
       "testCaseId": "TC-002",
       "scenarioId": "SC-002",
-      "title": "Verify related products section is displayed below main product information",
-      "priority": "Medium",
+      "title": "Display of Related Products Section",
+      "priority": "High",
       "preconditions": [],
       "steps": [
         "Navigate to the product detail page."
       ],
       "expectedResults": [
-        "The section with related products is displayed below the main product information."
+        "The related products section is displayed below the main product information."
       ]
     },
     {
       "testCaseId": "TC-003",
       "scenarioId": "SC-003",
-      "title": "Verify clickable related products navigate to respective detail pages",
-      "priority": "Medium",
-      "preconditions": [
-        "Related products are displayed on the product detail page."
-      ],
+      "title": "Navigation of Related Products",
+      "priority": "High",
+      "preconditions": [],
       "steps": [
-        "Click on each related product."
+        "Navigate to the product detail page.",
+        "Click on each related product in the related products section."
       ],
       "expectedResults": [
-        "Each click navigates to the respective related product detail page."
+        "Each related product navigates to its respective detail page."
       ]
     }
   ]
