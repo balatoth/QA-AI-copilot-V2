@@ -2,8 +2,8 @@
   "artifactType": "playwright",
   "storyKey": "MP-13",
   "reviewStatus": "PASS",
-  "qualityScore": 90,
-  "summary": "No repaired files were provided for review. No issues detected in the submitted artifacts.",
+  "qualityScore": 100,
+  "summary": "No repaired files were provided for review. No issues detected.",
   "scores": {
     "correctness": 10,
     "selectorQuality": 10,
