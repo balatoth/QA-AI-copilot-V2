@@ -1,0 +1,40 @@
+{
+  "storyKey": "MP-10",
+  "storyTitle": "Sorting",
+  "application": "Practice Software Testing",
+  "functionalArea": "Product Overview",
+  "businessGoal": "Enable users to sort products by various criteria.",
+  "scenarios": [
+    {
+      "scenarioId": "SC-001",
+      "category": "Positive",
+      "goal": "Verify that sorting dropdown is displayed on the product overview page."
+    },
+    {
+      "scenarioId": "SC-002",
+      "category": "Positive",
+      "goal": "Verify that the sort dropdown includes all specified options (Name A-Z, Name Z-A, Price High-Low, Price Low-High)."
+    },
+    {
+      "scenarioId": "SC-003",
+      "category": "Positive",
+      "goal": "Verify that selecting a sort option reloads the product grid with products sorted correctly."
+    }
+  ],
+  "outOfScope": [],
+  "clarifications": [],
+  "testApplicability": {
+    "manual": {
+      "applicable": true,
+      "reason": "The story describes UI elements and user interactions that can be tested manually."
+    },
+    "api": {
+      "applicable": false,
+      "reason": "There are no mentions of an API for sorting behavior in the given story."
+    },
+    "ui": {
+      "applicable": true,
+      "reason": "The acceptance criteria involve visible browser behaviors and dropdown interactions."
+    }
+  }
+}
