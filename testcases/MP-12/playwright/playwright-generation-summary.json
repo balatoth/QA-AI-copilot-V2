@@ -37,7 +37,7 @@
   "skippedTestCases": [
     {
       "testCaseId": "TC-002",
-      "reason": "Required evidence for available filters is missing."
+      "reason": "Missing verified evidence for filter, sorting options, and pagination controls."
     }
   ],
   "generatedFiles": [
@@ -52,7 +52,7 @@
     "status": "PASS",
     "passed": true,
     "qualityScore": 9,
-    "reason": "The Playwright test artifact is syntactically correct, uses proper async assertions with await, and verifies necessary page elements and page title to confirm correct navigation. The selectors use data-test attributes which are stable and recommended. The test title preserves the testCaseId. There are no compilation or Playwright API usage issues."
+    "reason": "The Playwright test compiles and uses Playwright APIs correctly. The test preserves the testCaseId in the test title and has appropriate await usage for assertions. Selectors use data-test attributes, which are generally stable. Assertions are sufficiently strong to verify navigation, page title, and visibility of important product elements. No hard-coded waits or placeholder URLs are present. A minor deduction is for selector specificity, since relying on product-1, product-2, product-3 without further validation of product names or counts may be brittle in larger contexts."
   },
   "sourceContext": {
     "manualTestCasesPath": null,
@@ -65,5 +65,5 @@
     "selectorCount": 33,
     "testIdCount": 83
   },
-  "createdAt": "2026-08-06T14:11:19.003Z"
+  "createdAt": "2026-08-06T14:38:01.134Z"
 }
