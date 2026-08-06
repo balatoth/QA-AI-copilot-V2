@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "0.1.0",
+  "artifactType": "PLAYWRIGHT_EXECUTION_ANALYSIS",
+  "storyKey": "MP-11",
+  "executionId": "MP-SPRINT-20260806142951",
+  "executionType": "PLAYWRIGHT",
+  "status": "FAILED",
+  "summary": "One test failed due to a missing visible element identified by the selector '[data-test=\"product-name\"]' on the product detail page.",
+  "rootCauseCategory": "SELECTOR_MISMATCH",
+  "rootCause": "The test failed because the locator '[data-test=\"product-name\"]' did not find any visible element within the timeout, indicating a possible mismatch between the selector used in the test and the actual application DOM.",
+  "failedTests": [
+    {
+      "testName": "TC-001: Verify all product information is displayed on the product detail page",
+      "status": "failed",
+      "errorMessage": "expect(locator('[data-test=\"product-name\"]')).toBeVisible() failed: element(s) not found within 5000ms timeout.",
+      "likelyCause": "Selector '[data-test=\"product-name\"]' does not match any visible element on the product detail page, possibly due to changes in the application UI or incorrect selector in the test.",
+      "recommendation": "Verify the correctness of the selector '[data-test=\"product-name\"]' against the current application UI. Update the selector if the application DOM has changed or fix the test if the selector is incorrect."
+    }
+  ],
+  "recommendations": [
+    "Review and validate the selector '[data-test=\"product-name\"]' in the test code against the current application DOM.",
+    "Check if the product detail page is loading correctly and the element is present and visible during test execution.",
+    "If the application UI has changed, update the test selectors accordingly.",
+    "Review the attached screenshot and trace files for additional context on the failure."
+  ],
+  "releaseImpact": "High - The failure indicates that critical product information is not detected on the product detail page, which may affect release quality if not resolved.",
+  "analyzedAt": "2026-08-06T14:41:38.303Z"
+}
