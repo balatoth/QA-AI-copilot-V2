@@ -1,46 +1,41 @@
 {
   "storyKey": "MP-12",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T14:11:04.114Z",
+  "generatedAt": "2026-08-06T14:37:39.290Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
     "path": "/products",
     "operationId": "getProducts",
-    "confidence": "LOW"
+    "confidence": "HIGH"
   },
-  "warnings": [
-    "The story's API applicability is false; explicit UI behaviors such as page title update and filter availability cannot be validated via this API.",
-    "The endpoint does not explicitly validate the story scenarios, so generated tests are limited to basic retrieval."
-  ],
+  "warnings": [],
   "testCases": [
     {
-      "testCaseId": "TC_MP-12_01",
+      "testCaseId": "TC-MP12-001",
       "scenarioId": "SC-001",
-      "title": "Verify retrieval of products filtered by a specific category",
+      "title": "Validate product retrieval filtered by category with sorting by name ascending",
       "testType": "Positive",
-      "priority": "Medium",
+      "priority": "High",
       "preconditions": [],
       "method": "GET",
       "path": "/products",
       "requestHeaders": {},
       "queryParams": {
-        "by_category": 1
+        "by_category": 1,
+        "sort": "name,asc"
       },
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "Response must contain current_page as integer",
-        "Response must contain data as array",
-        "Each item in data must match ProductResponse schema",
-        "Response must contain total as integer"
+        "response body contains 'data' array with products belonging to category 1",
+        "response body contains 'current_page', 'from', 'last_page', 'per_page', 'to', 'total' as integers"
       ],
       "contractChecks": [
-        "Response content type is application/json",
-        "Response status is 200",
-        "Query parameter 'by_category' is integer"
+        "response content-type is application/json",
+        "response matches PaginatedProductResponse schema"
       ],
-      "notes": "Filtered retrieval by category ID; actual UI behaviors are out of scope for API testing."
+      "notes": "This test verifies category filtering and sorting as per story scenario SC-001 and SC-002, using a valid category id and sorting by name ascending."
     }
   ]
 }
