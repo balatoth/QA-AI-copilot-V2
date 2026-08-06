@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-8",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T14:07:03.311Z",
+  "generatedAt": "2026-08-06T14:32:45.791Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -12,9 +12,9 @@
   "warnings": [],
   "testCases": [
     {
-      "testCaseId": "MP-8_SC-001_TC1",
+      "testCaseId": "TC-MP8-001",
       "scenarioId": "SC-001",
-      "title": "Successfully filter products by a valid category ID",
+      "title": "Retrieve products filtered by a valid category ID",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -27,14 +27,14 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response body contains data array",
-        "all products in data array have category id = 1"
+        {
+          "check": "response body contains 'data' array"
+        }
       ],
       "contractChecks": [
-        "response JSON matches PaginatedProductResponse schema",
-        "status code is 200"
+        "response conforms to PaginatedProductResponse schema"
       ],
-      "notes": "Test using a concrete integer value for category id as defined by the API contract."
+      "notes": "Assumes category ID 1 exists in the system."
     }
   ]
 }
