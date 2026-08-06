@@ -1,27 +1,20 @@
 {
   "storyKey": "MP-7",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T18:27:39.335Z",
+  "generatedAt": "2026-08-06T19:43:53.961Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
     "path": "/products/search",
     "operationId": "searchProduct",
-    "confidence": "LOW"
+    "confidence": "HIGH"
   },
-  "warnings": [
-    "The story does not specify the scope of search (brand, category, product), so product search is chosen as best fit.",
-    "API search behavior for invalid keywords is not specified in the story; the endpoint supports search but error handling details are unknown.",
-    "API testing applicability is marked false, so actual backend search endpoint use is uncertain.",
-    "API testing applicability is marked false in the story, reducing confidence in relevance.",
-    "No details on error responses for invalid keywords; negative scenario testing not possible.",
-    "Search domain not explicitly defined; product search is best match but may not cover full story scope."
-  ],
+  "warnings": [],
   "testCases": [
     {
-      "testCaseId": "MP7-SC001-TC01",
+      "testCaseId": "TC_MP7_SC001_001",
       "scenarioId": "SC-001",
-      "title": "Search products with a valid keyword",
+      "title": "Positive test: User can successfully perform a search with valid input",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -29,19 +22,42 @@
       "path": "/products/search",
       "requestHeaders": {},
       "queryParams": {
-        "q": "book"
+        "q": "validsearchterm"
       },
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response body contains 'current_page' as integer",
-        "response body contains 'data' as array",
-        "response body contains 'total' as integer"
+        {
+          "check": "response body contains current_page as integer"
+        },
+        {
+          "check": "response body contains data array"
+        },
+        {
+          "check": "response body contains from as integer"
+        },
+        {
+          "check": "response body contains last_page as integer"
+        },
+        {
+          "check": "response body contains per_page as integer"
+        },
+        {
+          "check": "response body contains to as integer"
+        },
+        {
+          "check": "response body contains total as integer"
+        }
       ],
       "contractChecks": [
-        "Validate response schema as PaginatedProductResponse"
+        {
+          "check": "200 response returned"
+        },
+        {
+          "check": "response body matches PaginatedProductResponse schema"
+        }
       ],
-      "notes": "Basic positive test searching products by keyword 'book'. Page parameter omitted as optional."
+      "notes": "Valid search string used, expecting a successful product search result with pagination details."
     }
   ]
 }
