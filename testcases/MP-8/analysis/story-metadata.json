@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "artifactType": "STORY_METADATA",
+  "storyKey": "MP-8",
+  "storyTitle": "Filtering by Category",
+  "source": "JIRA",
+  "storyHash": "58ffacc0a4cc6c633e5c1b25996b1f8881f0093b787550c372647e0cd71069a7",
+  "priority": "MEDIUM",
+  "status": "TO_DO",
+  "applicationId": "practice-software-testing",
+  "environmentId": "hosted-sprint-2",
+  "generatedByExecutionId": "MP-SPRINT-20260806140331",
+  "lastGeneratedAt": "2026-08-06T14:06:39.004Z"
+}
