@@ -12,12 +12,10 @@
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the product overview page."
+        "Navigate to the home page."
       ],
       "expectedResults": [
-        "The product grid is displayed correctly with product images.",
-        "Each product has an associated name displayed.",
-        "Each product has a price displayed."
+        "The product grid is displayed with product images, names, and prices."
       ]
     },
     {
@@ -27,11 +25,10 @@
       "priority": "High",
       "preconditions": [],
       "steps": [
-        "Navigate to the product overview page.",
         "Click on a product card."
       ],
       "expectedResults": [
-        "The product detail page is displayed for the selected product."
+        "The product detail page is displayed."
       ]
     }
   ]
