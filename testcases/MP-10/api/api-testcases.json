@@ -1,7 +1,7 @@
 {
   "storyKey": "MP-10",
   "artifactType": "api-testcases",
-  "generatedAt": "2026-08-06T18:30:05.675Z",
+  "generatedAt": "2026-08-06T19:45:40.571Z",
   "testLevel": "SIT_API",
   "sourceEndpoint": {
     "method": "GET",
@@ -9,12 +9,14 @@
     "operationId": "getProducts",
     "confidence": "HIGH"
   },
-  "warnings": [],
+  "warnings": [
+    "The story describes UI dropdown and user interaction scenarios which are not directly verifiable via this API endpoint."
+  ],
   "testCases": [
     {
-      "testCaseId": "MP-10-TC-001",
+      "testCaseId": "TC-MP-10-001",
       "scenarioId": "SC-003",
-      "title": "Verify product list is returned sorted by name ascending",
+      "title": "Verify loading products sorted by name in ascending order",
       "testType": "Positive",
       "priority": "High",
       "preconditions": [],
@@ -27,15 +29,13 @@
       "requestBody": null,
       "expectedStatus": 200,
       "expectedResponseChecks": [
-        "response body contains 'data' array",
-        "products in 'data' array are sorted in ascending order by 'name' property"
+        "Response JSON must include 'data' array",
+        "The 'data' array should be sorted by product name ascending"
       ],
       "contractChecks": [
-        "Status code is 200",
-        "Content-Type is application/json",
-        "Response contains fields: current_page, data, from, last_page, per_page, to, total"
+        "Response must conform to PaginatedProductResponse schema"
       ],
-      "notes": "This test validates the sorting functionality via the API using a supported 'sort' query parameter value."
+      "notes": "This validates that the API supports sorting by name ascending as described by the story's sorting feature."
     }
   ]
 }
