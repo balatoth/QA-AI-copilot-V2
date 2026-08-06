@@ -3,17 +3,17 @@
   "storyTitle": "Product Detail",
   "application": "Practice Software Testing",
   "functionalArea": "Product Information",
-  "businessGoal": "Allow visitors to view detailed information about a product",
+  "businessGoal": "To allow visitors to view detailed information about a product.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
-      "category": "Positive",
-      "goal": "Verify that the product information is displayed correctly, including image, name, description, price, category badge, and brand badge."
+      "category": "Validation",
+      "goal": "Verify that the product information (image, name, description, price, category badge, brand badge) is displayed on the product detail page."
     },
     {
       "scenarioId": "SC-002",
-      "category": "Positive",
-      "goal": "Verify that the related products section is displayed below the main product information."
+      "category": "Validation",
+      "goal": "Verify that a section with related products is displayed below the main product information on the product detail page."
     },
     {
       "scenarioId": "SC-003",
@@ -26,15 +26,15 @@
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story and acceptance criteria outline visible browser behavior."
+      "reason": "The acceptance criteria detail user interactions and visible information on the product detail page."
     },
     "api": {
       "applicable": false,
-      "reason": "The story does not indicate data retrieval or validation through an API."
+      "reason": "There is no mention of APIs or backend validation in the acceptance criteria."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria describe visible content and user interactions on the product detail page."
+      "reason": "The acceptance criteria describe specific visual elements and user interactions on the UI."
     }
   }
 }
