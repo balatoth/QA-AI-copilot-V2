@@ -3,12 +3,12 @@
   "storyTitle": "Filtering by Brand",
   "application": "Practice Software Testing",
   "functionalArea": "Product Filtering",
-  "businessGoal": "Allow users to filter products by brand for improved navigation",
+  "businessGoal": "Allow users to filter products by brand to improve product discoverability.",
   "scenarios": [
     {
       "scenarioId": "SC-001",
       "category": "Positive",
-      "goal": "Verify that the brand filter is displayed on the product overview page."
+      "goal": "Verify that brand checkboxes are displayed correctly in the sidebar."
     },
     {
       "scenarioId": "SC-002",
@@ -18,7 +18,7 @@
     {
       "scenarioId": "SC-003",
       "category": "Positive",
-      "goal": "Verify that when one or more categories are selected along with one or more brands, the product grid shows only products matching both filters."
+      "goal": "Verify that selecting both categories and brand checkboxes updates the product grid to show only products matching both filters."
     }
   ],
   "outOfScope": [],
@@ -26,15 +26,15 @@
   "testApplicability": {
     "manual": {
       "applicable": true,
-      "reason": "The story involves user interactions and UI behavior which require manual testing."
+      "reason": "The story involves user interactions with checkboxes and visible updates in the product grid."
     },
     "api": {
       "applicable": true,
-      "reason": "The filtering behavior can be validated through the application's API capabilities."
+      "reason": "The behavior of product filtering can likely be validated through API calls behind the filtering functionality."
     },
     "ui": {
       "applicable": true,
-      "reason": "The acceptance criteria describe visible UI behavior related to the brand filter."
+      "reason": "The acceptance criteria describe browser behavior, visible elements, and user interactions."
     }
   }
 }
