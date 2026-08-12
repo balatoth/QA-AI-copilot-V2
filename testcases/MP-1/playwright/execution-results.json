@@ -2,7 +2,7 @@
   "schemaVersion": "0.2.0",
   "artifactType": "PLAYWRIGHT_EXECUTION_RESULTS",
   "storyKey": "MP-1",
-  "executionId": "MP-SPRINT-20260811110643",
+  "executionId": "MP-SPRINT-20260812054616",
   "executionType": "PLAYWRIGHT",
   "status": "COMPLETED",
   "repository": {
@@ -16,9 +16,9 @@
     "metadataPath": "playwright-execution/execution-metadata.json"
   },
   "githubActions": {
-    "workflowRunId": "31485192042",
+    "workflowRunId": "31567662471",
     "workflowRunAttempt": "1",
-    "commitSha": "d21d4282479506b4204ebb4f3700f270f18cd695",
+    "commitSha": "880e8eb75009cb1c845ef4befbffc5f4abff090a",
     "playwrightExitCode": 0
   },
   "technicalFailure": null,
@@ -28,7 +28,7 @@
     "failed": 0,
     "skipped": 0,
     "flaky": 0,
-    "durationMs": 3678.831
+    "durationMs": 4520.786
   },
   "errors": [],
   "rawResults": {
@@ -52,24 +52,24 @@
       "maxFailures": 0,
       "metadata": {
         "ci": {
-          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/d21d4282479506b4204ebb4f3700f270f18cd695",
-          "commitHash": "d21d4282479506b4204ebb4f3700f270f18cd695",
-          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/31485192042"
+          "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/880e8eb75009cb1c845ef4befbffc5f4abff090a",
+          "commitHash": "880e8eb75009cb1c845ef4befbffc5f4abff090a",
+          "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/31567662471"
         },
         "gitCommit": {
-          "shortHash": "d21d428",
-          "hash": "d21d4282479506b4204ebb4f3700f270f18cd695",
+          "shortHash": "880e8eb",
+          "hash": "880e8eb75009cb1c845ef4befbffc5f4abff090a",
           "subject": "Update execution-results.json for MP-3",
           "body": "Update execution-results.json for MP-3",
           "author": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1786446418000
+            "time": 1786513591000
           },
           "committer": {
             "name": "balatoth",
             "email": "balazs.toth@yahoo.com",
-            "time": 1786446418000
+            "time": 1786513591000
           },
           "branch": "main"
         },
@@ -83,24 +83,24 @@
           "retries": 0,
           "metadata": {
             "ci": {
-              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/d21d4282479506b4204ebb4f3700f270f18cd695",
-              "commitHash": "d21d4282479506b4204ebb4f3700f270f18cd695",
-              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/31485192042"
+              "commitHref": "https://github.com/balatoth/QA-AI-copilot-V2/commit/880e8eb75009cb1c845ef4befbffc5f4abff090a",
+              "commitHash": "880e8eb75009cb1c845ef4befbffc5f4abff090a",
+              "buildHref": "https://github.com/balatoth/QA-AI-copilot-V2/actions/runs/31567662471"
             },
             "gitCommit": {
-              "shortHash": "d21d428",
-              "hash": "d21d4282479506b4204ebb4f3700f270f18cd695",
+              "shortHash": "880e8eb",
+              "hash": "880e8eb75009cb1c845ef4befbffc5f4abff090a",
               "subject": "Update execution-results.json for MP-3",
               "body": "Update execution-results.json for MP-3",
               "author": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1786446418000
+                "time": 1786513591000
               },
               "committer": {
                 "name": "balatoth",
                 "email": "balazs.toth@yahoo.com",
-                "time": 1786446418000
+                "time": 1786513591000
               },
               "branch": "main"
             },
@@ -164,12 +164,12 @@
                     "workerIndex": 0,
                     "parallelIndex": 0,
                     "status": "passed",
-                    "duration": 2835,
+                    "duration": 2763,
                     "errors": [],
                     "stdout": [],
                     "stderr": [],
                     "retry": 0,
-                    "startTime": "2026-08-11T11:08:29.348Z",
+                    "startTime": "2026-08-12T05:48:04.644Z",
                     "annotations": [],
                     "attachments": []
                   }
@@ -187,13 +187,13 @@
     ],
     "errors": [],
     "stats": {
-      "startTime": "2026-08-11T11:08:28.800Z",
-      "duration": 3678.831,
+      "startTime": "2026-08-12T05:48:04.125Z",
+      "duration": 4520.786,
       "expected": 1,
       "skipped": 0,
       "unexpected": 0,
       "flaky": 0
     }
   },
-  "completedAt": "2026-08-11T11:08:32.606Z"
+  "completedAt": "2026-08-12T05:48:08.777Z"
 }
