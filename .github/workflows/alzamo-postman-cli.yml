@@ -7,6 +7,7 @@ on:
     paths:
       - .github/workflows/alzamo-postman-cli.yml
       - alzamo-sit-runner/ALZAMO_PST_v5_Cart_SIT_008.postman_collection.json
+      - alzamo-sit-runner/alzamo_postman_evidence_adapter.py
   workflow_dispatch:
 
 permissions:
@@ -43,11 +44,35 @@ jobs:
         with:
           command: 'collection run alzamo-sit-runner/ALZAMO_PST_v5_Cart_SIT_008.postman_collection.json --reporters cli,json --reporter-json-export sit-008-results.json --reporter-json-omitHeaders --no-report-events'
 
-      - name: Upload machine-readable evidence
+      - name: Normalize ALZAMO SIT evidence
+        if: ${{ always() && hashFiles('sit-008-results.json') != '' }}
+        shell: bash
+        run: |
+          python3 alzamo-sit-runner/alzamo_postman_evidence_adapter.py \
+            sit-008-results.json -o alzamo-sit-008-evidence.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          evidence = json.loads(Path('alzamo-sit-008-evidence.json').read_text(encoding='utf-8'))
+          run = evidence['run']
+          assessment = evidence['assessment']
+          print('ALZAMO runner assertions:', run['assertionsPassed'], '/', run['assertionCount'])
+          print('Runtime business checks:', assessment['runtimeBusinessChecks'])
+          print('Design link verified:', assessment['alzamoDesignLinkVerified'])
+          print('Documentation gap assessed:', assessment['documentationGapAssessment'])
+          # Green workflow requires verified execution evidence for the POC.
+          # Do not mislabel the unresolved AC-05/design-link checks as SIT VERIFIED.
+          if run['executionOutcome'] != 'PASS':
+              raise SystemExit('ALZAMO evidence needs review; inspect uploaded artifact.')
+          PY
+
+      - name: Upload raw and normalized evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: alzamo-pst-v5-sit-008-evidence
-          path: sit-008-results.json
-          if-no-files-found: warn
+          path: |
+            sit-008-results.json
+            alzamo-sit-008-evidence.json
+          if-no-files-found: error
           retention-days: 7
