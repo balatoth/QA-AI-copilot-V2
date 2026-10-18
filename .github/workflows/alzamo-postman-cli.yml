@@ -1,0 +1,53 @@
+name: ALZAMO PST v5 - Postman CLI POC
+
+on:
+  push:
+    branches:
+      - poc/alzamo-postman-cli
+    paths:
+      - .github/workflows/alzamo-postman-cli.yml
+      - alzamo-sit-runner/ALZAMO_PST_v5_Cart_SIT_008.postman_collection.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pst-cart-sit:
+    name: Run PST v5 cart flow
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out POC branch
+        uses: actions/checkout@v4
+
+      - name: Check collection and approved training target
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path('alzamo-sit-runner/ALZAMO_PST_v5_Cart_SIT_008.postman_collection.json')
+          collection = json.loads(path.read_text(encoding='utf-8'))
+          variables = {v.get('key'): v.get('value') for v in collection.get('variable', [])}
+          assert variables.get('baseUrl') == 'https://api.practicesoftwaretesting.com', 'Unexpected API target'
+          requests = collection.get('item', [])
+          assert len(requests) == 4, 'Expected four cart-flow requests'
+          actual = [x.get('request', {}).get('method') for x in requests]
+          assert actual == ['GET', 'POST', 'POST', 'GET'], 'Unexpected request sequence'
+          print('Approved PST v5 sandbox collection: four documented requests.')
+          PY
+
+      - name: Execute collection with Postman CLI
+        uses: postmanlabs/postman-cli-action@v1
+        with:
+          command: 'collection run alzamo-sit-runner/ALZAMO_PST_v5_Cart_SIT_008.postman_collection.json --reporters cli,json --reporter-json-export sit-008-results.json --reporter-json-omitHeaders --no-report-events'
+
+      - name: Upload machine-readable evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: alzamo-pst-v5-sit-008-evidence
+          path: sit-008-results.json
+          if-no-files-found: warn
+          retention-days: 7
