@@ -1,0 +1,315 @@
+{
+  "info": {
+    "name": "ALZAMO PST v5 - REQ-CART-001 - Multi-step SIT reference",
+    "description": "External execution proof of concept for ALZAMO SIT-008. Execute collection IN ORDER using Postman Collection Runner. Source: https://api.practicesoftwaretesting.com/docs?api-docs.json . This collection sends POST requests to the publicly hosted PST v5 demo, creating a cart and adding a product. Use only this training environment. There is deliberately no DELETE/cleanup call. The published CartResponse documents only id, so AC-04 must remain INCONCLUSIVE unless product and quantity are independently observable at runtime. The selected product comes from GET /products data[] (if available) and the cart ID from POST /carts id. This demonstrates a multi-operation API workflow, not proven integration of independently deployed systems. No ALZAMO webhooks or AI requests are sent.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01 - GET products: select existing product",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/products",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "products"
+          ]
+        },
+        "description": "REQ-CART-001 AC-01. Reads a current productId from response.data[]. No fixed product identifiers; if none is observed, stop without mutations."
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// Reset any evidence from prior runs so stale IDs cannot create a false pass.",
+              "for (const key of ['productId','cartId','productSelectionEvidence','addItemAccepted','sitEvidenceStatus','sitEvidenceGap','cartObservedItems','runStartedAt']) {",
+              "  pm.collectionVariables.unset(key);",
+              "}",
+              "pm.collectionVariables.set('runStartedAt',new Date().toISOString());",
+              "pm.collectionVariables.set('sitEvidenceStatus','PENDING');"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// FRS AC-01. OpenAPI: GET /products -> 200 PaginatedProductResponse.data[] -> ProductResponse.id.",
+              "const statusOk = pm.response.code === 200;",
+              "let body = null;",
+              "try { body = pm.response.json(); } catch (e) { /* reported by tests */ }",
+              "const products = body && Array.isArray(body.data) ? body.data : null;",
+              "const chosen = products && products.find(p => p && typeof p.id === 'string' && p.id.trim().length > 0 && p.in_stock !== false);",
+              "pm.test('GET /products: documented HTTP 200',function(){pm.expect(pm.response.code).to.eql(200);});",
+              "pm.test('AC-01: a selectable product ID is observed in response.data[]',function(){",
+              "  pm.expect(products,'The documented pagination data array must be observable at runtime').to.be.an('array');",
+              "  pm.expect(chosen,'Select an existing product; do not assume a fixed ID or fixture').to.be.an('object');",
+              "});",
+              "if (statusOk && chosen) {",
+              "  pm.collectionVariables.set('productId',chosen.id);",
+              "  pm.collectionVariables.set('productSelectionEvidence',JSON.stringify({operation:'GET /products',jsonPointer:'/data',productId:chosen.id,inStock:chosen.in_stock??null}));",
+              "  console.log('AC-01 product selected from observed API response:',chosen.id);",
+              "} else {",
+              "  pm.collectionVariables.set('sitEvidenceStatus','BLOCKED');",
+              "  pm.collectionVariables.set('sitEvidenceGap','No suitable existing product ID was observed from GET /products.');",
+              "  pm.execution.setNextRequest(null); // Stops an ordered Collection Runner run.",
+              "}"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "02 - POST carts: create and capture cartId",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/carts",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "carts"
+          ]
+        },
+        "description": "REQ-CART-001 AC-02. Only run after 01. Creates one demo cart; extracts /id from documented HTTP 201 JSON response."
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// Never create a cart when product selection failed, even if this request is sent alone.",
+              "if (!pm.collectionVariables.get('productId')) {",
+              "  pm.collectionVariables.set('sitEvidenceStatus','BLOCKED');",
+              "  pm.collectionVariables.set('sitEvidenceGap','Select a product through request 01 before creating a cart.');",
+              "  pm.execution.skipRequest();",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// FRS AC-02. OpenAPI: POST /carts -> HTTP 201 JSON {id:string}.",
+              "const statusOk = pm.response.code === 201;",
+              "let body=null;",
+              "try { body=pm.response.json(); } catch(e) {}",
+              "const id=body && typeof body.id==='string' && body.id.trim() ? body.id : null;",
+              "pm.test('POST /carts: documented HTTP 201',function(){pm.expect(pm.response.code).to.eql(201);});",
+              "pm.test('AC-02: newly created cart ID is an observed nonempty string',function(){pm.expect(id).to.be.a('string').and.not.empty;});",
+              "if(statusOk && id){",
+              "  pm.collectionVariables.set('cartId',id);",
+              "  console.log('AC-02 cart ID created and captured:',id);",
+              "}else{",
+              "  pm.collectionVariables.set('sitEvidenceStatus','BLOCKED');",
+              "  pm.collectionVariables.set('sitEvidenceGap','Cart creation or documented /id extraction failed.');",
+              "  pm.execution.setNextRequest(null);",
+              "}"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "03 - POST carts/{id}: add quantity 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/carts/{{cartId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "carts",
+            "{{cartId}}"
+          ]
+        },
+        "description": "REQ-CART-001 AC-03. Dynamic path cartId; JSON product_id from 01 and quantity 2. HTTP 200 confirms API acceptance only, not persisted cart contents.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"product_id\": \"{{productId}}\",\n  \"quantity\": 2\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (!pm.collectionVariables.get('productId') || !pm.collectionVariables.get('cartId')) {",
+              "  pm.collectionVariables.set('sitEvidenceStatus','BLOCKED');",
+              "  pm.collectionVariables.set('sitEvidenceGap','Both a productId and a cartId from previous responses are required.');",
+              "  pm.execution.skipRequest();",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// FRS AC-03. OpenAPI: POST /carts/{id}, required product_id:string and quantity:integer, response 200.",
+              "const statusOk=pm.response.code===200;",
+              "let body=null;",
+              "try{body=pm.response.json();}catch(e){}",
+              "pm.test('POST /carts/{id}: documented HTTP 200',function(){pm.expect(pm.response.code).to.eql(200);});",
+              "pm.test('AC-03: request uses the captured cart and product IDs with quantity 2',function(){",
+              "  pm.expect(pm.collectionVariables.get('cartId')).to.be.a('string').and.not.empty;",
+              "  pm.expect(pm.collectionVariables.get('productId')).to.be.a('string').and.not.empty;",
+              "  const payload=JSON.parse(pm.variables.replaceIn(pm.request.body.raw));",
+              "  pm.expect(payload.product_id).to.eql(pm.collectionVariables.get('productId'));",
+              "  pm.expect(payload.quantity).to.eql(2);",
+              "});",
+              "if(statusOk){",
+              "  pm.collectionVariables.set('addItemAccepted','true');",
+              "  console.log('AC-03 request accepted (HTTP 200); persistence NOT YET proven.',body);",
+              "}else{",
+              "  pm.collectionVariables.set('sitEvidenceStatus','FAILED');",
+              "  pm.collectionVariables.set('sitEvidenceGap','Add item request did not receive documented HTTP 200.');",
+              "  pm.execution.setNextRequest(null);",
+              "}"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "04 - GET carts/{cartId}: verify or report gap",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/carts/{{cartId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "carts",
+            "{{cartId}}"
+          ]
+        },
+        "description": "REQ-CART-001 AC-04/05. Checks documented HTTP 200 and cart ID. Only when the actual response exposes cart_items with product_id and quantity can AC-04 be verified; otherwise explicit INCONCLUSIVE. Never claim SIT PASS from a 200 alone."
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (!pm.collectionVariables.get('productId') || !pm.collectionVariables.get('cartId') || pm.collectionVariables.get('addItemAccepted')!=='true') {",
+              "  pm.collectionVariables.set('sitEvidenceStatus','BLOCKED');",
+              "  pm.collectionVariables.set('sitEvidenceGap','Run the first three requests successfully before the final cart read.');",
+              "  pm.execution.skipRequest();",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// OpenAPI CartResponse currently documents only {id:string}. AC-04 cannot be assumed from this schema.",
+              "const statusOk=pm.response.code===200;",
+              "let body=null;",
+              "try{body=pm.response.json();}catch(e){}",
+              "const cartId=pm.collectionVariables.get('cartId');",
+              "const productId=pm.collectionVariables.get('productId');",
+              "const idOk=Boolean(body && typeof body.id==='string' && body.id===cartId);",
+              "pm.test('GET /carts/{cartId}: documented HTTP 200',function(){pm.expect(pm.response.code).to.eql(200);});",
+              "pm.test('Cart response ID matches the dynamically created cart',function(){pm.expect(body && body.id).to.eql(cartId);});",
+              "if(!statusOk||!idOk){",
+              "  pm.collectionVariables.set('sitEvidenceStatus','FAILED');",
+              "  pm.collectionVariables.set('sitEvidenceGap','GET cart HTTP status or returned cart ID disagrees with documented expected result.');",
+              "}else if(Array.isArray(body.cart_items)) {",
+              "  // OPTIONAL RUNTIME OBSERVATION. cart_items/product_id/quantity are NOT guaranteed by the published CartResponse schema.",
+              "  const found=body.cart_items.find(x=>x && x.product_id===productId);",
+              "  const qtyOk=Boolean(found && found.quantity===2);",
+              "  pm.test('AC-04 runtime observation: selected product exists in cart with quantity 2',function(){",
+              "    pm.expect(found,'Product not found in actually observed cart_items array').to.be.an('object');",
+              "    pm.expect(found && found.quantity).to.eql(2);",
+              "  });",
+              "  pm.collectionVariables.set('cartObservedItems',JSON.stringify(body.cart_items));",
+              "  if(qtyOk){",
+              "    pm.collectionVariables.set('sitEvidenceStatus','SIT_VERIFIED');",
+              "    pm.collectionVariables.set('sitEvidenceGap','AC-04 observed at runtime via undocumented cart_items field; OpenAPI contract remains incomplete.');",
+              "  }else{",
+              "    pm.collectionVariables.set('sitEvidenceStatus','FAILED');",
+              "    pm.collectionVariables.set('sitEvidenceGap','Observed cart_items did not contain the selected product with quantity 2.');",
+              "  }",
+              "} else {",
+              "  // Honest INCONCLUSIVE instead of a false PASS or FAIL for a missing verification surface.",
+              "  pm.collectionVariables.set('sitEvidenceStatus','INCONCLUSIVE');",
+              "  pm.collectionVariables.set('sitEvidenceGap','AC-04: CartResponse OpenAPI documents only id; no cart_items with product_id/quantity observable in this response.');",
+              "  console.warn('AC-04 INCONCLUSIVE — response is insufficient to verify persisted product and quantity.');",
+              "}",
+              "console.log('ALZAMO-PSTv5-SIT-008',JSON.stringify({",
+              "  requirement:'REQ-CART-001',",
+              "  selectedProductId:productId,",
+              "  createdCartId:cartId,",
+              "  addItem200:pm.collectionVariables.get('addItemAccepted')==='true',",
+              "  businessResult:pm.collectionVariables.get('sitEvidenceStatus'),",
+              "  evidenceGap:pm.collectionVariables.get('sitEvidenceGap'),",
+              "  requestStartedAt:pm.collectionVariables.get('runStartedAt'),",
+              "}));"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.practicesoftwaretesting.com",
+      "type": "string"
+    }
+  ]
+}
